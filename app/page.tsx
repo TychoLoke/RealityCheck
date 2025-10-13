@@ -136,7 +136,7 @@ export default function HomePage() {
 
       <section>
         <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-white px-8 py-12 text-center shadow-card">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Secondary CTA band</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Channel OS journey</p>
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-semibold uppercase tracking-[0.3em] text-midnight">
             {journeyBand.map((step, index) => (
               <div key={step} className="flex items-center gap-3">
