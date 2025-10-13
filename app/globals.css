@@ -19,14 +19,14 @@ html {
 }
 
 body {
-  background: radial-gradient(circle at top, rgba(138, 147, 166, 0.08), transparent 55%),
-    linear-gradient(180deg, rgba(11, 14, 26, 0.92), rgba(11, 14, 26, 1));
-  color: var(--color-graphite);
+  background: radial-gradient(circle at top, rgba(11, 14, 26, 0.05), transparent 55%),
+    linear-gradient(180deg, rgba(241, 243, 248, 0.95), rgba(255, 255, 255, 1));
+  color: var(--color-midnight);
   min-height: 100vh;
 }
 
 a {
-  color: var(--color-graphite);
+  color: var(--color-midnight);
 }
 
 a:hover {
@@ -34,7 +34,7 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-graphite);
+  outline: 3px solid var(--color-midnight);
   outline-offset: 3px;
 }
 

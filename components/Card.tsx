@@ -14,8 +14,8 @@ interface CardProps {
 const variantStyles: Record<CardVariant, { container: string; title: string; body: string }> = {
   default: {
     container:
-      "border-graphite/10 bg-midnight/80 text-graphite shadow-[0_24px_64px_-48px_rgba(8,11,24,0.8)] backdrop-blur hover:border-graphite/20 hover:shadow-[0_28px_72px_-48px_rgba(8,11,24,0.9)] focus-within:border-graphite/20 focus-within:shadow-[0_28px_72px_-48px_rgba(8,11,24,0.9)]",
-    title: "text-graphite",
+      "border-midnight/10 bg-cloud text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)] hover:border-midnight/20 hover:shadow-[0_28px_72px_-48px_rgba(12,15,27,0.25)] focus-within:border-midnight/20 focus-within:shadow-[0_28px_72px_-48px_rgba(12,15,27,0.25)]",
+    title: "text-midnight",
     body: "text-neutral",
   },
   inverted: {
@@ -26,8 +26,8 @@ const variantStyles: Record<CardVariant, { container: string; title: string; bod
   },
   translucent: {
     container:
-      "border-graphite/10 bg-midnight/60 text-graphite shadow-[0_24px_64px_-48px_rgba(8,11,24,0.75)] backdrop-blur hover:border-graphite/20 hover:shadow-[0_28px_72px_-48px_rgba(8,11,24,0.85)] focus-within:border-graphite/20 focus-within:shadow-[0_28px_72px_-48px_rgba(8,11,24,0.85)]",
-    title: "text-graphite",
+      "border-midnight/10 bg-graphite/80 text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.15)] backdrop-blur hover:border-midnight/20 hover:shadow-[0_28px_72px_-48px_rgba(12,15,27,0.2)] focus-within:border-midnight/20 focus-within:shadow-[0_28px_72px_-48px_rgba(12,15,27,0.2)]",
+    title: "text-midnight",
     body: "text-neutral",
   },
 };

@@ -26,17 +26,17 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-graphite/15 bg-midnight/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-midnight/10 bg-cloud/90 backdrop-blur-xl">
       <Container className="flex items-center justify-between py-4">
         <Link
           href="/"
-          className="flex items-center gap-3 text-lg font-semibold text-graphite"
+          className="flex items-center gap-3 text-lg font-semibold text-midnight"
           aria-label="Channel OS home"
         >
           <span className="sr-only">Channel OS logo — Where the Channel Learns, Works, and Wins.</span>
           <span
             aria-hidden="true"
-            className="inline-flex h-3.5 w-3.5 rotate-45 items-center justify-center rounded-sm bg-graphite"
+            className="inline-flex h-3.5 w-3.5 rotate-45 items-center justify-center rounded-sm bg-midnight"
           />
           <span>
             Channel <span className="text-neutral">OS</span>
@@ -47,8 +47,8 @@ export function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`transition hover:text-graphite ${
-                pathname === item.href ? "text-graphite" : ""
+              className={`transition hover:text-midnight ${
+                pathname === item.href ? "text-midnight" : ""
               }`}
             >
               {item.label}
@@ -65,7 +65,7 @@ export function Header() {
           <button
             type="button"
             onClick={() => setIsOpen((prev) => !prev)}
-            className="inline-flex items-center rounded-full border border-neutral/50 p-2 text-graphite focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-graphite"
+            className="inline-flex items-center rounded-full border border-neutral/40 p-2 text-midnight focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-midnight"
             aria-controls="mobile-nav"
             aria-expanded={isOpen}
           >
@@ -90,16 +90,16 @@ export function Header() {
       <div
         id="mobile-nav"
         className={`${
-          isOpen ? "max-h-screen border-b border-graphite/15" : "max-h-0"
-        } overflow-hidden bg-midnight/95 transition-[max-height] duration-300 ease-out lg:hidden`}
+          isOpen ? "max-h-screen border-b border-midnight/10" : "max-h-0"
+        } overflow-hidden bg-cloud transition-[max-height] duration-300 ease-out lg:hidden`}
       >
         <Container className="flex flex-col gap-4 py-4 text-sm font-medium text-neutral">
           {navItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className={`rounded-xl px-3 py-2 transition hover:bg-midnight/60 hover:text-graphite ${
-                pathname === item.href ? "bg-midnight/60 text-graphite" : ""
+              className={`rounded-xl px-3 py-2 transition hover:bg-graphite hover:text-midnight ${
+                pathname === item.href ? "bg-graphite text-midnight" : ""
               }`}
             >
               {item.label}

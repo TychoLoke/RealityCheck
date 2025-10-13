@@ -63,7 +63,7 @@ const selfAssessmentQuestions = [
 
 export default function StandardPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-graphite">
+    <div className="flex flex-col gap-16 pb-24 text-midnight">
       <Hero
         eyebrow="Standard v1.0"
         title="Channel OS Standard v1.0"
@@ -82,7 +82,7 @@ export default function StandardPage() {
       >
         {layerDetails.map((layer) => (
           <Card key={layer.title} title={layer.title}>
-            <p className="text-sm font-semibold text-graphite">{layer.promise}</p>
+            <p className="text-sm font-semibold text-midnight">{layer.promise}</p>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral">
               {layer.objects.map((object) => (
                 <li key={object}>{object}</li>
@@ -105,13 +105,13 @@ export default function StandardPage() {
       </Section>
 
       <section>
-        <Container className="flex flex-col gap-6 rounded-3xl border border-graphite/20 bg-gradient-to-br from-midnight via-[#101a31] to-midnight px-8 py-12 text-graphite shadow-[0_24px_64px_-48px_rgba(6,9,18,0.9)]">
+        <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-gradient-to-br from-graphite via-cloud to-cloud px-8 py-12 text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.25)]">
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">SLA pledge</p>
           <div className="grid gap-4 sm:grid-cols-4">
             {slaPledge.map((item) => (
-              <div key={item.label} className="rounded-2xl border border-graphite/20 bg-midnight/60 px-5 py-4 text-center">
+              <div key={item.label} className="rounded-2xl border border-midnight/10 bg-graphite/80 px-5 py-4 text-center text-midnight">
                 <p className="text-xs font-semibold uppercase tracking-[0.28em] text-neutral">{item.label}</p>
-                <p className="mt-2 text-2xl font-semibold text-graphite">{item.value}</p>
+                <p className="mt-2 text-2xl font-semibold text-midnight">{item.value}</p>
               </div>
             ))}
           </div>
@@ -143,9 +143,9 @@ export default function StandardPage() {
       </Section>
 
       <section id="download">
-        <Container className="flex flex-col gap-6 rounded-3xl border border-graphite/20 bg-midnight/70 px-8 py-12 shadow-[0_24px_64px_-48px_rgba(6,9,18,0.85)] sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-graphite px-8 py-12 text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)] sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-3">
-            <h2 className="text-2xl font-semibold text-graphite">Download Channel OS Standard v1.0</h2>
+            <h2 className="text-2xl font-semibold text-midnight">Download Channel OS Standard v1.0</h2>
             <p className="max-w-xl text-sm text-neutral">
               Get the complete reference, including canonical data objects, RACIs, and adapter blueprints.
             </p>
@@ -157,7 +157,7 @@ export default function StandardPage() {
       </section>
 
       <section id="assessment">
-        <Container className="flex flex-col gap-8 rounded-3xl border border-graphite/20 bg-gradient-to-br from-midnight via-[#101a31] to-midnight px-8 py-12 text-graphite shadow-[0_24px_64px_-48px_rgba(6,9,18,0.9)]">
+        <Container className="flex flex-col gap-8 rounded-3xl border border-midnight/10 bg-gradient-to-br from-graphite via-cloud to-cloud px-8 py-12 text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.25)]">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Self-assessment</p>
             <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">Score each item 0–2</h2>
@@ -167,15 +167,15 @@ export default function StandardPage() {
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             {selfAssessmentQuestions.map((question) => (
-              <Card key={question} title={question} className="!border-graphite/30 !bg-midnight/60 !text-graphite">
+              <Card key={question} title={question}>
                 <p className="text-sm text-neutral">Score: 0 · 1 · 2</p>
               </Card>
             ))}
           </div>
           <div className="grid gap-4 text-sm sm:grid-cols-3">
-            <Card title="0–6" description="Foundations to build" className="!bg-midnight/60 !text-graphite !border-graphite/30" />
-            <Card title="7–12" description="Operationalizing" className="!bg-midnight/60 !text-graphite !border-graphite/30" />
-            <Card title="13–16" description="Channel OS-Ready" className="!bg-midnight/60 !text-graphite !border-graphite/30" />
+            <Card title="0–6" description="Foundations to build" />
+            <Card title="7–12" description="Operationalizing" />
+            <Card title="13–16" description="Channel OS-Ready" />
           </div>
           <CTAButton href="/community" variant="primary" className="self-start">
             Join the community study group that matches your lowest area

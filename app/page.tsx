@@ -231,7 +231,7 @@ const journeySteps = [
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-graphite">
+    <div className="flex flex-col gap-16 pb-24 text-midnight">
       <Hero
         eyebrow="Launches January 1, 2026"
         title="Channel OS is almost here"
@@ -245,7 +245,7 @@ export default function HomePage() {
       />
 
       <section className="-mt-10">
-        <Container className="relative grid gap-10 overflow-hidden rounded-3xl border border-graphite/20 bg-gradient-to-br from-midnight via-[#10192f] to-[#060912] px-8 py-12 text-graphite shadow-[0_32px_80px_-48px_rgba(6,9,18,0.9)]">
+        <Container className="relative grid gap-10 overflow-hidden rounded-3xl border border-midnight/10 bg-gradient-to-br from-graphite via-cloud to-cloud px-8 py-12 text-midnight shadow-[0_32px_80px_-48px_rgba(12,15,27,0.25)]">
           <span className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(138,147,166,0.18),transparent_65%)]" />
           <div className="space-y-6">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Launch status</p>
@@ -253,7 +253,7 @@ export default function HomePage() {
             <p className="max-w-3xl text-base leading-relaxed text-neutral sm:text-lg">
               The OS is in active build with our community of operators. Explore the milestones below, then claim your seat so you’re part of the countdown and launch broadcast.
             </p>
-            <CTAButton href="/community" variant="inverted">
+            <CTAButton href="/community">
               Get launch updates
             </CTAButton>
           </div>
@@ -298,12 +298,7 @@ export default function HomePage() {
         <Container className="flex flex-col gap-6 rounded-3xl border border-graphite/20 bg-gradient-to-br from-midnight/80 via-[#101a31] to-midnight/80 px-8 py-12 shadow-[0_24px_64px_-48px_rgba(6,9,18,0.85)]">
           <div className="grid gap-4 md:grid-cols-4">
             {workStack.map((layer) => (
-              <Card
-                key={layer.title}
-                title={layer.title}
-                description={layer.description}
-                className="!bg-midnight/60 !border-graphite/30"
-              />
+              <Card key={layer.title} title={layer.title} description={layer.description} />
             ))}
           </div>
           <CTAButton href="/standard" variant="primary">
@@ -317,12 +312,12 @@ export default function HomePage() {
         title="Work the same way"
         description="Operating promises become SLAs you can measure."
         columns={4}
-        className="bg-gradient-to-r from-midnight/80 via-[#101a31] to-midnight/80"
+        className="bg-gradient-to-r from-graphite via-cloud to-cloud"
         cta={{ label: "Explore the Standard", href: "/standard", variant: "primary" }}
       >
         {slaPromises.map((item) => (
           <Card key={item.label} title={item.label}>
-            <p className="text-2xl font-semibold text-graphite">{item.value}</p>
+            <p className="text-2xl font-semibold text-midnight">{item.value}</p>
             <p className="mt-2 text-sm text-neutral">Certified teams sign and publish these targets.</p>
           </Card>
         ))}
@@ -344,7 +339,7 @@ export default function HomePage() {
         title="A living operating community"
         description="Always-on programs that keep the OS current."
         columns={4}
-        className="bg-gradient-to-r from-midnight/70 via-[#0f182d] to-midnight/70"
+        className="bg-gradient-to-r from-graphite via-cloud to-cloud"
         cta={{ label: "Join the Community", href: "/community", variant: "primary" }}
       >
         {communitySnapshot.map((item) => (
@@ -353,14 +348,14 @@ export default function HomePage() {
       </Section>
 
       <section>
-        <Container className="grid gap-10 rounded-3xl border border-graphite/20 bg-gradient-to-br from-midnight/80 via-[#101a31] to-midnight/80 px-8 py-12 shadow-[0_24px_64px_-48px_rgba(6,9,18,0.85)] md:grid-cols-2">
+        <Container className="grid gap-10 rounded-3xl border border-midnight/10 bg-gradient-to-br from-graphite via-cloud to-cloud px-8 py-12 shadow-[0_24px_64px_-48px_rgba(12,15,27,0.25)] md:grid-cols-2">
           <div className="space-y-6">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Community signals</p>
             <div className="grid gap-4 sm:grid-cols-3">
               {communitySignals.map((signal) => (
-                <div key={signal.label} className="rounded-2xl border border-graphite/20 bg-midnight/60 p-5 text-center">
+                <div key={signal.label} className="rounded-2xl border border-midnight/10 bg-graphite/80 p-5 text-center text-midnight">
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-neutral">{signal.label}</p>
-                  <p className="mt-2 text-2xl font-semibold text-graphite">{signal.value}</p>
+                  <p className="mt-2 text-2xl font-semibold text-midnight">{signal.value}</p>
                 </div>
               ))}
             </div>
@@ -369,7 +364,7 @@ export default function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Voices from the network</p>
             <div className="space-y-3 text-sm leading-relaxed text-neutral">
               {quotes.map((quote) => (
-                <p key={quote} className="rounded-2xl border border-graphite/20 bg-midnight/60 p-4 italic text-graphite">
+                <p key={quote} className="rounded-2xl border border-midnight/10 bg-graphite/80 p-4 italic text-midnight">
                   {quote}
                 </p>
               ))}

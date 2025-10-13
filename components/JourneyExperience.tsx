@@ -42,42 +42,48 @@ export function JourneyExperience({
   const isInverted = variant === "inverted";
   const sectionBackground = isInverted
     ? "bg-gradient-to-br from-midnight via-[#10192f] to-[#0b0e1a]"
-    : "bg-midnight/70";
+    : "bg-graphite";
   const eyebrowClasses = "text-sm font-semibold uppercase tracking-[0.3em] text-neutral";
-  const titleClasses = "text-2xl font-semibold text-graphite sm:text-3xl";
+  const titleClasses = isInverted
+    ? "text-2xl font-semibold text-graphite sm:text-3xl"
+    : "text-2xl font-semibold text-midnight sm:text-3xl";
   const descriptionClasses = "text-base leading-relaxed text-neutral";
-  const focusOutline = "focus-visible:outline-neutral";
+  const focusOutline = isInverted ? "focus-visible:outline-neutral" : "focus-visible:outline-midnight";
   const stepButtonBase =
     "flex items-center gap-3 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
   const stepButtonActive = isInverted
     ? "border-midnight bg-graphite text-midnight shadow-sm"
-    : "border-graphite bg-midnight text-graphite shadow-sm";
+    : "border-midnight bg-midnight text-graphite shadow-sm";
   const stepButtonInactive = isInverted
     ? "border-graphite/30 bg-midnight/40 text-neutral hover:border-graphite/60 hover:text-graphite"
-    : "border-graphite/30 bg-midnight/60 text-neutral hover:border-graphite/50 hover:text-graphite";
+    : "border-midnight/20 bg-cloud text-neutral hover:border-midnight/40 hover:text-midnight";
   const panelBackground = isInverted
     ? "rounded-3xl border border-graphite/20 bg-graphite p-8 text-midnight shadow-[0_24px_64px_-40px_rgba(12,15,27,0.55)]"
-    : "rounded-3xl border border-graphite/15 bg-midnight/60 p-8 text-graphite shadow-[0_24px_64px_-48px_rgba(8,11,24,0.8)]";
+    : "rounded-3xl border border-midnight/10 bg-cloud p-8 text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)]";
   const labelClasses = "text-sm font-semibold uppercase tracking-[0.28em] text-neutral";
   const headlineClasses = isInverted
     ? "text-2xl font-semibold text-midnight sm:text-3xl"
-    : "text-2xl font-semibold text-graphite sm:text-3xl";
+    : "text-2xl font-semibold text-midnight sm:text-3xl";
   const copyClasses = "text-base leading-relaxed text-neutral";
   const takeawayClasses = isInverted
     ? "rounded-2xl border border-midnight/20 bg-midnight/5 p-5 text-sm leading-relaxed text-midnight/80"
-    : "rounded-2xl border border-graphite/20 bg-midnight/40 p-5 text-sm leading-relaxed text-neutral";
-  const ctaVariant = isInverted ? "primary" : "inverted";
-  const progressTrackClasses = "bg-midnight/30";
-  const progressBarClasses = "bg-graphite";
+    : "rounded-2xl border border-midnight/10 bg-graphite/80 p-5 text-sm leading-relaxed text-neutral";
+  const ctaVariant = isInverted ? "inverted" : "primary";
+  const progressTrackClasses = isInverted ? "bg-midnight/30" : "bg-midnight/10";
+  const progressBarClasses = isInverted ? "bg-graphite" : "bg-midnight";
   const progressTextClasses = "text-sm font-medium text-neutral";
   const successWrapperClasses = isInverted
     ? "flex flex-col justify-between gap-6 rounded-3xl border border-midnight/20 bg-midnight/5 p-6 text-midnight"
-    : "flex flex-col justify-between gap-6 rounded-3xl border border-graphite/20 bg-midnight/50 p-6 text-neutral";
+    : "flex flex-col justify-between gap-6 rounded-3xl border border-midnight/10 bg-graphite/80 p-6 text-neutral";
   const successEyebrowClasses = "text-xs font-semibold uppercase tracking-[0.3em] text-neutral";
-  const successHeadingClasses = "text-sm font-semibold text-graphite";
+  const successHeadingClasses = isInverted
+    ? "text-sm font-semibold text-graphite"
+    : "text-sm font-semibold text-midnight";
   const successBodyClasses = "space-y-3 text-sm leading-relaxed text-neutral";
   const successBulletClasses = "flex items-start gap-2";
-  const successDotClasses = "mt-1 h-2 w-2 flex-none rounded-full bg-neutral";
+  const successDotClasses = isInverted
+    ? "mt-1 h-2 w-2 flex-none rounded-full bg-neutral"
+    : "mt-1 h-2 w-2 flex-none rounded-full bg-midnight/60";
 
   return (
     <section className={`py-16 sm:py-20 ${sectionBackground}`}>

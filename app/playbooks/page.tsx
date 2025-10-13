@@ -19,8 +19,8 @@ const playbooks = [
 
 export default function PlaybooksPage() {
   return (
-    <div className="flex flex-col gap-12 text-graphite">
-      <section className="border-b border-graphite/15 bg-gradient-to-b from-midnight via-[#101a31] to-midnight py-16 sm:py-20">
+    <div className="flex flex-col gap-12 text-midnight">
+      <section className="border-b border-midnight/10 bg-gradient-to-b from-graphite via-cloud to-cloud py-16 sm:py-20">
         <Container className="flex flex-col gap-6">
           <h1 className="text-3xl font-semibold sm:text-4xl">Playbooks & SOPs</h1>
           <p className="max-w-3xl text-base leading-relaxed text-neutral sm:text-lg">
@@ -36,7 +36,7 @@ export default function PlaybooksPage() {
       </Section>
 
       <section className="pb-20">
-        <Container className="flex flex-col items-center gap-4 rounded-3xl border border-graphite/20 bg-midnight/70 px-8 py-10 text-center shadow-[0_24px_64px_-48px_rgba(6,9,18,0.85)]">
+        <Container className="flex flex-col items-center gap-4 rounded-3xl border border-midnight/10 bg-graphite px-8 py-10 text-center shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)]">
           <h2 className="text-2xl font-semibold">Subscribe for updates</h2>
           <p className="max-w-2xl text-sm text-neutral">
             Get notified when new playbooks and SOPs are released.
