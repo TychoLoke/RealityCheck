@@ -10,7 +10,8 @@ interface SectionProps {
   eyebrow?: string;
   columns?: 1 | 2 | 3 | 4;
   className?: string;
-  cta?: { label: string; href: string; variant?: "primary" | "secondary" | "ghost" };
+  cta?: { label: string; href: string; variant?: "primary" | "secondary" | "ghost" | "inverted" };
+  variant?: "default" | "inverted";
 }
 
 const columnsClassMap: Record<NonNullable<SectionProps["columns"]>, string> = {
@@ -29,23 +30,31 @@ export function Section({
   columns = 3,
   className = "",
   cta,
+  variant = "default",
 }: SectionProps) {
   const gridClasses = columnsClassMap[columns];
+  const isInverted = variant === "inverted";
+  const titleClass = isInverted ? "text-cloud" : "text-midnight";
+  const descriptionClass = isInverted ? "text-cloud/80" : "text-neutral";
+  const eyebrowClass = isInverted ? "text-signalAmber/80" : "text-accentTeal";
+  const containerTextClass = isInverted ? "text-cloud" : "";
 
   return (
     <section id={id} className={`py-16 sm:py-20 ${className}`}>
-      <Container className="flex flex-col gap-10">
+      <Container className={`flex flex-col gap-10 ${containerTextClass}`}>
         <div className="max-w-3xl">
           {eyebrow ? (
-            <span className="text-sm font-semibold uppercase tracking-wide text-accentTeal">{eyebrow}</span>
+            <span className={`text-sm font-semibold uppercase tracking-wide ${eyebrowClass}`}>{eyebrow}</span>
           ) : null}
-          <h2 className="mt-2 text-2xl font-semibold text-midnight sm:text-3xl">{title}</h2>
-          {description ? <p className="mt-4 text-base leading-relaxed text-neutral">{description}</p> : null}
+          <h2 className={`mt-2 text-2xl font-semibold sm:text-3xl ${titleClass}`}>{title}</h2>
+          {description ? (
+            <p className={`mt-4 text-base leading-relaxed ${descriptionClass}`}>{description}</p>
+          ) : null}
         </div>
         <div className={`grid gap-6 ${gridClasses}`}>{children}</div>
         {cta ? (
           <div>
-            <CTAButton href={cta.href} variant={cta.variant ?? "secondary"}>
+            <CTAButton href={cta.href} variant={cta.variant ?? (isInverted ? "inverted" : "secondary")}>
               {cta.label}
             </CTAButton>
           </div>

@@ -1,0 +1,173 @@
+"use client";
+
+import { useMemo, useState } from "react";
+import { CTAButton } from "./CTAButton";
+import { Container } from "./Container";
+
+interface JourneyStep {
+  label: string;
+  headline: string;
+  description: string;
+  takeaway: string;
+  action: { label: string; href: string };
+}
+
+interface JourneyExperienceProps {
+  steps: JourneyStep[];
+  eyebrow?: string;
+  title?: string;
+  description?: string;
+  successHeading?: string;
+  successPoints?: string[];
+  variant?: "default" | "inverted";
+}
+
+export function JourneyExperience({
+  steps,
+  eyebrow = "Channel OS journey",
+  title = "Plot your path from discover to contribute",
+  description =
+    "Every stage of the operating system comes with guidance, templates, and community touchpoints. Click through the steps to see what unlocks next.",
+  successHeading = "What success looks like:",
+  successPoints = [
+    "Shared vocabulary and playbooks across the channel network.",
+    "Auditable SLAs and metrics that keep partners accountable.",
+    "Certification signals that travel with people, teams, and platforms.",
+  ],
+  variant = "default",
+}: JourneyExperienceProps) {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeStep = steps[activeIndex];
+  const progress = useMemo(() => ((activeIndex + 1) / steps.length) * 100, [activeIndex, steps.length]);
+  const isInverted = variant === "inverted";
+  const sectionBackground = isInverted
+    ? "bg-gradient-to-br from-midnight via-[#121d33] to-[#0b0e1a]"
+    : "";
+  const eyebrowClasses = isInverted
+    ? "text-sm font-semibold uppercase tracking-[0.3em] text-signalAmber/80"
+    : "text-sm font-semibold uppercase tracking-[0.3em] text-neutral";
+  const titleClasses = isInverted
+    ? "text-2xl font-semibold text-white sm:text-3xl"
+    : "text-2xl font-semibold text-midnight sm:text-3xl";
+  const descriptionClasses = isInverted
+    ? "text-base leading-relaxed text-cloud/80"
+    : "text-base leading-relaxed text-neutral";
+  const focusOutline = isInverted ? "focus-visible:outline-white" : "focus-visible:outline-accentTeal";
+  const stepButtonBase =
+    "flex items-center gap-3 rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] transition-all duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2";
+  const stepButtonActive = isInverted
+    ? "border-white/60 bg-white text-midnight shadow-sm"
+    : "border-midnight bg-midnight text-white shadow-sm";
+  const stepButtonInactive = isInverted
+    ? "border-white/20 bg-white/10 text-cloud/70 hover:border-white/40 hover:text-white"
+    : "border-midnight/10 bg-white/70 text-neutral hover:border-midnight/40 hover:text-midnight";
+  const panelBackground = isInverted
+    ? "rounded-3xl border border-white/15 bg-white/10 p-8 shadow-[0_24px_64px_-40px_rgba(11,14,26,0.65)] backdrop-blur"
+    : "rounded-3xl border border-midnight/10 bg-gradient-to-br from-white via-graphite to-white p-8 shadow-card";
+  const labelClasses = isInverted
+    ? "text-sm font-semibold uppercase tracking-[0.28em] text-cloud/70"
+    : "text-sm font-semibold uppercase tracking-[0.28em] text-neutral";
+  const headlineClasses = isInverted
+    ? "text-2xl font-semibold text-white sm:text-3xl"
+    : "text-2xl font-semibold text-midnight sm:text-3xl";
+  const copyClasses = isInverted ? "text-base leading-relaxed text-cloud/80" : "text-base leading-relaxed text-neutral";
+  const takeawayClasses = isInverted
+    ? "rounded-2xl border border-white/15 bg-white/10 p-5 text-sm leading-relaxed text-cloud/80"
+    : "rounded-2xl border border-midnight/10 bg-white/70 p-5 text-sm leading-relaxed text-neutral";
+  const ctaVariant = isInverted ? "inverted" : "primary";
+  const progressTrackClasses = isInverted ? "bg-white/10" : "bg-graphite/70";
+  const progressBarClasses = isInverted ? "bg-white" : "bg-midnight";
+  const progressTextClasses = isInverted ? "text-sm font-medium text-cloud" : "text-sm font-medium text-midnight";
+  const successWrapperClasses = isInverted
+    ? "flex flex-col justify-between gap-6 rounded-3xl border border-white/15 bg-white/5 p-6 text-cloud"
+    : "flex flex-col justify-between gap-6 rounded-3xl border border-midnight/10 bg-white/80 p-6";
+  const successEyebrowClasses = isInverted
+    ? "text-xs font-semibold uppercase tracking-[0.3em] text-cloud/70"
+    : "text-xs font-semibold uppercase tracking-[0.3em] text-neutral";
+  const successHeadingClasses = isInverted ? "text-sm font-semibold text-white" : "text-sm font-semibold text-midnight";
+  const successBodyClasses = isInverted ? "space-y-3 text-sm leading-relaxed text-cloud/80" : "space-y-3 text-sm leading-relaxed text-neutral";
+  const successBulletClasses = isInverted
+    ? "flex items-start gap-2"
+    : "flex items-start gap-2";
+  const successDotClasses = isInverted ? "mt-1 h-2 w-2 flex-none rounded-full bg-signalAmber" : "mt-1 h-2 w-2 flex-none rounded-full bg-signalAmber";
+
+  return (
+    <section className={`py-16 sm:py-20 ${sectionBackground}`}>
+      <Container className="flex flex-col gap-10">
+        <div className="max-w-3xl space-y-4">
+          <span className={eyebrowClasses}>{eyebrow}</span>
+          <h2 className={titleClasses}>{title}</h2>
+          <p className={descriptionClasses}>{description}</p>
+        </div>
+
+        <div className="flex flex-wrap items-center gap-3">
+          {steps.map((step, index) => {
+            const isActive = index === activeIndex;
+
+            return (
+              <button
+                key={step.label}
+                type="button"
+                onClick={() => setActiveIndex(index)}
+                className={`${stepButtonBase} ${focusOutline} ${
+                  isActive ? stepButtonActive : stepButtonInactive
+                }`}
+                aria-pressed={isActive}
+              >
+                <span className="flex h-6 w-6 items-center justify-center rounded-full border border-current text-[0.65rem]">
+                  {index + 1}
+                </span>
+                {step.label}
+              </button>
+            );
+          })}
+        </div>
+
+        <div className={`relative overflow-hidden ${panelBackground}`}>
+          <span className="pointer-events-none absolute inset-x-8 top-0 h-1 rounded-full bg-gradient-to-r from-signalAmber via-accentTeal to-accentBlue" />
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+            <div className="space-y-6">
+              <div className="space-y-3">
+                <p className={labelClasses}>{activeStep.label}</p>
+                <h3 className={headlineClasses}>{activeStep.headline}</h3>
+                <p className={copyClasses}>{activeStep.description}</p>
+              </div>
+              <div className={takeawayClasses}>{activeStep.takeaway}</div>
+              <CTAButton href={activeStep.action.href} variant={ctaVariant}>
+                {activeStep.action.label}
+              </CTAButton>
+            </div>
+
+            <div className={successWrapperClasses}>
+              <div>
+                <p className={successEyebrowClasses}>Progress</p>
+                <div className={`mt-3 h-2 w-full overflow-hidden rounded-full ${progressTrackClasses}`}>
+                  <div
+                    className={`h-full rounded-full transition-all duration-300 ${progressBarClasses}`}
+                    style={{ width: `${progress}%` }}
+                    aria-hidden="true"
+                  />
+                </div>
+                <p className={`mt-3 ${progressTextClasses}`}>
+                  {activeIndex + 1} of {steps.length} phases
+                </p>
+              </div>
+
+              <div className={successBodyClasses}>
+                <p className={successHeadingClasses}>{successHeading}</p>
+                <ul className="space-y-2">
+                  {successPoints.map((point) => (
+                    <li key={point} className={successBulletClasses}>
+                      <span aria-hidden="true" className={successDotClasses} />
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}

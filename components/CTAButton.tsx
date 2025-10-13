@@ -3,7 +3,7 @@ import { MouseEvent, ReactNode } from "react";
 
 interface CTAButtonProps {
   href: string;
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "secondary" | "ghost" | "inverted";
   children: ReactNode;
   className?: string;
   ariaLabel?: string;
@@ -20,6 +20,8 @@ const variantStyles: Record<NonNullable<CTAButtonProps["variant"]>, string> = {
     "border border-neutral text-neutral hover:bg-neutral/10 focus-visible:outline-neutral",
   ghost:
     "text-midnight hover:text-neutral focus-visible:outline-neutral",
+  inverted:
+    "border border-white/40 text-white hover:bg-white/10 focus-visible:outline-white",
 };
 
 export function CTAButton({
