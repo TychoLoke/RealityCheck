@@ -8,6 +8,7 @@ interface SectionProps {
   children: ReactNode;
   eyebrow?: string;
   columns?: 1 | 2 | 3;
+  className?: string;
 }
 
 const columnsClassMap: Record<NonNullable<SectionProps["columns"]>, string> = {
@@ -23,11 +24,12 @@ export function Section({
   children,
   eyebrow,
   columns = 3,
+  className = "",
 }: SectionProps) {
   const gridClasses = columnsClassMap[columns];
 
   return (
-    <section id={id} className="py-16 sm:py-20">
+    <section id={id} className={`py-16 sm:py-20 ${className}`}>
       <Container className="flex flex-col gap-8">
         <div className="max-w-3xl">
           {eyebrow ? (
