@@ -49,9 +49,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="bg-cloud text-midnight">
       <body className={`${inter.className} flex min-h-screen flex-col bg-cloud text-midnight`}>
-        <a href="#main-content" className="skip-link">
-          Skip to content
-        </a>
         <Header />
         <main id="main-content" className="flex-1">
           {children}
