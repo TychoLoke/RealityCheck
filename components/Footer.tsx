@@ -18,14 +18,29 @@ export function Footer() {
           <p className="text-xs text-neutral/80">© {currentYear} Channel OS. All rights reserved.</p>
         </div>
         <div className="space-y-3">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-midnight">Simple conversion path</h2>
-          <ol className="space-y-1 text-sm leading-relaxed">
-            <li>Discover → <Link className="text-accentTeal hover:underline" href="/standard">Read Standard v1.0</Link></li>
-            <li>Learn → <Link className="text-accentTeal hover:underline" href="/school">Take Channel 101 (free)</Link></li>
-            <li>Apply → <Link className="text-accentTeal hover:underline" href="/apply">Apply to the School or Academy</Link></li>
-            <li>Certify → <Link className="text-accentTeal hover:underline" href="/certified">Earn your badge or org certification</Link></li>
-            <li>Join → <Link className="text-accentTeal hover:underline" href="/council">Shape the standard with the Council</Link></li>
-          </ol>
+          <h2 className="text-sm font-semibold uppercase tracking-wide text-midnight">The operating journey</h2>
+          <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-neutral">
+            {"Discover Learn Join Practice Certify Contribute".split(" ").map((step, index, arr) => (
+              <span key={step} className="flex items-center gap-2">
+                <span>{step}</span>
+                {index < arr.length - 1 ? <span aria-hidden="true">→</span> : null}
+              </span>
+            ))}
+          </div>
+          <div className="mt-3 flex flex-col gap-2 text-sm leading-relaxed">
+            <Link className="text-accentTeal hover:underline" href="/standard">
+              Read Standard v1.0
+            </Link>
+            <Link className="text-accentTeal hover:underline" href="/school">
+              Start Channel 101 (free)
+            </Link>
+            <Link className="text-accentTeal hover:underline" href="/community">
+              Join the Community
+            </Link>
+            <Link className="text-accentTeal hover:underline" href="/certified">
+              Get certified
+            </Link>
+          </div>
         </div>
         <div className="space-y-3">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-midnight">Stay connected</h2>
