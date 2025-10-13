@@ -22,7 +22,7 @@ const tracks = [
 
 export default function AcademyPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-graphite">
+    <div className="flex flex-col gap-16 pb-24 text-midnight">
       <Hero
         eyebrow="Academy"
         title="From “I know the tools” to “I run the channel.”"
@@ -49,7 +49,7 @@ export default function AcademyPage() {
         title="Tracks"
         description="Pick the path that matches how you operate."
         columns={3}
-        className="bg-midnight/70"
+        className="bg-graphite"
         cta={{ label: "Join the waitlist", href: "#waitlist", variant: "primary" }}
       >
         {tracks.map((track) => (

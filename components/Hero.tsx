@@ -27,15 +27,26 @@ export function Hero({
   const isDark = variant === "dark";
   const sectionBackground = isDark
     ? "border-graphite/15 bg-gradient-to-b from-midnight via-[#111931] to-[#0b0e1a]"
-    : "border-graphite/15 bg-gradient-to-b from-midnight/80 via-midnight/70 to-midnight/80";
-  const eyebrowClasses =
-    "inline-flex items-center gap-3 rounded-full border border-neutral/40 bg-midnight/60 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-neutral backdrop-blur";
-  const titleClasses = "text-4xl font-semibold text-graphite sm:text-5xl lg:text-6xl";
-  const taglineClasses = "text-xl font-medium text-neutral sm:text-2xl";
-  const descriptionClasses = "max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl";
-  const proofPointClasses = "flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-neutral";
-  const proofDotClasses = "h-1.5 w-1.5 rounded-full bg-neutral";
-  const ghostButtonClasses = "px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-neutral";
+    : "border-midnight/10 bg-gradient-to-b from-graphite via-cloud to-cloud";
+  const eyebrowClasses = isDark
+    ? "inline-flex items-center gap-3 rounded-full border border-neutral/40 bg-midnight/60 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-neutral backdrop-blur"
+    : "inline-flex items-center gap-3 rounded-full border border-midnight/10 bg-cloud px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-neutral";
+  const titleClasses = isDark
+    ? "text-4xl font-semibold text-graphite sm:text-5xl lg:text-6xl"
+    : "text-4xl font-semibold text-midnight sm:text-5xl lg:text-6xl";
+  const taglineClasses = isDark
+    ? "text-xl font-medium text-neutral sm:text-2xl"
+    : "text-xl font-medium text-midnight sm:text-2xl";
+  const descriptionClasses = isDark
+    ? "max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl"
+    : "max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl";
+  const proofPointClasses = isDark
+    ? "flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-neutral"
+    : "flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-neutral";
+  const proofDotClasses = isDark ? "h-1.5 w-1.5 rounded-full bg-neutral" : "h-1.5 w-1.5 rounded-full bg-midnight/60";
+  const ghostButtonClasses = isDark
+    ? "px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-neutral"
+    : "px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-neutral";
   const primaryButtonClasses = "";
 
   return (

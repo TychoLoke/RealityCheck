@@ -44,7 +44,7 @@ const videoEmbeds = [
 
 export default function SchoolPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-graphite">
+    <div className="flex flex-col gap-16 pb-24 text-midnight">
       <Hero
         eyebrow="School"
         title="Start where careers begin: Channel 101"
@@ -56,11 +56,11 @@ export default function SchoolPage() {
       />
 
       <section>
-        <Container className="grid gap-4 rounded-3xl border border-graphite/20 bg-midnight/70 px-8 py-10 shadow-[0_24px_64px_-48px_rgba(6,9,18,0.85)] sm:grid-cols-3">
+        <Container className="grid gap-4 rounded-3xl border border-midnight/10 bg-graphite px-8 py-10 shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)] sm:grid-cols-3">
           {highlights.map((item) => (
-            <div key={item.label} className="rounded-2xl border border-graphite/20 bg-midnight/60 p-5 text-center">
+            <div key={item.label} className="rounded-2xl border border-midnight/10 bg-graphite/80 p-5 text-center text-midnight">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral">{item.label}</p>
-              <p className="mt-2 text-xl font-semibold text-graphite">{item.value}</p>
+              <p className="mt-2 text-xl font-semibold text-midnight">{item.value}</p>
             </div>
           ))}
         </Container>
@@ -93,7 +93,7 @@ export default function SchoolPage() {
         title="Channel 101 (Free)"
         description="Watch the core lessons, then join a live study group to practice with peers."
         columns={3}
-        className="bg-midnight/70"
+        className="bg-graphite"
         cta={{ label: "Join a study group", href: "/community", variant: "primary" }}
       >
         {videoEmbeds.map((embed, index) => (

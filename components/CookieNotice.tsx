@@ -20,7 +20,7 @@ export function CookieNotice() {
   }
 
   return (
-    <div className="fixed bottom-4 left-1/2 z-50 w-[min(90vw,28rem)] -translate-x-1/2 rounded-3xl border border-graphite/20 bg-midnight/85 p-5 text-graphite shadow-[0_24px_64px_-48px_rgba(8,11,24,0.85)] backdrop-blur">
+    <div className="fixed bottom-4 left-1/2 z-50 w-[min(90vw,28rem)] -translate-x-1/2 rounded-3xl border border-midnight/10 bg-cloud p-5 text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)] backdrop-blur">
       <p className="text-sm leading-relaxed text-neutral">
         We use minimal, privacy-friendly analytics and necessary cookies to run the site. No tracking ads.
       </p>

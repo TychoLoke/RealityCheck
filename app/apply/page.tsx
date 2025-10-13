@@ -29,8 +29,8 @@ const organizationFields = [
 
 export default function ApplyPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-graphite">
-      <section className="border-b border-graphite/15 bg-gradient-to-b from-midnight via-[#101a31] to-midnight py-16 sm:py-20">
+    <div className="flex flex-col gap-16 pb-24 text-midnight">
+      <section className="border-b border-midnight/10 bg-gradient-to-b from-graphite via-cloud to-cloud py-16 sm:py-20">
         <Container className="flex flex-col gap-6">
           <h1 className="text-3xl font-semibold sm:text-4xl">Apply & Waitlists</h1>
           <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
@@ -50,7 +50,7 @@ export default function ApplyPage() {
         <Card title="Why it matters" description="We map you to the study group, cohort, or certification path that matches your goals." />
       </Section>
 
-      <Section title="Organization fields" description="Signal how your company wants to participate." columns={2} className="bg-midnight/70">
+      <Section title="Organization fields" description="Signal how your company wants to participate." columns={2} className="bg-graphite">
         <Card title="What we ask">
           <ul className="list-disc space-y-2 pl-5 text-sm text-neutral">
             {organizationFields.map((field) => (

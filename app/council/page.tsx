@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function CouncilPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-graphite">
+    <div className="flex flex-col gap-16 pb-24 text-midnight">
       <Hero
         eyebrow="Council"
         title="One ecosystem, one table."
