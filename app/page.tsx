@@ -5,300 +5,155 @@ import { CTAButton } from "../components/CTAButton";
 import { Hero } from "../components/Hero";
 import { Section } from "../components/Section";
 
-type SectionCard = {
-  title: string;
-  description?: string;
-  content?: string[];
-  cta?: {
-    href: string;
-    label: string;
-    variant?: "primary" | "secondary" | "ghost";
-  };
-};
-
 export const metadata: Metadata = {
-  title: "Home",
+  title: "Channel OS — Where the Channel Learns, Works, and Wins.",
   description:
-    "Channel OS is the vendor-neutral operating system for the channel. It standardizes how Vendors, Distributors, and Partners learn, work, and measure success.",
+    "Vendor-neutral operating system for the channel (VDP). Community, open standard, and certifications that unify People, Process, Data, and Tools.",
 };
 
-const quickActions = [
-  { label: "Begin Channel 101 (Free)", href: "/school" },
-  { label: "Explore the Standard v1.0", href: "/standard", variant: "secondary" as const },
-  { label: "Introduce us to your council", href: "/council", variant: "ghost" as const },
-];
-
-const narrativeBeats: SectionCard[] = [
+const valuePillars = [
   {
-    title: "Bring the channel around one table.",
-    description:
-      "We align Vendors, Distributors, and Partners on a shared vocabulary in the first week, so every deck, deal, and dashboard starts with the same nouns.",
+    title: "Learn together.",
+    description: "Study groups, Channel 101, and role paths that map to real jobs in the channel.",
   },
   {
-    title: "Turn tribal knowledge into plays.",
-    description:
-      "Operators capture the real steps behind approvals, handoffs, and escalations. The result: documented plays you can teach, rehearse, and certify.",
+    title: "Work the same way.",
+    description: "Shared playbooks and practical SLAs—fewer disputes, faster approvals, accurate rebates.",
   },
   {
-    title: "Measure trust as a leading indicator.",
-    description:
-      "Shared scorecards and evidence trails mean finance, compliance, and field teams rely on the same story—and defend it when the audit comes.",
+    title: "Win as a network.",
+    description: "Badges for people, certifications for orgs, and a community that opens doors.",
   },
 ];
 
-const transformationTimeline: SectionCard[] = [
-  {
-    title: "Day 0 · Map the chaos",
-    description:
-      "We audit every handoff, tool, and spreadsheet. Pain points stop living in group chats; they surface in a roadmap everyone can see.",
-  },
-  {
-    title: "Week 4 · Plays replace panic",
-    description:
-      "Playbooks, SLAs, and shared rituals roll out across enablement, distribution, and partner success. Fire drills become rehearsed moments.",
-  },
-  {
-    title: "Quarter 2 · Revenue you can defend",
-    description:
-      "Rebates reconcile, renewals forecast cleanly, and you can explain every dollar in under five minutes. That’s the operating promise.",
-  },
+const osLayers = [
+  { title: "People", description: "Skills that stick." },
+  { title: "Process", description: "Clean handoffs." },
+  { title: "Data", description: "One canon." },
+  { title: "Tools", description: "Adapters, not lock-ins." },
 ];
 
-const valueStories: SectionCard[] = [
-  {
-    title: "No more integration IOUs.",
-    description:
-      "Standard data objects remove bespoke exports and heroic spreadsheets. The ecosystem finally shares one view of the customer journey.",
-  },
-  {
-    title: "Pipeline with provenance.",
-    description:
-      "Deal, incentive, and entitlement records carry context from source to settlement. Leaders coach the story instead of questioning it.",
-  },
-  {
-    title: "People graduate into operators.",
-    description:
-      "Talent pipelines grow from school to academy to certified teams. Each cohort scales the culture of operational excellence.",
-  },
+const proofStrip = [
+  "Vendor-neutral",
+  "Open standard",
+  "School & Academy",
+  "Certifications",
+  "Global community",
 ];
 
-const osLayers: SectionCard[] = [
-  { title: "People", description: "Role clarity, certifications, and coaching cadences that keep skill in market." },
-  { title: "Process", description: "Joint plays and SLAs that remove the guesswork from every handoff." },
-  { title: "Data", description: "Canonical objects, shared definitions, and evidence baked into the workflow." },
-  { title: "Tools", description: "Adapters and automations that make your existing stack feel orchestrated, not bolted on." },
+const slaPromises = [
+  { label: "Approval", value: "≤ 48h" },
+  { label: "Accuracy", value: "≥ 99.7%" },
+  { label: "Freshness", value: "≤ 24h" },
+  { label: "Conflict", value: "≤ 7 days" },
 ];
 
-const standardMoments: SectionCard[] = [
-  { title: "Before", description: "Siloed spreadsheets, disputed rebates, and every quarter starts from scratch." },
-  { title: "During", description: "Cross-functional rituals, teachable plays, and shared dashboards that update themselves." },
-  { title: "After", description: "Explainable deals, auditable incentives, and teams who trust the numbers." },
-];
-
-const canonDetails: SectionCard[] = [
-  {
-    title: "Objects in the Channel Canon",
-    content: [
-      "Partner",
-      "Program",
-      "Deal",
-      "Incentive",
-      "Inventory",
-      "Entitlement",
-      "Ticket",
-      "Invoice",
-      "Renewal",
-      "Lineage",
-      "Access Policy",
-    ],
-  },
-  {
-    title: "Operational promises we certify",
-    content: [
-      "Deal-reg approval ≤ 48h",
-      "Rebate accuracy ≥ 99.7%",
-      "Sales-out freshness ≤ 24h",
-      "Conflict cycle time ≤ 7 days",
-    ],
-  },
-  {
-    title: "Rhythms we install",
-    content: [
-      "Monday: shared pipeline standup",
-      "Wednesday: enablement rehearsal",
-      "Friday: finance + ops evidence review",
-      "Monthly: partner council retrospective",
-    ],
-  },
-];
-
-const principles: SectionCard[] = [
-  {
-    title: "Vendor-neutral on purpose.",
-    description:
-      "Community governance keeps Channel OS honest. Standards live in the open so no single player steers the playbook.",
-  },
-  {
-    title: "Evidence before opinion.",
-    description:
-      "Every recommendation ships with the data model, ritual, and template to run it tomorrow morning.",
-  },
-  {
-    title: "Progress you can narrate.",
-    description:
-      "Leaders don’t just see metrics—they get the story arcs, the wins, and the next experiment in plain language.",
-  },
-];
-
-const nextSteps: SectionCard[] = [
-  {
-    title: "Download Standard v1.0",
-    description: "The reference manual for people, process, and data alignment.",
-    cta: { href: "/standard", label: "Download the Standard v1.0", variant: "secondary" },
-  },
-  {
-    title: "Take the 5-minute self-assessment",
-    description: "Score your org across people, process, data, and tools to see where to start.",
-    cta: { href: "/apply", label: "Start the assessment", variant: "secondary" },
-  },
-  {
-    title: "Join the Academy waitlist",
-    description: "Level practitioners into operators with the 201 and 301 curricula.",
-    cta: { href: "/academy", label: "Join the waitlist", variant: "secondary" },
-  },
+const journeyBand = [
+  "Discover",
+  "Learn",
+  "Join",
+  "Practice",
+  "Certify",
+  "Contribute",
 ];
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-12 pb-20">
+    <div className="flex flex-col gap-16 pb-24">
       <Hero
-        eyebrow="Home — start with the story"
-        title="Channel OS is how the channel finally runs together"
-        tagline="The vendor-neutral operating system for Vendors, Distributors, and Partners."
-        description="Every quarter the channel rewrites the same playbook in spreadsheets, DMs, and emergency calls. Channel OS gathers the channel around one shared operating system—language, plays, and data that hold from onboarding to renewal. It isn’t another portal; it’s the way your revenue story finally holds up."
-        primaryCta={{ label: "Begin Channel 101 (Free)", href: "/school" }}
-        secondaryCta={{ label: "Explore the Standard v1.0", href: "/standard" }}
+        eyebrow="Channel OS"
+        title="The vendor-neutral operating system for the channel (VDP)"
+        tagline="Where the Channel Learns, Works, and Wins."
+        description="Channel OS turns channel chaos into a community of practice. Vendors, Distributors, and Partners learn the same language, run the same plays, and certify the same habits."
+        primaryCta={{ label: "Start Channel 101 (Free)", href: "/school" }}
+        secondaryCta={{ label: "Join the Community", href: "/community" }}
+        tertiaryCta={{ label: "Read the Standard v1.0", href: "/standard" }}
       />
 
-      <section className="-mt-6">
-        <Container className="flex flex-wrap items-center justify-center gap-4 rounded-3xl border border-midnight/10 bg-gradient-to-r from-white via-graphite/70 to-white px-6 py-6 text-sm shadow-card backdrop-blur sm:flex-nowrap">
-          <p className="text-center text-sm font-semibold uppercase tracking-[0.24em] text-neutral">
-            Choose your opening move
-          </p>
-          <div className="flex flex-1 flex-wrap justify-center gap-3 sm:justify-end">
-            {quickActions.map(({ label, href, variant }) => (
-              <CTAButton key={href} href={href} variant={variant}>
-                {label}
-              </CTAButton>
-            ))}
-          </div>
-        </Container>
-      </section>
-
       <section>
-        <Container className="relative overflow-hidden rounded-3xl border border-midnight/10 bg-midnight px-8 py-12 text-left text-cloud shadow-card">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.18),transparent_55%)]" />
-          <div className="max-w-3xl space-y-5">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-signalAmber">Fieldnotes from the rollout</p>
-            <h2 className="text-2xl font-semibold sm:text-3xl">The story teams tell after Channel OS</h2>
-            <p className="text-base leading-relaxed text-cloud/80">
-              “Day 30, we stopped forwarding screenshots. Day 60, distributors and partners were rehearsing the same plays. Day 90, finance led the meeting and said, ‘We trust these numbers.’”
-            </p>
-            <p className="text-sm text-cloud/70">
-              That’s the bar. Every engagement is designed so leaders can narrate progress in minutes, not pages.
+        <Container className="relative overflow-hidden rounded-3xl border border-midnight/10 bg-white px-8 py-12 shadow-card">
+          <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(11,14,26,0.08),transparent_55%)]" />
+          <div className="space-y-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Opening story</p>
+            <h2 className="text-2xl font-semibold text-midnight sm:text-3xl">
+              Most channels move fast—but rarely together.
+            </h2>
+            <p className="max-w-4xl text-base leading-relaxed text-neutral sm:text-lg">
+              Channel OS turns that chaos into a community of practice. We learn the same language (People • Process • Data • Tools), work the same plays, and certify the habits that keep Vendors, Distributors, and Partners in sync. It’s not another tool. It’s a way of working—open, neutral, and shared.
             </p>
           </div>
         </Container>
       </section>
 
       <Section
-        title="How the Channel OS narrative unfolds"
-        description="Three beats turn chaos into confidence. Align the language, capture the plays, and prove the progress."
+        eyebrow="Value pillars"
+        title="Learn together. Work the same way. Win as a network."
+        description="The operating system spans how the channel learns, runs, and proves impact."
       >
-        {narrativeBeats.map((story) => (
-          <Card key={story.title} title={story.title} description={story.description} />
+        {valuePillars.map((pillar) => (
+          <Card key={pillar.title} title={pillar.title} description={pillar.description} />
         ))}
       </Section>
 
       <Section
-        title="Your first ninety days"
-        description="Milestones we commit to—from discovery to defensible revenue."
+        eyebrow="OS layers"
+        title="Every layer speaks the same language"
+        description="People • Process • Data • Tools — each with a clear operating promise."
+        columns={4}
         className="bg-graphite/60"
-      >
-        {transformationTimeline.map((moment) => (
-          <Card key={moment.title} title={moment.title} description={moment.description} />
-        ))}
-      </Section>
-
-      <Section
-        title="Value, told through the work"
-        description="Stories from the channel edge. Every card is a habit we teach and certify."
-      >
-        {valueStories.map((story) => (
-          <Card key={story.title} title={story.title} description={story.description} />
-        ))}
-      </Section>
-
-      <Section
-        title="The OS layers (as a journey)"
-        description="Channel ambition becomes repeatable when people, process, data, and tools move together."
-        columns={2}
       >
         {osLayers.map((layer) => (
           <Card key={layer.title} title={layer.title} description={layer.description} />
         ))}
       </Section>
 
-      <Section
-        eyebrow="Standard v1.0 — the “why” and the “how”"
-        title="Channel ambition, made repeatable"
-        description="Channel OS is a vendor-neutral framework that turns channel ambition into repeatable outcomes. It unites people, process, and data so your tools finally make sense."
-        columns={3}
-        className="bg-gradient-to-b from-white via-graphite/40 to-white"
-      >
-        {standardMoments.map((moment) => (
-          <Card key={moment.title} title={moment.title} description={moment.description} />
-        ))}
-      </Section>
-
-      <Section columns={3} title="The canon everyone can trust" className="bg-graphite/30">
-        {canonDetails.map((item) => (
-          <Card key={item.title} title={item.title}>
-            <ul className="list-disc space-y-2 pl-5 text-sm text-neutral">
-              {item.content?.map((entry) => (
-                <li key={entry}>{entry}</li>
-              ))}
-            </ul>
-          </Card>
-        ))}
-      </Section>
-
-      <Section columns={3} title="Principles that keep us honest">
-        {principles.map((principle) => (
-          <Card key={principle.title} title={principle.title} description={principle.description} />
-        ))}
-      </Section>
-
-      <Section columns={3} title="Next steps" description="Pick the move that unlocks your next win.">
-        {nextSteps.map(({ title, description, cta }) => (
-          <Card key={title} title={title} description={description}>
-            {cta ? (
-              <CTAButton href={cta.href} variant={cta.variant}>
-                {cta.label}
-              </CTAButton>
-            ) : null}
-          </Card>
-        ))}
-      </Section>
+      <section>
+        <Container className="rounded-3xl border border-midnight/10 bg-midnight px-6 py-8 text-cloud shadow-card">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-semibold uppercase tracking-[0.26em]">
+            {proofStrip.map((item) => (
+              <span key={item} className="flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-cloud" aria-hidden="true" />
+                {item}
+              </span>
+            ))}
+          </div>
+        </Container>
+      </section>
 
       <section>
-        <Container className="rounded-3xl border border-midnight/10 bg-graphite px-8 py-12 text-center shadow-card">
-          <h2 className="text-2xl font-semibold text-midnight sm:text-3xl">Journal — earn trust, week by week</h2>
-          <p className="mt-4 text-base text-neutral">
-            Short, practical, and repeatable. Every post ends with a template or checklist.
-          </p>
-          <div className="mt-6 flex justify-center">
-            <CTAButton href="/newsletter">Sign up for the Journal</CTAButton>
+        <Container className="grid gap-6 rounded-3xl border border-midnight/10 bg-white px-8 py-12 shadow-card sm:grid-cols-2 lg:grid-cols-4">
+          <div className="sm:col-span-2 lg:col-span-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-neutral">SLAs we teach & certify</p>
+          </div>
+          {slaPromises.map((item) => (
+            <div key={item.label} className="flex flex-col gap-2 rounded-2xl bg-graphite/80 px-6 py-6 text-midnight">
+              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral">{item.label}</span>
+              <span className="text-3xl font-semibold text-midnight">{item.value}</span>
+            </div>
+          ))}
+        </Container>
+      </section>
+
+      <section>
+        <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-white px-8 py-12 text-center shadow-card">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Channel OS journey</p>
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-semibold uppercase tracking-[0.3em] text-midnight">
+            {journeyBand.map((step, index) => (
+              <div key={step} className="flex items-center gap-3">
+                <span>{step}</span>
+                {index < journeyBand.length - 1 ? (
+                  <span aria-hidden="true" className="text-neutral">
+                    →
+                  </span>
+                ) : null}
+              </div>
+            ))}
+          </div>
+          <div className="flex flex-wrap justify-center gap-3">
+            <CTAButton href="/standard" variant="secondary">
+              Discover the Standard v1.0
+            </CTAButton>
+            <CTAButton href="/community">Join the Community</CTAButton>
           </div>
         </Container>
       </section>

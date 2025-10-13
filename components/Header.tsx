@@ -8,9 +8,9 @@ import { Container } from "./Container";
 
 const navItems = [
   { href: "/standard", label: "Standard" },
+  { href: "/community", label: "Community" },
   { href: "/school", label: "School" },
   { href: "/academy", label: "Academy" },
-  { href: "/playbooks", label: "Playbooks" },
   { href: "/certified", label: "Certified" },
   { href: "/council", label: "Council" },
   { href: "/newsletter", label: "Journal" },
@@ -33,6 +33,7 @@ export function Header() {
           className="flex items-center gap-3 text-lg font-semibold text-midnight"
           aria-label="Channel OS home"
         >
+          <span className="sr-only">Channel OS logo — Where the Channel Learns, Works, and Wins.</span>
           <span
             aria-hidden="true"
             className="inline-flex h-3.5 w-3.5 rotate-45 items-center justify-center rounded-sm bg-midnight"

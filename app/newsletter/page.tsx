@@ -5,27 +5,26 @@ import { Embed } from "../../components/Embed";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
-  title: "Channel OS Journal",
+  title: "Channel OS Journal — Practical posts with templates",
   description:
-    "Subscribe to the Channel OS Journal for weekly templates, checklists, and stories that keep the ecosystem aligned.",
+    "Short, useful, repeatable insights for operators across Vendors, Distributors, and Partners.",
 };
 
-const series = [
-  "Integration Debt: the hidden channel tax (and how to remove it).",
-  "The 48-Hour Rule: designing a deal-reg SLA teams can actually meet.",
-  "Rebate Accuracy 99.7%: what it looks like in the real world.",
-  "From Classroom to Channel: how we build job-ready talent in 6 weeks.",
+const starterPosts = [
+  "Integration Debt: the hidden channel tax (and how to remove it)",
+  "The 48-Hour Rule: designing a deal-reg SLA teams can actually meet",
+  "Rebate Accuracy 99.7%: what it looks like in the real world",
 ];
 
-export default function NewsletterPage() {
+export default function JournalPage() {
   return (
-    <div className="flex flex-col gap-12">
+    <div className="flex flex-col gap-16 pb-24">
       <section className="border-b border-midnight/10 bg-graphite py-16 sm:py-20">
         <Container className="flex flex-col gap-6">
-          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-accentTeal">Journal</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral">Journal</span>
           <h1 className="text-3xl font-semibold text-midnight sm:text-4xl">Channel OS Journal</h1>
-          <p className="max-w-3xl text-base leading-relaxed text-neutral sm:text-lg">
-            Short, practical, repeatable. Every post ends with a template or checklist you can drop straight into your operating system.
+          <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
+            Short, useful, repeatable. Every post ends with a template or checklist.
           </p>
         </Container>
       </section>
@@ -39,10 +38,10 @@ export default function NewsletterPage() {
             <li>Inclusive: always name students, switchers, and practitioners.</li>
           </ul>
         </Card>
-        <Card title="Series starters">
+        <Card title="Starter posts">
           <ul className="list-disc space-y-2 pl-5 text-sm text-neutral">
-            {series.map((item) => (
-              <li key={item}>{item}</li>
+            {starterPosts.map((post) => (
+              <li key={post}>{post}</li>
             ))}
           </ul>
         </Card>
@@ -51,7 +50,7 @@ export default function NewsletterPage() {
       <Section title="Subscribe" description="Add the Channel OS Journal to your inbox." columns={1}>
         <Embed
           html={process.env.NEXT_PUBLIC_SUBSTACK_EMBED}
-          title="Substack embed"
+          title="Journal subscription form"
           description="Paste the Substack embed snippet in .env.local."
         />
       </Section>

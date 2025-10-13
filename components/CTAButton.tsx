@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ReactNode } from "react";
+import { MouseEvent, ReactNode } from "react";
 
 interface CTAButtonProps {
   href: string;
@@ -7,6 +7,7 @@ interface CTAButtonProps {
   children: ReactNode;
   className?: string;
   ariaLabel?: string;
+  onClick?: (event: MouseEvent<HTMLAnchorElement>) => void;
 }
 
 const baseStyles =
@@ -27,12 +28,14 @@ export function CTAButton({
   children,
   className = "",
   ariaLabel,
+  onClick,
 }: CTAButtonProps) {
   return (
     <Link
       href={href}
       className={`${baseStyles} ${variantStyles[variant]} ${className}`}
       aria-label={ariaLabel}
+      onClick={onClick}
     >
       {children}
     </Link>

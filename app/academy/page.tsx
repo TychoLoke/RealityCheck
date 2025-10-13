@@ -6,73 +6,63 @@ import { Embed } from "../../components/Embed";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
-  title: "Channel OS Academy",
-  description:
-    "Turn practitioners into operators. Progress through 101, 201, and 301 levels across sales, technical, services, finance, marketing, and leadership tracks.",
+  title: "Channel OS Academy — From tools to operating",
+  description: "101 → 201 → 301 pathways for Sales, Technical, Services/Ops, Finance/RevOps, Marketing, Leadership.",
 };
 
-const roleTracks = [
-  { title: "Sales", description: "Co-selling, co-marketing, and partner enablement orchestration." },
-  { title: "Technical (SE/Architect)", description: "Solution design, integrations, and lifecycle adoption playbooks." },
-  { title: "Services/Ops", description: "PSA, MSP, and managed services coordination across the channel." },
+const tracks = [
+  { title: "Sales", description: "Turn co-sell chaos into an orchestrated playbook." },
+  { title: "Technical (SE/Architect)", description: "Design integrations and adoption motions that stick." },
+  { title: "Services/Ops", description: "Run delivery, MSP, and PSA workflows with shared data." },
   { title: "Finance/RevOps", description: "Rebates, incentives, forecasting, and revenue integrity." },
-  { title: "Marketing", description: "Joint campaigns, MDF, and demand motions built on shared data." },
-  { title: "Leadership", description: "Governance, talent strategy, and executive alignment on SLAs." },
+  { title: "Marketing", description: "Map MDF, demand, and partner campaigns to measurable outcomes." },
+  { title: "Leadership", description: "Governance, talent density, and operating cadences that scale." },
 ];
 
 export default function AcademyPage() {
   return (
-    <div className="flex flex-col gap-12">
+    <div className="flex flex-col gap-16 pb-24">
       <section className="border-b border-midnight/10 bg-graphite py-16 sm:py-20">
         <Container className="flex flex-col gap-6">
-          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-accentTeal">Academy</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral">Academy</span>
           <h1 className="text-3xl font-semibold text-midnight sm:text-4xl">From “I know the tools” to “I run the channel.”</h1>
-          <p className="max-w-3xl text-base leading-relaxed text-neutral sm:text-lg">
-            Great operators don’t memorize platforms—they master systems. The Academy levels move practitioners from shared
-            language to orchestration to financial integrity and governance.
+          <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
+            Operators don’t memorize platforms—they master systems. 101 → 201 → 301 maps directly to how high-performing teams run: demand → deal → delivery → settlement, with governance that holds up in audits.
           </p>
           <div className="flex flex-wrap gap-4">
-            <CTAButton href="#waitlist" ariaLabel="Academy waitlist">
-              Join the Academy waitlist
+            <CTAButton href="#waitlist">Join the Academy waitlist</CTAButton>
+            <CTAButton href="#tracks" variant="secondary">
+              See the tracks
             </CTAButton>
-            <CTAButton href="#levels" variant="secondary">
-              See the 201/301 curricula
+            <CTAButton href="#waitlist" variant="ghost">
+              Book an intro session
             </CTAButton>
           </div>
         </Container>
       </section>
 
-      <Section
-        id="levels"
-        title="Levels"
-        description="Every cohort builds on the last: shared language, orchestrated execution, and audit-ready integrity."
-        columns={3}
-      >
-        <Card title="101 Foundations" description="Common language, clean handoffs." />
-        <Card title="201 Orchestration" description="End-to-end flow: demand → deal → delivery → settlement." />
-        <Card title="301 Financial Integrity & Governance" description="Calculation graphs, lineage, residency, audit artifacts." />
+      <Section title="Levels" description="Each level builds on the previous one to make the operating system muscle memory." columns={3}>
+        <Card title="101 Foundations" description="Language, handoffs, and the OS layers." />
+        <Card title="201 Orchestration" description="End-to-end execution with real artifacts and evidence." />
+        <Card title="301 Revenue Integrity & Governance" description="Calculation graphs, lineage, residency, audit pack." />
       </Section>
 
-      <Section title="Role tracks" description="Pick the track that maps to how you operate in the channel." columns={3}>
-        {roleTracks.map((track) => (
+      <Section id="tracks" title="Tracks" description="Pick the path that matches how you operate." columns={3} className="bg-graphite/60">
+        {tracks.map((track) => (
           <Card key={track.title} title={track.title} description={track.description} />
         ))}
       </Section>
 
       <Section
-        title="Certifications"
-        description="Badges that prove you can run the channel the modern way."
-        columns={2}
+        id="waitlist"
+        title="Book an intro session"
+        description="Meet the team behind the Academy, explore the curriculum, and map it to your operating goals."
+        columns={1}
       >
-        <Card title="People" description="CCO-F, CCO-S, CCO-T, CCO-R, CCO-G, CCO-L — validated through exams, labs, and peer reviews." />
-        <Card title="Organizations & adapters" description="Channel OS Certified tiers and Channel OS Compatible status benchmark SLAs, process conformance, and interoperability." />
-      </Section>
-
-      <Section id="waitlist" title="Waitlist" description="Reserve a seat for the next Academy intake." columns={1}>
         <Embed
           html={process.env.NEXT_PUBLIC_FORMS_ACADEMY_EMBED}
-          title="Academy waitlist form"
-          description="Add your Microsoft Forms or Tally embed to .env.local to enable signups."
+          title="Academy intro or waitlist form"
+          description="Drop in your booking or waitlist embed via .env.local."
         />
       </Section>
     </div>

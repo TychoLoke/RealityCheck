@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { FormError } from "./FormError";
 
 const allowedTags = new Set(["iframe", "script"]);
 const iframeAllowedAttrs = new Set([
@@ -100,6 +101,9 @@ export function Embed({ html, title, description }: EmbedProps) {
         <p className="font-semibold text-midnight">{title}</p>
         <p className="mt-2 text-neutral">Add your embed in .env.local to display this content.</p>
         {description ? <div className="mt-3 text-xs text-neutral/80">{description}</div> : null}
+        <div className="mt-4">
+          <FormError />
+        </div>
       </div>
     );
   }
