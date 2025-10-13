@@ -36,7 +36,7 @@ const successMetric = {
 
 export default function CertifiedPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24">
+    <div className="flex flex-col gap-16 pb-24 text-graphite">
       <Hero
         eyebrow="Certified"
         title="Badges that mean business."
@@ -51,7 +51,7 @@ export default function CertifiedPage() {
         title="People badges"
         description="Operators prove the work through exams, labs, and peer review."
         columns={3}
-        cta={{ label: "View exam guide", href: "#waitlist", variant: "secondary" }}
+        cta={{ label: "View exam guide", href: "#waitlist", variant: "primary" }}
       >
         <Card title="Badge roster">
           <ul className="list-disc space-y-2 pl-5 text-sm text-neutral">
@@ -69,8 +69,8 @@ export default function CertifiedPage() {
         title="Organization certification"
         description="Measured by SLA performance, process conformance, and skill density."
         columns={2}
-        className="bg-graphite/60"
-        cta={{ label: "Download the org scorecard", href: "#waitlist", variant: "secondary" }}
+        className="bg-midnight/70"
+        cta={{ label: "Download the org scorecard", href: "#waitlist", variant: "primary" }}
       >
         <Card title="Silver → Gold → Platinum" description="Scorecards publish SLA attainment, process coverage, and certified talent ratios." />
         <Card title="Evidence pack" description="Dual-run results, lineage proofs, and governance cadences show the work." />
@@ -81,27 +81,27 @@ export default function CertifiedPage() {
         title="Platform compatibility"
         description="Public conformance tests; multiple stacks can qualify; no pay-to-pass."
         columns={2}
-        cta={{ label: "Access the test suite", href: "#waitlist", variant: "secondary" }}
+        cta={{ label: "Access the test suite", href: "#waitlist", variant: "primary" }}
       >
         <Card title="Reference adapters" description="CRM, ERP, PSA, and incentive adapters that align to the canonical objects." />
         <Card title="Test once, publish results" description="Pass the public tests and share your badge. Operators can trust the integration before they buy." />
       </Section>
 
       <section>
-        <Container className="grid gap-8 rounded-3xl border border-midnight/10 bg-white px-8 py-12 shadow-card md:grid-cols-2">
+        <Container className="grid gap-8 rounded-3xl border border-graphite/20 bg-midnight/70 px-8 py-12 shadow-[0_24px_64px_-48px_rgba(6,9,18,0.85)] md:grid-cols-2">
           <div className="space-y-4">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">SLA pledge</p>
             <div className="grid gap-4 sm:grid-cols-2">
               {slaPledge.map((item) => (
-                <div key={item.label} className="rounded-2xl bg-graphite/60 p-4 text-center">
+                <div key={item.label} className="rounded-2xl border border-graphite/20 bg-midnight/60 p-4 text-center">
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-neutral">{item.label}</p>
-                  <p className="mt-2 text-2xl font-semibold text-midnight">{item.value}</p>
+                  <p className="mt-2 text-2xl font-semibold text-graphite">{item.value}</p>
                 </div>
               ))}
             </div>
           </div>
           <Card title={successMetric.title}>
-            <p className="text-2xl font-semibold text-midnight">{successMetric.metric}</p>
+            <p className="text-2xl font-semibold text-graphite">{successMetric.metric}</p>
             <p className="mt-3 text-sm text-neutral">{successMetric.detail}</p>
           </Card>
         </Container>

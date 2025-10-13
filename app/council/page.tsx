@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function CouncilPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24">
+    <div className="flex flex-col gap-16 pb-24 text-graphite">
       <Hero
         eyebrow="Council"
         title="One ecosystem, one table."
@@ -28,7 +28,7 @@ export default function CouncilPage() {
         title="Governance in practice"
         description="Checks and balances that keep Channel OS neutral, open, and accountable."
         columns={2}
-        cta={{ label: "Download the charter", href: "#apply", variant: "secondary" }}
+        cta={{ label: "Download the charter", href: "#apply", variant: "primary" }}
       >
         <Card title="Representation" description="Balanced seats across Vendors, Distributors, Partners/MSPs, and academia." />
         <Card title="One org = one vote" description="No single company controls the roadmap or the certifications." />
@@ -41,7 +41,7 @@ export default function CouncilPage() {
         title="Apply or submit an RFC"
         description="Tell us how you want to contribute to the Council."
         columns={1}
-        cta={{ label: "Book an intro", href: "#apply", variant: "secondary" }}
+        cta={{ label: "Book an intro", href: "#apply", variant: "primary" }}
       >
         <Embed
           html={process.env.NEXT_PUBLIC_FORMS_COUNCIL_EMBED}

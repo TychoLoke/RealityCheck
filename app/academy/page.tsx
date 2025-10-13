@@ -22,7 +22,7 @@ const tracks = [
 
 export default function AcademyPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24">
+    <div className="flex flex-col gap-16 pb-24 text-graphite">
       <Hero
         eyebrow="Academy"
         title="From “I know the tools” to “I run the channel.”"
@@ -37,7 +37,7 @@ export default function AcademyPage() {
         title="Levels"
         description="Each level builds on the previous one to make the operating system muscle memory."
         columns={3}
-        cta={{ label: "Download the syllabus", href: "#waitlist", variant: "secondary" }}
+        cta={{ label: "Download the syllabus", href: "#waitlist", variant: "primary" }}
       >
         <Card title="101 Foundations" description="Language, handoffs, and the OS layers." />
         <Card title="201 Orchestration" description="End-to-end execution with real artifacts and evidence." />
@@ -49,8 +49,8 @@ export default function AcademyPage() {
         title="Tracks"
         description="Pick the path that matches how you operate."
         columns={3}
-        className="bg-graphite/60"
-        cta={{ label: "Join the waitlist", href: "#waitlist", variant: "secondary" }}
+        className="bg-midnight/70"
+        cta={{ label: "Join the waitlist", href: "#waitlist", variant: "primary" }}
       >
         {tracks.map((track) => (
           <Card key={track.title} title={track.title} description={track.description} />
@@ -62,7 +62,7 @@ export default function AcademyPage() {
         title="Book an intro session"
         description="Meet the team behind the Academy, explore the curriculum, and map it to your operating goals."
         columns={1}
-        cta={{ label: "Get Academy updates", href: "#waitlist", variant: "secondary" }}
+        cta={{ label: "Get Academy updates", href: "#waitlist", variant: "primary" }}
       >
         <Embed
           html={process.env.NEXT_PUBLIC_FORMS_ACADEMY_EMBED}

@@ -15,13 +15,13 @@ const baseStyles =
 
 const variantStyles: Record<NonNullable<CTAButtonProps["variant"]>, string> = {
   primary:
-    "bg-accentBlue text-white shadow-lg shadow-midnight/25 hover:bg-midnight/90 focus-visible:outline-midnight",
+    "bg-graphite text-midnight shadow-lg shadow-midnight/40 transition hover:bg-graphite/90 focus-visible:outline-graphite",
   secondary:
-    "border border-neutral text-neutral hover:bg-neutral/10 focus-visible:outline-neutral",
+    "border border-neutral/60 text-neutral hover:border-neutral focus-visible:outline-neutral",
   ghost:
-    "text-midnight hover:text-neutral focus-visible:outline-neutral",
+    "text-neutral hover:text-graphite focus-visible:outline-neutral",
   inverted:
-    "border border-white/40 text-white hover:bg-white/10 focus-visible:outline-white",
+    "border border-graphite/40 text-graphite hover:bg-graphite/10 focus-visible:outline-graphite",
 };
 
 export function CTAButton({

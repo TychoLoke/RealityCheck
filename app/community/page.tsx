@@ -86,7 +86,7 @@ const guidelines = [
 
 export default function CommunityPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24">
+    <div className="flex flex-col gap-16 pb-24 text-graphite">
       <Hero
         eyebrow="Community"
         title="Where channel operators learn, work, and win together"
@@ -113,12 +113,12 @@ export default function CommunityPage() {
         title="Programs"
         description="Pick the lane that matches how you want to contribute to the network."
         columns={2}
-        className="bg-graphite/60"
-        cta={{ label: "View program guide", href: "/community", variant: "secondary" }}
+        className="bg-midnight/70"
+        cta={{ label: "View program guide", href: "/community", variant: "primary" }}
       >
         {programs.map((program) => (
           <Card key={program.title} title={program.title}>
-            <span className="inline-flex items-center rounded-full border border-midnight/10 bg-white/60 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-neutral">
+            <span className="inline-flex items-center rounded-full border border-graphite/30 bg-midnight/50 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-neutral">
               {program.badge}
             </span>
             <p className="mt-3 text-sm leading-relaxed text-neutral">{program.description}</p>
@@ -127,13 +127,13 @@ export default function CommunityPage() {
       </Section>
 
       <section id="sessions">
-        <Container className="flex flex-col gap-8 rounded-3xl border border-midnight/10 bg-white px-8 py-12 shadow-card">
+        <Container className="flex flex-col gap-8 rounded-3xl border border-graphite/20 bg-midnight/70 px-8 py-12 shadow-[0_24px_64px_-48px_rgba(6,9,18,0.85)]">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Upcoming sessions</p>
-              <h2 className="mt-2 text-2xl font-semibold text-midnight">Learn → Work → Win in the next two weeks</h2>
+              <h2 className="mt-2 text-2xl font-semibold text-graphite">Learn → Work → Win in the next two weeks</h2>
             </div>
-            <CTAButton href="/community" variant="secondary">
+            <CTAButton href="/community" variant="primary">
               See all sessions
             </CTAButton>
           </div>
@@ -149,7 +149,7 @@ export default function CommunityPage() {
         title="How we work"
         description="Neutral, evidence-first, and accountable to the SLAs we certify."
         columns={1}
-        cta={{ label: "Read the Standard v1.0", href: "/standard", variant: "secondary" }}
+        cta={{ label: "Read the Standard v1.0", href: "/standard", variant: "primary" }}
       >
         <Card title="Principles">
           <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-neutral">
@@ -164,8 +164,8 @@ export default function CommunityPage() {
         title="Join flow"
         description="Clear steps so you can plug in without friction."
         columns={1}
-        className="bg-graphite/60"
-        cta={{ label: "Submit your application", href: "/apply", variant: "secondary" }}
+        className="bg-midnight/70"
+        cta={{ label: "Submit your application", href: "/apply", variant: "primary" }}
       >
         <Card title="Four steps">
           <ol className="list-decimal space-y-2 pl-5 text-sm leading-relaxed text-neutral">
@@ -177,9 +177,9 @@ export default function CommunityPage() {
       </Section>
 
       <section>
-        <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-midnight px-8 py-12 text-center text-cloud shadow-card">
+        <Container className="flex flex-col gap-6 rounded-3xl border border-graphite/20 bg-gradient-to-br from-midnight via-[#101a31] to-midnight px-8 py-12 text-center text-graphite shadow-[0_24px_64px_-48px_rgba(6,9,18,0.9)]">
           <h2 className="text-2xl font-semibold sm:text-3xl">Ready to plug into the network?</h2>
-          <p className="max-w-2xl text-base text-cloud/80">
+          <p className="max-w-2xl text-base text-neutral">
             Apply, pick your study group, and you’ll have your first live session scheduled within the week.
           </p>
           <CTAButton href="/apply">Join the Community</CTAButton>
@@ -190,7 +190,7 @@ export default function CommunityPage() {
         title="Community guidelines"
         description="We keep it practical and respectful so everyone can work in the open."
         columns={2}
-        cta={{ label: "Submit a community idea", href: "/community", variant: "secondary" }}
+        cta={{ label: "Submit a community idea", href: "/community", variant: "primary" }}
       >
         <Card title="How to show up">
           <ul className="list-disc space-y-2 pl-5 text-sm text-neutral">

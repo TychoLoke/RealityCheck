@@ -44,7 +44,7 @@ const videoEmbeds = [
 
 export default function SchoolPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24">
+    <div className="flex flex-col gap-16 pb-24 text-graphite">
       <Hero
         eyebrow="School"
         title="Start where careers begin: Channel 101"
@@ -56,11 +56,11 @@ export default function SchoolPage() {
       />
 
       <section>
-        <Container className="grid gap-4 rounded-3xl border border-midnight/10 bg-white px-8 py-10 shadow-card sm:grid-cols-3">
+        <Container className="grid gap-4 rounded-3xl border border-graphite/20 bg-midnight/70 px-8 py-10 shadow-[0_24px_64px_-48px_rgba(6,9,18,0.85)] sm:grid-cols-3">
           {highlights.map((item) => (
-            <div key={item.label} className="rounded-2xl bg-graphite/60 p-5 text-center">
+            <div key={item.label} className="rounded-2xl border border-graphite/20 bg-midnight/60 p-5 text-center">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral">{item.label}</p>
-              <p className="mt-2 text-xl font-semibold text-midnight">{item.value}</p>
+              <p className="mt-2 text-xl font-semibold text-graphite">{item.value}</p>
             </div>
           ))}
         </Container>
@@ -70,7 +70,7 @@ export default function SchoolPage() {
         title="What you’ll learn"
         description="Three modules that make the channel legible."
         columns={3}
-        cta={{ label: "Start Channel 101", href: "#watch", variant: "secondary" }}
+        cta={{ label: "Start Channel 101", href: "#watch", variant: "primary" }}
       >
         {modules.map((module) => (
           <Card key={module.title} title={module.title} description={module.description} />
@@ -81,7 +81,7 @@ export default function SchoolPage() {
         title="Outcomes"
         description="Everything points to a job-ready operating habit."
         columns={3}
-        cta={{ label: "See certification path", href: "/certified" }}
+        cta={{ label: "See certification path", href: "/certified", variant: "primary" }}
       >
         {outcomes.map((outcome) => (
           <Card key={outcome.title} title={outcome.title} description={outcome.description} />
@@ -93,8 +93,8 @@ export default function SchoolPage() {
         title="Channel 101 (Free)"
         description="Watch the core lessons, then join a live study group to practice with peers."
         columns={3}
-        className="bg-graphite/60"
-        cta={{ label: "Join a study group", href: "/community", variant: "secondary" }}
+        className="bg-midnight/70"
+        cta={{ label: "Join a study group", href: "/community", variant: "primary" }}
       >
         {videoEmbeds.map((embed, index) => (
           <Embed key={index} html={embed} title={`Channel 101 Video ${index + 1}`} />
@@ -105,7 +105,7 @@ export default function SchoolPage() {
         title="FAQ"
         description="Quick answers for new operators."
         columns={3}
-        cta={{ label: "Ask in the community", href: "/community", variant: "secondary" }}
+        cta={{ label: "Ask in the community", href: "/community", variant: "primary" }}
       >
         {faqs.map((faq) => (
           <Card key={faq.question} title={faq.question} description={faq.answer} />
@@ -116,7 +116,7 @@ export default function SchoolPage() {
         title="Apply"
         description="Tell us where you’re starting and we’ll match you to the next cohort."
         columns={1}
-        cta={{ label: "Book an intro", href: "/apply", variant: "secondary" }}
+        cta={{ label: "Book an intro", href: "/apply", variant: "primary" }}
       >
         <Embed
           html={process.env.NEXT_PUBLIC_FORMS_SCHOOL_EMBED}

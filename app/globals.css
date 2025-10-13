@@ -19,13 +19,14 @@ html {
 }
 
 body {
-  background-color: var(--color-cloud);
-  color: var(--color-midnight);
+  background: radial-gradient(circle at top, rgba(138, 147, 166, 0.08), transparent 55%),
+    linear-gradient(180deg, rgba(11, 14, 26, 0.92), rgba(11, 14, 26, 1));
+  color: var(--color-graphite);
   min-height: 100vh;
 }
 
 a {
-  color: var(--color-midnight);
+  color: var(--color-graphite);
 }
 
 a:hover {
@@ -33,7 +34,7 @@ a:hover {
 }
 
 :focus-visible {
-  outline: 3px solid var(--color-aqua-teal);
+  outline: 3px solid var(--color-graphite);
   outline-offset: 3px;
 }
 

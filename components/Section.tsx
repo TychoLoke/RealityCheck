@@ -34,10 +34,10 @@ export function Section({
 }: SectionProps) {
   const gridClasses = columnsClassMap[columns];
   const isInverted = variant === "inverted";
-  const titleClass = isInverted ? "text-cloud" : "text-midnight";
-  const descriptionClass = isInverted ? "text-cloud/80" : "text-neutral";
-  const eyebrowClass = isInverted ? "text-signalAmber/80" : "text-accentTeal";
-  const containerTextClass = isInverted ? "text-cloud" : "";
+  const titleClass = isInverted ? "text-midnight" : "text-graphite";
+  const descriptionClass = isInverted ? "text-midnight/80" : "text-neutral";
+  const eyebrowClass = isInverted ? "text-neutral" : "text-neutral";
+  const containerTextClass = isInverted ? "text-midnight" : "text-graphite";
 
   return (
     <section id={id} className={`py-16 sm:py-20 ${className}`}>

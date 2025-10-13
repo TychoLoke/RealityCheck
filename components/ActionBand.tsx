@@ -9,10 +9,15 @@ const actions = [
 
 export function ActionBand() {
   return (
-    <div className="border-b border-midnight/5 bg-white/80 backdrop-blur">
+    <div className="border-b border-graphite/10 bg-midnight/80 backdrop-blur">
       <Container className="flex flex-wrap items-center justify-center gap-3 py-3 text-xs font-semibold uppercase tracking-[0.3em] text-neutral">
         {actions.map((action) => (
-          <CTAButton key={action.href} href={action.href} variant="ghost" className="px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-midnight hover:text-neutral">
+          <CTAButton
+            key={action.href}
+            href={action.href}
+            variant="ghost"
+            className="px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-neutral hover:text-graphite"
+          >
             {action.label}
           </CTAButton>
         ))}

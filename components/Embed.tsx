@@ -97,8 +97,8 @@ export function Embed({ html, title, description }: EmbedProps) {
 
   if (!sanitized) {
     return (
-      <div className="rounded-2xl border border-dashed border-midnight/15 bg-white p-6 text-sm text-neutral">
-        <p className="font-semibold text-midnight">{title}</p>
+      <div className="rounded-2xl border border-dashed border-graphite/25 bg-midnight/70 p-6 text-sm text-neutral">
+        <p className="font-semibold text-graphite">{title}</p>
         <p className="mt-2 text-neutral">Add your embed in .env.local to display this content.</p>
         {description ? <div className="mt-3 text-xs text-neutral/80">{description}</div> : null}
         <div className="mt-4">
@@ -109,7 +109,7 @@ export function Embed({ html, title, description }: EmbedProps) {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-midnight/10 bg-white p-2 shadow-card">
+    <div className="overflow-hidden rounded-2xl border border-graphite/20 bg-midnight/70 p-2 shadow-[0_24px_64px_-48px_rgba(6,9,18,0.85)]">
       <div
         className="embed-html [&>iframe]:h-[360px] [&>iframe]:w-full [&>iframe]:rounded-xl [&>iframe]:border-0"
         dangerouslySetInnerHTML={{ __html: sanitized }}

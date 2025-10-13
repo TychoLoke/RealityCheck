@@ -231,7 +231,7 @@ const journeySteps = [
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-16 bg-midnight/5 pb-24">
+    <div className="flex flex-col gap-16 pb-24 text-graphite">
       <Hero
         eyebrow="Launches January 1, 2026"
         title="Channel OS is almost here"
@@ -245,12 +245,12 @@ export default function HomePage() {
       />
 
       <section className="-mt-10">
-        <Container className="relative grid gap-10 overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-br from-[#1a2744] via-[#0b0e1a] to-[#131d33] px-8 py-12 text-cloud shadow-[0_32px_80px_-48px_rgba(11,14,26,0.9)]">
-          <span className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.12),transparent_65%)]" />
+        <Container className="relative grid gap-10 overflow-hidden rounded-3xl border border-graphite/20 bg-gradient-to-br from-midnight via-[#10192f] to-[#060912] px-8 py-12 text-graphite shadow-[0_32px_80px_-48px_rgba(6,9,18,0.9)]">
+          <span className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(138,147,166,0.18),transparent_65%)]" />
           <div className="space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-signalAmber/80">Launch status</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Launch status</p>
             <h2 className="text-2xl font-semibold sm:text-3xl">We go live on January 1, 2026</h2>
-            <p className="max-w-3xl text-base leading-relaxed text-cloud/80 sm:text-lg">
+            <p className="max-w-3xl text-base leading-relaxed text-neutral sm:text-lg">
               The OS is in active build with our community of operators. Explore the milestones below, then claim your seat so you’re part of the countdown and launch broadcast.
             </p>
             <CTAButton href="/community" variant="inverted">
@@ -260,8 +260,8 @@ export default function HomePage() {
           <div className="grid gap-4 md:grid-cols-3">
             {launchPulse.map((item) => (
               <Card key={item.title} title={item.title} description={item.description} variant="inverted">
-                <p className="mt-3 text-xs uppercase tracking-[0.28em] text-cloud/60">What to know</p>
-                <p className="mt-1 text-sm leading-relaxed text-cloud/80">{item.detail}</p>
+                <p className="mt-3 text-xs uppercase tracking-[0.28em] text-midnight/60">What to know</p>
+                <p className="mt-1 text-sm leading-relaxed text-midnight/80">{item.detail}</p>
               </Card>
             ))}
           </div>
@@ -272,8 +272,8 @@ export default function HomePage() {
         eyebrow="Launch day unlocks"
         title="What you’ll step into on January 1"
         description="Channel OS 1.0 ships with the core framework, scorecards, and community rituals ready for every operator."
-        cta={{ label: "See the launch framework", href: "/standard", variant: "inverted" }}
-        className="bg-midnight"
+        cta={{ label: "See the launch framework", href: "/standard", variant: "primary" }}
+        className="bg-graphite text-midnight"
         variant="inverted"
       >
         {launchHighlights.map((item) => (
@@ -295,18 +295,18 @@ export default function HomePage() {
       <InteractiveFocus areas={focusAreas} />
 
       <section>
-        <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-gradient-to-br from-white via-graphite to-white px-8 py-12 shadow-card">
+        <Container className="flex flex-col gap-6 rounded-3xl border border-graphite/20 bg-gradient-to-br from-midnight/80 via-[#101a31] to-midnight/80 px-8 py-12 shadow-[0_24px_64px_-48px_rgba(6,9,18,0.85)]">
           <div className="grid gap-4 md:grid-cols-4">
             {workStack.map((layer) => (
               <Card
                 key={layer.title}
                 title={layer.title}
                 description={layer.description}
-                className="!bg-graphite/80 !border-midnight/10"
+                className="!bg-midnight/60 !border-graphite/30"
               />
             ))}
           </div>
-          <CTAButton href="/standard" variant="secondary">
+          <CTAButton href="/standard" variant="primary">
             Read the Standard v1.0
           </CTAButton>
         </Container>
@@ -317,12 +317,12 @@ export default function HomePage() {
         title="Work the same way"
         description="Operating promises become SLAs you can measure."
         columns={4}
-        className="bg-gradient-to-r from-graphite via-white to-graphite"
-        cta={{ label: "Explore the Standard", href: "/standard", variant: "secondary" }}
+        className="bg-gradient-to-r from-midnight/80 via-[#101a31] to-midnight/80"
+        cta={{ label: "Explore the Standard", href: "/standard", variant: "primary" }}
       >
         {slaPromises.map((item) => (
           <Card key={item.label} title={item.label}>
-            <p className="text-2xl font-semibold text-midnight">{item.value}</p>
+            <p className="text-2xl font-semibold text-graphite">{item.value}</p>
             <p className="mt-2 text-sm text-neutral">Certified teams sign and publish these targets.</p>
           </Card>
         ))}
@@ -344,8 +344,8 @@ export default function HomePage() {
         title="A living operating community"
         description="Always-on programs that keep the OS current."
         columns={4}
-        className="bg-gradient-to-r from-[#eef1ff] via-[#d9e2ff] to-[#eef1ff]"
-        cta={{ label: "Join the Community", href: "/community", variant: "secondary" }}
+        className="bg-gradient-to-r from-midnight/70 via-[#0f182d] to-midnight/70"
+        cta={{ label: "Join the Community", href: "/community", variant: "primary" }}
       >
         {communitySnapshot.map((item) => (
           <Card key={item.title} title={item.title} description={item.description} />
@@ -353,14 +353,14 @@ export default function HomePage() {
       </Section>
 
       <section>
-        <Container className="grid gap-10 rounded-3xl border border-midnight/10 bg-gradient-to-br from-white via-[#e4ebff] to-white px-8 py-12 shadow-card md:grid-cols-2">
+        <Container className="grid gap-10 rounded-3xl border border-graphite/20 bg-gradient-to-br from-midnight/80 via-[#101a31] to-midnight/80 px-8 py-12 shadow-[0_24px_64px_-48px_rgba(6,9,18,0.85)] md:grid-cols-2">
           <div className="space-y-6">
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Community signals</p>
             <div className="grid gap-4 sm:grid-cols-3">
               {communitySignals.map((signal) => (
-                <div key={signal.label} className="rounded-2xl bg-graphite/60 p-5 text-center">
+                <div key={signal.label} className="rounded-2xl border border-graphite/20 bg-midnight/60 p-5 text-center">
                   <p className="text-xs font-semibold uppercase tracking-[0.28em] text-neutral">{signal.label}</p>
-                  <p className="mt-2 text-2xl font-semibold text-midnight">{signal.value}</p>
+                  <p className="mt-2 text-2xl font-semibold text-graphite">{signal.value}</p>
                 </div>
               ))}
             </div>
@@ -369,12 +369,12 @@ export default function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Voices from the network</p>
             <div className="space-y-3 text-sm leading-relaxed text-neutral">
               {quotes.map((quote) => (
-                <p key={quote} className="rounded-2xl border border-midnight/10 bg-graphite/40 p-4 italic text-midnight">
+                <p key={quote} className="rounded-2xl border border-graphite/20 bg-midnight/60 p-4 italic text-graphite">
                   {quote}
                 </p>
               ))}
             </div>
-            <CTAButton href="/community" variant="secondary">
+            <CTAButton href="/community" variant="primary">
               Add your voice in the community
             </CTAButton>
           </div>
