@@ -20,10 +20,10 @@ const series = [
 export default function NewsletterPage() {
   return (
     <div className="flex flex-col gap-12">
-      <section className="border-b border-white/10 bg-graphite/70 py-16 sm:py-20">
+      <section className="border-b border-midnight/10 bg-graphite py-16 sm:py-20">
         <Container className="flex flex-col gap-6">
           <span className="text-xs font-semibold uppercase tracking-[0.24em] text-accentTeal">Journal</span>
-          <h1 className="text-3xl font-semibold text-white sm:text-4xl">Channel OS Journal</h1>
+          <h1 className="text-3xl font-semibold text-midnight sm:text-4xl">Channel OS Journal</h1>
           <p className="max-w-3xl text-base leading-relaxed text-neutral sm:text-lg">
             Short, practical, repeatable. Every post ends with a template or checklist you can drop straight into your operating system.
           </p>

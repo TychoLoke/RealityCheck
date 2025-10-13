@@ -14,11 +14,11 @@ const baseStyles =
 
 const variantStyles: Record<NonNullable<CTAButtonProps["variant"]>, string> = {
   primary:
-    "bg-accentBlue text-white shadow-lg shadow-accentBlue/40 hover:bg-accentBlue/90 focus-visible:outline-accentTeal",
+    "bg-accentBlue text-white shadow-lg shadow-midnight/25 hover:bg-midnight/90 focus-visible:outline-midnight",
   secondary:
-    "border border-accentTeal text-accentTeal hover:bg-accentTeal/10 focus-visible:outline-accentTeal",
+    "border border-neutral text-neutral hover:bg-neutral/10 focus-visible:outline-neutral",
   ghost:
-    "text-white hover:text-accentTeal focus-visible:outline-accentTeal",
+    "text-midnight hover:text-neutral focus-visible:outline-neutral",
 };
 
 export function CTAButton({

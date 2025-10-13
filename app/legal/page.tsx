@@ -11,9 +11,9 @@ export const metadata: Metadata = {
 export default function LegalPage() {
   return (
     <div className="flex flex-col gap-12">
-      <section className="border-b border-white/10 bg-white/5 py-16 sm:py-20">
+      <section className="border-b border-midnight/10 bg-graphite py-16 sm:py-20">
         <Container className="flex flex-col gap-4">
-          <h1 className="text-3xl font-semibold text-white sm:text-4xl">Privacy & Terms (Plain Language)</h1>
+          <h1 className="text-3xl font-semibold text-midnight sm:text-4xl">Privacy & Terms (Plain Language)</h1>
         </Container>
       </section>
 

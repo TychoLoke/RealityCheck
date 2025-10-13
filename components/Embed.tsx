@@ -96,8 +96,8 @@ export function Embed({ html, title, description }: EmbedProps) {
 
   if (!sanitized) {
     return (
-      <div className="rounded-2xl border border-dashed border-white/20 bg-white/5 p-6 text-sm text-neutral">
-        <p className="font-semibold text-white">{title}</p>
+      <div className="rounded-2xl border border-dashed border-midnight/15 bg-white p-6 text-sm text-neutral">
+        <p className="font-semibold text-midnight">{title}</p>
         <p className="mt-2 text-neutral">Add your embed in .env.local to display this content.</p>
         {description ? <div className="mt-3 text-xs text-neutral/80">{description}</div> : null}
       </div>
@@ -105,7 +105,7 @@ export function Embed({ html, title, description }: EmbedProps) {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-white/10 bg-black/30 p-2">
+    <div className="overflow-hidden rounded-2xl border border-midnight/10 bg-white p-2 shadow-card">
       <div
         className="embed-html [&>iframe]:h-[360px] [&>iframe]:w-full [&>iframe]:rounded-xl [&>iframe]:border-0"
         dangerouslySetInnerHTML={{ __html: sanitized }}

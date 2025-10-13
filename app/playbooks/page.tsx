@@ -20,9 +20,9 @@ const playbooks = [
 export default function PlaybooksPage() {
   return (
     <div className="flex flex-col gap-12">
-      <section className="border-b border-white/10 bg-white/5 py-16 sm:py-20">
+      <section className="border-b border-midnight/10 bg-graphite py-16 sm:py-20">
         <Container className="flex flex-col gap-6">
-          <h1 className="text-3xl font-semibold text-white sm:text-4xl">Playbooks & SOPs</h1>
+          <h1 className="text-3xl font-semibold text-midnight sm:text-4xl">Playbooks & SOPs</h1>
           <p className="max-w-3xl text-base leading-relaxed text-neutral sm:text-lg">
             Cards (Coming soon): Deal-to-Settlement, Distributor Command Center, Rebate Variance, PSA Bridge, Change Management.
           </p>
@@ -36,8 +36,8 @@ export default function PlaybooksPage() {
       </Section>
 
       <section className="pb-20">
-        <Container className="flex flex-col items-center gap-4 rounded-3xl border border-white/10 bg-black/40 px-8 py-10 text-center shadow-card">
-          <h2 className="text-2xl font-semibold text-white">Subscribe for updates</h2>
+        <Container className="flex flex-col items-center gap-4 rounded-3xl border border-midnight/10 bg-graphite px-8 py-10 text-center shadow-card">
+          <h2 className="text-2xl font-semibold text-midnight">Subscribe for updates</h2>
           <p className="max-w-2xl text-sm text-neutral">
             Get notified when new playbooks and SOPs are released.
           </p>
