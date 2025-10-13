@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Card } from "../../components/Card";
 import { Container } from "../../components/Container";
 import { CTAButton } from "../../components/CTAButton";
+import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
@@ -11,44 +12,67 @@ export const metadata: Metadata = {
 
 const communityOffers = [
   {
-    title: "Study groups (6 weeks)",
-    description: "Orchestration, revenue integrity, governance, and careers led by operators who work across Vendors, Distributors, and Partners.",
+    title: "Study groups",
+    description: "Six-week cohorts with operators who practice V-D-P handoffs daily.",
   },
   {
     title: "Live sessions",
-    description: "AMAs, teardowns, and office hours with operators across V-D-P so you see the work behind the slides.",
+    description: "Weekly AMAs, teardowns, and Office Hours that unpack the OS in real time.",
   },
   {
     title: "Templates & playbooks",
-    description: "Copy-ready checklists you can use tomorrow to unblock approvals, rebates, and co-sell motions.",
+    description: "Checklists, calculators, and governance packs to plug straight into your org.",
   },
   {
     title: "Recognition",
-    description: "Founding Member, Ambassador, and Champion badges that make contribution visible.",
+    description: "Badges for Founding Members, Ambassadors, and Champions—visible progress.",
   },
   {
     title: "Opportunities",
-    description: "Jobs board, cohort projects, and case spotlights that match talent to real operating gaps.",
+    description: "Jobs, cohort projects, and showcase slots that move careers forward.",
   },
 ];
 
 const programs = [
   {
     title: "Founding Members",
-    description: "First 200 members. Early badge, directory listing, and priority invites to workshops and pilots.",
+    badge: "Founding",
+    description: "First 200 operators. Early badge, directory listing, pilot invites.",
   },
   {
     title: "Ambassadors",
-    description: "Host one session per month to earn the Ambassador badge and Channel OS Summit stage slots.",
+    badge: "Ambassador",
+    description: "Host one session per month. Earn the badge and Summit stage time.",
   },
   {
     title: "Champions",
-    description: "Org leads who run an internal study group and earn Champion status for their company.",
+    badge: "Champion",
+    description: "Run an internal study group and represent your org in public scorecards.",
   },
   {
     title: "Local chapters",
-    description: "Starting in Deurne—meetups and pop-up workshops that bring the playbooks into the room.",
+    badge: "Deurne pilot",
+    description: "Meetups and pop-up workshops starting in Deurne—bring the OS offline.",
   },
+];
+
+const sessions = [
+  { title: "Revenue Integrity Lab", date: "Apr 18", focus: "Variance reconciliation walk-through" },
+  { title: "Partner Onboarding Sprint", date: "Apr 23", focus: "90-day enablement blueprint" },
+  { title: "Ambassador Roundtable", date: "Apr 30", focus: "How to run your first study group" },
+];
+
+const howWeWork = [
+  "Vendor-neutral discussions—no sales pitches.",
+  "Evidence-first: approvals ≤ 48h, accuracy ≥ 99.7%, freshness ≤ 24h, conflict ≤ 7 days.",
+  "Every session produces a reusable artifact (template, checklist, or decision log).",
+];
+
+const joinFlowSteps = [
+  "Apply with your operating focus.",
+  "Get matched to a study group in under 48 hours.",
+  "Attend your first live session and meet your cohort.",
+  "Earn your first badge by sharing an artifact.",
 ];
 
 const guidelines = [
@@ -63,29 +87,21 @@ const guidelines = [
 export default function CommunityPage() {
   return (
     <div className="flex flex-col gap-16 pb-24">
-      <section className="border-b border-midnight/10 bg-graphite py-16 sm:py-20">
-        <Container className="flex flex-col gap-6">
-          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral">Community</span>
-          <h1 className="text-3xl font-semibold text-midnight sm:text-4xl">The Channel OS Community</h1>
-          <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
-            Learn together, work together, win together. Channel OS brings the channel into one shared practice with people who run the plays every day.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <CTAButton href="/apply">Join the Community</CTAButton>
-            <CTAButton href="#sessions" variant="secondary">
-              See upcoming sessions
-            </CTAButton>
-            <CTAButton href="#programs" variant="ghost">
-              Become an Ambassador
-            </CTAButton>
-          </div>
-        </Container>
-      </section>
+      <Hero
+        eyebrow="Community"
+        title="Where channel operators learn, work, and win together"
+        description="Study groups, live sessions, and badges keep the Channel OS alive between releases."
+        primaryCta={{ label: "Join the Community", href: "/apply" }}
+        secondaryCta={{ label: "See upcoming sessions", href: "#sessions" }}
+        tertiaryCta={{ label: "Become an Ambassador", href: "#programs" }}
+        proofPoints={["Study groups", "Live labs", "Badges"]}
+      />
 
       <Section
         title="What you get"
         description="Everything connects back to the operating system we share across Vendors, Distributors, and Partners."
         columns={3}
+        cta={{ label: "Apply now", href: "/apply" }}
       >
         {communityOffers.map((item) => (
           <Card key={item.title} title={item.title} description={item.description} />
@@ -98,50 +114,84 @@ export default function CommunityPage() {
         description="Pick the lane that matches how you want to contribute to the network."
         columns={2}
         className="bg-graphite/60"
+        cta={{ label: "View program guide", href: "/community", variant: "secondary" }}
       >
         {programs.map((program) => (
-          <Card key={program.title} title={program.title} description={program.description} />
+          <Card key={program.title} title={program.title}>
+            <span className="inline-flex items-center rounded-full border border-midnight/10 bg-white/60 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-neutral">
+              {program.badge}
+            </span>
+            <p className="mt-3 text-sm leading-relaxed text-neutral">{program.description}</p>
+          </Card>
         ))}
       </Section>
 
-      <section>
-        <Container className="grid gap-8 rounded-3xl border border-midnight/10 bg-white px-8 py-12 shadow-card md:grid-cols-2">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-neutral">How we work</p>
-            <h2 className="mt-4 text-2xl font-semibold text-midnight">Vendor-neutral, tool-agnostic, and open.</h2>
-            <p className="mt-4 text-base leading-relaxed text-neutral">
-              We hold ourselves to practical SLAs: approval ≤ 48h, accuracy ≥ 99.7%, freshness ≤ 24h, conflict ≤ 7 days. Every session, template, and cohort is built to make those numbers real.
-            </p>
+      <section id="sessions">
+        <Container className="flex flex-col gap-8 rounded-3xl border border-midnight/10 bg-white px-8 py-12 shadow-card">
+          <div className="flex flex-wrap items-center justify-between gap-4">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Upcoming sessions</p>
+              <h2 className="mt-2 text-2xl font-semibold text-midnight">Learn → Work → Win in the next two weeks</h2>
+            </div>
+            <CTAButton href="/community" variant="secondary">
+              See all sessions
+            </CTAButton>
           </div>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-neutral">Join flow</p>
-            <ol className="mt-4 space-y-3 text-sm leading-relaxed text-neutral">
-              <li><strong className="text-midnight">Apply</strong> → tell us how you operate in the channel.</li>
-              <li><strong className="text-midnight">Welcome email</strong> → receive your access guide.</li>
-              <li><strong className="text-midnight">Pick a study group</strong> → match your lowest score to the right path.</li>
-              <li><strong className="text-midnight">Attend your first live</strong> → meet the operators behind the playbooks.</li>
-              <li><strong className="text-midnight">Earn your first badge</strong> → make your contribution visible.</li>
-            </ol>
+          <div className="grid gap-4 md:grid-cols-3">
+            {sessions.map((session) => (
+              <Card key={session.title} title={`${session.date} • ${session.title}`} description={session.focus} />
+            ))}
           </div>
         </Container>
       </section>
 
-      <section id="sessions">
-        <Container className="flex flex-col items-center gap-6 rounded-3xl border border-midnight/10 bg-midnight px-8 py-12 text-center text-cloud shadow-card">
+      <Section
+        title="How we work"
+        description="Neutral, evidence-first, and accountable to the SLAs we certify."
+        columns={1}
+        cta={{ label: "Read the Standard v1.0", href: "/standard", variant: "secondary" }}
+      >
+        <Card title="Principles">
+          <ul className="list-disc space-y-2 pl-5 text-sm leading-relaxed text-neutral">
+            {howWeWork.map((item) => (
+              <li key={item}>{item}</li>
+            ))}
+          </ul>
+        </Card>
+      </Section>
+
+      <Section
+        title="Join flow"
+        description="Clear steps so you can plug in without friction."
+        columns={1}
+        className="bg-graphite/60"
+        cta={{ label: "Submit your application", href: "/apply", variant: "secondary" }}
+      >
+        <Card title="Four steps">
+          <ol className="list-decimal space-y-2 pl-5 text-sm leading-relaxed text-neutral">
+            {joinFlowSteps.map((step) => (
+              <li key={step}>{step}</li>
+            ))}
+          </ol>
+        </Card>
+      </Section>
+
+      <section>
+        <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-midnight px-8 py-12 text-center text-cloud shadow-card">
           <h2 className="text-2xl font-semibold sm:text-3xl">Ready to plug into the network?</h2>
           <p className="max-w-2xl text-base text-cloud/80">
             Apply, pick your study group, and you’ll have your first live session scheduled within the week.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <CTAButton href="/apply">Join the Community</CTAButton>
-            <CTAButton href="/academy" variant="secondary">
-              Explore the Academy
-            </CTAButton>
-          </div>
+          <CTAButton href="/apply">Join the Community</CTAButton>
         </Container>
       </section>
 
-      <Section title="Community guidelines" description="We keep it practical and respectful so everyone can work in the open." columns={2}>
+      <Section
+        title="Community guidelines"
+        description="We keep it practical and respectful so everyone can work in the open."
+        columns={2}
+        cta={{ label: "Submit a community idea", href: "/community", variant: "secondary" }}
+      >
         <Card title="How to show up">
           <ul className="list-disc space-y-2 pl-5 text-sm text-neutral">
             {guidelines.slice(0, 3).map((item) => (

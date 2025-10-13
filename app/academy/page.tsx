@@ -3,6 +3,7 @@ import { Card } from "../../components/Card";
 import { Container } from "../../components/Container";
 import { CTAButton } from "../../components/CTAButton";
 import { Embed } from "../../components/Embed";
+import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
@@ -22,32 +23,35 @@ const tracks = [
 export default function AcademyPage() {
   return (
     <div className="flex flex-col gap-16 pb-24">
-      <section className="border-b border-midnight/10 bg-graphite py-16 sm:py-20">
-        <Container className="flex flex-col gap-6">
-          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral">Academy</span>
-          <h1 className="text-3xl font-semibold text-midnight sm:text-4xl">From “I know the tools” to “I run the channel.”</h1>
-          <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
-            Operators don’t memorize platforms—they master systems. 101 → 201 → 301 maps directly to how high-performing teams run: demand → deal → delivery → settlement, with governance that holds up in audits.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <CTAButton href="#waitlist">Join the Academy waitlist</CTAButton>
-            <CTAButton href="#tracks" variant="secondary">
-              See the tracks
-            </CTAButton>
-            <CTAButton href="#waitlist" variant="ghost">
-              Book an intro session
-            </CTAButton>
-          </div>
-        </Container>
-      </section>
+      <Hero
+        eyebrow="Academy"
+        title="From “I know the tools” to “I run the channel.”"
+        description="Level up from foundations to leadership with 101 → 201 → 301 tracks that match how real channel teams operate."
+        primaryCta={{ label: "Join the waitlist", href: "#waitlist" }}
+        secondaryCta={{ label: "See the tracks", href: "#tracks" }}
+        tertiaryCta={{ label: "Book an intro", href: "#waitlist" }}
+        proofPoints={["Sales", "Technical", "Services/Ops", "Leadership"]}
+      />
 
-      <Section title="Levels" description="Each level builds on the previous one to make the operating system muscle memory." columns={3}>
+      <Section
+        title="Levels"
+        description="Each level builds on the previous one to make the operating system muscle memory."
+        columns={3}
+        cta={{ label: "Download the syllabus", href: "#waitlist", variant: "secondary" }}
+      >
         <Card title="101 Foundations" description="Language, handoffs, and the OS layers." />
         <Card title="201 Orchestration" description="End-to-end execution with real artifacts and evidence." />
         <Card title="301 Revenue Integrity & Governance" description="Calculation graphs, lineage, residency, audit pack." />
       </Section>
 
-      <Section id="tracks" title="Tracks" description="Pick the path that matches how you operate." columns={3} className="bg-graphite/60">
+      <Section
+        id="tracks"
+        title="Tracks"
+        description="Pick the path that matches how you operate."
+        columns={3}
+        className="bg-graphite/60"
+        cta={{ label: "Join the waitlist", href: "#waitlist", variant: "secondary" }}
+      >
         {tracks.map((track) => (
           <Card key={track.title} title={track.title} description={track.description} />
         ))}
@@ -58,6 +62,7 @@ export default function AcademyPage() {
         title="Book an intro session"
         description="Meet the team behind the Academy, explore the curriculum, and map it to your operating goals."
         columns={1}
+        cta={{ label: "Get Academy updates", href: "#waitlist", variant: "secondary" }}
       >
         <Embed
           html={process.env.NEXT_PUBLIC_FORMS_ACADEMY_EMBED}

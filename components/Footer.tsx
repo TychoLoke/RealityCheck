@@ -50,6 +50,7 @@ export function Footer() {
               {contactEmail}
             </a>
           </p>
+          <p className="text-xs text-neutral/80">Anchored in Deurne, serving the global channel.</p>
           <div className="flex flex-wrap items-center gap-4">
             <Link className="hover:text-midnight" href={discordUrl}>
               Discord

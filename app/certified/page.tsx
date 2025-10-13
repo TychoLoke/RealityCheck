@@ -3,6 +3,7 @@ import { Card } from "../../components/Card";
 import { Container } from "../../components/Container";
 import { CTAButton } from "../../components/CTAButton";
 import { Embed } from "../../components/Embed";
+import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
@@ -20,29 +21,38 @@ const peopleBadges = [
   "CCO-L (Leadership)",
 ];
 
+const slaPledge = [
+  { label: "Approval", value: "≤ 48h" },
+  { label: "Accuracy", value: "≥ 99.7%" },
+  { label: "Freshness", value: "≤ 24h" },
+  { label: "Conflict", value: "≤ 7 days" },
+];
+
+const successMetric = {
+  title: "Case: Atlas Networks",
+  metric: "Rebate disputes ↓ 62%",
+  detail: "Certified as Gold in 2023 after dual-running incentives across CRM + ERP stack.",
+};
+
 export default function CertifiedPage() {
   return (
     <div className="flex flex-col gap-16 pb-24">
-      <section className="border-b border-midnight/10 bg-graphite py-16 sm:py-20">
-        <Container className="flex flex-col gap-6">
-          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral">Certified</span>
-          <h1 className="text-3xl font-semibold text-midnight sm:text-4xl">Badges that mean business.</h1>
-          <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
-            We certify how you work—not what you bought. People earn CCO badges; organizations earn Silver/Gold/Platinum by living the SLAs; platforms earn “Channel OS Compatible” by passing conformance tests.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <CTAButton href="#waitlist">Get certified</CTAButton>
-            <CTAButton href="#organizations" variant="secondary">
-              Nominate your organization
-            </CTAButton>
-            <CTAButton href="#platforms" variant="ghost">
-              See compatibility criteria
-            </CTAButton>
-          </div>
-        </Container>
-      </section>
+      <Hero
+        eyebrow="Certified"
+        title="Badges that mean business."
+        description="People, organizations, and platforms prove they run the Channel OS playbook—and publish the evidence."
+        primaryCta={{ label: "Start your certification", href: "#waitlist" }}
+        secondaryCta={{ label: "Nominate your organization", href: "#organizations" }}
+        tertiaryCta={{ label: "See compatibility criteria", href: "#platforms" }}
+        proofPoints={["People badges", "Org certification", "Platform compatibility"]}
+      />
 
-      <Section title="People badges" description="Operators prove the work through exams, labs, and peer review." columns={3}>
+      <Section
+        title="People badges"
+        description="Operators prove the work through exams, labs, and peer review."
+        columns={3}
+        cta={{ label: "View exam guide", href: "#waitlist", variant: "secondary" }}
+      >
         <Card title="Badge roster">
           <ul className="list-disc space-y-2 pl-5 text-sm text-neutral">
             {peopleBadges.map((badge) => (
@@ -50,8 +60,8 @@ export default function CertifiedPage() {
             ))}
           </ul>
         </Card>
-        <Card title="What it proves" description="You can run the channel the modern way: clean handoffs, auditable data, explainable revenue." />
-        <Card title="How it happens" description="Assessments blend scenario design, labs, and community endorsement." />
+        <Card title="What it proves" description="Operators run the Channel OS plays with evidence—handoffs, data lineage, and revenue integrity." />
+        <Card title="How it happens" description="Scenario-based exams, lab submissions, and peer endorsements inside the community." />
       </Section>
 
       <Section
@@ -60,9 +70,10 @@ export default function CertifiedPage() {
         description="Measured by SLA performance, process conformance, and skill density."
         columns={2}
         className="bg-graphite/60"
+        cta={{ label: "Download the org scorecard", href: "#waitlist", variant: "secondary" }}
       >
         <Card title="Silver → Gold → Platinum" description="Scorecards publish SLA attainment, process coverage, and certified talent ratios." />
-        <Card title="Evidence pack" description="Dual-run results, lineage proofs, and governance cadences show the work."></Card>
+        <Card title="Evidence pack" description="Dual-run results, lineage proofs, and governance cadences show the work." />
       </Section>
 
       <Section
@@ -70,10 +81,31 @@ export default function CertifiedPage() {
         title="Platform compatibility"
         description="Public conformance tests; multiple stacks can qualify; no pay-to-pass."
         columns={2}
+        cta={{ label: "Access the test suite", href: "#waitlist", variant: "secondary" }}
       >
         <Card title="Reference adapters" description="CRM, ERP, PSA, and incentive adapters that align to the canonical objects." />
         <Card title="Test once, publish results" description="Pass the public tests and share your badge. Operators can trust the integration before they buy." />
       </Section>
+
+      <section>
+        <Container className="grid gap-8 rounded-3xl border border-midnight/10 bg-white px-8 py-12 shadow-card md:grid-cols-2">
+          <div className="space-y-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">SLA pledge</p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              {slaPledge.map((item) => (
+                <div key={item.label} className="rounded-2xl bg-graphite/60 p-4 text-center">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-neutral">{item.label}</p>
+                  <p className="mt-2 text-2xl font-semibold text-midnight">{item.value}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          <Card title={successMetric.title}>
+            <p className="text-2xl font-semibold text-midnight">{successMetric.metric}</p>
+            <p className="mt-3 text-sm text-neutral">{successMetric.detail}</p>
+          </Card>
+        </Container>
+      </section>
 
       <Section id="waitlist" title="Get started" description="Tell us who you are and which badge or certification you’re targeting." columns={1}>
         <Embed
