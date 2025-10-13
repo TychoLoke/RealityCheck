@@ -26,47 +26,24 @@ export function Hero({
 }: HeroProps) {
   const isDark = variant === "dark";
   const sectionBackground = isDark
-    ? "border-white/10 bg-gradient-to-b from-midnight via-[#121b30] to-[#0b0e1a]"
-    : "border-midnight/10 bg-gradient-to-b from-white via-white to-graphite";
-  const eyebrowClasses = isDark
-    ? "inline-flex items-center gap-3 rounded-full border border-white/20 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-cloud/80 backdrop-blur"
-    : "inline-flex items-center gap-3 rounded-full border border-midnight/10 bg-white/80 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-neutral backdrop-blur";
-  const titleClasses = isDark
-    ? "text-4xl font-semibold text-white sm:text-5xl lg:text-6xl"
-    : "text-4xl font-semibold text-midnight sm:text-5xl lg:text-6xl";
-  const taglineClasses = isDark
-    ? "text-xl font-medium text-cloud/80 sm:text-2xl"
-    : "text-xl font-medium text-neutral sm:text-2xl";
-  const descriptionClasses = isDark
-    ? "max-w-3xl text-lg leading-relaxed text-cloud/80 sm:text-xl"
-    : "max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl";
-  const proofPointClasses = isDark
-    ? "flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-cloud/60"
-    : "flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-neutral";
-  const proofDotClasses = isDark ? "h-1.5 w-1.5 rounded-full bg-white/60" : "h-1.5 w-1.5 rounded-full bg-accentBlue/70";
-  const ghostButtonClasses = isDark ? "px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-cloud" : "px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em]";
-  const primaryButtonClasses = isDark
-    ? "bg-signalAmber text-midnight hover:bg-signalAmber/90 focus-visible:outline-signalAmber"
-    : "";
+    ? "border-graphite/15 bg-gradient-to-b from-midnight via-[#111931] to-[#0b0e1a]"
+    : "border-graphite/15 bg-gradient-to-b from-midnight/80 via-midnight/70 to-midnight/80";
+  const eyebrowClasses =
+    "inline-flex items-center gap-3 rounded-full border border-neutral/40 bg-midnight/60 px-4 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-neutral backdrop-blur";
+  const titleClasses = "text-4xl font-semibold text-graphite sm:text-5xl lg:text-6xl";
+  const taglineClasses = "text-xl font-medium text-neutral sm:text-2xl";
+  const descriptionClasses = "max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl";
+  const proofPointClasses = "flex flex-wrap items-center gap-4 text-xs font-semibold uppercase tracking-[0.28em] text-neutral";
+  const proofDotClasses = "h-1.5 w-1.5 rounded-full bg-neutral";
+  const ghostButtonClasses = "px-4 py-2 text-xs font-semibold uppercase tracking-[0.28em] text-neutral";
+  const primaryButtonClasses = "";
 
   return (
     <section
       className={`relative overflow-hidden border-b py-20 sm:py-24 ${sectionBackground}`}
     >
-      <div
-        className={`pointer-events-none absolute inset-0 -z-10 ${
-          isDark
-            ? "bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.12),transparent_65%)]"
-            : "bg-[radial-gradient(circle_at_top_right,rgba(11,14,26,0.1),transparent_65%)]"
-        }`}
-      />
-      <div
-        className={`pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-1/2 ${
-          isDark
-            ? "bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.08),transparent_60%)]"
-            : "bg-[radial-gradient(circle_at_center,rgba(11,14,26,0.06),transparent_60%)]"
-        } sm:block`}
-      />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,rgba(138,147,166,0.12),transparent_65%)]" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 -z-10 hidden w-1/2 bg-[radial-gradient(circle_at_center,rgba(138,147,166,0.08),transparent_60%)] sm:block" />
       <Container className="flex flex-col items-start gap-12 text-left">
         <div className="flex flex-col gap-6">
           <span className={eyebrowClasses}>

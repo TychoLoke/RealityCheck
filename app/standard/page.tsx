@@ -63,7 +63,7 @@ const selfAssessmentQuestions = [
 
 export default function StandardPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24">
+    <div className="flex flex-col gap-16 pb-24 text-graphite">
       <Hero
         eyebrow="Standard v1.0"
         title="Channel OS Standard v1.0"
@@ -78,11 +78,11 @@ export default function StandardPage() {
         title="The four layers"
         description="Every layer reinforces the others so the channel can scale without losing signal."
         columns={2}
-        cta={{ label: "Browse the full schema", href: "#download", variant: "secondary" }}
+        cta={{ label: "Browse the full schema", href: "#download", variant: "primary" }}
       >
         {layerDetails.map((layer) => (
           <Card key={layer.title} title={layer.title}>
-            <p className="text-sm font-semibold text-midnight">{layer.promise}</p>
+            <p className="text-sm font-semibold text-graphite">{layer.promise}</p>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral">
               {layer.objects.map((object) => (
                 <li key={object}>{object}</li>
@@ -97,7 +97,7 @@ export default function StandardPage() {
         title="Transformation"
         description="Before the OS you negotiate every handoff. After, you certify the proof."
         columns={2}
-        cta={{ label: "Share this with your leadership", href: "/certified", variant: "secondary" }}
+        cta={{ label: "Share this with your leadership", href: "/certified", variant: "primary" }}
       >
         {beforeAfter.map((item) => (
           <Card key={item.title} title={item.title} description={item.description} />
@@ -105,17 +105,17 @@ export default function StandardPage() {
       </Section>
 
       <section>
-        <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-midnight px-8 py-12 text-cloud shadow-card">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cloud/80">SLA pledge</p>
+        <Container className="flex flex-col gap-6 rounded-3xl border border-graphite/20 bg-gradient-to-br from-midnight via-[#101a31] to-midnight px-8 py-12 text-graphite shadow-[0_24px_64px_-48px_rgba(6,9,18,0.9)]">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">SLA pledge</p>
           <div className="grid gap-4 sm:grid-cols-4">
             {slaPledge.map((item) => (
-              <div key={item.label} className="rounded-2xl border border-cloud/10 bg-cloud/10 px-5 py-4 text-center">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cloud/70">{item.label}</p>
-                <p className="mt-2 text-2xl font-semibold text-white">{item.value}</p>
+              <div key={item.label} className="rounded-2xl border border-graphite/20 bg-midnight/60 px-5 py-4 text-center">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-neutral">{item.label}</p>
+                <p className="mt-2 text-2xl font-semibold text-graphite">{item.value}</p>
               </div>
             ))}
           </div>
-          <CTAButton href="/certified" variant="secondary" className="self-start">
+          <CTAButton href="/certified" variant="primary" className="self-start">
             See how certifications enforce the pledge
           </CTAButton>
         </Container>
@@ -125,7 +125,7 @@ export default function StandardPage() {
         title="Conformance path"
         description="Self-assessment → study group to close gaps → lab evidence → audit → org certification. Platform compatibility via public tests—no pay-to-pass."
         columns={3}
-        cta={{ label: "Get certified", href: "/certified" }}
+        cta={{ label: "Get certified", href: "/certified", variant: "primary" }}
       >
         <Card title="Self-assess" description="Score your maturity and find the gaps." />
         <Card title="Prove it" description="Run the labs, capture evidence, and dual-run where needed." />
@@ -136,16 +136,16 @@ export default function StandardPage() {
         title="Governance"
         description="Balanced Council across V-D-P and academia. Public RFCs. Versioned releases. Neutral trademark policy."
         columns={2}
-        cta={{ label: "Apply to the Council", href: "/council", variant: "secondary" }}
+        cta={{ label: "Apply to the Council", href: "/council", variant: "primary" }}
       >
         <Card title="Council oversight" description="One org = one vote. Releases are transparent and versioned." />
         <Card title="Open roadmap" description="Anyone can propose changes via RFCs; the community stewards the canon." />
       </Section>
 
       <section id="download">
-        <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-white px-8 py-12 shadow-card sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-6 rounded-3xl border border-graphite/20 bg-midnight/70 px-8 py-12 shadow-[0_24px_64px_-48px_rgba(6,9,18,0.85)] sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-3">
-            <h2 className="text-2xl font-semibold text-midnight">Download Channel OS Standard v1.0</h2>
+            <h2 className="text-2xl font-semibold text-graphite">Download Channel OS Standard v1.0</h2>
             <p className="max-w-xl text-sm text-neutral">
               Get the complete reference, including canonical data objects, RACIs, and adapter blueprints.
             </p>
@@ -157,27 +157,27 @@ export default function StandardPage() {
       </section>
 
       <section id="assessment">
-        <Container className="flex flex-col gap-8 rounded-3xl border border-midnight/10 bg-midnight px-8 py-12 text-cloud shadow-card">
+        <Container className="flex flex-col gap-8 rounded-3xl border border-graphite/20 bg-gradient-to-br from-midnight via-[#101a31] to-midnight px-8 py-12 text-graphite shadow-[0_24px_64px_-48px_rgba(6,9,18,0.9)]">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cloud/70">Self-assessment</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Self-assessment</p>
             <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">Score each item 0–2</h2>
-            <p className="mt-3 max-w-2xl text-base text-cloud/80">
+            <p className="mt-3 max-w-2xl text-base text-neutral">
               0 = not in place, 1 = partial, 2 = consistent. You’ll get a simple profile and the right study group to join next.
             </p>
           </div>
           <div className="grid gap-4 md:grid-cols-2">
             {selfAssessmentQuestions.map((question) => (
-              <Card key={question} title={question} className="!border-cloud/20 !bg-cloud/5 !text-cloud">
-                <p className="text-sm text-cloud/80">Score: 0 · 1 · 2</p>
+              <Card key={question} title={question} className="!border-graphite/30 !bg-midnight/60 !text-graphite">
+                <p className="text-sm text-neutral">Score: 0 · 1 · 2</p>
               </Card>
             ))}
           </div>
           <div className="grid gap-4 text-sm sm:grid-cols-3">
-            <Card title="0–6" description="Foundations to build" className="!bg-cloud/5 !text-cloud !border-cloud/20" />
-            <Card title="7–12" description="Operationalizing" className="!bg-cloud/5 !text-cloud !border-cloud/20" />
-            <Card title="13–16" description="Channel OS-Ready" className="!bg-cloud/5 !text-cloud !border-cloud/20" />
+            <Card title="0–6" description="Foundations to build" className="!bg-midnight/60 !text-graphite !border-graphite/30" />
+            <Card title="7–12" description="Operationalizing" className="!bg-midnight/60 !text-graphite !border-graphite/30" />
+            <Card title="13–16" description="Channel OS-Ready" className="!bg-midnight/60 !text-graphite !border-graphite/30" />
           </div>
-          <CTAButton href="/community" variant="secondary" className="self-start">
+          <CTAButton href="/community" variant="primary" className="self-start">
             Join the community study group that matches your lowest area
           </CTAButton>
         </Container>

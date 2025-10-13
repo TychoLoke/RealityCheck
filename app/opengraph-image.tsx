@@ -7,7 +7,7 @@ export const size = {
 };
 export const contentType = "image/png";
 
-const brandGradient = "linear-gradient(135deg, #0B0E1A 20%, #4E7EFF 100%)";
+const brandGradient = "linear-gradient(135deg, #0B0E1A 20%, #8A93A6 100%)";
 
 export default function OpenGraphImage() {
   return new ImageResponse(

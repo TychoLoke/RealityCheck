@@ -18,11 +18,11 @@ const starterPosts = [
 
 export default function JournalPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24">
-      <section className="border-b border-midnight/10 bg-graphite py-16 sm:py-20">
+    <div className="flex flex-col gap-16 pb-24 text-graphite">
+      <section className="border-b border-graphite/15 bg-gradient-to-b from-midnight via-[#101a31] to-midnight py-16 sm:py-20">
         <Container className="flex flex-col gap-6">
           <span className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral">Journal</span>
-          <h1 className="text-3xl font-semibold text-midnight sm:text-4xl">Channel OS Journal</h1>
+          <h1 className="text-3xl font-semibold sm:text-4xl">Channel OS Journal</h1>
           <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
             Short, useful, repeatable. Every post ends with a template or checklist.
           </p>
