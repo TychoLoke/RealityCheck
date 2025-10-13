@@ -136,7 +136,7 @@ export default function HomePage() {
       />
 
       <section className="-mt-6">
-        <Container className="flex flex-wrap items-center justify-center gap-4 rounded-3xl border border-white/10 bg-graphite/80 px-6 py-6 text-sm shadow-card sm:flex-nowrap">
+        <Container className="flex flex-wrap items-center justify-center gap-4 rounded-3xl border border-midnight/10 bg-white px-6 py-6 text-sm shadow-card sm:flex-nowrap">
           <p className="text-center text-sm font-semibold uppercase tracking-[0.24em] text-neutral">
             Start · Read · Join
           </p>
@@ -146,7 +146,6 @@ export default function HomePage() {
                 key={href}
                 href={href}
                 variant={variant}
-                className={variant === "ghost" ? "text-neutral hover:text-accentTeal" : undefined}
               >
                 {label}
               </CTAButton>
@@ -216,8 +215,8 @@ export default function HomePage() {
       </Section>
 
       <section className="pb-20">
-        <Container className="rounded-3xl border border-white/10 bg-graphite/70 px-8 py-12 text-center shadow-card">
-          <h2 className="text-2xl font-semibold text-white sm:text-3xl">Journal — earn trust, week by week</h2>
+        <Container className="rounded-3xl border border-midnight/10 bg-graphite px-8 py-12 text-center shadow-card">
+          <h2 className="text-2xl font-semibold text-midnight sm:text-3xl">Journal — earn trust, week by week</h2>
           <p className="mt-4 text-base text-neutral">
             Short, practical, and repeatable. Every post ends with a template or checklist.
           </p>

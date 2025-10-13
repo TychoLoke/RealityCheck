@@ -10,11 +10,11 @@ const config: Config = {
     extend: {
       colors: {
         midnight: "#0B0E1A",
-        graphite: "#111827",
-        cloud: "#F5F7FA",
-        neutral: "#94A3B8",
-        accentBlue: "#5B5CEB",
-        accentTeal: "#00B3A4",
+        graphite: "#F1F3F8",
+        cloud: "#FFFFFF",
+        neutral: "#8A93A6",
+        accentBlue: "#0B0E1A",
+        accentTeal: "#8A93A6",
         signalAmber: "#FF9A1F",
         successGreen: "#16A34A",
         errorRed: "#EF4444",
@@ -23,7 +23,7 @@ const config: Config = {
         content: "72rem",
       },
       boxShadow: {
-        card: "0 20px 48px -28px rgba(91, 92, 235, 0.45)",
+        card: "0 24px 64px -40px rgba(11, 14, 26, 0.25)",
       },
     },
   },

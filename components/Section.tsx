@@ -33,7 +33,7 @@ export function Section({
           {eyebrow ? (
             <span className="text-sm font-semibold uppercase tracking-wide text-accentTeal">{eyebrow}</span>
           ) : null}
-          <h2 className="mt-2 text-2xl font-semibold text-white sm:text-3xl">{title}</h2>
+          <h2 className="mt-2 text-2xl font-semibold text-midnight sm:text-3xl">{title}</h2>
           {description ? <p className="mt-4 text-base leading-relaxed text-neutral">{description}</p> : null}
         </div>
         <div className={`grid gap-6 ${gridClasses}`}>{children}</div>

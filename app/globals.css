@@ -4,11 +4,11 @@
 
 :root {
   --color-midnight: #0b0e1a;
-  --color-graphite: #111827;
-  --color-cloud: #f5f7fa;
-  --color-slate: #94a3b8;
-  --color-electric-indigo: #5b5ceb;
-  --color-aqua-teal: #00b3a4;
+  --color-graphite: #f1f3f8;
+  --color-cloud: #ffffff;
+  --color-slate: #8a93a6;
+  --color-electric-indigo: #0b0e1a;
+  --color-aqua-teal: #8a93a6;
   --color-sunrise-amber: #ff9a1f;
   --color-success-green: #16a34a;
   --color-error-red: #ef4444;
@@ -19,13 +19,13 @@ html {
 }
 
 body {
-  background-color: var(--color-midnight);
-  color: var(--color-cloud);
+  background-color: var(--color-cloud);
+  color: var(--color-midnight);
   min-height: 100vh;
 }
 
 a {
-  color: inherit;
+  color: var(--color-midnight);
 }
 
 a:hover {
