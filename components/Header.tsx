@@ -26,11 +26,20 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/10 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-white/10 bg-midnight/80 backdrop-blur-xl">
       <Container className="flex items-center justify-between py-4">
-        <Link href="/" className="flex items-center gap-2 text-lg font-semibold text-white" aria-label="Channel OS home">
-          <span aria-hidden="true" className="text-accentTeal">●</span>
-          Channel OS
+        <Link
+          href="/"
+          className="flex items-center gap-3 text-lg font-semibold text-white"
+          aria-label="Channel OS home"
+        >
+          <span
+            aria-hidden="true"
+            className="inline-flex h-3.5 w-3.5 rotate-45 items-center justify-center rounded-sm bg-white"
+          />
+          <span>
+            Channel <span className="text-neutral">OS</span>
+          </span>
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-8 text-sm font-medium text-neutral lg:flex">
           {navItems.map((item) => (
@@ -38,7 +47,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={`transition hover:text-accentTeal ${
-                pathname === item.href ? "text-white" : ""
+                pathname === item.href ? "text-cloud" : ""
               }`}
             >
               {item.label}
@@ -81,7 +90,7 @@ export function Header() {
         id="mobile-nav"
         className={`${
           isOpen ? "max-h-screen border-b border-white/10" : "max-h-0"
-        } overflow-hidden transition-[max-height] duration-300 ease-out lg:hidden`}
+        } overflow-hidden bg-midnight transition-[max-height] duration-300 ease-out lg:hidden`}
       >
         <Container className="flex flex-col gap-4 py-4 text-sm font-medium text-neutral">
           {navItems.map((item) => (
@@ -89,7 +98,7 @@ export function Header() {
               key={item.href}
               href={item.href}
               className={`rounded-xl px-3 py-2 transition hover:bg-white/5 hover:text-accentTeal ${
-                pathname === item.href ? "bg-white/5 text-white" : ""
+                pathname === item.href ? "bg-white/5 text-cloud" : ""
               }`}
             >
               {item.label}

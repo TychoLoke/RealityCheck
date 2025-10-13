@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Card } from "../../components/Card";
 import { Container } from "../../components/Container";
 import { CTAButton } from "../../components/CTAButton";
@@ -8,78 +7,76 @@ import { Section } from "../../components/Section";
 export const metadata: Metadata = {
   title: "Channel OS Standard v1.0",
   description:
-    "A vendor-neutral framework for the channel that unites people, skills, processes, data, and tools across Vendors, Distributors, and Partners.",
+    "Channel OS Standard v1.0 unites people, process, and data so tools finally make sense across Vendors, Distributors, and Partners.",
 };
 
 export default function StandardPage() {
   return (
     <div className="flex flex-col gap-12">
-      <section className="border-b border-white/10 bg-white/5 py-16 sm:py-20">
+      <section className="border-b border-white/10 bg-graphite/70 py-16 sm:py-20">
         <Container className="flex flex-col gap-6">
-          <h1 className="text-3xl font-semibold text-white sm:text-4xl">Channel OS Standard v1.0</h1>
+          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-accentTeal">Standard v1.0</span>
+          <h1 className="text-3xl font-semibold text-white sm:text-4xl">The “why” and the “how” of the channel</h1>
           <p className="max-w-3xl text-base leading-relaxed text-neutral sm:text-lg">
-            A vendor-neutral framework for the channel that unites people, skills, processes, data, and tools across Vendors,
-            Distributors, and Partners.
+            Channel OS is a vendor-neutral framework that turns channel ambition into repeatable outcomes. It unites people,
+            process, and data so your tools finally make sense.
+          </p>
+          <p className="max-w-3xl text-base leading-relaxed text-neutral sm:text-lg">
+            Before: Sales wins a deal; services can’t see it; finance disputes the numbers. During: Clear roles, shared objects,
+            visible handoffs, tracked SLAs. After: Every deal and rebate is explainable—once, correctly, auditable.
           </p>
         </Container>
       </section>
 
-      <Section title="The Four Layers" description="A layered stack ensures interoperability from human expertise to platform automation." columns={2}>
-        <Card title="People" description="Shared roles, competencies, and credentials anchor every engagement." />
-        <Card title="Process" description="Documented motions and SLAs that orchestrate vendor, distributor, and partner collaboration." />
-        <Card title="Data" description="Canonical objects and telemetry enable reconciliation and reporting across systems." />
-        <Card title="Tools" description="Adapters and automation map workflows into CRMs, PRMs, ERPs, and PSAs." />
+      <Section
+        title="OS layers as a journey"
+        description="People → Process → Data → Tools. Layered so every handoff is visible, every SLA is owned, every object is shared."
+        columns={2}
+      >
+        <Card title="People" description="Skills that stick, roles that click, paths that grow." />
+        <Card title="Process" description="Demand to settlement without dropped threads." />
+        <Card title="Data" description="A canon of objects: Partner, Program, Deal, Incentive, Inventory, Entitlement, Ticket, Invoice, Renewal, Lineage, Access Policy." />
+        <Card title="Tools" description="Adapters, not lock-ins; your stack made coherent." />
       </Section>
 
-      <Section title="Canonical Objects" description="Standardized data contracts that ensure clarity and accountability across every transaction." columns={2}>
-        <Card title="Objects">
+      <Section title="Scenes from the standard" description="What changes once Channel OS is in place." columns={3}>
+        <Card title="Before">
+          Sales wins a deal; services can’t see it; finance disputes the numbers.
+        </Card>
+        <Card title="During">
+          Clear roles, shared objects, visible handoffs, tracked SLAs.
+        </Card>
+        <Card title="After">
+          Every deal and rebate is explainable—once, correctly, auditable.
+        </Card>
+      </Section>
+
+      <Section title="Canon & SLAs" description="Plain English, so every team knows what “good” looks like." columns={2}>
+        <Card title="Canon of objects">
           <ul className="list-disc space-y-2 pl-5 text-sm text-neutral">
-            <li>Partner</li>
-            <li>Program</li>
-            <li>Deal</li>
-            <li>Incentive</li>
-            <li>Inventory</li>
-            <li>Entitlement</li>
-            <li>Ticket</li>
-            <li>Invoice</li>
-            <li>Renewal</li>
-            <li>Lineage</li>
-            <li>AccessPolicy</li>
+            <li>Partner • Program • Deal • Incentive</li>
+            <li>Inventory • Entitlement • Ticket • Invoice</li>
+            <li>Renewal • Lineage • Access Policy</li>
           </ul>
         </Card>
-        <Card title="Core SLAs">
+        <Card title="SLAs we teach & certify">
           <ul className="list-disc space-y-2 pl-5 text-sm text-neutral">
-            <li>Deal-registration approval ≤ 48 hours</li>
+            <li>Deal-reg approval ≤ 48h</li>
             <li>Rebate accuracy ≥ 99.7%</li>
-            <li>Sales-out data freshness ≤ 24 hours</li>
+            <li>Sales-out freshness ≤ 24h</li>
             <li>Conflict cycle time ≤ 7 days</li>
           </ul>
         </Card>
       </Section>
 
-      <Section title="Conformance & Versioning" description="Participation keeps the standard trustworthy and continuously improving." columns={2}>
-        <Card title="Conformance">
-          <p className="text-sm leading-relaxed text-neutral">
-            Use the Channel OS conformance checklist to benchmark readiness across people, process, data, and tools. Submit your
-            results to start the certification workflow.
-          </p>
-          <CTAButton href="/apply" variant="secondary" className="mt-4 w-fit">
-            View the checklist
-          </CTAButton>
-        </Card>
-        <Card title="Versioning">
-          <p className="text-sm leading-relaxed text-neutral">
-            Public RFCs guide updates to the standard. v1.0 will evolve with community feedback and adoption metrics. Review
-            proposals and share input through the Council.
-          </p>
-          <Link className="mt-4 inline-flex text-sm font-semibold text-accentTeal" href="/council">
-            Join the RFC discussions →
-          </Link>
-        </Card>
+      <Section columns={3} title="Principles">
+        <Card title="The pledge" description="Vendor-neutral by design. Community-driven by choice. Versioned in the open. No tool favoritism—ever." />
+        <Card title="Governance" description="One org = one vote. Public RFCs. Transparent releases. The standard belongs to the channel, not a company." />
+        <Card title="Assurance" description="Deal-reg approval ≤ 48h, rebate accuracy ≥ 99.7%, sales-out freshness ≤ 24h, conflict cycle time ≤ 7 days." />
       </Section>
 
       <section className="pb-20">
-        <Container className="flex flex-col items-start gap-6 rounded-3xl border border-white/10 bg-black/40 px-8 py-10 shadow-card sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col items-start gap-6 rounded-3xl border border-white/10 bg-graphite/70 px-8 py-10 shadow-card sm:flex-row sm:items-center sm:justify-between">
           <div>
             <h2 className="text-2xl font-semibold text-white">Download the Channel OS Standard v1.0</h2>
             <p className="mt-3 max-w-2xl text-sm text-neutral">

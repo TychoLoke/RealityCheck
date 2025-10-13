@@ -47,8 +47,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="bg-midnight text-white">
-      <body className={`${inter.className} flex min-h-screen flex-col bg-midnight text-white`}>
+    <html lang="en" className="bg-midnight text-cloud">
+      <body className={`${inter.className} flex min-h-screen flex-col bg-midnight text-cloud`}>
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
