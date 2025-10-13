@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Card } from "../../components/Card";
 import { Container } from "../../components/Container";
 import { CTAButton } from "../../components/CTAButton";
+import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
@@ -10,35 +11,43 @@ export const metadata: Metadata = {
     "A vendor-neutral framework with canonical objects and practical SLAs: approval ≤ 48h, accuracy ≥ 99.7%, freshness ≤ 24h, conflict ≤ 7 days.",
 };
 
-const layers = [
-  {
-    title: "People",
-    description: "Role maps, skill matrices, observable behaviors, and credentials that travel across employers.",
-  },
-  {
-    title: "Process",
-    description: "Demand → Deal Registration → Co-sell → Delivery → Rebate/Settlement → Success/Renew, with clear RACIs and handoffs.",
-  },
-  {
-    title: "Data",
-    description: "Canonical objects—Partner, Program, Deal, Incentive, Inventory, Entitlement, Ticket, Invoice, Renewal, Lineage, AccessPolicy.",
-  },
-  {
-    title: "Tools",
-    description: "Reference adapters (CRM/ERP/PSA), sandboxes, dual-run kits—no lock-in.",
-  },
-];
-
 const beforeAfter = [
   { title: "Before", description: "Exports, email threads, finger-pointing." },
   { title: "After", description: "Shared objects, visible approvals, measurable SLAs, faster settlement." },
 ];
 
-const slas = [
-  "Deal-reg approval ≤ 48h",
-  "Rebate accuracy ≥ 99.7%",
-  "Sales-out freshness ≤ 24h",
-  "Conflict cycle time ≤ 7 days",
+const layerDetails = [
+  {
+    title: "People",
+    promise: "Skills stay verified.",
+    objects: ["Role map", "Skill matrix", "CCO badges"],
+    sla: "Certification currency ≤ 12 months",
+  },
+  {
+    title: "Process",
+    promise: "Handoffs stay clean.",
+    objects: ["Demand → Deal", "Co-sell → Delivery", "Settlement playbooks"],
+    sla: "Deal-reg approval ≤ 48h",
+  },
+  {
+    title: "Data",
+    promise: "Numbers stay trusted.",
+    objects: ["Deal", "Incentive", "Inventory", "Lineage"],
+    sla: "Sales-out freshness ≤ 24h",
+  },
+  {
+    title: "Tools",
+    promise: "Stacks stay open.",
+    objects: ["CRM adapters", "ERP bridges", "PSA kits"],
+    sla: "Dual-run variance ≤ 0.3%",
+  },
+];
+
+const slaPledge = [
+  { label: "Approval", value: "≤ 48h" },
+  { label: "Accuracy", value: "≥ 99.7%" },
+  { label: "Freshness", value: "≤ 24h" },
+  { label: "Conflict", value: "≤ 7 days" },
 ];
 
 const selfAssessmentQuestions = [
@@ -55,65 +64,68 @@ const selfAssessmentQuestions = [
 export default function StandardPage() {
   return (
     <div className="flex flex-col gap-16 pb-24">
-      <section className="border-b border-midnight/10 bg-graphite py-16 sm:py-20">
-        <Container className="flex flex-col gap-6">
-          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral">Standard v1.0</span>
-          <h1 className="text-3xl font-semibold text-midnight sm:text-4xl">Channel OS Standard v1.0</h1>
-          <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
-            A vendor-neutral framework that turns channel ambition into repeatable outcomes. It unites people, process, and data so your tools finally make sense.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <CTAButton href="#download">Download v1.0</CTAButton>
-            <CTAButton href="#assessment" variant="secondary">
-              Take the self-assessment
-            </CTAButton>
-            <CTAButton href="/community" variant="ghost">
-              Join a study group
-            </CTAButton>
-          </div>
-        </Container>
-      </section>
+      <Hero
+        eyebrow="Standard v1.0"
+        title="Channel OS Standard v1.0"
+        description="The open, vendor-neutral framework that keeps channel teams honest to the same SLAs."
+        primaryCta={{ label: "Download v1.0", href: "#download" }}
+        secondaryCta={{ label: "Take the self-assessment", href: "#assessment" }}
+        tertiaryCta={{ label: "Join a study group", href: "/community" }}
+        proofPoints={["Canonical objects", "Practical SLAs", "Versioned releases"]}
+      />
 
       <Section
         title="The four layers"
         description="Every layer reinforces the others so the channel can scale without losing signal."
         columns={2}
+        cta={{ label: "Browse the full schema", href: "#download", variant: "secondary" }}
       >
-        {layers.map((layer) => (
-          <Card key={layer.title} title={layer.title} description={layer.description} />
+        {layerDetails.map((layer) => (
+          <Card key={layer.title} title={layer.title}>
+            <p className="text-sm font-semibold text-midnight">{layer.promise}</p>
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral">
+              {layer.objects.map((object) => (
+                <li key={object}>{object}</li>
+              ))}
+            </ul>
+            <p className="mt-3 text-xs font-semibold uppercase tracking-[0.28em] text-neutral">SLA → {layer.sla}</p>
+          </Card>
         ))}
       </Section>
 
       <Section
-        title="SLAs we teach & certify"
-        description="Performance metrics that every certified team commits to."
+        title="Transformation"
+        description="Before the OS you negotiate every handoff. After, you certify the proof."
         columns={2}
-        className="bg-graphite/60"
+        cta={{ label: "Share this with your leadership", href: "/certified", variant: "secondary" }}
       >
-        <Card title="Operational guardrails">
-          <ul className="list-disc space-y-2 pl-5 text-sm text-neutral">
-            {slas.map((sla) => (
-              <li key={sla}>{sla}</li>
-            ))}
-          </ul>
-        </Card>
-        <Card title="What it feels like after Channel OS">
-          <p>
-            Approvals arrive on time. Rebates reconcile without debate. Sales-out data powers forecasting. Conflicts resolve with evidence, not guesswork.
-          </p>
-        </Card>
-      </Section>
-
-      <Section title="Before / After" description="One canon turns firefighting into operating." columns={2}>
         {beforeAfter.map((item) => (
           <Card key={item.title} title={item.title} description={item.description} />
         ))}
       </Section>
 
+      <section>
+        <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-midnight px-8 py-12 text-cloud shadow-card">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cloud/80">SLA pledge</p>
+          <div className="grid gap-4 sm:grid-cols-4">
+            {slaPledge.map((item) => (
+              <div key={item.label} className="rounded-2xl border border-cloud/10 bg-cloud/10 px-5 py-4 text-center">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-cloud/70">{item.label}</p>
+                <p className="mt-2 text-2xl font-semibold text-white">{item.value}</p>
+              </div>
+            ))}
+          </div>
+          <CTAButton href="/certified" variant="secondary" className="self-start">
+            See how certifications enforce the pledge
+          </CTAButton>
+        </Container>
+      </section>
+
       <Section
         title="Conformance path"
-        description="Self-assessment → study group to close gaps → lab evidence → audit → org certification (Silver/Gold/Platinum). Platform compatibility via public tests—no pay-to-pass."
+        description="Self-assessment → study group to close gaps → lab evidence → audit → org certification. Platform compatibility via public tests—no pay-to-pass."
         columns={3}
+        cta={{ label: "Get certified", href: "/certified" }}
       >
         <Card title="Self-assess" description="Score your maturity and find the gaps." />
         <Card title="Prove it" description="Run the labs, capture evidence, and dual-run where needed." />
@@ -124,6 +136,7 @@ export default function StandardPage() {
         title="Governance"
         description="Balanced Council across V-D-P and academia. Public RFCs. Versioned releases. Neutral trademark policy."
         columns={2}
+        cta={{ label: "Apply to the Council", href: "/council", variant: "secondary" }}
       >
         <Card title="Council oversight" description="One org = one vote. Releases are transparent and versioned." />
         <Card title="Open roadmap" description="Anyone can propose changes via RFCs; the community stewards the canon." />

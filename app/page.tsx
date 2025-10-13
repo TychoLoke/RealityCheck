@@ -11,34 +11,23 @@ export const metadata: Metadata = {
     "Vendor-neutral operating system for the channel (VDP). Community, open standard, and certifications that unify People, Process, Data, and Tools.",
 };
 
-const valuePillars = [
-  {
-    title: "Learn together.",
-    description: "Study groups, Channel 101, and role paths that map to real jobs in the channel.",
-  },
-  {
-    title: "Work the same way.",
-    description: "Shared playbooks and practical SLAs—fewer disputes, faster approvals, accurate rebates.",
-  },
-  {
-    title: "Win as a network.",
-    description: "Badges for people, certifications for orgs, and a community that opens doors.",
-  },
+const howItHelps = [
+  { title: "Reduce integration debt", description: "One canonical data model ties your stack together." },
+  { title: "Improve revenue integrity", description: "Shared SLAs remove guesswork from rebates and settlements." },
+  { title: "Build talent pipelines", description: "Channel 101 → Academy → Certifications keeps skills moving." },
 ];
 
-const osLayers = [
-  { title: "People", description: "Skills that stick." },
-  { title: "Process", description: "Clean handoffs." },
-  { title: "Data", description: "One canon." },
-  { title: "Tools", description: "Adapters, not lock-ins." },
+const learnOffers = [
+  { title: "Channel 101", description: "90-minute primer with a job-ready project and the CCO-F badge." },
+  { title: "Study groups", description: "Six-week live cohorts guided by operators who run V-D-P every day." },
+  { title: "Journal & playbooks", description: "Actionable templates, checklists, and walkthroughs shipped weekly." },
 ];
 
-const proofStrip = [
-  "Vendor-neutral",
-  "Open standard",
-  "School & Academy",
-  "Certifications",
-  "Global community",
+const workStack = [
+  { title: "People", description: "Role maps, skill matrices, and scorecards that travel across employers." },
+  { title: "Process", description: "Demand → Deal → Delivery → Settlement mapped with clean RACIs." },
+  { title: "Data", description: "Canonical objects with SLAs: Deal, Incentive, Inventory, Entitlement, Lineage." },
+  { title: "Tools", description: "Adapters that snap into CRM/ERP/PSA stacks without lock-in." },
 ];
 
 const slaPromises = [
@@ -48,26 +37,45 @@ const slaPromises = [
   { label: "Conflict", value: "≤ 7 days" },
 ];
 
-const journeyBand = [
-  "Discover",
-  "Learn",
-  "Join",
-  "Practice",
-  "Certify",
-  "Contribute",
+const winSignals = [
+  { title: "People badges", description: "CCO credentials for every operating lane." },
+  { title: "Organization certification", description: "Scorecards that publish SLA attainment and governance." },
+  { title: "Platform compatibility", description: "Public conformance tests anyone can verify." },
 ];
+
+const communitySnapshot = [
+  { title: "Study groups", description: "12 active cohorts across time zones." },
+  { title: "Live sessions", description: "Weekly AMAs, teardowns, and OS labs." },
+  { title: "Templates", description: "40+ ready-to-use checklists and calculators." },
+  { title: "Badges", description: "Founding Member • Ambassador • Champion." },
+];
+
+const communitySignals = [
+  { label: "Members", value: "1,240" },
+  { label: "Study groups run", value: "86" },
+  { label: "Certificates issued", value: "312" },
+];
+
+const quotes = [
+  "“We stopped arguing over spreadsheets and started measuring the work.”",
+  "“Channel 101 finally gave our new hires a common language.”",
+  "“Platform teams now know exactly what ‘compatible’ means.”",
+];
+
+const journeyBand = ["Discover", "Learn", "Join", "Practice", "Certify", "Contribute"];
 
 export default function HomePage() {
   return (
     <div className="flex flex-col gap-16 pb-24">
       <Hero
         eyebrow="Channel OS"
-        title="The vendor-neutral operating system for the channel (VDP)"
+        title="Channel OS is the vendor-neutral operating system for the channel"
         tagline="Where the Channel Learns, Works, and Wins."
-        description="Channel OS turns channel chaos into a community of practice. Vendors, Distributors, and Partners learn the same language, run the same plays, and certify the same habits."
+        description="Less friction. More integrity. A community, open framework, and certifications that keep Vendors, Distributors, and Partners in sync."
         primaryCta={{ label: "Start Channel 101 (Free)", href: "/school" }}
         secondaryCta={{ label: "Join the Community", href: "/community" }}
         tertiaryCta={{ label: "Read the Standard v1.0", href: "/standard" }}
+        proofPoints={["Vendor-neutral", "Open framework", "School & Academy", "Certifications", "Community"]}
       />
 
       <section>
@@ -81,56 +89,114 @@ export default function HomePage() {
             <p className="max-w-4xl text-base leading-relaxed text-neutral sm:text-lg">
               Channel OS turns that chaos into a community of practice. We learn the same language (People • Process • Data • Tools), work the same plays, and certify the habits that keep Vendors, Distributors, and Partners in sync. It’s not another tool. It’s a way of working—open, neutral, and shared.
             </p>
+            <CTAButton href="/community" variant="secondary">
+              See how the community runs it
+            </CTAButton>
           </div>
         </Container>
       </section>
 
       <Section
-        eyebrow="Value pillars"
-        title="Learn together. Work the same way. Win as a network."
-        description="The operating system spans how the channel learns, runs, and proves impact."
+        eyebrow="How it helps"
+        title="One OS. Three immediate wins."
+        description="Start with the problems every channel team feels—then use Channel OS to close the gaps."
+        cta={{ label: "Start Channel 101", href: "/school", variant: "secondary" }}
       >
-        {valuePillars.map((pillar) => (
-          <Card key={pillar.title} title={pillar.title} description={pillar.description} />
+        {howItHelps.map((item) => (
+          <Card key={item.title} title={item.title} description={item.description} />
         ))}
       </Section>
 
       <Section
-        eyebrow="OS layers"
-        title="Every layer speaks the same language"
-        description="People • Process • Data • Tools — each with a clear operating promise."
-        columns={4}
-        className="bg-graphite/60"
+        eyebrow="Learn"
+        title="Learn together"
+        description="Create shared language faster than turnover can break it."
+        cta={{ label: "Join a study group", href: "/community", variant: "secondary" }}
       >
-        {osLayers.map((layer) => (
-          <Card key={layer.title} title={layer.title} description={layer.description} />
+        {learnOffers.map((offer) => (
+          <Card key={offer.title} title={offer.title} description={offer.description} />
         ))}
       </Section>
 
       <section>
-        <Container className="rounded-3xl border border-midnight/10 bg-midnight px-6 py-8 text-cloud shadow-card">
-          <div className="flex flex-wrap items-center justify-center gap-4 text-sm font-semibold uppercase tracking-[0.26em]">
-            {proofStrip.map((item) => (
-              <span key={item} className="flex items-center gap-3">
-                <span className="h-1.5 w-1.5 rounded-full bg-cloud" aria-hidden="true" />
-                {item}
-              </span>
+        <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-white px-8 py-12 shadow-card">
+          <div className="grid gap-4 md:grid-cols-4">
+            {workStack.map((layer) => (
+              <Card key={layer.title} title={layer.title} description={layer.description} className="!bg-graphite/60 !border-transparent" />
             ))}
           </div>
+          <CTAButton href="/standard" variant="secondary">
+            Read the Standard v1.0
+          </CTAButton>
         </Container>
       </section>
 
+      <Section
+        eyebrow="Work"
+        title="Work the same way"
+        description="Operating promises become SLAs you can measure."
+        columns={4}
+        className="bg-graphite/60"
+        cta={{ label: "Explore the Standard", href: "/standard", variant: "secondary" }}
+      >
+        {slaPromises.map((item) => (
+          <Card key={item.label} title={item.label}>
+            <p className="text-2xl font-semibold text-midnight">{item.value}</p>
+            <p className="mt-2 text-sm text-neutral">Certified teams sign and publish these targets.</p>
+          </Card>
+        ))}
+      </Section>
+
+      <Section
+        eyebrow="Win"
+        title="Win as a network"
+        description="Proof that travels across people, organizations, and platforms."
+        cta={{ label: "Get certified", href: "/certified" }}
+      >
+        {winSignals.map((signal) => (
+          <Card key={signal.title} title={signal.title} description={signal.description} />
+        ))}
+      </Section>
+
+      <Section
+        eyebrow="Community snapshot"
+        title="A living operating community"
+        description="Always-on programs that keep the OS current."
+        columns={4}
+        className="bg-graphite/60"
+        cta={{ label: "Join the Community", href: "/community", variant: "secondary" }}
+      >
+        {communitySnapshot.map((item) => (
+          <Card key={item.title} title={item.title} description={item.description} />
+        ))}
+      </Section>
+
       <section>
-        <Container className="grid gap-6 rounded-3xl border border-midnight/10 bg-white px-8 py-12 shadow-card sm:grid-cols-2 lg:grid-cols-4">
-          <div className="sm:col-span-2 lg:col-span-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.28em] text-neutral">SLAs we teach & certify</p>
-          </div>
-          {slaPromises.map((item) => (
-            <div key={item.label} className="flex flex-col gap-2 rounded-2xl bg-graphite/80 px-6 py-6 text-midnight">
-              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral">{item.label}</span>
-              <span className="text-3xl font-semibold text-midnight">{item.value}</span>
+        <Container className="grid gap-10 rounded-3xl border border-midnight/10 bg-white px-8 py-12 shadow-card md:grid-cols-2">
+          <div className="space-y-6">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Community signals</p>
+            <div className="grid gap-4 sm:grid-cols-3">
+              {communitySignals.map((signal) => (
+                <div key={signal.label} className="rounded-2xl bg-graphite/60 p-5 text-center">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-neutral">{signal.label}</p>
+                  <p className="mt-2 text-2xl font-semibold text-midnight">{signal.value}</p>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+          <div className="space-y-4">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Voices from the network</p>
+            <div className="space-y-3 text-sm leading-relaxed text-neutral">
+              {quotes.map((quote) => (
+                <p key={quote} className="rounded-2xl border border-midnight/10 bg-graphite/40 p-4 italic text-midnight">
+                  {quote}
+                </p>
+              ))}
+            </div>
+            <CTAButton href="/community" variant="secondary">
+              Add your voice in the community
+            </CTAButton>
+          </div>
         </Container>
       </section>
 
@@ -149,12 +215,7 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-          <div className="flex flex-wrap justify-center gap-3">
-            <CTAButton href="/standard" variant="secondary">
-              Discover the Standard v1.0
-            </CTAButton>
-            <CTAButton href="/community">Join the Community</CTAButton>
-          </div>
+          <CTAButton href="/apply">Apply to join Channel OS</CTAButton>
         </Container>
       </section>
     </div>

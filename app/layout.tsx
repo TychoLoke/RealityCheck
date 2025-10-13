@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
+import { ActionBand } from "../components/ActionBand";
 import { CookieNotice } from "../components/CookieNotice";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
@@ -51,6 +52,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className="bg-cloud text-midnight">
       <body className={`${inter.className} flex min-h-screen flex-col bg-cloud text-midnight`}>
         <Header />
+        <ActionBand />
         <main id="main-content" className="flex-1">
           {children}
         </main>

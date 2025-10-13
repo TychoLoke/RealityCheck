@@ -3,6 +3,7 @@ import { Card } from "../../components/Card";
 import { Container } from "../../components/Container";
 import { CTAButton } from "../../components/CTAButton";
 import { Embed } from "../../components/Embed";
+import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
@@ -12,24 +13,21 @@ export const metadata: Metadata = {
 };
 
 const modules = [
-  {
-    title: "The channel map",
-    description: "Vendors, Distributors, Partners in practice.",
-  },
-  {
-    title: "The flow",
-    description: "Demand → deal → delivery → settlement.",
-  },
-  {
-    title: "Careers & skills",
-    description: "What employers actually hire for.",
-  },
+  { title: "The channel map", description: "Vendors, Distributors, Partners in practice." },
+  { title: "The flow", description: "Demand → deal → delivery → settlement." },
+  { title: "Careers & skills", description: "What employers actually hire for." },
 ];
 
 const outcomes = [
   { title: "A clear path", description: "Know how to navigate roles, plays, and next steps." },
   { title: "A portfolio piece", description: "Ship a practical artifact that proves you can operate." },
   { title: "Apprenticeship invite", description: "Earn the CCO-F badge and unlock apprenticeships." },
+];
+
+const highlights = [
+  { label: "Time", value: "≈ 90 minutes" },
+  { label: "Format", value: "Video + guided template" },
+  { label: "Badge", value: "CCO-F Foundations" },
 ];
 
 const faqs = [
@@ -47,32 +45,44 @@ const videoEmbeds = [
 export default function SchoolPage() {
   return (
     <div className="flex flex-col gap-16 pb-24">
-      <section className="border-b border-midnight/10 bg-graphite py-16 sm:py-20">
-        <Container className="flex flex-col gap-6">
-          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral">School</span>
-          <h1 className="text-3xl font-semibold text-midnight sm:text-4xl">Start where careers begin: Channel 101</h1>
-          <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
-            If “the channel” felt like a maze, this is the map. Learn the V-D-P landscape, practice real scenarios, and earn the CCO-F badge. The community pairs you with peers, study groups, and mentors—so momentum sticks.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <CTAButton href="#watch">Watch Channel 101</CTAButton>
-            <CTAButton href="/apply" variant="secondary">
-              Apply to the next cohort
-            </CTAButton>
-            <CTAButton href="/community" variant="ghost">
-              Join the Community
-            </CTAButton>
-          </div>
+      <Hero
+        eyebrow="School"
+        title="Start where careers begin: Channel 101"
+        description="Learn the V-D-P map, practice the end-to-end flow, and earn the CCO-F badge."
+        primaryCta={{ label: "Watch Channel 101", href: "#watch" }}
+        secondaryCta={{ label: "Apply to the next cohort", href: "/apply" }}
+        tertiaryCta={{ label: "Join the Community", href: "/community" }}
+        proofPoints={["90-minute format", "Guided project", "CCO-F badge"]}
+      />
+
+      <section>
+        <Container className="grid gap-4 rounded-3xl border border-midnight/10 bg-white px-8 py-10 shadow-card sm:grid-cols-3">
+          {highlights.map((item) => (
+            <div key={item.label} className="rounded-2xl bg-graphite/60 p-5 text-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral">{item.label}</p>
+              <p className="mt-2 text-xl font-semibold text-midnight">{item.value}</p>
+            </div>
+          ))}
         </Container>
       </section>
 
-      <Section title="What you’ll learn" description="Three modules that make the channel legible." columns={3}>
+      <Section
+        title="What you’ll learn"
+        description="Three modules that make the channel legible."
+        columns={3}
+        cta={{ label: "Start Channel 101", href: "#watch", variant: "secondary" }}
+      >
         {modules.map((module) => (
           <Card key={module.title} title={module.title} description={module.description} />
         ))}
       </Section>
 
-      <Section title="Outcomes" description="Everything points to a job-ready operating habit." columns={3}>
+      <Section
+        title="Outcomes"
+        description="Everything points to a job-ready operating habit."
+        columns={3}
+        cta={{ label: "See certification path", href: "/certified" }}
+      >
         {outcomes.map((outcome) => (
           <Card key={outcome.title} title={outcome.title} description={outcome.description} />
         ))}
@@ -84,19 +94,30 @@ export default function SchoolPage() {
         description="Watch the core lessons, then join a live study group to practice with peers."
         columns={3}
         className="bg-graphite/60"
+        cta={{ label: "Join a study group", href: "/community", variant: "secondary" }}
       >
         {videoEmbeds.map((embed, index) => (
           <Embed key={index} html={embed} title={`Channel 101 Video ${index + 1}`} />
         ))}
       </Section>
 
-      <Section title="FAQ" description="Quick answers for new operators." columns={3}>
+      <Section
+        title="FAQ"
+        description="Quick answers for new operators."
+        columns={3}
+        cta={{ label: "Ask in the community", href: "/community", variant: "secondary" }}
+      >
         {faqs.map((faq) => (
           <Card key={faq.question} title={faq.question} description={faq.answer} />
         ))}
       </Section>
 
-      <Section title="Apply" description="Tell us where you’re starting and we’ll match you to the next cohort." columns={1}>
+      <Section
+        title="Apply"
+        description="Tell us where you’re starting and we’ll match you to the next cohort."
+        columns={1}
+        cta={{ label: "Book an intro", href: "/apply", variant: "secondary" }}
+      >
         <Embed
           html={process.env.NEXT_PUBLIC_FORMS_SCHOOL_EMBED}
           title="Channel 101 application form"
