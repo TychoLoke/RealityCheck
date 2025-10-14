@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Card } from "../../components/Card";
-import { Container } from "../../components/Container";
 import { Embed } from "../../components/Embed";
+import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
@@ -18,16 +18,16 @@ const starterPosts = [
 
 export default function JournalPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-midnight">
-      <section className="border-b border-midnight/10 bg-gradient-to-b from-graphite via-cloud to-cloud py-16 sm:py-20">
-        <Container className="flex flex-col gap-6">
-          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-neutral">Journal</span>
-          <h1 className="text-3xl font-semibold sm:text-4xl">Channel OS™ Journal</h1>
-          <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
-            Short, useful, repeatable. Every post ends with a template or checklist.
-          </p>
-        </Container>
-      </section>
+    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+      <Hero
+        eyebrow="Journal"
+        title="Channel OS™ Journal"
+        description="Short, useful, repeatable. Every post ends with a template or checklist."
+        primaryCta={{ label: "Subscribe", href: "#subscribe" }}
+        secondaryCta={{ label: "Apply to contribute", href: "/community" }}
+        proofPoints={["Templates", "Checklists", "Operator stories"]}
+        variant="dark"
+      />
 
       <Section title="Editorial stance" description="Trust is earned week by week." columns={2}>
         <Card title="Principles">
@@ -47,7 +47,7 @@ export default function JournalPage() {
         </Card>
       </Section>
 
-      <Section title="Subscribe" description="Add the Channel OS™ Journal to your inbox." columns={1}>
+      <Section id="subscribe" title="Subscribe" description="Add the Channel OS™ Journal to your inbox." columns={1}>
         <Embed
           html={process.env.NEXT_PUBLIC_SUBSTACK_EMBED}
           title="Journal subscription form"

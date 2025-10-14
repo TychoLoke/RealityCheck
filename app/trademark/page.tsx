@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CTAButton } from "../../components/CTAButton";
 import { Container } from "../../components/Container";
+import { Hero } from "../../components/Hero";
 
 export const metadata: Metadata = {
   title: "Channel OS™ Trademark & Brand Use",
@@ -70,21 +71,22 @@ const sections = [
 
 export default function TrademarkPage() {
   return (
-    <div className="flex flex-col gap-12 pb-24 text-midnight">
-      <section className="border-b border-midnight/10 bg-gradient-to-b from-graphite via-cloud to-cloud py-16 sm:py-20">
-        <Container className="flex flex-col gap-6">
-          <h1 className="text-3xl font-semibold sm:text-4xl">Trademark & Brand Use</h1>
-          <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
-            Channel OS™ is the vendor-neutral operating system for the channel. This page explains how you may reference our name and logo while keeping the community fair and clear.
-          </p>
-        </Container>
-      </section>
+    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+      <Hero
+        eyebrow="Trademark"
+        title="Trademark & Brand Use"
+        description="Channel OS™ is the vendor-neutral operating system for the channel. This page explains how you may reference our name and logo while keeping the community fair and clear."
+        primaryCta={{ label: "Request permission", href: "mailto:hello@channelos.org" }}
+        secondaryCta={{ label: "Review the Standard", href: "/standard" }}
+        proofPoints={["Neutral", "Evidence-first", "Versioned"]}
+        variant="dark"
+      />
 
-      <Container className="flex flex-col gap-10">
+      <Container className="flex flex-col gap-12">
         {sections.map((section) => (
           <section key={section.title} className="space-y-4">
-            <h2 className="text-2xl font-semibold text-midnight sm:text-3xl">{section.title}</h2>
-            <ul className="list-disc space-y-3 pl-5 text-base leading-relaxed text-neutral">
+            <h2 className="text-2xl font-semibold sm:text-3xl">{section.title}</h2>
+            <ul className="list-disc space-y-3 pl-5 text-base leading-relaxed text-white/75">
               {section.items.map((item) => (
                 <li key={item}>{item}</li>
               ))}
@@ -92,12 +94,12 @@ export default function TrademarkPage() {
           </section>
         ))}
 
-        <p className="text-base leading-relaxed text-neutral">
+        <p className="text-base leading-relaxed text-white/75">
           Thank you for helping keep the Channel OS™ ecosystem clear, fair, and vendor-neutral.
         </p>
 
         <CTAButton href="mailto:hello@channelos.org" className="self-start">
-          Request Permission
+          Request permission
         </CTAButton>
       </Container>
     </div>
