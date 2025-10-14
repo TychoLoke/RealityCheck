@@ -24,7 +24,7 @@ interface JourneyExperienceProps {
 
 export function JourneyExperience({
   steps,
-  eyebrow = "Channel OS journey",
+  eyebrow = "Channel OS™ journey",
   title = "Plot your path from discover to contribute",
   description =
     "Every stage of the operating system comes with guidance, templates, and community touchpoints. Click through the steps to see what unlocks next.",

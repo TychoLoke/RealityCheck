@@ -6,9 +6,9 @@ import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
-  title: "Channel OS Standard v1.0 — People • Process • Data • Tools",
+  title: "Channel OS™ Standard v1.0 — People • Process • Data • Tools",
   description:
-    "A vendor-neutral framework with canonical objects and practical SLAs: approval ≤ 48h, accuracy ≥ 99.7%, freshness ≤ 24h, conflict ≤ 7 days.",
+    "Channel OS™ Standard v1.0 is a vendor-neutral framework with canonical objects and practical SLAs: approval ≤ 48h, accuracy ≥ 99.7%, freshness ≤ 24h, conflict ≤ 7 days.",
 };
 
 const beforeAfter = [
@@ -66,7 +66,7 @@ export default function StandardPage() {
     <div className="flex flex-col gap-16 pb-24 text-midnight">
       <Hero
         eyebrow="Standard v1.0"
-        title="Channel OS Standard v1.0"
+        title="Channel OS™ Standard v1.0"
         description="The open, vendor-neutral framework that keeps channel teams honest to the same SLAs."
         primaryCta={{ label: "Download v1.0", href: "#download" }}
         secondaryCta={{ label: "Take the self-assessment", href: "#assessment" }}
@@ -103,6 +103,10 @@ export default function StandardPage() {
           <Card key={item.title} title={item.title} description={item.description} />
         ))}
       </Section>
+
+      <Container className="-mt-6 max-w-3xl rounded-2xl border border-midnight/10 bg-cloud px-6 py-4 text-sm text-neutral shadow-sm">
+        Every deal, every rebate—explained. Channel OS™ keeps the ecosystem clear and auditable.
+      </Container>
 
       <section>
         <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-gradient-to-br from-graphite via-cloud to-cloud px-8 py-12 text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.25)]">
@@ -145,12 +149,12 @@ export default function StandardPage() {
       <section id="download">
         <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-graphite px-8 py-12 text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)] sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-3">
-            <h2 className="text-2xl font-semibold text-midnight">Download Channel OS Standard v1.0</h2>
+            <h2 className="text-2xl font-semibold text-midnight">Download Channel OS™ Standard v1.0</h2>
             <p className="max-w-xl text-sm text-neutral">
               Get the complete reference, including canonical data objects, RACIs, and adapter blueprints.
             </p>
           </div>
-          <CTAButton href="#" ariaLabel="Download the Channel OS Standard v1.0 PDF">
+          <CTAButton href="#" ariaLabel="Download the Channel OS™ Standard v1.0 PDF">
             Download v1.0
           </CTAButton>
         </Container>
@@ -175,7 +179,7 @@ export default function StandardPage() {
           <div className="grid gap-4 text-sm sm:grid-cols-3">
             <Card title="0–6" description="Foundations to build" />
             <Card title="7–12" description="Operationalizing" />
-            <Card title="13–16" description="Channel OS-Ready" />
+            <Card title="13–16" description="Channel OS™-Ready" />
           </div>
           <CTAButton href="/community" variant="primary" className="self-start">
             Join the community study group that matches your lowest area

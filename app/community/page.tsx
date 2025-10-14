@@ -6,8 +6,9 @@ import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
-  title: "Channel OS Community — Learn together, work together, win together.",
-  description: "Study groups, live sessions, templates, and badges. Vendor-neutral, tool-agnostic, open.",
+  title: "Channel OS™ Community — Learn together, work together, win together.",
+  description:
+    "The Channel OS™ Community brings study groups, live sessions, templates, and badges together—vendor-neutral, tool-agnostic, open.",
 };
 
 const communityOffers = [
@@ -90,7 +91,7 @@ export default function CommunityPage() {
       <Hero
         eyebrow="Community"
         title="Where channel operators learn, work, and win together"
-        description="Study groups, live sessions, and badges keep the Channel OS alive between releases."
+        description="Study groups, live sessions, and badges keep the Channel OS™ alive between releases."
         primaryCta={{ label: "Join the Community", href: "/apply" }}
         secondaryCta={{ label: "See upcoming sessions", href: "#sessions" }}
         tertiaryCta={{ label: "Become an Ambassador", href: "#programs" }}
@@ -207,6 +208,11 @@ export default function CommunityPage() {
           </ul>
         </Card>
       </Section>
+
+      <Container className="-mt-6 flex flex-col gap-2 rounded-2xl border border-midnight/10 bg-cloud px-6 py-4 text-sm text-neutral shadow-sm">
+        <p>Official home: channelos.org. Official handles: Channel OS™ (company), Channel OS™ Community, Channel OS™ Academy.</p>
+        <p>Channel OS™ is an open, vendor-neutral framework. Describe compatibility; don’t imply affiliation.</p>
+      </Container>
     </div>
   );
 }

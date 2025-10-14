@@ -6,7 +6,7 @@ import { Section } from "../../components/Section";
 export const metadata: Metadata = {
   title: "Privacy & Terms — Plain language",
   description:
-    "How we handle your data and your rights. Minimal collection, no selling, EU-friendly.",
+    "How Channel OS™ handles your data and rights. Minimal collection, no selling, EU-friendly.",
 };
 
 export default function LegalPage() {

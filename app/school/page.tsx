@@ -9,7 +9,7 @@ import { Section } from "../../components/Section";
 export const metadata: Metadata = {
   title: "Channel 101 — Start your channel career",
   description:
-    "Learn the V-D-P map, the end-to-end flow, and earn the CCO-F badge. Free to start.",
+    "Channel OS™ School: learn the V-D-P map, the end-to-end flow, and earn the CCO-F badge. Free to start.",
 };
 
 const modules = [
@@ -87,6 +87,11 @@ export default function SchoolPage() {
           <Card key={outcome.title} title={outcome.title} description={outcome.description} />
         ))}
       </Section>
+
+      <Container className="-mt-6 max-w-3xl rounded-2xl border border-midnight/10 bg-cloud px-6 py-4 text-sm text-neutral shadow-sm">
+        Badges use the Channel OS™ name under our Trademark & Brand Use Policy. Channel OS™ Certified / Channel OS™ Compatible
+        designations always require published criteria and written confirmation.
+      </Container>
 
       <Section
         id="watch"

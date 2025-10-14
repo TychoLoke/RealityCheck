@@ -7,9 +7,9 @@ import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
-  title: "Channel OS Certifications — People, organizations, platforms",
+  title: "Channel OS™ Certifications — People, organizations, platforms",
   description:
-    "Badges that mean business. Org certifications by SLA performance. Platform compatibility via public tests.",
+    "Channel OS™ certifications deliver badges that mean business. Org tiers are measured by SLA performance and platform compatibility via public tests.",
 };
 
 const peopleBadges = [
@@ -40,7 +40,7 @@ export default function CertifiedPage() {
       <Hero
         eyebrow="Certified"
         title="Badges that mean business."
-        description="People, organizations, and platforms prove they run the Channel OS playbook—and publish the evidence."
+        description="People, organizations, and platforms prove they run the Channel OS™ playbook—and publish the evidence."
         primaryCta={{ label: "Start your certification", href: "#waitlist" }}
         secondaryCta={{ label: "Nominate your organization", href: "#organizations" }}
         tertiaryCta={{ label: "See compatibility criteria", href: "#platforms" }}
@@ -60,7 +60,7 @@ export default function CertifiedPage() {
             ))}
           </ul>
         </Card>
-        <Card title="What it proves" description="Operators run the Channel OS plays with evidence—handoffs, data lineage, and revenue integrity." />
+        <Card title="What it proves" description="Operators run the Channel OS™ plays with evidence—handoffs, data lineage, and revenue integrity." />
         <Card title="How it happens" description="Scenario-based exams, lab submissions, and peer endorsements inside the community." />
       </Section>
 
@@ -86,6 +86,11 @@ export default function CertifiedPage() {
         <Card title="Reference adapters" description="CRM, ERP, PSA, and incentive adapters that align to the canonical objects." />
         <Card title="Test once, publish results" description="Pass the public tests and share your badge. Operators can trust the integration before they buy." />
       </Section>
+
+      <Container className="-mt-6 max-w-3xl rounded-2xl border border-midnight/10 bg-cloud px-6 py-4 text-sm text-neutral shadow-sm">
+        “Channel OS™ Certified” and “Channel OS™ Compatible” are controlled names. Use requires passing criteria and written
+        confirmation under the Trademark & Brand Use Policy.
+      </Container>
 
       <section>
         <Container className="grid gap-8 rounded-3xl border border-midnight/10 bg-graphite px-8 py-12 shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)] md:grid-cols-2">

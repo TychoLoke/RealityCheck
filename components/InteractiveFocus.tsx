@@ -33,7 +33,7 @@ export function InteractiveFocus({ areas }: InteractiveFocusProps) {
             Turn the OS into momentum
           </h2>
           <p className="text-base leading-relaxed text-neutral">
-            Explore how Channel OS aligns teams around the same habits. Choose a focus area to see the
+            Explore how Channel OS™ aligns teams around the same habits. Choose a focus area to see the
             operating loops, proof, and outcomes.
           </p>
         </div>
