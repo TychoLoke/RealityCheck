@@ -7,6 +7,7 @@ import { Hero } from "../components/Hero";
 import { InteractiveFocus } from "../components/InteractiveFocus";
 import { JourneyExperience } from "../components/JourneyExperience";
 import { Section } from "../components/Section";
+import { SurfaceNote } from "../components/SurfaceNote";
 
 export const metadata: Metadata = {
   title: "Channel OS™ — Where the Channel Learns, Works, and Wins.",
@@ -172,7 +173,7 @@ const journeySteps = [
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-white">
+    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Launches January 1, 2026"
         title="Channel OS™ launches January 1, 2026"
@@ -191,17 +192,19 @@ export default function HomePage() {
         variant="dark"
       />
 
-      <Container className="-mt-10 flex flex-col gap-3 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-6 py-5 text-sm text-white/70 shadow-[0_24px_80px_-60px_rgba(14,165,233,0.45)] backdrop-blur">
-        <p>
-          Channel OS™ is an open, vendor-neutral framework. You may describe interoperability (“compatible with Channel OS™”) but may not imply affiliation or use the name in product titles without permission.
-        </p>
-        <Link
-          className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.28em] text-white/80 transition hover:text-white"
-          href="/trademark"
-        >
-          Read Trademark &amp; Brand Use →
-        </Link>
-      </Container>
+      <SurfaceNote>
+        <div className="flex flex-col gap-3">
+          <p>
+            Channel OS™ is an open, vendor-neutral framework. You may describe interoperability (“compatible with Channel OS™”) but may not imply affiliation or use the name in product titles without permission.
+          </p>
+          <Link
+            className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.28em] text-white transition hover:text-accentTeal"
+            href="/trademark"
+          >
+            Read Trademark &amp; Brand Use →
+          </Link>
+        </div>
+      </SurfaceNote>
 
       <section>
         <Container className="relative grid gap-10 overflow-hidden rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-12 text-white shadow-[0_40px_120px_-70px_rgba(14,165,233,0.5)] backdrop-blur">

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Card } from "../../components/Card";
-import { Container } from "../../components/Container";
-import { CTAButton } from "../../components/CTAButton";
 import { Embed } from "../../components/Embed";
 import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
+import { SurfaceNote } from "../../components/SurfaceNote";
 
 export const metadata: Metadata = {
   title: "Channel OS™ Academy — From tools to operating",
@@ -23,7 +22,7 @@ const tracks = [
 
 export default function AcademyPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-midnight">
+    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Academy"
         title="From “I know the tools” to “I run the channel.”"
@@ -32,6 +31,7 @@ export default function AcademyPage() {
         secondaryCta={{ label: "See the tracks", href: "#tracks" }}
         tertiaryCta={{ label: "Book an intro", href: "#waitlist" }}
         proofPoints={["Sales", "Technical", "Services/Ops", "Leadership"]}
+        variant="dark"
       />
 
       <Section
@@ -50,18 +50,18 @@ export default function AcademyPage() {
         title="Tracks"
         description="Pick the path that matches how you operate."
         columns={3}
-        className="bg-graphite"
-        cta={{ label: "Join the waitlist", href: "#waitlist", variant: "primary" }}
+        cta={{ label: "Join the waitlist", href: "#waitlist", variant: "inverted" }}
+        variant="inverted"
       >
         {tracks.map((track) => (
-          <Card key={track.title} title={track.title} description={track.description} />
+          <Card key={track.title} title={track.title} description={track.description} variant="inverted" />
         ))}
       </Section>
 
-      <Container className="-mt-6 max-w-3xl rounded-2xl border border-midnight/10 bg-cloud px-6 py-4 text-sm text-neutral shadow-sm">
+      <SurfaceNote>
         Badges use the Channel OS™ name under our Trademark & Brand Use Policy. Channel OS™ Certified / Channel OS™ Compatible
         designations always require published criteria and written confirmation.
-      </Container>
+      </SurfaceNote>
 
       <Section
         id="waitlist"

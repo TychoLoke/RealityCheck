@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Card } from "../../components/Card";
-import { Container } from "../../components/Container";
 import { Embed } from "../../components/Embed";
+import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
@@ -30,15 +30,17 @@ const organizationFields = [
 
 export default function ApplyPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-midnight">
-      <section className="border-b border-midnight/10 bg-gradient-to-b from-graphite via-cloud to-cloud py-16 sm:py-20">
-        <Container className="flex flex-col gap-6">
-          <h1 className="text-3xl font-semibold sm:text-4xl">Apply & Waitlists</h1>
-          <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
-            Tell us where you want to start—Community, School, Academy, Certification, Council—and we’ll guide you to the next session or cohort.
-          </p>
-        </Container>
-      </section>
+    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+      <Hero
+        eyebrow="Apply"
+        title="Apply & Waitlists"
+        description="Tell us where you want to start—Community, School, Academy, Certification, Council—and we’ll guide you to the next session or cohort."
+        primaryCta={{ label: "Submit your application", href: "#form" }}
+        secondaryCta={{ label: "Review organization info", href: "#organizations" }}
+        tertiaryCta={{ label: "Talk to the team", href: "mailto:hello@channelos.org" }}
+        proofPoints={["Community", "School", "Academy", "Certification"]}
+        variant="dark"
+      />
 
       <Section title="Individual fields" description="We keep it simple—tell us who you are and how you want to grow." columns={2}>
         <Card title="Required info">
@@ -51,18 +53,29 @@ export default function ApplyPage() {
         <Card title="Why it matters" description="We map you to the study group, cohort, or certification path that matches your goals." />
       </Section>
 
-      <Section title="Organization fields" description="Signal how your company wants to participate." columns={2} className="bg-graphite">
-        <Card title="What we ask">
+      <Section
+        id="organizations"
+        title="Organization fields"
+        description="Signal how your company wants to participate."
+        columns={2}
+        cta={{ label: "Nominate your organization", href: "#form", variant: "inverted" }}
+        variant="inverted"
+      >
+        <Card title="What we ask" variant="inverted">
           <ul className="list-disc space-y-2 pl-5 text-sm text-neutral">
             {organizationFields.map((field) => (
               <li key={field}>{field}</li>
             ))}
           </ul>
         </Card>
-        <Card title="What you get" description="We connect you to Champions programs, Council seats, or certification briefings based on your focus SLA." />
+        <Card
+          title="What you get"
+          description="We connect you to Champions programs, Council seats, or certification briefings based on your focus SLA."
+          variant="inverted"
+        />
       </Section>
 
-      <Section title="One form" description="Apply once; we’ll route you to the right onboarding flow." columns={1}>
+      <Section id="form" title="One form" description="Apply once; we’ll route you to the right onboarding flow." columns={1}>
         <Embed
           html={process.env.NEXT_PUBLIC_FORMS_APPLY_EMBED}
           title="Channel OS™ application form"

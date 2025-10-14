@@ -3,6 +3,7 @@ import { Card } from "../../components/Card";
 import { Embed } from "../../components/Embed";
 import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
+import { SurfaceNote } from "../../components/SurfaceNote";
 
 export const metadata: Metadata = {
   title: "Channel OS™ Council — One ecosystem, one table",
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function CouncilPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-midnight">
+    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Council"
         title="One ecosystem, one table."
@@ -21,6 +22,7 @@ export default function CouncilPage() {
         secondaryCta={{ label: "Apply to the Council", href: "#apply" }}
         tertiaryCta={{ label: "Submit an RFC", href: "#apply" }}
         proofPoints={["Balanced seats", "One org = one vote", "Public RFCs"]}
+        variant="dark"
       />
 
       <Section
@@ -50,9 +52,9 @@ export default function CouncilPage() {
         />
       </Section>
 
-      <div className="-mt-6 max-w-3xl self-center rounded-2xl border border-midnight/10 bg-cloud px-6 py-4 text-sm text-neutral shadow-sm">
+      <SurfaceNote>
         The Council helps maintain a fair, vendor-neutral use of the Channel OS™ name and assets.
-      </div>
+      </SurfaceNote>
     </div>
   );
 }

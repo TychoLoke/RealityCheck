@@ -4,6 +4,7 @@ import { Container } from "../../components/Container";
 import { CTAButton } from "../../components/CTAButton";
 import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
+import { SurfaceNote } from "../../components/SurfaceNote";
 
 export const metadata: Metadata = {
   title: "Channel OS™ Community — Learn together, work together, win together.",
@@ -87,7 +88,7 @@ const guidelines = [
 
 export default function CommunityPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-midnight">
+    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Community"
         title="Where channel operators learn, work, and win together"
@@ -96,6 +97,7 @@ export default function CommunityPage() {
         secondaryCta={{ label: "See upcoming sessions", href: "#sessions" }}
         tertiaryCta={{ label: "Become an Ambassador", href: "#programs" }}
         proofPoints={["Study groups", "Live labs", "Badges"]}
+        variant="dark"
       />
 
       <Section
@@ -114,12 +116,12 @@ export default function CommunityPage() {
         title="Programs"
         description="Pick the lane that matches how you want to contribute to the network."
         columns={2}
-        className="bg-graphite"
-        cta={{ label: "View program guide", href: "/community", variant: "primary" }}
+        cta={{ label: "View program guide", href: "/community", variant: "inverted" }}
+        variant="inverted"
       >
         {programs.map((program) => (
-          <Card key={program.title} title={program.title}>
-            <span className="inline-flex items-center rounded-full border border-midnight/10 bg-graphite/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-neutral">
+          <Card key={program.title} title={program.title} variant="inverted">
+            <span className="inline-flex items-center rounded-full border border-midnight/10 bg-midnight/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-midnight/70">
               {program.badge}
             </span>
             <p className="mt-3 text-sm leading-relaxed text-neutral">{program.description}</p>
@@ -128,11 +130,11 @@ export default function CommunityPage() {
       </Section>
 
       <section id="sessions">
-        <Container className="flex flex-col gap-8 rounded-3xl border border-midnight/10 bg-graphite px-8 py-12 shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)]">
+        <Container className="flex flex-col gap-8 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-12 text-white shadow-[0_32px_96px_-60px_rgba(14,165,233,0.45)] backdrop-blur">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-neutral">Upcoming sessions</p>
-              <h2 className="mt-2 text-2xl font-semibold text-midnight">Learn → Work → Win in the next two weeks</h2>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">Upcoming sessions</p>
+              <h2 className="mt-2 text-2xl font-semibold">Learn → Work → Win in the next two weeks</h2>
             </div>
             <CTAButton href="/community" variant="primary">
               See all sessions
@@ -165,10 +167,10 @@ export default function CommunityPage() {
         title="Join flow"
         description="Clear steps so you can plug in without friction."
         columns={1}
-        className="bg-graphite"
-        cta={{ label: "Submit your application", href: "/apply", variant: "primary" }}
+        cta={{ label: "Submit your application", href: "/apply", variant: "inverted" }}
+        variant="inverted"
       >
-        <Card title="Four steps">
+        <Card title="Four steps" variant="inverted">
           <ol className="list-decimal space-y-2 pl-5 text-sm leading-relaxed text-neutral">
             {joinFlowSteps.map((step) => (
               <li key={step}>{step}</li>
@@ -178,9 +180,9 @@ export default function CommunityPage() {
       </Section>
 
       <section>
-        <Container className="flex flex-col gap-6 rounded-3xl border border-midnight/10 bg-gradient-to-br from-graphite via-cloud to-cloud px-8 py-12 text-center text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.25)]">
+        <Container className="flex flex-col gap-6 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-12 text-center text-white shadow-[0_32px_96px_-60px_rgba(14,165,233,0.45)] backdrop-blur">
           <h2 className="text-2xl font-semibold sm:text-3xl">Ready to plug into the network?</h2>
-          <p className="max-w-2xl text-base text-neutral">
+          <p className="max-w-2xl text-base text-white/75">
             Apply, pick your study group, and you’ll have your first live session scheduled within the week.
           </p>
           <CTAButton href="/apply">Join the Community</CTAButton>
@@ -209,10 +211,10 @@ export default function CommunityPage() {
         </Card>
       </Section>
 
-      <Container className="-mt-6 flex flex-col gap-2 rounded-2xl border border-midnight/10 bg-cloud px-6 py-4 text-sm text-neutral shadow-sm">
+      <SurfaceNote>
         <p>Official home: channelos.org. Official handles: Channel OS™ (company), Channel OS™ Community, Channel OS™ Academy.</p>
-        <p>Channel OS™ is an open, vendor-neutral framework. Describe compatibility; don’t imply affiliation.</p>
-      </Container>
+        <p className="mt-2">Channel OS™ is an open, vendor-neutral framework. Describe compatibility; don’t imply affiliation.</p>
+      </SurfaceNote>
     </div>
   );
 }

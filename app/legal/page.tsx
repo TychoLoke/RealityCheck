@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Card } from "../../components/Card";
-import { Container } from "../../components/Container";
+import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
@@ -11,15 +11,16 @@ export const metadata: Metadata = {
 
 export default function LegalPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-midnight">
-      <section className="border-b border-midnight/10 bg-gradient-to-b from-graphite via-cloud to-cloud py-16 sm:py-20">
-        <Container className="flex flex-col gap-6">
-          <h1 className="text-3xl font-semibold sm:text-4xl">Privacy & Terms (summary)</h1>
-          <p className="max-w-3xl text-lg leading-relaxed text-neutral sm:text-xl">
-            We collect only what we need to run the community and courses (name, email, role, and your form responses). We never sell your data. You can unsubscribe or request deletion at any time. Course data may be used (anonymized) to improve the Standard. Hosting and processing are EU-friendly. For questions, contact hello@channelos.org.
-          </p>
-        </Container>
-      </section>
+    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+      <Hero
+        eyebrow="Legal"
+        title="Privacy & Terms (summary)"
+        description="We collect only what we need to run the community and courses—name, email, role, and your form responses. We never sell your data and you can unsubscribe or request deletion at any time."
+        primaryCta={{ label: "Contact legal", href: "mailto:hello@channelos.org" }}
+        secondaryCta={{ label: "Apply for access", href: "/apply" }}
+        proofPoints={["Minimal collection", "No selling", "EU-friendly"]}
+        variant="dark"
+      />
 
       <Section title="Your controls" description="Straightforward ways to manage your data." columns={2}>
         <Card title="Access & deletion" description="Email hello@channelos.org to request exports or deletion. We respond within 7 days." />

@@ -5,6 +5,7 @@ import { CTAButton } from "../../components/CTAButton";
 import { Embed } from "../../components/Embed";
 import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
+import { SurfaceNote } from "../../components/SurfaceNote";
 
 export const metadata: Metadata = {
   title: "Channel 101 — Start your channel career",
@@ -44,7 +45,7 @@ const videoEmbeds = [
 
 export default function SchoolPage() {
   return (
-    <div className="flex flex-col gap-16 pb-24 text-midnight">
+    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="School"
         title="Start where careers begin: Channel 101"
@@ -53,14 +54,15 @@ export default function SchoolPage() {
         secondaryCta={{ label: "Apply to the next cohort", href: "/apply" }}
         tertiaryCta={{ label: "Join the Community", href: "/community" }}
         proofPoints={["90-minute format", "Guided project", "CCO-F badge"]}
+        variant="dark"
       />
 
       <section>
-        <Container className="grid gap-4 rounded-3xl border border-midnight/10 bg-graphite px-8 py-10 shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)] sm:grid-cols-3">
+        <Container className="grid gap-4 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-10 text-white shadow-[0_32px_96px_-60px_rgba(14,165,233,0.45)] backdrop-blur sm:grid-cols-3">
           {highlights.map((item) => (
-            <div key={item.label} className="rounded-2xl border border-midnight/10 bg-graphite/80 p-5 text-center text-midnight">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-neutral">{item.label}</p>
-              <p className="mt-2 text-xl font-semibold text-midnight">{item.value}</p>
+            <div key={item.label} className="rounded-2xl border border-white/15 bg-white/10 p-5 text-center text-white">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">{item.label}</p>
+              <p className="mt-2 text-xl font-semibold text-white">{item.value}</p>
             </div>
           ))}
         </Container>
@@ -88,21 +90,21 @@ export default function SchoolPage() {
         ))}
       </Section>
 
-      <Container className="-mt-6 max-w-3xl rounded-2xl border border-midnight/10 bg-cloud px-6 py-4 text-sm text-neutral shadow-sm">
+      <SurfaceNote>
         Badges use the Channel OS™ name under our Trademark & Brand Use Policy. Channel OS™ Certified / Channel OS™ Compatible
         designations always require published criteria and written confirmation.
-      </Container>
+      </SurfaceNote>
 
       <Section
         id="watch"
         title="Channel 101 (Free)"
         description="Watch the core lessons, then join a live study group to practice with peers."
         columns={3}
-        className="bg-graphite"
-        cta={{ label: "Join a study group", href: "/community", variant: "primary" }}
+        cta={{ label: "Join a study group", href: "/community", variant: "inverted" }}
+        variant="inverted"
       >
         {videoEmbeds.map((embed, index) => (
-          <Embed key={index} html={embed} title={`Channel 101 Video ${index + 1}`} />
+          <Embed key={index} html={embed} title={`Channel 101 Video ${index + 1}`} variant="inverted" />
         ))}
       </Section>
 

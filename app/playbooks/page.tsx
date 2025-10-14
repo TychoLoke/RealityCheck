@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Card } from "../../components/Card";
 import { Container } from "../../components/Container";
 import { CTAButton } from "../../components/CTAButton";
+import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
@@ -20,26 +21,27 @@ const playbooks = [
 
 export default function PlaybooksPage() {
   return (
-    <div className="flex flex-col gap-12 text-midnight">
-      <section className="border-b border-midnight/10 bg-gradient-to-b from-graphite via-cloud to-cloud py-16 sm:py-20">
-        <Container className="flex flex-col gap-6">
-          <h1 className="text-3xl font-semibold sm:text-4xl">Playbooks & SOPs</h1>
-          <p className="max-w-3xl text-base leading-relaxed text-neutral sm:text-lg">
-            Cards (Coming soon): Deal-to-Settlement, Distributor Command Center, Rebate Variance, PSA Bridge, Change Management.
-          </p>
-        </Container>
-      </section>
+    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+      <Hero
+        eyebrow="Playbooks"
+        title="Playbooks & SOPs"
+        description="Preview the first wave of channel playbooks built on the Channel OS™ standard."
+        primaryCta={{ label: "Subscribe for updates", href: "#updates" }}
+        secondaryCta={{ label: "Review the Standard", href: "/standard" }}
+        proofPoints={["Deal-to-Settlement", "Distributor Command Center", "Change Management"]}
+        variant="dark"
+      />
 
-      <Section title="Coming Soon" description="Preview the first wave of channel playbooks built on the Channel OS™ standard." columns={3}>
+      <Section title="Coming soon" description="Preview the first wave of channel playbooks built on the Channel OS™ standard." columns={3}>
         {playbooks.map((title) => (
           <Card key={title} title={title} description="Coming soon" />
         ))}
       </Section>
 
-      <section className="pb-20">
-        <Container className="flex flex-col items-center gap-4 rounded-3xl border border-midnight/10 bg-graphite px-8 py-10 text-center shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)]">
+      <section id="updates">
+        <Container className="flex flex-col items-center gap-4 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-10 text-center text-white shadow-[0_32px_96px_-60px_rgba(14,165,233,0.45)] backdrop-blur">
           <h2 className="text-2xl font-semibold">Subscribe for updates</h2>
-          <p className="max-w-2xl text-sm text-neutral">
+          <p className="max-w-2xl text-sm text-white/75">
             Get notified when new playbooks and SOPs are released.
           </p>
           <CTAButton href="/newsletter">Subscribe to the Journal</CTAButton>

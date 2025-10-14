@@ -90,17 +90,38 @@ interface EmbedProps {
   html?: string | null;
   title: string;
   description?: ReactNode;
+  variant?: "default" | "inverted";
 }
 
-export function Embed({ html, title, description }: EmbedProps) {
+const surfaceStyles = {
+  default: {
+    empty:
+      "border-white/15 bg-white/5 text-white/75 shadow-[0_24px_64px_-48px_rgba(14,165,233,0.35)] backdrop-blur",
+    heading: "text-white",
+    copy: "text-white/70",
+    shell: "border-white/15 bg-white/5",
+  },
+  inverted: {
+    empty:
+      "border-midnight/10 bg-cloud text-midnight shadow-[0_24px_64px_-48px_rgba(5,11,26,0.2)]",
+    heading: "text-midnight",
+    copy: "text-neutral",
+    shell: "border-midnight/10 bg-cloud",
+  },
+};
+
+export function Embed({ html, title, description, variant = "default" }: EmbedProps) {
   const sanitized = sanitizeEmbed(html);
+  const palette = surfaceStyles[variant];
 
   if (!sanitized) {
     return (
-      <div className="rounded-2xl border border-dashed border-midnight/15 bg-graphite/80 p-6 text-sm text-neutral">
-        <p className="font-semibold text-midnight">{title}</p>
-        <p className="mt-2 text-neutral">Add your embed in .env.local to display this content.</p>
-        {description ? <div className="mt-3 text-xs text-neutral/80">{description}</div> : null}
+      <div
+        className={`rounded-2xl border border-dashed p-6 text-sm ${palette.empty}`}
+      >
+        <p className={`font-semibold ${palette.heading}`}>{title}</p>
+        <p className={`mt-2 ${palette.copy}`}>Add your embed in .env.local to display this content.</p>
+        {description ? <div className={`mt-3 text-xs ${palette.copy}`}>{description}</div> : null}
         <div className="mt-4">
           <FormError />
         </div>
@@ -109,7 +130,7 @@ export function Embed({ html, title, description }: EmbedProps) {
   }
 
   return (
-    <div className="overflow-hidden rounded-2xl border border-midnight/10 bg-cloud p-2 shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)]">
+    <div className={`overflow-hidden rounded-2xl border p-2 shadow-[0_24px_64px_-48px_rgba(14,165,233,0.35)] ${palette.shell}`}>
       <div
         className="embed-html [&>iframe]:h-[360px] [&>iframe]:w-full [&>iframe]:rounded-xl [&>iframe]:border-0"
         dangerouslySetInnerHTML={{ __html: sanitized }}
