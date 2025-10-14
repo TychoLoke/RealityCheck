@@ -5,9 +5,9 @@ import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
-  title: "Channel OS Council — One ecosystem, one table",
+  title: "Channel OS™ Council — One ecosystem, one table",
   description:
-    "Balanced V-D-P governance, public RFCs, versioned releases, neutral by design.",
+    "The Channel OS™ Council stewards balanced V-D-P governance, public RFCs, and versioned releases—neutral by design.",
 };
 
 export default function CouncilPage() {
@@ -16,7 +16,7 @@ export default function CouncilPage() {
       <Hero
         eyebrow="Council"
         title="One ecosystem, one table."
-        description="Balanced V-D-P governance keeps Channel OS neutral, transparent, and accountable."
+        description="Balanced V-D-P governance keeps Channel OS™ neutral, transparent, and accountable."
         primaryCta={{ label: "Read the charter", href: "#charter" }}
         secondaryCta={{ label: "Apply to the Council", href: "#apply" }}
         tertiaryCta={{ label: "Submit an RFC", href: "#apply" }}
@@ -26,7 +26,7 @@ export default function CouncilPage() {
       <Section
         id="charter"
         title="Governance in practice"
-        description="Checks and balances that keep Channel OS neutral, open, and accountable."
+        description="Checks and balances that keep Channel OS™ neutral, open, and accountable."
         columns={2}
         cta={{ label: "Download the charter", href: "#apply", variant: "primary" }}
       >
@@ -49,6 +49,10 @@ export default function CouncilPage() {
           description="Embed your form via .env.local to collect nominations and proposals."
         />
       </Section>
+
+      <div className="-mt-6 max-w-3xl self-center rounded-2xl border border-midnight/10 bg-cloud px-6 py-4 text-sm text-neutral shadow-sm">
+        The Council helps maintain a fair, vendor-neutral use of the Channel OS™ name and assets.
+      </div>
     </div>
   );
 }

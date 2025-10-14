@@ -24,7 +24,7 @@ export default function OpenGraphImage() {
           color: "white",
         }}
       >
-        <div style={{ fontSize: 64, fontWeight: 700, letterSpacing: -2 }}>Channel OS</div>
+        <div style={{ fontSize: 64, fontWeight: 700, letterSpacing: -2 }}>Channel OS™</div>
         <div style={{
           fontSize: 44,
           fontWeight: 600,

@@ -8,29 +8,29 @@ import { CookieNotice } from "../components/CookieNotice";
 
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
-const baseTitle = "Channel OS — The vendor-neutral operating system for the channel (VDP)";
+const baseTitle = "Channel OS™ — The vendor-neutral operating system for the channel (VDP)";
 const baseDescription =
-  "Channel OS is the vendor-neutral operating system for the channel (VDP), standardizing people, skills, processes, data, and tools across Vendors, Distributors, and Partners.";
+  "Channel OS™ is the vendor-neutral operating system for the channel (VDP), standardizing people, skills, processes, data, and tools across Vendors, Distributors, and Partners.";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://channelos.org";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: baseTitle,
-    template: "%s | Channel OS",
+    template: "%s | Channel OS™",
   },
   description: baseDescription,
   openGraph: {
     title: baseTitle,
     description: baseDescription,
     url: siteUrl,
-    siteName: "Channel OS",
+    siteName: "Channel OS™",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Channel OS — The vendor-neutral operating system for the channel (VDP)",
+        alt: "Channel OS™ — The vendor-neutral operating system for the channel (VDP)",
       },
     ],
   },

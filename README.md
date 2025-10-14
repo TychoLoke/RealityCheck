@@ -1,4 +1,4 @@
-# Channel OS website
+# Channel OS™ website
 
 A production-ready, vendor-neutral marketing site for [ChannelOS.org](https://channelos.org) built with Next.js 14 (App Router), TypeScript, and Tailwind CSS. The site is fully static, accessible, and deployable on Vercel.
 

@@ -12,12 +12,15 @@ export function Footer() {
       <Container className="grid gap-8 text-sm text-neutral sm:grid-cols-2 lg:grid-cols-3">
         <div className="space-y-3">
           <p className="text-base font-semibold text-midnight">
-            Channel <span className="text-neutral">OS</span>
+            Channel <span className="text-neutral">OS™</span>
           </p>
           <p className="max-w-xs text-sm leading-relaxed text-neutral">
             Vendor-neutral by design. Channel-wide by choice. Learn. Work. Win.
           </p>
-          <p className="text-xs text-neutral/70">© {currentYear} Channel OS. All rights reserved.</p>
+          <p className="text-xs text-neutral/70">© {currentYear} Channel OS™. All rights reserved.</p>
+          <p className="text-xs text-neutral/70">
+            Channel OS™ is a trademark used under common law pending registration.
+          </p>
         </div>
         <div className="space-y-3">
           <h2 className="text-sm font-semibold uppercase tracking-wide text-midnight">The operating journey</h2>
@@ -63,7 +66,10 @@ export function Footer() {
             <Link className="hover:text-neutral" href="/legal">
               Privacy & Terms
             </Link>
-          </div>
+            <Link className="hover:text-neutral" href="/trademark">
+              Trademark & Brand Use
+            </Link>
+        </div>
         </div>
       </Container>
     </footer>

@@ -5,8 +5,9 @@ import { CTAButton } from "../../components/CTAButton";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
-  title: "Playbooks & SOPs",
-  description: "Operational playbooks and SOPs for channel orchestration, rebates, and change management.",
+  title: "Channel OS™ Playbooks & SOPs",
+  description:
+    "Operational Channel OS™ playbooks and SOPs for orchestration, rebates, and change management.",
 };
 
 const playbooks = [
@@ -29,7 +30,7 @@ export default function PlaybooksPage() {
         </Container>
       </section>
 
-      <Section title="Coming Soon" description="Preview the first wave of channel playbooks built on the Channel OS standard." columns={3}>
+      <Section title="Coming Soon" description="Preview the first wave of channel playbooks built on the Channel OS™ standard." columns={3}>
         {playbooks.map((title) => (
           <Card key={title} title={title} description="Coming soon" />
         ))}

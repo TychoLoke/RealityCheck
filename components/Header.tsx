@@ -31,15 +31,15 @@ export function Header() {
         <Link
           href="/"
           className="flex items-center gap-3 text-lg font-semibold text-midnight"
-          aria-label="Channel OS home"
+          aria-label="Channel OS™ home"
         >
-          <span className="sr-only">Channel OS logo — Where the Channel Learns, Works, and Wins.</span>
+          <span className="sr-only">Channel OS™ logo — Where the Channel Learns, Works, and Wins.</span>
           <span
             aria-hidden="true"
             className="inline-flex h-3.5 w-3.5 rotate-45 items-center justify-center rounded-sm bg-midnight"
           />
           <span>
-            Channel <span className="text-neutral">OS</span>
+            Channel <span className="text-neutral">OS™</span>
           </span>
         </Link>
         <nav aria-label="Primary" className="hidden items-center gap-8 text-sm font-medium text-neutral lg:flex">

@@ -6,7 +6,8 @@ import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
   title: "Apply & Waitlists — Join the community, cohorts, and certifications",
-  description: "Tell us where you want to start and we’ll guide you to the right program.",
+  description:
+    "Tell us where you want to start with Channel OS™ and we’ll guide you to the right community, cohort, or certification program.",
 };
 
 const individualFields = [
@@ -64,11 +65,12 @@ export default function ApplyPage() {
       <Section title="One form" description="Apply once; we’ll route you to the right onboarding flow." columns={1}>
         <Embed
           html={process.env.NEXT_PUBLIC_FORMS_APPLY_EMBED}
-          title="Channel OS application form"
+          title="Channel OS™ application form"
           description="Add the embed code in .env.local to start collecting submissions."
         />
         <Card title="Thank-you message">
-          You’re in. Check your inbox for next steps—pick a study group, start Channel 101, and say hello in the community.
+          Thanks—your request has been received. If you’re asking about brand use or badges, we’ll respond from{" "}
+          hello@channelos.org with next steps and timing.
         </Card>
       </Section>
     </div>

@@ -7,8 +7,9 @@ import { Hero } from "../../components/Hero";
 import { Section } from "../../components/Section";
 
 export const metadata: Metadata = {
-  title: "Channel OS Academy — From tools to operating",
-  description: "101 → 201 → 301 pathways for Sales, Technical, Services/Ops, Finance/RevOps, Marketing, Leadership.",
+  title: "Channel OS™ Academy — From tools to operating",
+  description:
+    "Channel OS™ Academy offers 101 → 201 → 301 pathways for Sales, Technical, Services/Ops, Finance/RevOps, Marketing, and Leadership operators.",
 };
 
 const tracks = [
@@ -56,6 +57,11 @@ export default function AcademyPage() {
           <Card key={track.title} title={track.title} description={track.description} />
         ))}
       </Section>
+
+      <Container className="-mt-6 max-w-3xl rounded-2xl border border-midnight/10 bg-cloud px-6 py-4 text-sm text-neutral shadow-sm">
+        Badges use the Channel OS™ name under our Trademark & Brand Use Policy. Channel OS™ Certified / Channel OS™ Compatible
+        designations always require published criteria and written confirmation.
+      </Container>
 
       <Section
         id="waitlist"

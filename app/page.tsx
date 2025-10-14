@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { Card } from "../components/Card";
 import { Container } from "../components/Container";
 import { CTAButton } from "../components/CTAButton";
@@ -8,16 +9,16 @@ import { JourneyExperience } from "../components/JourneyExperience";
 import { Section } from "../components/Section";
 
 export const metadata: Metadata = {
-  title: "Channel OS — Where the Channel Learns, Works, and Wins.",
+  title: "Channel OS™ — Where the Channel Learns, Works, and Wins.",
   description:
-    "Vendor-neutral operating system for the channel (VDP). Community, open standard, and certifications that unify People, Process, Data, and Tools.",
+    "Channel OS™ is the vendor-neutral operating system for the channel (VDP). Community, open standard, and certifications that unify People, Process, Data, and Tools.",
 };
 
 const launchHighlights = [
   {
     title: "Launch-ready framework",
     description:
-      "Preview the canonical People • Process • Data • Tools blueprint that ships with Channel OS 1.0 on day one.",
+      "Preview the canonical People • Process • Data • Tools blueprint that ships with Channel OS™ 1.0 on day one.",
   },
   {
     title: "Operational scorecards",
@@ -45,14 +46,14 @@ const buildWithUs = [
   {
     title: "Journal & playbooks",
     description:
-      "Weekly drops of frameworks, checklists, and walkthroughs as we finalize the Channel OS standard for launch.",
+      "Weekly drops of frameworks, checklists, and walkthroughs as we finalize the Channel OS™ standard for launch.",
   },
 ];
 
 const launchPulse = [
   {
     title: "Launch date",
-    description: "January 1, 2026. Channel OS 1.0 goes live for every vendor, distributor, and partner team.",
+    description: "January 1, 2026. Channel OS™ 1.0 goes live for every vendor, distributor, and partner team.",
     detail: "Mark your calendar—public enrollment and certifications open at midnight UTC.",
   },
   {
@@ -189,7 +190,7 @@ const quotes = [
 const journeySteps = [
   {
     label: "Now",
-    headline: "Preview the Channel OS framework",
+    headline: "Preview the Channel OS™ framework",
     description:
       "Tour the canonical data model, process library, and operating promises as we lock v1.0 ahead of launch.",
     takeaway: "Join a Channel 101 briefing to align sponsors on what ships January 1, 2026.",
@@ -213,7 +214,7 @@ const journeySteps = [
   },
   {
     label: "Jan 1, 2026",
-    headline: "Launch Channel OS with the community",
+    headline: "Launch Channel OS™ with the community",
     description:
       "Unlock the certification ceremonies, publish your scorecards, and go live with the shared operating language.",
     takeaway: "Launch week programming showcases founding members and their proof to the entire ecosystem.",
@@ -224,7 +225,7 @@ const journeySteps = [
     headline: "Co-create the ongoing roadmap",
     description:
       "Author new guidance, adapters, and governance updates with the operator network.",
-    takeaway: "Contributors influence the 2026 roadmap and earn spotlight features across the Channel OS journal.",
+    takeaway: "Contributors influence the 2026 roadmap and earn spotlight features across the Channel OS™ journal.",
     action: { label: "Lead a working group", href: "/apply" },
   },
 ];
@@ -234,7 +235,7 @@ export default function HomePage() {
     <div className="flex flex-col gap-16 pb-24 text-midnight">
       <Hero
         eyebrow="Launches January 1, 2026"
-        title="Channel OS is almost here"
+        title="Channel OS™ is almost here"
         tagline="The vendor-neutral operating system for the channel arrives New Year’s Day."
         description="We’re finalizing the framework, certifications, and community rituals that keep Vendors, Distributors, and Partners in sync. Join the founding waitlist to shape the launch and claim your spot."
         primaryCta={{ label: "Join the founding waitlist", href: "/community" }}
@@ -243,6 +244,18 @@ export default function HomePage() {
         proofPoints={["Vendor-neutral", "Open framework", "Certification day one", "Community-led", "Launch broadcast"]}
         variant="dark"
       />
+
+      <Container className="-mt-6 flex flex-col gap-2 rounded-2xl border border-midnight/10 bg-cloud/80 px-6 py-4 text-sm text-neutral shadow-sm backdrop-blur">
+        <p>
+          Channel OS™ is an open, vendor-neutral framework. You may describe interoperability (“compatible with Channel OS™”) but may not imply affiliation or use the name in product titles without permission.
+        </p>
+        <Link
+          className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.28em] text-midnight"
+          href="/trademark"
+        >
+          Read Trademark & Brand Use →
+        </Link>
+      </Container>
 
       <section className="-mt-10">
         <Container className="relative grid gap-10 overflow-hidden rounded-3xl border border-midnight/10 bg-gradient-to-br from-graphite via-cloud to-cloud px-8 py-12 text-midnight shadow-[0_32px_80px_-48px_rgba(12,15,27,0.25)]">
@@ -271,7 +284,7 @@ export default function HomePage() {
       <Section
         eyebrow="Launch day unlocks"
         title="What you’ll step into on January 1"
-        description="Channel OS 1.0 ships with the core framework, scorecards, and community rituals ready for every operator."
+        description="Channel OS™ 1.0 ships with the core framework, scorecards, and community rituals ready for every operator."
         cta={{ label: "See the launch framework", href: "/standard", variant: "primary" }}
         className="bg-graphite text-midnight"
         variant="inverted"
