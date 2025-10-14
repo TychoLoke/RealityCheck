@@ -8,68 +8,78 @@ export function Footer() {
   const discordUrl = process.env.NEXT_PUBLIC_DISCORD_URL ?? "https://discord.gg/your-invite";
 
   return (
-    <footer className="border-t border-midnight/10 bg-cloud py-12">
-      <Container className="grid gap-8 text-sm text-neutral sm:grid-cols-2 lg:grid-cols-3">
-        <div className="space-y-3">
-          <p className="text-base font-semibold text-midnight">
-            Channel <span className="text-neutral">OS™</span>
+    <footer className="mt-24 border-t border-white/10 bg-white/5 py-12 backdrop-blur">
+      <Container className="grid gap-10 text-sm text-white/70 md:grid-cols-2 lg:grid-cols-4">
+        <div className="space-y-5">
+          <p className="text-base font-semibold text-white">
+            Channel <span className="text-white/60">OS™</span>
           </p>
-          <p className="max-w-xs text-sm leading-relaxed text-neutral">
-            Vendor-neutral by design. Channel-wide by choice. Learn. Work. Win.
+          <p className="max-w-xs text-sm leading-relaxed">
+            The vendor-neutral operating system for the channel. Built with operators so every launch is accountable from day
+            one.
           </p>
-          <p className="text-xs text-neutral/70">© {currentYear} Channel OS™. All rights reserved.</p>
-          <p className="text-xs text-neutral/70">
-            Channel OS™ is a trademark used under common law pending registration.
-          </p>
-        </div>
-        <div className="space-y-3">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-midnight">The operating journey</h2>
-          <div className="flex flex-wrap items-center gap-2 text-xs font-semibold uppercase tracking-[0.28em] text-neutral">
-            {"Discover Learn Join Practice Certify Contribute".split(" ").map((step, index, arr) => (
-              <span key={step} className="flex items-center gap-2">
-                <span>{step}</span>
-                {index < arr.length - 1 ? <span aria-hidden="true">→</span> : null}
-              </span>
-            ))}
+          <div className="space-y-2 text-xs text-white/40">
+            <p className="uppercase tracking-[0.3em]">Launches January 1, 2026</p>
+            <p>Anchored in Deurne. Serving the global channel.</p>
+            <p>
+              © {currentYear} Channel OS™. All rights reserved. Channel OS™ is a trademark used under common law pending
+              registration.
+            </p>
           </div>
-          <div className="mt-3 flex flex-col gap-2 text-sm leading-relaxed">
-            <Link className="text-midnight hover:text-neutral" href="/standard">
-              Read Standard v1.0
+        </div>
+
+        <div className="space-y-4">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">Platform</h2>
+          <div className="grid gap-2 text-sm">
+            <Link className="text-white/80 transition hover:text-white" href="/standard">
+              Standard v1.0
             </Link>
-            <Link className="text-midnight hover:text-neutral" href="/school">
-              Start Channel 101 (free)
+            <Link className="text-white/80 transition hover:text-white" href="/playbooks">
+              Playbooks & Kits
             </Link>
-            <Link className="text-midnight hover:text-neutral" href="/community">
-              Join the Community
+            <Link className="text-white/80 transition hover:text-white" href="/council">
+              Channel Council
             </Link>
-            <Link className="text-midnight hover:text-neutral" href="/certified">
-              Get certified
+            <Link className="text-white/80 transition hover:text-white" href="/apply">
+              Apply for private beta
             </Link>
           </div>
         </div>
-        <div className="space-y-3">
-          <h2 className="text-sm font-semibold uppercase tracking-wide text-midnight">Stay connected</h2>
-          <p>
-            Contact us at{" "}
-            <a className="text-midnight hover:text-neutral" href={`mailto:${contactEmail}`}>
-              {contactEmail}
+
+        <div className="space-y-4">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">Programs</h2>
+          <div className="grid gap-2 text-sm">
+            <Link className="text-white/80 transition hover:text-white" href="/community">
+              Community membership
+            </Link>
+            <Link className="text-white/80 transition hover:text-white" href="/academy">
+              Academy & Channel 101
+            </Link>
+            <Link className="text-white/80 transition hover:text-white" href="/certified">
+              Certification paths
+            </Link>
+          </div>
+        </div>
+
+        <div className="space-y-4">
+          <h2 className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">Resources</h2>
+          <div className="grid gap-2 text-sm">
+            <a className="text-white/80 transition hover:text-white" href={`mailto:${contactEmail}`}>
+              Contact {contactEmail}
             </a>
-          </p>
-          <p className="text-xs text-neutral/70">Anchored in Deurne, serving the global channel.</p>
-          <div className="flex flex-wrap items-center gap-4 text-midnight">
-            <Link className="hover:text-neutral" href={discordUrl}>
-              Discord
+            <Link className="text-white/80 transition hover:text-white" href={discordUrl}>
+              Discord community
             </Link>
-            <Link className="hover:text-neutral" href="/newsletter">
+            <Link className="text-white/80 transition hover:text-white" href="/newsletter">
               Journal
             </Link>
-            <Link className="hover:text-neutral" href="/legal">
+            <Link className="text-white/80 transition hover:text-white" href="/legal">
               Privacy & Terms
             </Link>
-            <Link className="hover:text-neutral" href="/trademark">
+            <Link className="text-white/80 transition hover:text-white" href="/trademark">
               Trademark & Brand Use
             </Link>
-        </div>
+          </div>
         </div>
       </Container>
     </footer>

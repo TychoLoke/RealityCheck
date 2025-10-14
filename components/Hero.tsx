@@ -29,50 +29,47 @@ export function Hero({
   const palette = isDark
     ? {
         surface:
-          "border-white/10 bg-[linear-gradient(150deg,rgba(15,21,40,0.95),rgba(10,14,29,0.98))]",
-        accent: "from-sunrise-amber/25 via-transparent to-aqua-teal/20",
-        halo: "bg-white/15",
-        badge: "border-white/20 bg-white/10 text-white/80",
+          "border-white/10 bg-white/5 text-white/80 shadow-[0_80px_160px_-80px_rgba(14,165,233,0.5)]",
+        accent: "from-accentBlue/20 via-transparent to-accentTeal/20",
+        halo: "bg-white/10",
+        badge: "border-white/15 bg-white/10 text-white/70",
         title: "text-white",
         copy: "text-white/80",
-        tagline: "text-white/85",
+        tagline: "text-white/80",
         proof: "text-white/70",
         ring: "ring-white/10",
-        proofSurface: "border-white/12 bg-white/5",
+        proofSurface: "border-white/10 bg-white/10",
         proofFrame: "border-white/15",
       }
     : {
         surface:
-          "border-midnight/10 bg-[linear-gradient(150deg,rgba(255,255,255,0.96),rgba(236,242,255,0.92))]",
-        accent: "from-electric-indigo/20 via-transparent to-aqua-teal/15",
-        halo: "bg-white/70",
-        badge: "border-midnight/10 bg-white/80 text-midnight/70",
+          "border-midnight/10 bg-cloud text-midnight shadow-[0_80px_160px_-80px_rgba(5,11,26,0.25)]",
+        accent: "from-accentBlue/15 via-transparent to-accentTeal/15",
+        halo: "bg-accentBlue/10",
+        badge: "border-midnight/10 bg-midnight/5 text-midnight/70",
         title: "text-midnight",
-        copy: "text-midnight/70",
+        copy: "text-neutral",
         tagline: "text-midnight/80",
-        proof: "text-midnight/60",
+        proof: "text-neutral",
         ring: "ring-midnight/5",
-        proofSurface: "border-midnight/10 bg-white/80",
-        proofFrame: "border-white/60",
+        proofSurface: "border-midnight/10 bg-graphite",
+        proofFrame: "border-midnight/5",
       };
 
-  const primaryButtonClasses = isDark
-    ? "bg-white text-midnight shadow-[0_28px_72px_-48px_rgba(255,255,255,0.6)] hover:bg-white/90"
-    : "shadow-[0_28px_72px_-48px_rgba(79,70,229,0.55)] hover:shadow-[0_32px_96px_-56px_rgba(79,70,229,0.6)]";
-
-  const ghostVariant = isDark ? "inverted" : "ghost";
+  const primaryVariant = isDark ? "primary" : "inverted";
+  const secondaryVariant = isDark ? "secondary" : "ghost";
 
   return (
     <section className="relative isolate px-4 pt-12 sm:px-6 sm:pt-16">
-      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-64 bg-gradient-to-b from-white via-white/70 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-64 bg-gradient-to-b from-white/10 via-white/5 to-transparent" />
       <Container className="relative">
         <div
-          className={`relative overflow-hidden rounded-[48px] border ${palette.surface} shadow-[0_80px_200px_-80px_rgba(12,15,27,0.45)] ring-1 ring-inset ${palette.ring}`}
+          className={`relative overflow-hidden rounded-[var(--radius-xl)] border ${palette.surface} ring-1 ring-inset ${palette.ring}`}
         >
           <div className={`pointer-events-none absolute inset-0 bg-gradient-to-br ${palette.accent} opacity-70`} />
           <div className={`pointer-events-none absolute -top-1/2 left-1/2 h-[520px] w-[140%] -translate-x-1/2 rounded-full blur-3xl ${palette.halo}`} />
           <div className="relative z-10 grid gap-12 px-8 py-14 sm:px-12 sm:py-16 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:items-center">
-            <div className="flex flex-col gap-8">
+            <div className="flex flex-col gap-10">
               <div className="space-y-6">
                 <span
                   className={`inline-flex w-fit items-center gap-2 rounded-full border px-4 py-1 text-xs font-semibold uppercase tracking-[0.28em] ${palette.badge}`}
@@ -86,16 +83,24 @@ export function Hero({
                 <p className={`max-w-2xl text-base leading-relaxed sm:text-lg ${palette.copy}`}>{description}</p>
               </div>
               <div className="flex flex-wrap items-center gap-4">
-                <CTAButton href={primaryCta.href} className={primaryButtonClasses}>
+                <CTAButton href={primaryCta.href} variant={primaryVariant}>
                   {primaryCta.label}
                 </CTAButton>
                 {secondaryCta ? (
-                  <CTAButton href={secondaryCta.href} variant={ghostVariant}>
+                  <CTAButton
+                    href={secondaryCta.href}
+                    variant={secondaryVariant}
+                    className={isDark ? undefined : "text-midnight/70 hover:text-midnight"}
+                  >
                     {secondaryCta.label}
                   </CTAButton>
                 ) : null}
                 {tertiaryCta ? (
-                  <CTAButton href={tertiaryCta.href} variant={ghostVariant}>
+                  <CTAButton
+                    href={tertiaryCta.href}
+                    variant={secondaryVariant}
+                    className={isDark ? undefined : "text-midnight/70 hover:text-midnight"}
+                  >
                     {tertiaryCta.label}
                   </CTAButton>
                 ) : null}
@@ -103,7 +108,7 @@ export function Hero({
             </div>
             {proofPoints.length ? (
               <aside
-                className={`relative overflow-hidden rounded-[32px] border p-8 backdrop-blur-sm lg:p-10 ${palette.proofSurface}`}
+                className={`relative overflow-hidden rounded-[32px] border p-8 backdrop-blur lg:p-10 ${palette.proofSurface}`}
               >
                 <div className={`pointer-events-none absolute inset-0 rounded-[32px] border ${palette.proofFrame} opacity-40`} />
                 <div className="relative z-10 space-y-6">
@@ -113,7 +118,7 @@ export function Hero({
                       <li key={point} className="flex items-start gap-3">
                         <span
                           aria-hidden="true"
-                          className="mt-1 inline-flex h-2 w-2 rounded-full bg-gradient-to-br from-sunrise-amber to-aqua-teal"
+                          className="mt-1 inline-flex h-2.5 w-2.5 rounded-full bg-gradient-to-br from-accentBlue via-accentTeal to-white"
                         />
                         <span>{point}</span>
                       </li>
