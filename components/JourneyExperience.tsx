@@ -43,53 +43,53 @@ export function JourneyExperience({
   const sectionBackground = "relative py-16 sm:py-20";
   const palette = isInverted
     ? {
+        eyebrow: "text-sm font-semibold uppercase tracking-[0.3em] text-white/60",
+        title: "text-2xl font-semibold text-white sm:text-3xl",
+        description: "text-base leading-relaxed text-white/75",
+        focusOutline: "focus-visible:outline-white",
+        stepActive:
+          "border-white/30 bg-white/15 text-white shadow-[0_12px_30px_-18px_rgba(11,14,26,0.8)]",
+        stepInactive:
+          "border-white/20 bg-white/5 text-white/70 hover:border-white/35 hover:text-white",
+        panel:
+          "rounded-[var(--radius-xl)] border border-white/15 bg-midnight p-8 text-white shadow-[0_48px_140px_-80px_rgba(11,14,26,0.8)]",
+        label: "text-sm font-semibold uppercase tracking-[0.28em] text-white/60",
+        copy: "text-base leading-relaxed text-white/80",
+        takeaway:
+          "rounded-2xl border border-white/20 bg-white/10 p-5 text-sm leading-relaxed text-white/80",
+        ctaVariant: "inverted" as const,
+        progressTrack: "bg-white/20",
+        progressBar: "bg-white",
+        progressText: "text-sm font-medium text-white/70",
+        successWrapper:
+          "flex flex-col justify-between gap-6 rounded-[var(--radius-xl)] border border-white/15 bg-white/10 p-6 text-white/80",
+        successHeading: "text-sm font-semibold text-white",
+        successDot: "mt-1 h-2 w-2 flex-none rounded-full bg-gradient-to-br from-accentBlue to-accentTeal",
+        sectionText: "text-white",
+      }
+    : {
         eyebrow: "text-sm font-semibold uppercase tracking-[0.3em] text-midnight/60",
         title: "text-2xl font-semibold text-midnight sm:text-3xl",
         description: "text-base leading-relaxed text-neutral",
         focusOutline: "focus-visible:outline-midnight",
-        stepActive: "border-midnight bg-cloud text-midnight shadow-sm",
+        stepActive: "border-midnight bg-midnight text-white shadow-sm",
         stepInactive:
-          "border-midnight/20 bg-white/70 text-midnight/70 hover:border-midnight/40 hover:text-midnight",
+          "border-midnight/20 bg-cloud text-midnight/70 hover:border-midnight/35 hover:text-midnight",
         panel:
-          "rounded-[var(--radius-xl)] border border-midnight/10 bg-cloud p-8 text-midnight shadow-[0_40px_120px_-70px_rgba(5,11,26,0.3)]",
-        label: "text-sm font-semibold uppercase tracking-[0.28em] text-neutral",
+          "rounded-[var(--radius-xl)] border border-midnight/10 bg-cloud p-8 text-midnight shadow-[0_48px_140px_-80px_rgba(11,14,26,0.25)]",
+        label: "text-sm font-semibold uppercase tracking-[0.28em] text-midnight/60",
         copy: "text-base leading-relaxed text-neutral",
         takeaway:
-          "rounded-2xl border border-midnight/10 bg-graphite/80 p-5 text-sm leading-relaxed text-neutral",
-        ctaVariant: "inverted" as const,
+          "rounded-2xl border border-midnight/10 bg-graphite p-5 text-sm leading-relaxed text-neutral",
+        ctaVariant: "primary" as const,
         progressTrack: "bg-midnight/10",
         progressBar: "bg-midnight",
         progressText: "text-sm font-medium text-neutral",
         successWrapper:
-          "flex flex-col justify-between gap-6 rounded-[var(--radius-xl)] border border-midnight/10 bg-graphite/80 p-6 text-neutral",
+          "flex flex-col justify-between gap-6 rounded-[var(--radius-xl)] border border-midnight/10 bg-graphite p-6 text-neutral",
         successHeading: "text-sm font-semibold text-midnight",
-        successDot: "mt-1 h-2 w-2 flex-none rounded-full bg-midnight/60",
+        successDot: "mt-1 h-2 w-2 flex-none rounded-full bg-midnight",
         sectionText: "text-midnight",
-      }
-    : {
-        eyebrow: "text-sm font-semibold uppercase tracking-[0.3em] text-white/60",
-        title: "text-2xl font-semibold text-white sm:text-3xl",
-        description: "text-base leading-relaxed text-white/80",
-        focusOutline: "focus-visible:outline-white",
-        stepActive:
-          "border-white/30 bg-white/15 text-white shadow-[0_12px_30px_-20px_rgba(14,165,233,0.7)]",
-        stepInactive:
-          "border-white/10 bg-white/5 text-white/70 hover:border-white/20 hover:text-white",
-        panel:
-          "rounded-[var(--radius-xl)] border border-white/10 bg-white/5 p-8 text-white shadow-[0_40px_120px_-70px_rgba(14,165,233,0.45)] backdrop-blur",
-        label: "text-sm font-semibold uppercase tracking-[0.28em] text-white/60",
-        copy: "text-base leading-relaxed text-white/80",
-        takeaway:
-          "rounded-2xl border border-white/10 bg-white/10 p-5 text-sm leading-relaxed text-white/80",
-        ctaVariant: "primary" as const,
-        progressTrack: "bg-white/10",
-        progressBar: "bg-white",
-        progressText: "text-sm font-medium text-white/70",
-        successWrapper:
-          "flex flex-col justify-between gap-6 rounded-[var(--radius-xl)] border border-white/10 bg-white/10 p-6 text-white/80 backdrop-blur",
-        successHeading: "text-sm font-semibold text-white",
-        successDot: "mt-1 h-2 w-2 flex-none rounded-full bg-gradient-to-br from-accentBlue to-accentTeal",
-        sectionText: "text-white",
       };
   const focusOutline = palette.focusOutline;
   const stepButtonBase =

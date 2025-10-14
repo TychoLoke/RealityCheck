@@ -14,21 +14,21 @@ interface CardProps {
 const variantStyles: Record<CardVariant, { container: string; title: string; body: string }> = {
   default: {
     container:
-      "border-white/10 bg-white/5 text-white/90 shadow-[0_24px_64px_-48px_rgba(14,165,233,0.45)] backdrop-blur hover:border-white/20 hover:shadow-[0_32px_80px_-48px_rgba(37,99,235,0.5)] focus-within:border-white/20 focus-within:shadow-[0_32px_80px_-48px_rgba(37,99,235,0.5)]",
-    title: "text-white",
-    body: "text-white/70",
-  },
-  inverted: {
-    container:
-      "border-midnight/5 bg-cloud text-midnight shadow-[0_24px_64px_-48px_rgba(5,11,26,0.2)] hover:border-midnight/10 hover:shadow-[0_32px_80px_-48px_rgba(5,11,26,0.25)] focus-within:border-midnight/10 focus-within:shadow-[0_32px_80px_-48px_rgba(5,11,26,0.25)]",
+      "border-midnight/10 bg-cloud text-midnight/90 shadow-[0_20px_60px_-45px_rgba(11,14,26,0.18)] hover:border-midnight/30 hover:shadow-[0_28px_80px_-48px_rgba(11,14,26,0.22)] focus-within:border-midnight/30 focus-within:shadow-[0_28px_80px_-48px_rgba(11,14,26,0.22)]",
     title: "text-midnight",
     body: "text-neutral",
   },
+  inverted: {
+    container:
+      "border-white/15 bg-midnight text-white shadow-[0_24px_70px_-45px_rgba(11,14,26,0.55)] hover:border-white/25 hover:shadow-[0_32px_90px_-48px_rgba(11,14,26,0.6)] focus-within:border-white/25 focus-within:shadow-[0_32px_90px_-48px_rgba(11,14,26,0.6)]",
+    title: "text-white",
+    body: "text-white/80",
+  },
   translucent: {
     container:
-      "border-white/10 bg-white/10 text-white/80 shadow-[0_24px_64px_-48px_rgba(14,165,233,0.3)] backdrop-blur hover:border-white/20 hover:shadow-[0_32px_80px_-48px_rgba(14,165,233,0.4)] focus-within:border-white/20 focus-within:shadow-[0_32px_80px_-48px_rgba(14,165,233,0.4)]",
-    title: "text-white",
-    body: "text-white/70",
+      "border-midnight/10 bg-graphite text-midnight/90 shadow-[0_20px_60px_-45px_rgba(11,14,26,0.15)] hover:border-midnight/25 hover:shadow-[0_28px_80px_-48px_rgba(11,14,26,0.2)] focus-within:border-midnight/25 focus-within:shadow-[0_28px_80px_-48px_rgba(11,14,26,0.2)]",
+    title: "text-midnight",
+    body: "text-neutral",
   },
 };
 

@@ -9,8 +9,8 @@ interface SurfaceNoteProps {
 }
 
 const toneStyles = {
-  default: "border-white/15 bg-white/5 text-white/75 shadow-[0_24px_64px_-48px_rgba(14,165,233,0.35)] backdrop-blur",
-  inverted: "border-midnight/10 bg-cloud text-midnight shadow-[0_24px_64px_-48px_rgba(5,11,26,0.2)]",
+  default: "border-midnight/10 bg-cloud text-neutral shadow-[0_24px_64px_-48px_rgba(11,14,26,0.18)]",
+  inverted: "border-white/20 bg-midnight text-white/80 shadow-[0_24px_70px_-48px_rgba(11,14,26,0.55)]",
 };
 
 export function SurfaceNote({

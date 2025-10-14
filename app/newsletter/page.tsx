@@ -18,7 +18,7 @@ const starterPosts = [
 
 export default function JournalPage() {
   return (
-    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+    <div className="flex flex-col gap-20 pb-28 text-midnight sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Journal"
         title="Channel OS™ Journal"
@@ -26,7 +26,6 @@ export default function JournalPage() {
         primaryCta={{ label: "Subscribe", href: "#subscribe" }}
         secondaryCta={{ label: "Apply to contribute", href: "/community" }}
         proofPoints={["Templates", "Checklists", "Operator stories"]}
-        variant="dark"
       />
 
       <Section title="Editorial stance" description="Trust is earned week by week." columns={2}>

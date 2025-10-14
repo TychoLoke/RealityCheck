@@ -21,7 +21,7 @@ const playbooks = [
 
 export default function PlaybooksPage() {
   return (
-    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+    <div className="flex flex-col gap-20 pb-28 text-midnight sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Playbooks"
         title="Playbooks & SOPs"
@@ -29,7 +29,6 @@ export default function PlaybooksPage() {
         primaryCta={{ label: "Subscribe for updates", href: "#updates" }}
         secondaryCta={{ label: "Review the Standard", href: "/standard" }}
         proofPoints={["Deal-to-Settlement", "Distributor Command Center", "Change Management"]}
-        variant="dark"
       />
 
       <Section title="Coming soon" description="Preview the first wave of channel playbooks built on the Channel OS™ standard." columns={3}>
@@ -39,9 +38,9 @@ export default function PlaybooksPage() {
       </Section>
 
       <section id="updates">
-        <Container className="flex flex-col items-center gap-4 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-10 text-center text-white shadow-[0_32px_96px_-60px_rgba(14,165,233,0.45)] backdrop-blur">
+        <Container className="flex flex-col items-center gap-4 rounded-[var(--radius-xl)] border border-midnight/10 bg-cloud px-8 py-10 text-center text-midnight shadow-[0_32px_96px_-60px_rgba(11,14,26,0.2)]">
           <h2 className="text-2xl font-semibold">Subscribe for updates</h2>
-          <p className="max-w-2xl text-sm text-white/75">
+          <p className="max-w-2xl text-sm text-neutral">
             Get notified when new playbooks and SOPs are released.
           </p>
           <CTAButton href="/newsletter">Subscribe to the Journal</CTAButton>

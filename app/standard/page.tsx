@@ -64,7 +64,7 @@ const selfAssessmentQuestions = [
 
 export default function StandardPage() {
   return (
-    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+    <div className="flex flex-col gap-20 pb-28 text-midnight sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Standard v1.0"
         title="Channel OS™ Standard v1.0"
@@ -73,7 +73,6 @@ export default function StandardPage() {
         secondaryCta={{ label: "Take the self-assessment", href: "#assessment" }}
         tertiaryCta={{ label: "Join a study group", href: "/community" }}
         proofPoints={["Canonical objects", "Practical SLAs", "Versioned releases"]}
-        variant="dark"
       />
 
       <Section
@@ -84,7 +83,7 @@ export default function StandardPage() {
       >
         {layerDetails.map((layer) => (
           <Card key={layer.title} title={layer.title}>
-            <p className="text-sm font-semibold text-white">{layer.promise}</p>
+            <p className="text-sm font-semibold text-midnight">{layer.promise}</p>
             <ul className="mt-3 list-disc space-y-1 pl-5 text-sm text-neutral">
               {layer.objects.map((object) => (
                 <li key={object}>{object}</li>
@@ -111,13 +110,13 @@ export default function StandardPage() {
       </SurfaceNote>
 
       <section>
-        <Container className="flex flex-col gap-6 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-12 text-white shadow-[0_32px_96px_-60px_rgba(14,165,233,0.45)] backdrop-blur">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">SLA pledge</p>
+        <Container className="flex flex-col gap-6 rounded-[var(--radius-xl)] border border-midnight/10 bg-cloud px-8 py-12 text-midnight shadow-[0_32px_96px_-60px_rgba(11,14,26,0.2)]">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-midnight/60">SLA pledge</p>
           <div className="grid gap-4 sm:grid-cols-4">
             {slaPledge.map((item) => (
-              <div key={item.label} className="rounded-2xl border border-white/15 bg-white/10 px-5 py-4 text-center text-white">
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/60">{item.label}</p>
-                <p className="mt-2 text-2xl font-semibold text-white">{item.value}</p>
+              <div key={item.label} className="rounded-2xl border border-midnight/15 bg-graphite px-5 py-4 text-center text-midnight">
+                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-midnight/60">{item.label}</p>
+                <p className="mt-2 text-2xl font-semibold">{item.value}</p>
               </div>
             ))}
           </div>
@@ -149,10 +148,10 @@ export default function StandardPage() {
       </Section>
 
       <section id="download">
-        <Container className="flex flex-col gap-6 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-12 text-white shadow-[0_32px_96px_-60px_rgba(14,165,233,0.45)] backdrop-blur sm:flex-row sm:items-center sm:justify-between">
+        <Container className="flex flex-col gap-6 rounded-[var(--radius-xl)] border border-midnight/10 bg-cloud px-8 py-12 text-midnight shadow-[0_32px_96px_-60px_rgba(11,14,26,0.2)] sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-3">
             <h2 className="text-2xl font-semibold">Download Channel OS™ Standard v1.0</h2>
-            <p className="max-w-xl text-sm text-white/70">
+            <p className="max-w-xl text-sm text-neutral">
               Get the complete reference, including canonical data objects, RACIs, and adapter blueprints.
             </p>
           </div>
@@ -163,11 +162,11 @@ export default function StandardPage() {
       </section>
 
       <section id="assessment">
-        <Container className="flex flex-col gap-8 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-12 text-white shadow-[0_32px_96px_-60px_rgba(14,165,233,0.45)] backdrop-blur">
+        <Container className="flex flex-col gap-8 rounded-[var(--radius-xl)] border border-midnight/10 bg-cloud px-8 py-12 text-midnight shadow-[0_32px_96px_-60px_rgba(11,14,26,0.2)]">
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">Self-assessment</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-midnight/60">Self-assessment</p>
             <h2 className="mt-3 text-2xl font-semibold sm:text-3xl">Score each item 0–2</h2>
-            <p className="mt-3 max-w-2xl text-base text-white/70">
+            <p className="mt-3 max-w-2xl text-base text-neutral">
               0 = not in place, 1 = partial, 2 = consistent. You’ll get a simple profile and the right study group to join next.
             </p>
           </div>

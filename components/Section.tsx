@@ -38,27 +38,27 @@ export function Section({
   const palette = isInverted
     ? {
         container:
-          "border-midnight/10 bg-cloud text-midnight shadow-[0_60px_140px_-60px_rgba(5,11,26,0.35)]",
-        eyebrow: "text-midnight/60",
-        title: "text-midnight",
-        description: "text-neutral",
-        frame: "border-midnight/5",
-        accent: "from-accentBlue/20 via-transparent to-accentTeal/15",
-        halo: "bg-accentBlue/10",
-        badge: "border-midnight/10 bg-midnight/5",
-        ring: "ring-midnight/5",
+          "border-white/20 bg-midnight text-white shadow-[0_70px_160px_-70px_rgba(11,14,26,0.75)]",
+        eyebrow: "text-white/60",
+        title: "text-white",
+        description: "text-white/75",
+        frame: "border-white/20",
+        accent: "from-accentTeal/20 via-transparent to-accentBlue/10",
+        halo: "bg-white/10",
+        badge: "border-white/20 bg-white/10",
+        ring: "ring-white/10",
       }
     : {
         container:
-          "border-white/10 bg-white/5 text-white/85 shadow-[0_60px_140px_-60px_rgba(14,165,233,0.45)]",
-        eyebrow: "text-white/70",
-        title: "text-white",
-        description: "text-white/70",
-        frame: "border-white/10",
-        accent: "from-accentTeal/20 via-transparent to-white/10",
-        halo: "bg-white/10",
-        badge: "border-white/15 bg-white/10",
-        ring: "ring-white/10",
+          "border-midnight/10 bg-cloud text-midnight shadow-[0_60px_140px_-70px_rgba(11,14,26,0.18)]",
+        eyebrow: "text-midnight/60",
+        title: "text-midnight",
+        description: "text-neutral",
+        frame: "border-midnight/10",
+        accent: "from-accentBlue/10 via-transparent to-accentTeal/5",
+        halo: "bg-accentBlue/10",
+        badge: "border-midnight/10 bg-midnight/5",
+        ring: "ring-midnight/5",
       };
 
   return (

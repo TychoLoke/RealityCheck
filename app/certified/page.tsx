@@ -37,7 +37,7 @@ const successMetric = {
 
 export default function CertifiedPage() {
   return (
-    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+    <div className="flex flex-col gap-20 pb-28 text-midnight sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Certified"
         title="Badges that mean business."
@@ -46,7 +46,6 @@ export default function CertifiedPage() {
         secondaryCta={{ label: "Nominate your organization", href: "#organizations" }}
         tertiaryCta={{ label: "See compatibility criteria", href: "#platforms" }}
         proofPoints={["People badges", "Org certification", "Platform compatibility"]}
-        variant="dark"
       />
 
       <Section
@@ -71,18 +70,15 @@ export default function CertifiedPage() {
         title="Organization certification"
         description="Measured by SLA performance, process conformance, and skill density."
         columns={2}
-        cta={{ label: "Download the org scorecard", href: "#waitlist", variant: "inverted" }}
-        variant="inverted"
+        cta={{ label: "Download the org scorecard", href: "#waitlist", variant: "primary" }}
       >
         <Card
           title="Silver → Gold → Platinum"
           description="Scorecards publish SLA attainment, process coverage, and certified talent ratios."
-          variant="inverted"
         />
         <Card
           title="Evidence pack"
           description="Dual-run results, lineage proofs, and governance cadences show the work."
-          variant="inverted"
         />
       </Section>
 
@@ -103,21 +99,21 @@ export default function CertifiedPage() {
       </SurfaceNote>
 
       <section>
-        <Container className="grid gap-8 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-12 text-white shadow-[0_32px_96px_-60px_rgba(14,165,233,0.45)] backdrop-blur md:grid-cols-2">
+        <Container className="grid gap-8 rounded-[var(--radius-xl)] border border-midnight/10 bg-cloud px-8 py-12 text-midnight shadow-[0_32px_96px_-60px_rgba(11,14,26,0.2)] md:grid-cols-2">
           <div className="space-y-4">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">SLA pledge</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-midnight/60">SLA pledge</p>
             <div className="grid gap-4 sm:grid-cols-2">
               {slaPledge.map((item) => (
-                <div key={item.label} className="rounded-2xl border border-white/15 bg-white/10 p-4 text-center text-white">
-                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-white/60">{item.label}</p>
-                  <p className="mt-2 text-2xl font-semibold text-white">{item.value}</p>
+                <div key={item.label} className="rounded-2xl border border-midnight/15 bg-graphite p-4 text-center text-midnight">
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-midnight/60">{item.label}</p>
+                  <p className="mt-2 text-2xl font-semibold">{item.value}</p>
                 </div>
               ))}
             </div>
           </div>
           <Card title={successMetric.title}>
-            <p className="text-2xl font-semibold text-white">{successMetric.metric}</p>
-            <p className="mt-3 text-sm text-white/70">{successMetric.detail}</p>
+            <p className="text-2xl font-semibold text-midnight">{successMetric.metric}</p>
+            <p className="mt-3 text-sm text-neutral">{successMetric.detail}</p>
           </Card>
         </Container>
       </section>
