@@ -10,8 +10,8 @@ const config: Config = {
     extend: {
       colors: {
         midnight: "#0B0E1A",
-        graphite: "#F5F7FB",
-        cloud: "#FFFFFF",
+        graphite: "#ECEFF6",
+        cloud: "#F6F8FD",
         neutral: "#8A93A6",
         accentBlue: "#3C4CFF",
         accentTeal: "#2FB4D3",
