@@ -9,13 +9,13 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        midnight: "#0B0E1A",
-        graphite: "#F1F3F8",
+        midnight: "#050B1A",
+        graphite: "#F4F6FB",
         cloud: "#FFFFFF",
-        neutral: "#8A93A6",
-        accentBlue: "#0B0E1A",
-        accentTeal: "#8A93A6",
-        signalAmber: "#FF9A1F",
+        neutral: "#8F9BB2",
+        accentBlue: "#2563EB",
+        accentTeal: "#0EA5E9",
+        signalAmber: "#F59E0B",
         successGreen: "#16A34A",
         errorRed: "#EF4444",
       },

@@ -14,21 +14,21 @@ interface CardProps {
 const variantStyles: Record<CardVariant, { container: string; title: string; body: string }> = {
   default: {
     container:
-      "border-midnight/10 bg-cloud text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.2)] hover:border-midnight/20 hover:shadow-[0_28px_72px_-48px_rgba(12,15,27,0.25)] focus-within:border-midnight/20 focus-within:shadow-[0_28px_72px_-48px_rgba(12,15,27,0.25)]",
-    title: "text-midnight",
-    body: "text-neutral",
+      "border-white/10 bg-white/5 text-white/90 shadow-[0_24px_64px_-48px_rgba(14,165,233,0.45)] backdrop-blur hover:border-white/20 hover:shadow-[0_32px_80px_-48px_rgba(37,99,235,0.5)] focus-within:border-white/20 focus-within:shadow-[0_32px_80px_-48px_rgba(37,99,235,0.5)]",
+    title: "text-white",
+    body: "text-white/70",
   },
   inverted: {
     container:
-      "border-midnight/30 bg-graphite text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.45)] hover:border-midnight/40 hover:shadow-[0_32px_80px_-48px_rgba(12,15,27,0.55)] focus-within:border-midnight/40 focus-within:shadow-[0_32px_80px_-48px_rgba(12,15,27,0.55)]",
+      "border-midnight/5 bg-cloud text-midnight shadow-[0_24px_64px_-48px_rgba(5,11,26,0.2)] hover:border-midnight/10 hover:shadow-[0_32px_80px_-48px_rgba(5,11,26,0.25)] focus-within:border-midnight/10 focus-within:shadow-[0_32px_80px_-48px_rgba(5,11,26,0.25)]",
     title: "text-midnight",
-    body: "text-midnight/80",
+    body: "text-neutral",
   },
   translucent: {
     container:
-      "border-midnight/10 bg-graphite/80 text-midnight shadow-[0_24px_64px_-48px_rgba(12,15,27,0.15)] backdrop-blur hover:border-midnight/20 hover:shadow-[0_28px_72px_-48px_rgba(12,15,27,0.2)] focus-within:border-midnight/20 focus-within:shadow-[0_28px_72px_-48px_rgba(12,15,27,0.2)]",
-    title: "text-midnight",
-    body: "text-neutral",
+      "border-white/10 bg-white/10 text-white/80 shadow-[0_24px_64px_-48px_rgba(14,165,233,0.3)] backdrop-blur hover:border-white/20 hover:shadow-[0_32px_80px_-48px_rgba(14,165,233,0.4)] focus-within:border-white/20 focus-within:shadow-[0_32px_80px_-48px_rgba(14,165,233,0.4)]",
+    title: "text-white",
+    body: "text-white/70",
   },
 };
 
@@ -44,9 +44,9 @@ export function Card({
 
   return (
     <Component
-      className={`group relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl border p-6 transition-all duration-200 hover:-translate-y-1 focus-within:-translate-y-1 ${styles.container} ${className}`}
+      className={`group relative flex h-full flex-col gap-4 overflow-hidden rounded-3xl border p-6 transition-all duration-200 hover:-translate-y-1 focus-within:-translate-y-1 ${styles.container} ${className}`}
     >
-      <span className="pointer-events-none absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-neutral via-graphite to-midnight opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100" />
+      <span className="pointer-events-none absolute inset-x-6 top-0 h-px bg-gradient-to-r from-white/10 via-white/40 to-white/10 opacity-0 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100" />
       <div>
         <h3 className={`text-lg font-semibold ${styles.title}`}>{title}</h3>
         {description ? <p className={`mt-2 text-sm leading-relaxed ${styles.body}`}>{description}</p> : null}

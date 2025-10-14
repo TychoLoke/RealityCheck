@@ -9,8 +9,8 @@ export default function NotFound() {
         <h1 className="text-3xl font-semibold sm:text-4xl">Let’s get you back to the operating system of the channel.</h1>
         <div className="flex flex-wrap justify-center gap-3">
           <CTAButton href="/">Go to Home</CTAButton>
-          <CTAButton href="/school">
-            Start Channel 101
+          <CTAButton href="/academy">
+            Explore the Academy
           </CTAButton>
           <CTAButton href="/standard" variant="ghost">
             Read the Standard v1.0
