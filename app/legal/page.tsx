@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function LegalPage() {
   return (
-    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+    <div className="flex flex-col gap-20 pb-28 text-midnight sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Legal"
         title="Privacy & Terms (summary)"
@@ -19,7 +19,6 @@ export default function LegalPage() {
         primaryCta={{ label: "Contact legal", href: "mailto:hello@channelos.org" }}
         secondaryCta={{ label: "Apply for access", href: "/apply" }}
         proofPoints={["Minimal collection", "No selling", "EU-friendly"]}
-        variant="dark"
       />
 
       <Section title="Your controls" description="Straightforward ways to manage your data." columns={2}>

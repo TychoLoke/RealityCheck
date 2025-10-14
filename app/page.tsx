@@ -173,7 +173,7 @@ const journeySteps = [
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+    <div className="flex flex-col gap-20 pb-28 text-midnight sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Launches January 1, 2026"
         title="Channel OS™ launches January 1, 2026"
@@ -189,7 +189,6 @@ export default function HomePage() {
           "Governed community programs",
           "Launch broadcast week",
         ]}
-        variant="dark"
       />
 
       <SurfaceNote>
@@ -198,7 +197,7 @@ export default function HomePage() {
             Channel OS™ is an open, vendor-neutral framework. You may describe interoperability (“compatible with Channel OS™”) but may not imply affiliation or use the name in product titles without permission.
           </p>
           <Link
-            className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.28em] text-white transition hover:text-accentTeal"
+            className="inline-flex items-center gap-1 text-xs font-semibold uppercase tracking-[0.28em] text-midnight/60 transition hover:text-midnight"
             href="/trademark"
           >
             Read Trademark &amp; Brand Use →
@@ -207,12 +206,12 @@ export default function HomePage() {
       </SurfaceNote>
 
       <section>
-        <Container className="relative grid gap-10 overflow-hidden rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-12 text-white shadow-[0_40px_120px_-70px_rgba(14,165,233,0.5)] backdrop-blur">
-          <span className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(37,99,235,0.2),transparent_65%)]" />
+        <Container className="relative grid gap-10 overflow-hidden rounded-[var(--radius-xl)] border border-midnight/10 bg-cloud px-8 py-12 text-midnight shadow-[0_48px_140px_-80px_rgba(11,14,26,0.22)]">
+          <span className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_left,rgba(60,76,255,0.12),transparent_65%)]" />
           <div className="space-y-6">
-            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">Launch status</p>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-midnight/60">Launch status</p>
             <h2 className="text-2xl font-semibold sm:text-3xl">We go live on January 1, 2026</h2>
-            <p className="max-w-3xl text-base leading-relaxed text-white/70 sm:text-lg">
+            <p className="max-w-3xl text-base leading-relaxed text-neutral sm:text-lg">
               Channel OS™ is in active build with operators across the network. Review the critical milestones and secure your
               place in the launch communications.
             </p>
@@ -223,8 +222,8 @@ export default function HomePage() {
           <div className="grid gap-4 md:grid-cols-3">
             {launchPulse.map((item) => (
               <Card key={item.title} title={item.title} description={item.description}>
-                <p className="mt-3 text-xs uppercase tracking-[0.28em] text-white/60">What to know</p>
-                <p className="mt-1 text-sm leading-relaxed text-white/70">{item.detail}</p>
+                <p className="mt-3 text-xs uppercase tracking-[0.28em] text-midnight/50">What to know</p>
+                <p className="mt-1 text-sm leading-relaxed text-neutral">{item.detail}</p>
               </Card>
             ))}
           </div>
@@ -235,11 +234,10 @@ export default function HomePage() {
         eyebrow="Launch day unlocks"
         title="What you’ll step into on January 1"
         description="Channel OS™ 1.0 ships with the core framework, scorecards, and community rituals ready for every operator."
-        cta={{ label: "See the launch framework", href: "/standard", variant: "inverted" }}
-        variant="inverted"
+        cta={{ label: "See the launch framework", href: "/standard", variant: "primary" }}
       >
         {launchHighlights.map((item) => (
-          <Card key={item.title} title={item.title} description={item.description} variant="inverted" />
+          <Card key={item.title} title={item.title} description={item.description} />
         ))}
       </Section>
 
@@ -258,7 +256,6 @@ export default function HomePage() {
 
       <JourneyExperience
         steps={journeySteps}
-        variant="inverted"
         eyebrow="Launch roadmap"
         title="Your path to January 1, 2026"
         description="We’re pacing toward launch with clear touchpoints for operators, leaders, and platform teams. Track what’s ready today and what’s next as we approach the reveal."
@@ -269,6 +266,32 @@ export default function HomePage() {
           "Building your readiness playbook with the rehearsal kits and adapters in preview.",
         ]}
       />
+
+      <Container className="grid gap-8 rounded-[var(--radius-xl)] border border-midnight/10 bg-cloud px-8 py-12 shadow-[0_48px_140px_-80px_rgba(11,14,26,0.18)] lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="space-y-5">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-midnight/60">Media guide</p>
+          <h2 className="text-3xl font-semibold">Plan supporting imagery</h2>
+          <p className="text-base leading-relaxed text-neutral">
+            Reserve these slots for campaign photography, team shots, or product visuals. Each block keeps the GTIA-inspired
+            layout balanced with generous white space.
+          </p>
+          <ul className="space-y-3 text-sm text-neutral">
+            <li>• Home hero media: 1280 × 1280px image or looping mp4 (center focus).</li>
+            <li>• Launch status gallery (below): three 960 × 640px landscape images.</li>
+            <li>• Journey section (optional): 1200 × 900px illustration positioned behind the roadmap cards.</li>
+          </ul>
+        </div>
+        <div className="grid gap-4 sm:grid-cols-2">
+          {[1, 2, 3].map((slot) => (
+            <div
+              key={slot}
+              className="flex aspect-[4/3] items-center justify-center rounded-3xl border border-dashed border-midnight/20 bg-graphite text-xs font-medium uppercase tracking-[0.28em] text-midnight/50"
+            >
+              960 × 640 slot {slot}
+            </div>
+          ))}
+        </div>
+      </Container>
     </div>
   );
 }

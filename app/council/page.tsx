@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function CouncilPage() {
   return (
-    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+    <div className="flex flex-col gap-20 pb-28 text-midnight sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Council"
         title="One ecosystem, one table."
@@ -22,7 +22,6 @@ export default function CouncilPage() {
         secondaryCta={{ label: "Apply to the Council", href: "#apply" }}
         tertiaryCta={{ label: "Submit an RFC", href: "#apply" }}
         proofPoints={["Balanced seats", "One org = one vote", "Public RFCs"]}
-        variant="dark"
       />
 
       <Section

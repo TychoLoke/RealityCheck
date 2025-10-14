@@ -96,17 +96,17 @@ interface EmbedProps {
 const surfaceStyles = {
   default: {
     empty:
-      "border-white/15 bg-white/5 text-white/75 shadow-[0_24px_64px_-48px_rgba(14,165,233,0.35)] backdrop-blur",
-    heading: "text-white",
-    copy: "text-white/70",
-    shell: "border-white/15 bg-white/5",
-  },
-  inverted: {
-    empty:
-      "border-midnight/10 bg-cloud text-midnight shadow-[0_24px_64px_-48px_rgba(5,11,26,0.2)]",
+      "border-midnight/10 bg-cloud text-neutral shadow-[0_24px_64px_-48px_rgba(11,14,26,0.2)]",
     heading: "text-midnight",
     copy: "text-neutral",
     shell: "border-midnight/10 bg-cloud",
+  },
+  inverted: {
+    empty:
+      "border-white/20 bg-midnight text-white/80 shadow-[0_24px_64px_-48px_rgba(11,14,26,0.55)]",
+    heading: "text-white",
+    copy: "text-white/75",
+    shell: "border-white/20 bg-midnight",
   },
 };
 
@@ -130,7 +130,7 @@ export function Embed({ html, title, description, variant = "default" }: EmbedPr
   }
 
   return (
-    <div className={`overflow-hidden rounded-2xl border p-2 shadow-[0_24px_64px_-48px_rgba(14,165,233,0.35)] ${palette.shell}`}>
+    <div className={`overflow-hidden rounded-2xl border p-2 shadow-[0_24px_64px_-48px_rgba(11,14,26,0.22)] ${palette.shell}`}>
       <div
         className="embed-html [&>iframe]:h-[360px] [&>iframe]:w-full [&>iframe]:rounded-xl [&>iframe]:border-0"
         dangerouslySetInnerHTML={{ __html: sanitized }}

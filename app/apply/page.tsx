@@ -30,7 +30,7 @@ const organizationFields = [
 
 export default function ApplyPage() {
   return (
-    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+    <div className="flex flex-col gap-20 pb-28 text-midnight sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Apply"
         title="Apply & Waitlists"
@@ -39,7 +39,6 @@ export default function ApplyPage() {
         secondaryCta={{ label: "Review organization info", href: "#organizations" }}
         tertiaryCta={{ label: "Talk to the team", href: "mailto:hello@channelos.org" }}
         proofPoints={["Community", "School", "Academy", "Certification"]}
-        variant="dark"
       />
 
       <Section title="Individual fields" description="We keep it simple—tell us who you are and how you want to grow." columns={2}>
@@ -58,10 +57,9 @@ export default function ApplyPage() {
         title="Organization fields"
         description="Signal how your company wants to participate."
         columns={2}
-        cta={{ label: "Nominate your organization", href: "#form", variant: "inverted" }}
-        variant="inverted"
+        cta={{ label: "Nominate your organization", href: "#form", variant: "primary" }}
       >
-        <Card title="What we ask" variant="inverted">
+        <Card title="What we ask">
           <ul className="list-disc space-y-2 pl-5 text-sm text-neutral">
             {organizationFields.map((field) => (
               <li key={field}>{field}</li>
@@ -71,7 +69,6 @@ export default function ApplyPage() {
         <Card
           title="What you get"
           description="We connect you to Champions programs, Council seats, or certification briefings based on your focus SLA."
-          variant="inverted"
         />
       </Section>
 

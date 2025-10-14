@@ -45,7 +45,7 @@ const videoEmbeds = [
 
 export default function SchoolPage() {
   return (
-    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+    <div className="flex flex-col gap-20 pb-28 text-midnight sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="School"
         title="Start where careers begin: Channel 101"
@@ -54,15 +54,14 @@ export default function SchoolPage() {
         secondaryCta={{ label: "Apply to the next cohort", href: "/apply" }}
         tertiaryCta={{ label: "Join the Community", href: "/community" }}
         proofPoints={["90-minute format", "Guided project", "CCO-F badge"]}
-        variant="dark"
       />
 
       <section>
-        <Container className="grid gap-4 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-10 text-white shadow-[0_32px_96px_-60px_rgba(14,165,233,0.45)] backdrop-blur sm:grid-cols-3">
+        <Container className="grid gap-4 rounded-[var(--radius-xl)] border border-midnight/10 bg-cloud px-8 py-10 text-midnight shadow-[0_32px_96px_-60px_rgba(11,14,26,0.22)] sm:grid-cols-3">
           {highlights.map((item) => (
-            <div key={item.label} className="rounded-2xl border border-white/15 bg-white/10 p-5 text-center text-white">
-              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/60">{item.label}</p>
-              <p className="mt-2 text-xl font-semibold text-white">{item.value}</p>
+            <div key={item.label} className="rounded-2xl border border-midnight/15 bg-graphite p-5 text-center text-midnight">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-midnight/60">{item.label}</p>
+              <p className="mt-2 text-xl font-semibold">{item.value}</p>
             </div>
           ))}
         </Container>
@@ -100,11 +99,10 @@ export default function SchoolPage() {
         title="Channel 101 (Free)"
         description="Watch the core lessons, then join a live study group to practice with peers."
         columns={3}
-        cta={{ label: "Join a study group", href: "/community", variant: "inverted" }}
-        variant="inverted"
+        cta={{ label: "Join a study group", href: "/community", variant: "primary" }}
       >
         {videoEmbeds.map((embed, index) => (
-          <Embed key={index} html={embed} title={`Channel 101 Video ${index + 1}`} variant="inverted" />
+          <Embed key={index} html={embed} title={`Channel 101 Video ${index + 1}`} />
         ))}
       </Section>
 

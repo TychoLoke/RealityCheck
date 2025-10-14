@@ -88,7 +88,7 @@ const guidelines = [
 
 export default function CommunityPage() {
   return (
-    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+    <div className="flex flex-col gap-20 pb-28 text-midnight sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Community"
         title="Where channel operators learn, work, and win together"
@@ -97,7 +97,6 @@ export default function CommunityPage() {
         secondaryCta={{ label: "See upcoming sessions", href: "#sessions" }}
         tertiaryCta={{ label: "Become an Ambassador", href: "#programs" }}
         proofPoints={["Study groups", "Live labs", "Badges"]}
-        variant="dark"
       />
 
       <Section
@@ -116,11 +115,10 @@ export default function CommunityPage() {
         title="Programs"
         description="Pick the lane that matches how you want to contribute to the network."
         columns={2}
-        cta={{ label: "View program guide", href: "/community", variant: "inverted" }}
-        variant="inverted"
+        cta={{ label: "View program guide", href: "/community", variant: "primary" }}
       >
         {programs.map((program) => (
-          <Card key={program.title} title={program.title} variant="inverted">
+          <Card key={program.title} title={program.title}>
             <span className="inline-flex items-center rounded-full border border-midnight/10 bg-midnight/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-midnight/70">
               {program.badge}
             </span>
@@ -130,10 +128,10 @@ export default function CommunityPage() {
       </Section>
 
       <section id="sessions">
-        <Container className="flex flex-col gap-8 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-12 text-white shadow-[0_32px_96px_-60px_rgba(14,165,233,0.45)] backdrop-blur">
+        <Container className="flex flex-col gap-8 rounded-[var(--radius-xl)] border border-midnight/10 bg-cloud px-8 py-12 text-midnight shadow-[0_32px_96px_-60px_rgba(11,14,26,0.2)]">
           <div className="flex flex-wrap items-center justify-between gap-4">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-white/60">Upcoming sessions</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-midnight/60">Upcoming sessions</p>
               <h2 className="mt-2 text-2xl font-semibold">Learn → Work → Win in the next two weeks</h2>
             </div>
             <CTAButton href="/community" variant="primary">
@@ -167,10 +165,9 @@ export default function CommunityPage() {
         title="Join flow"
         description="Clear steps so you can plug in without friction."
         columns={1}
-        cta={{ label: "Submit your application", href: "/apply", variant: "inverted" }}
-        variant="inverted"
+        cta={{ label: "Submit your application", href: "/apply", variant: "primary" }}
       >
-        <Card title="Four steps" variant="inverted">
+        <Card title="Four steps">
           <ol className="list-decimal space-y-2 pl-5 text-sm leading-relaxed text-neutral">
             {joinFlowSteps.map((step) => (
               <li key={step}>{step}</li>
@@ -180,9 +177,9 @@ export default function CommunityPage() {
       </Section>
 
       <section>
-        <Container className="flex flex-col gap-6 rounded-[var(--radius-xl)] border border-white/10 bg-white/5 px-8 py-12 text-center text-white shadow-[0_32px_96px_-60px_rgba(14,165,233,0.45)] backdrop-blur">
+        <Container className="flex flex-col gap-6 rounded-[var(--radius-xl)] border border-midnight/10 bg-cloud px-8 py-12 text-center text-midnight shadow-[0_32px_96px_-60px_rgba(11,14,26,0.2)]">
           <h2 className="text-2xl font-semibold sm:text-3xl">Ready to plug into the network?</h2>
-          <p className="max-w-2xl text-base text-white/75">
+          <p className="max-w-2xl text-base text-neutral">
             Apply, pick your study group, and you’ll have your first live session scheduled within the week.
           </p>
           <CTAButton href="/apply">Join the Community</CTAButton>

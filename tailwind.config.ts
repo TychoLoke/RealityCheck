@@ -9,12 +9,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        midnight: "#050B1A",
-        graphite: "#F4F6FB",
+        midnight: "#0B0E1A",
+        graphite: "#F5F7FB",
         cloud: "#FFFFFF",
-        neutral: "#8F9BB2",
-        accentBlue: "#2563EB",
-        accentTeal: "#0EA5E9",
+        neutral: "#8A93A6",
+        accentBlue: "#3C4CFF",
+        accentTeal: "#2FB4D3",
         signalAmber: "#F59E0B",
         successGreen: "#16A34A",
         errorRed: "#EF4444",

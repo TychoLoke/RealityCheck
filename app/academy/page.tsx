@@ -22,7 +22,7 @@ const tracks = [
 
 export default function AcademyPage() {
   return (
-    <div className="flex flex-col gap-20 pb-28 text-white sm:gap-24 sm:pb-36">
+    <div className="flex flex-col gap-20 pb-28 text-midnight sm:gap-24 sm:pb-36">
       <Hero
         eyebrow="Academy"
         title="From “I know the tools” to “I run the channel.”"
@@ -31,7 +31,6 @@ export default function AcademyPage() {
         secondaryCta={{ label: "See the tracks", href: "#tracks" }}
         tertiaryCta={{ label: "Book an intro", href: "#waitlist" }}
         proofPoints={["Sales", "Technical", "Services/Ops", "Leadership"]}
-        variant="dark"
       />
 
       <Section
@@ -50,11 +49,10 @@ export default function AcademyPage() {
         title="Tracks"
         description="Pick the path that matches how you operate."
         columns={3}
-        cta={{ label: "Join the waitlist", href: "#waitlist", variant: "inverted" }}
-        variant="inverted"
+        cta={{ label: "Join the waitlist", href: "#waitlist", variant: "primary" }}
       >
         {tracks.map((track) => (
-          <Card key={track.title} title={track.title} description={track.description} variant="inverted" />
+          <Card key={track.title} title={track.title} description={track.description} />
         ))}
       </Section>
 
