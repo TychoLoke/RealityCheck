@@ -3,10 +3,24 @@ import Link from "next/link";
 import { Hero } from "../../components/Hero";
 import { EmailInline } from "../../components/EmailInline";
 import { Card } from "../../components/Card";
+import { SubscribeButton } from "../../components/SubscribeButton";
 
 export const metadata: Metadata = {
   title: "Channel OS™ community",
   description: "Join the Channel OS™ community mailing list for vendor-neutral operator circles, study groups, and office hours.",
+  openGraph: {
+    title: "Channel OS™ community",
+    description: "Join the Channel OS™ community mailing list for vendor-neutral operator circles, study groups, and office hours.",
+    url: "/community",
+    images: [
+      {
+        url: "/community/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Channel OS™ community",
+      },
+    ],
+  },
 };
 
 const teasers = [
@@ -44,10 +58,12 @@ export default function CommunityPage() {
         </p>
         <div className="grid gap-6 md:grid-cols-3">
           {teasers.map((teaser) => (
-            <Card key={teaser.title}>
-              <h3 className="text-xl font-semibold text-brand-primary">{teaser.title}</h3>
-              <p className="mt-2 text-sm text-brand-secondary">{teaser.description}</p>
-              <p className="mt-4 text-sm font-semibold text-brand-primary">Notify me at launch →</p>
+            <Card key={teaser.title} className="space-y-4">
+              <div>
+                <h3 className="text-xl font-semibold text-brand-primary">{teaser.title}</h3>
+                <p className="mt-2 text-sm text-brand-secondary">{teaser.description}</p>
+              </div>
+              <SubscribeButton>Notify me</SubscribeButton>
             </Card>
           ))}
         </div>

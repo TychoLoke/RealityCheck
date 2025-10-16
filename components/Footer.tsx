@@ -6,8 +6,8 @@ const footerLinks = [
   { href: "/privacy", label: "Privacy" },
   { href: "/terms", label: "Terms" },
   { href: "/brand-use", label: "Brand use" },
-  { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
+  { href: "/the-channel", label: "What is the Channel?" },
 ];
 
 export function Footer() {
@@ -27,7 +27,7 @@ export function Footer() {
         </div>
         <div className="flex flex-col gap-6 text-sm text-brand-secondary sm:flex-row sm:items-center sm:justify-between">
           <BrandWordmark className="text-base font-semibold text-brand-primary" />
-          <p>2026 is the year of Channel OS.</p>
+          <p>2026 is the year of Channel OS™.</p>
           <nav aria-label="Footer">
             <ul className="flex flex-wrap gap-x-6 gap-y-2">
               {footerLinks.map((link) => (

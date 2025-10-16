@@ -50,11 +50,8 @@ export default function HomePage() {
       >
         <div className="space-y-6">
           <StatusBar status="Building" launchDate="1 Jan 2026" cadence="Monthly via email" />
-          <p className="text-sm text-brand-secondary">
-            Status: Building • Launch: 1 Jan 2026 • Updates: monthly via email
-          </p>
           <div id="mailing-list-hero" className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-            <EmailInline variant="hero" />
+            <EmailInline variant="hero" message="Join monthly email updates while Channel OS™ is in build mode." />
           </div>
         </div>
       </Hero>
@@ -82,7 +79,7 @@ export default function HomePage() {
           </p>
         </div>
         <div className="mt-6">
-          <EmailInline variant="mid" />
+          <EmailInline variant="mid" message="Get the Standard preview and every milestone in your inbox." />
         </div>
       </Card>
 
