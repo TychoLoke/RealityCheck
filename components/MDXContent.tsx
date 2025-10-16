@@ -6,7 +6,7 @@ interface MDXContentProps {
 
 export function MDXContent({ children }: MDXContentProps) {
   return (
-    <div className="prose prose-invert prose-headings:font-semibold prose-headings:text-ink prose-p:text-ink/80 prose-strong:text-ink max-w-none">
+    <div className="prose max-w-none prose-headings:font-semibold prose-headings:text-brand-primary prose-p:text-brand-secondary prose-a:text-brand-primary">
       {children}
     </div>
   );

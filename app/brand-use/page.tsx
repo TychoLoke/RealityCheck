@@ -1,31 +1,40 @@
 import type { Metadata } from "next";
-import { Container } from "../../components/Container";
 
 export const metadata: Metadata = {
-  title: "Trademark",
-  description: "Guidelines for referencing Channel OS while we build.",
+  title: "Channel OS™ brand use",
+  description: "Guidelines for descriptive use of Channel OS™. Learn how to reference the initiative and request permission.",
 };
 
 export default function BrandUsePage() {
   return (
-    <Container className="space-y-8">
-      <header className="space-y-3">
-        <h1 className="text-3xl font-semibold text-ink">Brand & trademark use</h1>
-        <p className="text-base text-ink/70">Use the Channel OS name and marks to reference the project accurately.</p>
+    <div className="flex flex-col gap-12">
+      <header className="space-y-4">
+        <h1 className="text-4xl font-semibold text-brand-primary md:text-5xl">Channel OS™ brand use</h1>
+        <p className="text-base text-brand-secondary">
+          Use Guide: permitted descriptive references, no implied affiliation, and how to request permission.
+        </p>
       </header>
-      <section className="space-y-4 text-sm text-ink/70">
-        <p>
-          You may describe your participation in the build-mode program or link to ChannelOS.org. Please avoid using the
-          Channel OS logo or implying endorsement without written approval.
-        </p>
-        <p>
-          “Channel OS” and “ChannelOS.org” are trademarks of Channel OS. We reserve all rights and may update these guidelines as
-          we approach launch.
-        </p>
-        <p>
-          Need a press quote or brand asset? Email <a href="mailto:press@channelos.org" className="text-accent">press@channelos.org</a>.
-        </p>
+
+      <section className="space-y-6 text-base text-brand-secondary">
+        <div>
+          <h2 className="text-2xl font-semibold text-brand-primary">Permitted descriptive use</h2>
+          <p className="mt-2">
+            You may reference Channel OS™ to describe the framework, link to ChannelOS.org, or share that you are following the build.
+          </p>
+        </div>
+        <div>
+          <h2 className="text-2xl font-semibold text-brand-primary">No implied affiliation</h2>
+          <p className="mt-2">
+            Please do not use the Channel OS™ wordmark, logo concepts, or naming in a way that suggests sponsorship, partnership, or endorsement without written consent.
+          </p>
+        </div>
+        <div>
+          <h2 className="text-2xl font-semibold text-brand-primary">Request permission</h2>
+          <p className="mt-2">
+            For press, partnerships, or asset requests, email <a className="text-brand-primary underline-offset-4 hover:underline" href="mailto:press@channelos.org">press@channelos.org</a> with your intended use.
+          </p>
+        </div>
       </section>
-    </Container>
+    </div>
   );
 }

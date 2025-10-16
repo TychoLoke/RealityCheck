@@ -13,7 +13,7 @@ interface FAQProps {
 
 export function FAQ({ items }: FAQProps) {
   return (
-    <div className="space-y-4">
+    <div className="space-y-3">
       {items.map((item, index) => (
         <Disclosure key={item.question} item={item} defaultOpen={index === 0} />
       ))}
@@ -25,19 +25,17 @@ function Disclosure({ item, defaultOpen }: { item: FAQItem; defaultOpen?: boolea
   const [open, setOpen] = useState(Boolean(defaultOpen));
 
   return (
-    <div className="rounded-2xl border border-slate/60 bg-night/70 p-5">
+    <div className="rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm">
       <button
         type="button"
-        className="flex w-full items-center justify-between gap-4 text-left text-base font-semibold text-ink"
+        className="flex w-full items-center justify-between gap-4 text-left text-base font-semibold text-brand-primary"
         onClick={() => setOpen((value) => !value)}
         aria-expanded={open}
       >
         {item.question}
-        <span aria-hidden className="text-ink/60">
-          {open ? "−" : "+"}
-        </span>
+        <span aria-hidden className="text-brand-secondary">{open ? "−" : "+"}</span>
       </button>
-      {open && <p className="mt-3 text-sm text-ink/70">{item.answer}</p>}
+      {open && <p className="mt-3 text-sm text-brand-secondary">{item.answer}</p>}
     </div>
   );
 }
