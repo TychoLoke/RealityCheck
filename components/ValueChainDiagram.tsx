@@ -3,42 +3,42 @@ import { Card } from "./Card";
 const flowItems = [
   "Suppliers",
   "Vendors",
-  "Distributors / Aggregators",
-  "MSPs / VARs / Integrators",
+  "Distributors/Aggregators",
+  "MSPs/VARs/Integrators",
   "Customers",
 ];
 
 const roleCards = [
   {
     title: "Vendors",
-    description: "Build solutions, define programs, and depend on partners for reach.",
+    description: "Product strategy, program design, and ecosystem leadership.",
   },
   {
-    title: "Distributors & Aggregators",
-    description: "Orchestrate logistics, credit, marketplaces, and partner enablement.",
+    title: "Distributors/Aggregators",
+    description: "Scale, enablement, billing, incentives, and shared platforms.",
   },
   {
-    title: "MSPs & VARs",
-    description: "Design, sell, and manage outcomes for end customers across stacks.",
+    title: "MSPs/VARs/Integrators",
+    description: "Services, outcomes, renewals, and customer lifecycle ownership.",
   },
   {
     title: "ISVs & Marketplaces",
-    description: "Extend platforms, package services, and distribute through adapters.",
+    description: "Extension, specialization, and packaged adapters across the stack.",
   },
 ];
 
 const flows = [
   {
-    label: "Knowledge",
-    items: ["Playbooks", "Programs", "Readiness"],
+    label: "Knowledge flows",
+    items: ["Enablement", "Certifications", "Shared context"],
   },
   {
-    label: "Commercial",
-    items: ["Margins", "Credits", "Co-selling"],
+    label: "Commercial flows",
+    items: ["Deal registration", "Incentives", "Renewals"],
   },
   {
-    label: "Operational",
-    items: ["Lifecycle", "Support", "Governance"],
+    label: "Operational flows",
+    items: ["Provisioning", "Baselines", "Compliance"],
   },
 ];
 

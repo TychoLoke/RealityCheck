@@ -8,6 +8,19 @@ import { SubscribeButton } from "../../components/SubscribeButton";
 export const metadata: Metadata = {
   title: "Channel OS™ training",
   description: "Preview Channel 101 and notify me for Channel OS™ training tracks focused on operators and practitioners.",
+  openGraph: {
+    title: "Channel OS™ training",
+    description: "Preview Channel 101 and notify me for Channel OS™ training tracks focused on operators and practitioners.",
+    url: "/training",
+    images: [
+      {
+        url: "/training/opengraph-image",
+        width: 1200,
+        height: 630,
+        alt: "Channel OS™ training",
+      },
+    ],
+  },
 };
 
 const outcomes = [
@@ -15,7 +28,7 @@ const outcomes = [
   "Learn Channel OS™ pillars and layers",
   "Map your org to the maturity model",
   "Identify quick wins in governance and enablement",
-  "Know next steps: Playbooks & Talks",
+  "Know next steps with Talks and future modules",
 ];
 
 const outline = [
@@ -24,17 +37,6 @@ const outline = [
   { slot: "35–55", topic: "Maturity model & use cases" },
   { slot: "55–80", topic: "Baseline pattern walkthrough" },
   { slot: "80–90", topic: "Q&A, next steps" },
-];
-
-const tracks = [
-  {
-    title: "Practitioner track",
-    description: "Deep dives into governance, approvals, and baseline execution.",
-  },
-  {
-    title: "Operator track",
-    description: "Strategic sessions for channel leaders aligning people, process, and data.",
-  },
 ];
 
 const courseLd = {
@@ -107,26 +109,11 @@ export default function TrainingPage() {
         </div>
         <div className="flex flex-wrap items-center justify-between gap-4">
           <p className="text-sm text-brand-secondary">Seat cap: 25 (notify me when registration opens)</p>
-          <SubscribeButton className="bg-[#0B0E1A] text-white hover:opacity-90">
+          <SubscribeButton className="border-transparent bg-[#0B0E1A] text-white hover:opacity-90">
             Notify me
           </SubscribeButton>
         </div>
       </Card>
-
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold text-brand-primary">Tracks in development</h2>
-        <div className="grid gap-6 md:grid-cols-2">
-          {tracks.map((track) => (
-            <Card key={track.title} className="space-y-4">
-              <div>
-                <h3 className="text-xl font-semibold text-brand-primary">{track.title}</h3>
-                <p className="mt-2 text-sm text-brand-secondary">{track.description}</p>
-              </div>
-              <SubscribeButton>Notify me</SubscribeButton>
-            </Card>
-          ))}
-        </div>
-      </section>
 
       <div id="training-mailing-list" className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
         <EmailInline variant="mid" message="Get course dates, prep materials, and pre-reading links." />

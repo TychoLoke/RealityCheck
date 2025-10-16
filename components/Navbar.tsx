@@ -11,8 +11,8 @@ const navItems = [
   { href: "/", label: "Channel OS" },
   { href: "/community", label: "Community" },
   { href: "/training", label: "Training" },
-  { href: "/playbooks", label: "Playbooks" },
   { href: "/talks", label: "Talks" },
+  { href: "/about", label: "About" },
 ];
 
 export function Navbar() {
