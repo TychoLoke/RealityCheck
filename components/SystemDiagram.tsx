@@ -1,30 +1,47 @@
-interface SystemDiagramProps {
-  pillars: string[];
-  adapters: string[];
-}
+import { Card } from "./Card";
 
-export function SystemDiagram({ pillars, adapters }: SystemDiagramProps) {
+const tiles = [
+  {
+    title: "People",
+    description: "Roles, responsibilities, and competencies across the channel team.",
+  },
+  {
+    title: "Process",
+    description: "Governance, approvals, baselines, and drift control cycles.",
+  },
+  {
+    title: "Data",
+    description: "Classification, lineage, integrity, and retention standards.",
+  },
+  {
+    title: "Tools",
+    description: "Platforms, automation, and observability that keep work flowing.",
+  },
+  {
+    title: "Adapters",
+    description: "CRM • ERP • PSA • Marketplace integrations to existing systems.",
+  },
+];
+
+export function SystemDiagram() {
   return (
-    <section className="space-y-6">
-      <div className="rounded-2xl border border-slate/60 bg-slate/40 p-6 shadow-surface">
-        <h2 className="text-xl font-semibold text-ink">System snapshot</h2>
-        <p className="mt-2 text-sm text-ink/70">Four pillars power the shared operating system.</p>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-          {pillars.map((pillar) => (
-            <div key={pillar} className="flex flex-col gap-2 rounded-2xl border border-slate/60 bg-night/80 p-4 text-ink">
-              <span className="text-sm uppercase tracking-[0.24em] text-ink/60">Pillar</span>
-              <span className="text-lg font-semibold">{pillar}</span>
-            </div>
+    <section className="space-y-8">
+      <div className="space-y-6">
+        <h2 className="text-2xl font-semibold text-brand-primary">Channel OS™ structure</h2>
+        <p className="text-base text-brand-secondary">
+          The framework is organised around five pillars that map to every operator&apos;s daily reality.
+        </p>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+          {tiles.map((tile) => (
+            <Card key={tile.title} className="flex flex-col gap-3">
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-brand-secondary">{tile.title}</p>
+              <p className="text-base text-brand-primary">{tile.description}</p>
+            </Card>
           ))}
         </div>
       </div>
-      <div className="flex flex-wrap items-center gap-3 rounded-2xl border border-slate/60 bg-night/70 px-4 py-3 text-xs font-semibold uppercase tracking-[0.24em] text-ink/70">
-        <span className="text-ink">Adapters</span>
-        {adapters.map((adapter) => (
-          <span key={adapter} className="rounded-full border border-slate/50 bg-slate/40 px-3 py-1 text-ink/80">
-            {adapter}
-          </span>
-        ))}
+      <div className="rounded-2xl border border-dashed border-zinc-300 bg-zinc-50 px-6 py-4 text-sm font-semibold text-brand-secondary">
+        Strategy • Operations • Enablement • Platform
       </div>
     </section>
   );

@@ -1,70 +1,95 @@
 import type { Metadata } from "next";
-import { Container } from "../components/Container";
+import Link from "next/link";
 import { Hero } from "../components/Hero";
 import { StatusBar } from "../components/StatusBar";
 import { EmailInline } from "../components/EmailInline";
 import { SystemDiagram } from "../components/SystemDiagram";
+import { MaturityMini } from "../components/MaturityMini";
 import { OutcomeChips } from "../components/OutcomeChips";
-import { WhatsLiveNext } from "../components/WhatsLiveNext";
 import { FAQ } from "../components/FAQ";
+import { Card } from "../components/Card";
 
 export const metadata: Metadata = {
-  title: "Home",
-  description: "Channel OS is building a shared operating system for the IT channel. Join the mailing list for updates.",
+  title: "Channel OS™ home",
+  description: "Channel OS™ is the neutral framework for the IT channel. Follow the build and join the mailing list for the 2026 launch.",
 };
-
-const statusCopy = {
-  status: "Building",
-  launchDate: "1 Jan 2026",
-  nextUpdate: "Monthly via email",
-};
-
-const pillars = ["People", "Process", "Data", "Tools"];
-const adapters = ["CRM", "ERP", "PSA"];
 
 const outcomes = ["Publish approvals ≤48 h", "Multi-tenant baselines", "Drift detection enabled"];
 
 const faqItems = [
-  { question: "What is ChannelOS?", answer: "A shared standard and practical playbooks for the IT channel." },
-  { question: "What’s available today?", answer: "This site, a Standard preview, and the mailing list." },
-  { question: "When do you launch?", answer: "1 January 2026." },
-  { question: "How will I get updates?", answer: "Monthly via email." },
-  { question: "Can I contribute or partner?", answer: "Join the list; we’ll invite early collaborators." },
+  {
+    question: "What is Channel OS™?",
+    answer: "Channel OS™ is a shared framework and language for how the IT channel operates across people, process, data, tools, and adapters.",
+  },
+  {
+    question: "What’s available today?",
+    answer: "Build updates, the framework outline, and a mailing list for early releases.",
+  },
+  {
+    question: "When do you launch?",
+    answer: "Public launch is scheduled for 1 January 2026.",
+  },
+  {
+    question: "How do I get updates?",
+    answer: "Join the mailing list for monthly notes and invitations.",
+  },
+  {
+    question: "Can I participate?",
+    answer: "Yes. Join the list and we’ll reach out about operator circles and study groups.",
+  },
 ];
 
 export default function HomePage() {
   return (
-    <Container className="flex flex-col gap-16">
+    <div className="flex flex-col gap-20">
       <Hero
-        title="Channel OS — A shared operating system for the IT channel."
-        subtitle="We’re building a clear standard, common language, and practical playbooks for operators."
-        primaryCta={{ label: "Join the Mailing List", href: "#mailing-list-hero" }}
-        secondaryHref="/standard"
-        secondaryLabel="Preview the Standard"
+        title="Channel OS™ — The neutral framework for the IT channel."
+        subtitle="A shared language and practical patterns to build, operate, and scale channel excellence."
+        primaryAction={{ label: "Join the Mailing List", href: "#mailing-list-hero" }}
+        secondaryAction={{ label: "Explore the Framework", href: "#framework" }}
       >
-        <StatusBar {...statusCopy} />
-        <div id="mailing-list-hero" className="rounded-2xl border border-slate/60 bg-night/80 p-6">
-          <EmailInline variant="hero" />
+        <div className="space-y-6">
+          <StatusBar status="Building" launchDate="1 Jan 2026" cadence="Monthly via email" />
+          <p className="text-sm text-brand-secondary">
+            Status: Building • Launch: 1 Jan 2026 • Updates: monthly via email
+          </p>
+          <div id="mailing-list-hero" className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
+            <EmailInline variant="hero" />
+          </div>
         </div>
       </Hero>
 
-      <SystemDiagram pillars={pillars} adapters={adapters} />
+      <section id="framework" className="space-y-12">
+        <SystemDiagram />
+        <MaturityMini />
+        <OutcomeChips items={outcomes} />
+        <div className="flex flex-col gap-3 text-sm text-brand-primary sm:flex-row sm:items-center">
+          <Link href="/standard" className="underline-offset-4 hover:underline">
+            Read the Standard preview
+          </Link>
+          <span aria-hidden className="hidden h-1 w-1 rounded-full bg-brand-secondary/40 sm:inline" />
+          <Link href="/the-channel" className="underline-offset-4 hover:underline">
+            What is the Channel?
+          </Link>
+        </div>
+      </section>
 
-      <OutcomeChips items={outcomes} />
-
-      <WhatsLiveNext
-        liveItems={["Website", "Standard preview", "Mailing list"]}
-        nextItems={["Channel 101", "Certifications preview", "Community space"]}
-      />
-
-      <div className="rounded-2xl border border-slate/60 bg-night/80 p-6">
-        <EmailInline variant="mid" />
-      </div>
+      <Card className="bg-zinc-50">
+        <div className="space-y-3">
+          <h2 className="text-2xl font-semibold text-brand-primary">Stay close as we ship the artifacts</h2>
+          <p className="text-base text-brand-secondary">
+            The mailing list is the single action while the portal is under construction. Expect monthly notes until launch.
+          </p>
+        </div>
+        <div className="mt-6">
+          <EmailInline variant="mid" />
+        </div>
+      </Card>
 
       <section className="space-y-6">
-        <h2 className="text-2xl font-semibold text-ink">Micro-FAQ</h2>
+        <h2 className="text-2xl font-semibold text-brand-primary">Micro-FAQ</h2>
         <FAQ items={faqItems} />
       </section>
-    </Container>
+    </div>
   );
 }

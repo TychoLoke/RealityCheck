@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Container } from "../../../components/Container";
 import { MDXContent } from "../../../components/MDXContent";
 import { getJournalEntry, journalEntries } from "../../../lib/journal";
 
@@ -48,17 +47,17 @@ export default function JournalEntryPage({ params }: JournalPageProps) {
   const EntryComponent = entry.component;
 
   return (
-    <Container className="flex flex-col gap-10">
+    <div className="flex flex-col gap-10">
       <header className="space-y-2">
-        <p className="text-xs font-semibold uppercase tracking-[0.28em] text-ink/60">{entry.date}</p>
-        <h1 className="text-3xl font-semibold text-ink">{entry.title}</h1>
-        <p className="text-base text-ink/70">{entry.summary}</p>
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-secondary">{entry.date}</p>
+        <h1 className="text-4xl font-semibold text-brand-primary md:text-5xl">{entry.title}</h1>
+        <p className="text-base text-brand-secondary">{entry.summary}</p>
       </header>
-      <article className="rounded-2xl border border-slate/60 bg-night/80 p-8 shadow-surface">
+      <article className="rounded-3xl border border-zinc-200 bg-white p-8 shadow-sm">
         <MDXContent>
           <EntryComponent />
         </MDXContent>
       </article>
-    </Container>
+    </div>
   );
 }

@@ -8,7 +8,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     a: (props: AnchorProps) => (
       <a
         {...props}
-        className="text-accent underline decoration-dotted underline-offset-4 transition hover:text-accent/80"
+        className="text-brand-primary underline underline-offset-4 transition hover:no-underline"
       />
     ),
     ...components,
