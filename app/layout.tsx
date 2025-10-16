@@ -1,76 +1,92 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
-import { ActionBand } from "../components/ActionBand";
-import { CookieNotice } from "../components/CookieNotice";
 
 const sans = Plus_Jakarta_Sans({ subsets: ["latin"], display: "swap", variable: "--font-sans" });
 
-const baseTitle = "Channel OS™ — The vendor-neutral operating system for the channel (VDP)";
-const baseDescription =
-  "Channel OS™ is the vendor-neutral operating system for the channel (VDP), standardizing people, skills, processes, data, and tools across Vendors, Distributors, and Partners.";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://channelos.org";
+const enableAnalytics = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "true";
+
+const organizationLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Channel OS",
+  url: siteUrl,
+  slogan: "A shared operating system for the IT channel",
+  sameAs: [siteUrl],
+};
+
+const eventLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "Channel OS Launch",
+  eventStatus: "https://schema.org/EventScheduled",
+  startDate: "2026-01-01",
+  endDate: "2026-01-01",
+  eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
+  url: siteUrl,
+  organizer: {
+    "@type": "Organization",
+    name: "Channel OS",
+    url: siteUrl,
+  },
+  description: "2026 is the year of Channel OS. Join the mailing list for updates.",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: baseTitle,
-    template: "%s | Channel OS™",
+    default: "Channel OS — Operating system for the IT channel",
+    template: "%s | Channel OS",
   },
-  description: baseDescription,
+  description: "Channel OS is a shared operating system for the IT channel. Join the mailing list and preview the Standard.",
   openGraph: {
-    title: baseTitle,
-    description: baseDescription,
+    title: "Channel OS — Operating system for the IT channel",
+    description: "Channel OS is a shared operating system for the IT channel. Join the mailing list and preview the Standard.",
     url: siteUrl,
-    siteName: "Channel OS™",
+    siteName: "Channel OS",
     images: [
       {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Channel OS™ — The vendor-neutral operating system for the channel (VDP)",
+        alt: "Channel OS — Operating system for the IT channel",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: baseTitle,
-    description: baseDescription,
+    title: "Channel OS — Operating system for the IT channel",
+    description: "Channel OS is a shared operating system for the IT channel. Join the mailing list and preview the Standard.",
   },
-  icons: {
-    icon: [
-      { url: "/icon", type: "image/png" },
-      { url: "/icon?format=ico", type: "image/x-icon" },
-    ],
+  alternates: {
+    types: {
+      "application/rss+xml": `${siteUrl}/journal.xml`,
+    },
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} bg-graphite text-midnight`}>
-      <body className="font-sans relative flex min-h-screen flex-col bg-transparent text-midnight antialiased">
-        <div className="pointer-events-none fixed inset-0 -z-20 overflow-hidden">
-          <div className="absolute inset-0 bg-soft-grid opacity-50" />
-          <div className="absolute inset-x-[-20%] top-[-35%] h-[420px] rounded-full bg-[radial-gradient(circle,rgba(60,76,255,0.16),transparent_70%)] blur-3xl" />
-          <div className="absolute inset-x-[10%] bottom-[-45%] h-[520px] rounded-full bg-[radial-gradient(circle,rgba(47,180,211,0.18),transparent_70%)] blur-3xl" />
-          <div className="absolute left-1/2 top-[40%] h-[420px] w-[55vw] -translate-x-1/2 rounded-full bg-[radial-gradient(circle,rgba(11,14,26,0.08),transparent_70%)] blur-3xl" />
-        </div>
+    <html lang="en" className={`dark ${sans.variable}`}>
+      <body className="min-h-screen bg-night text-ink font-sans">
+        <a href="#main-content" className="skip-link">Skip to content</a>
         <Header />
-        <ActionBand />
-        <main id="main-content" className="relative flex-1">
-          <div className="pointer-events-none absolute inset-0 -z-10">
-            <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-white via-white/50 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white via-white/50 to-transparent" />
-            <div className="absolute inset-x-[10%] top-1/3 h-[280px] rounded-[48px] bg-[radial-gradient(circle,rgba(60,76,255,0.14),transparent_70%)] blur-2xl" />
-          </div>
-          <div className="relative flex flex-col gap-20 pb-28 pt-10 sm:gap-24 sm:pb-36">
-            {children}
-          </div>
+        <main id="main-content" className="relative flex min-h-[calc(100vh-200px)] flex-col gap-16 py-16">
+          {children}
         </main>
         <Footer />
-        <CookieNotice />
+        <Script id="channelos-org-jsonld" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify([organizationLd, eventLd])}
+        </Script>
+        {enableAnalytics && (
+          <Script id="analytics-stub" strategy="afterInteractive">
+            {"window.channelosAnalyticsEnabled = true;"}
+          </Script>
+        )}
       </body>
     </html>
   );

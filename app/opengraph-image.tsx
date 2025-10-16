@@ -7,8 +7,6 @@ export const size = {
 };
 export const contentType = "image/png";
 
-const brandGradient = "linear-gradient(135deg, #0B0E1A 20%, #8A93A6 100%)";
-
 export default function OpenGraphImage() {
   return new ImageResponse(
     (
@@ -20,28 +18,19 @@ export default function OpenGraphImage() {
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "80px",
-          background: brandGradient,
-          color: "white",
+          background: "linear-gradient(135deg, #04060F 10%, #1D2638 90%)",
+          color: "#F7FAFF",
+          fontFamily: "Plus Jakarta Sans, sans-serif",
         }}
       >
-        <div style={{ fontSize: 64, fontWeight: 700, letterSpacing: -2 }}>Channel OS™</div>
-        <div style={{
-          fontSize: 44,
-          fontWeight: 600,
-          maxWidth: "80%",
-          lineHeight: 1.2,
-        }}>
-          The vendor-neutral operating system for the channel (VDP)
+        <span style={{ fontSize: 28, letterSpacing: "0.4em", textTransform: "uppercase", color: "rgba(247,250,255,0.7)" }}>
+          Build Mode
+        </span>
+        <div style={{ fontSize: 72, fontWeight: 700, lineHeight: 1.05 }}>Channel OS</div>
+        <div style={{ fontSize: 40, fontWeight: 500, maxWidth: "70%", color: "rgba(247,250,255,0.85)", lineHeight: 1.3 }}>
+          A shared operating system for the IT channel. Launching 1 January 2026.
         </div>
-        <div
-          style={{
-            display: "flex",
-            gap: "24px",
-            fontSize: 28,
-            fontWeight: 500,
-            color: "rgba(255, 255, 255, 0.85)",
-          }}
-        >
+        <div style={{ display: "flex", gap: "24px", fontSize: 26, color: "rgba(247,250,255,0.75)" }}>
           <span>People</span>
           <span>Process</span>
           <span>Data</span>
@@ -51,6 +40,6 @@ export default function OpenGraphImage() {
     ),
     {
       ...size,
-    }
+    },
   );
 }

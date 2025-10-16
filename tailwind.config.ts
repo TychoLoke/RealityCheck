@@ -1,33 +1,46 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
+  darkMode: "class",
   content: [
-    "./app/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx,mdx}",
     "./components/**/*.{ts,tsx}",
-    "./pages/**/*.{ts,tsx}",
+    "./content/**/*.{mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        midnight: "#0B0E1A",
-        graphite: "#ECEFF6",
-        cloud: "#F6F8FD",
-        neutral: "#8A93A6",
-        accentBlue: "#3C4CFF",
-        accentTeal: "#2FB4D3",
-        signalAmber: "#F59E0B",
-        successGreen: "#16A34A",
-        errorRed: "#EF4444",
+        night: "#04060F",
+        ink: "#F7FAFF",
+        mist: "#0F1524",
+        slate: "#1D2638",
+        accent: "#5D7CFF",
+        accentSoft: "#89A8FF",
+        success: "#3CD4A0",
+        warning: "#FBC15A",
       },
       maxWidth: {
-        content: "72rem",
+        content: "80rem",
       },
       boxShadow: {
-        card: "0 24px 64px -40px rgba(11, 14, 26, 0.25)",
+        surface: "0 24px 60px -30px rgba(12, 17, 32, 0.55)",
+      },
+      borderRadius: {
+        "2xl": "1.25rem",
+      },
+      keyframes: {
+        fadeIn: {
+          "0%": { opacity: 0, transform: "translateY(12px)" },
+          "100%": { opacity: 1, transform: "translateY(0)" },
+        },
+      },
+      animation: {
+        fadeIn: "fadeIn 0.6s ease-out both",
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };
 
 export default config;
