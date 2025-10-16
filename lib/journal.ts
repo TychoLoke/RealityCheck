@@ -1,3 +1,5 @@
+import type { ComponentType } from "react";
+
 import BuildingTheStandard, { metadata as buildingMeta } from "../content/journal/building-the-standard.mdx";
 import ChannelLanguage, { metadata as languageMeta } from "../content/journal/channel-language.mdx";
 import BaselineDrift, { metadata as baselineMeta } from "../content/journal/baseline-drift.mdx";
@@ -7,13 +9,13 @@ export interface JournalEntry {
   title: string;
   summary: string;
   date: string;
-  component: () => JSX.Element;
+  component: ComponentType<Record<string, unknown>>;
 }
 
 function withComponent(
   slug: string,
   metadata: Record<string, string>,
-  Component: () => JSX.Element,
+  Component: ComponentType<Record<string, unknown>>,
 ): JournalEntry {
   return {
     slug,
