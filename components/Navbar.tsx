@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import clsx from "clsx";
 import { BrandWordmark } from "./BrandWordmark";
 import { useEmailCapture } from "./EmailCaptureProvider";
@@ -19,6 +19,29 @@ export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const { open } = useEmailCapture();
+
+  const handleSubscribeClick = (
+    event: MouseEvent<HTMLAnchorElement>,
+    { closeMenu = false }: { closeMenu?: boolean } = {}
+  ) => {
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.altKey ||
+      event.ctrlKey ||
+      event.shiftKey
+    ) {
+      return;
+    }
+
+    event.preventDefault();
+    open();
+
+    if (closeMenu) {
+      setIsOpen(false);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/90 backdrop-blur">
@@ -48,13 +71,13 @@ export function Navbar() {
           })}
         </nav>
         <div className="flex items-center gap-3">
-          <button
-            type="button"
-            onClick={() => open()}
+          <Link
+            href="/subscribe"
+            onClick={(event) => handleSubscribeClick(event)}
             className="hidden rounded-full border border-zinc-200 px-4 py-2 text-sm font-semibold text-brand-primary transition hover:bg-zinc-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary md:inline-flex"
           >
             Subscribe
-          </button>
+          </Link>
           <button
             type="button"
             onClick={() => setIsOpen((value) => !value)}
@@ -99,16 +122,13 @@ export function Navbar() {
               );
             })}
           </nav>
-          <button
-            type="button"
-            onClick={() => {
-              open();
-              setIsOpen(false);
-            }}
+          <Link
+            href="/subscribe"
+            onClick={(event) => handleSubscribeClick(event, { closeMenu: true })}
             className="rounded-full border border-zinc-200 px-4 py-3 text-sm font-semibold text-brand-primary transition hover:bg-zinc-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
           >
             Subscribe
-          </button>
+          </Link>
         </div>
       </div>
     </header>
