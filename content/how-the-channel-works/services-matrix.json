@@ -1,0 +1,40 @@
+{
+  "offers": [
+    {"id": "m365", "label": "M365 & Collaboration"},
+    {"id": "security", "label": "Security"},
+    {"id": "data", "label": "Data & AI"},
+    {"id": "infrastructure", "label": "Infrastructure"}
+  ],
+  "motions": [
+    {"id": "assess", "label": "Assess"},
+    {"id": "migrate", "label": "Migrate"},
+    {"id": "operate", "label": "Operate"},
+    {"id": "improve", "label": "Improve"}
+  ],
+  "plays": {
+    "m365": {
+      "assess": "Digital workplace readiness scan",
+      "migrate": "Tenant consolidation & change enablement",
+      "operate": "Lifecycle management with adoption coaching",
+      "improve": "Automation of routine workflows"
+    },
+    "security": {
+      "assess": "Zero Trust posture assessment",
+      "migrate": "SIEM to XDR modernization",
+      "operate": "Managed detection and response",
+      "improve": "Threat hunting & purple team exercises"
+    },
+    "data": {
+      "assess": "Analytics value discovery workshop",
+      "migrate": "Warehouse to lakehouse transition",
+      "operate": "Managed data platform with governance",
+      "improve": "Applied AI use-case acceleration"
+    },
+    "infrastructure": {
+      "assess": "Cloud economics baseline",
+      "migrate": "VM to container modernization",
+      "operate": "Ops center with FinOps guardrails",
+      "improve": "Automation & resilience tuning"
+    }
+  }
+}

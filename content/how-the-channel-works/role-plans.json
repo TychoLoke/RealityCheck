@@ -1,0 +1,143 @@
+{
+  "maturity": ["Explorer", "Builder", "Scaler", "Leader"],
+  "roles": {
+    "msp": {
+      "label": "MSP / Partner",
+      "summary": "Design, deliver, and operate outcomes that translate technology into measurable value.",
+      "partners": [
+        "Vendors for co-sell alignment and roadmap influence",
+        "Distributors for credit terms, provisioning, and enablement",
+        "ISVs for differentiated automation and margin"
+      ],
+      "offers": [
+        "AI Readiness Assessment (2–3 weeks) with roadmap and ROI case",
+        "Security Baseline + MDR handoff for secure-by-default operations",
+        "Lifecycle Care Plan covering adoption, backup, and QBR cadence"
+      ],
+      "handoffs": ["Qualify", "Design", "Implement", "Train", "Operate", "Review"],
+      "kpis": ["Gross margin %", "Revenue per employee", "SLA attainment", "Adoption %", "Churn < 2%/q"],
+      "sprint": [
+        "Week 1: Define ICP and success metrics",
+        "Week 2: Build checklists, playbooks, and pricing",
+        "Week 3: Pilot with one reference customer",
+        "Week 4: Run QBR, capture outcomes, launch offer"
+      ],
+      "risks": ["Tool chasing without offers", "Weak internal handoffs", "Selling hours instead of outcomes"]
+    },
+    "vendor": {
+      "label": "Vendor / OEM",
+      "summary": "Create scalable products, enable the ecosystem, and lift partner economics.",
+      "partners": [
+        "Distributors to scale recruitment, credit, and lifecycle ops",
+        "MSPs to design offers, co-market, and co-sell",
+        "ISVs to fill capability gaps and create bundles"
+      ],
+      "offers": [
+        "Partner Playbook with ICP, use cases, and margin guidance",
+        "Reference Architectures with secure defaults and adoption paths",
+        "Co-sell Kit including demos, ROI model, and win stories"
+      ],
+      "handoffs": ["Create", "Enable", "Co-sell", "Support", "Success", "Expansion"],
+      "kpis": ["NRR", "Partner attach %", "Time-to-first-value", "Win rate with partner"],
+      "sprint": [
+        "Week 1: Map top partner motions and value props",
+        "Week 2: Ship enablement kit and reference architecture",
+        "Week 3: Run two co-sell deals with lighthouse partners",
+        "Week 4: Publish joint win story and update roadmap"
+      ],
+      "risks": ["Feature dumping", "Channel conflict", "Unclear margin story"]
+    },
+    "distributor": {
+      "label": "Distributor / Aggregator",
+      "summary": "Reduce friction at scale through credit, billing, provisioning, data, and enablement.",
+      "partners": [
+        "Vendors to package incentives and programs",
+        "MSPs for financing, training, and marketplace presence",
+        "Marketplaces for integrations and metering"
+      ],
+      "offers": [
+        "Credit & Cashflow Packs with guardrails",
+        "Automation Connectors for provisioning and license hygiene",
+        "Partner Enablement Sprints (4×1h GTM/ops bootcamps)"
+      ],
+      "handoffs": ["Contract", "Provision", "Bill", "Report", "Incentivize"],
+      "kpis": ["DSO", "Order accuracy", "Active partners %", "Attach per SKU"],
+      "sprint": [
+        "Week 1: Select a priority vendor line and target partners",
+        "Week 2: Build a sell-with bundle and automation checklist",
+        "Week 3: Recruit 10 partners and run enablement session",
+        "Week 4: Launch campaign and track 60-day pipeline"
+      ],
+      "risks": ["Catalog sprawl", "Complex rebates", "Weak data quality"]
+    },
+    "marketplace": {
+      "label": "Marketplace",
+      "summary": "Provide self-service commerce backed by partner expertise.",
+      "partners": [
+        "Vendors for curated listings, pricing, and trials",
+        "MSPs for service attach SKUs and private offers",
+        "ISVs for long-tail differentiation"
+      ],
+      "offers": [
+        "Solution Listings bundling product and partner services",
+        "Private Offers with enterprise terms and margin",
+        "Usage Dashboards covering health, adoption, and cost"
+      ],
+      "handoffs": ["Discover", "Trial", "Buy", "Meter", "Renew"],
+      "kpis": ["Conversion %", "Attach rate", "Renewal %", "Support tickets / order"],
+      "sprint": [
+        "Week 1: Curate top 10 use-case bundles",
+        "Week 2: Attach partners and finalize offers",
+        "Week 3: Launch campaign with promo and insights",
+        "Week 4: Measure conversion and iterate listings"
+      ],
+      "risks": ["Race-to-the-bottom pricing", "Orphaned customers", "Unclear partner attribution"]
+    },
+    "isv": {
+      "label": "ISV",
+      "summary": "Extend platforms with focused capabilities that drive ROI.",
+      "partners": [
+        "Vendors for marketplace listing and certification",
+        "MSPs to embed into managed offers and co-deliver",
+        "Distributors for reach and enablement"
+      ],
+      "offers": [
+        "Reference Use Cases with before/after KPIs",
+        "Partner Starter Kit with demo tenant and deployment script",
+        "Co-marketing Pack (3 emails, 1 webinar, 1 case study)"
+      ],
+      "handoffs": ["Integrate", "Enable", "Support", "Improve"],
+      "kpis": ["Attach %", "Active usage", "Support cost / customer", "Expansion %"],
+      "sprint": [
+        "Week 1: Ship v1 integration guide",
+        "Week 2: Recruit five design partners",
+        "Week 3: Publish first ROI case",
+        "Week 4: Enable partners with co-marketing kit"
+      ],
+      "risks": ["Feature creep", "Brittle integrations", "Lack of partner readiness"]
+    },
+    "customer": {
+      "label": "Customer / End User",
+      "summary": "Fund outcomes, choose accountability, and co-own adoption.",
+      "partners": [
+        "MSPs for strategy, migration, and managed operations",
+        "Vendors/ISVs for roadmap alignment and support",
+        "Distributors/Marketplaces for commercial terms and billing"
+      ],
+      "offers": [
+        "Readiness Assessment with clear success metrics",
+        "Secure-by-default baseline with backup",
+        "Adoption plan covering training, champions, and QBRs"
+      ],
+      "handoffs": ["Define outcomes", "Select partners", "Implement", "Adopt", "Review"],
+      "kpis": ["Adoption %", "Incident rate", "Time saved", "Compliance score"],
+      "sprint": [
+        "Week 1: Prioritize one business outcome",
+        "Week 2: Pilot with a core team",
+        "Week 3: Measure impact and surface blockers",
+        "Week 4: Decide scale plan and partner commitments"
+      ],
+      "risks": ["Buying tools without owners", "Skipping change management", "No executive sponsorship"]
+    }
+  }
+}

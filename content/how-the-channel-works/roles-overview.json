@@ -1,0 +1,44 @@
+{
+  "roles": [
+    {
+      "id": "vendor",
+      "title": "Vendor",
+      "goal": "Drive adoption and retention through differentiated platforms.",
+      "value": "Funds enablement, sets guardrails, and creates co-sell leverage.",
+      "kpis": ["NRR", "Active seats %", "Partner attach rate"],
+      "signal": "Shipping roadmaps with built-in partner economics."
+    },
+    {
+      "id": "distributor",
+      "title": "Distributor / Aggregator",
+      "goal": "Remove friction for thousands of partners at once.",
+      "value": "Provides credit, billing, logistics, and data services.",
+      "kpis": ["Partner NPS", "Days sales outstanding", "Automation coverage"],
+      "signal": "Orchestrates multi-vendor bundles with clean incentives."
+    },
+    {
+      "id": "partner",
+      "title": "MSP / Partner",
+      "goal": "Translate technology into accountable business outcomes.",
+      "value": "Designs, implements, and operates ongoing managed services.",
+      "kpis": ["Gross margin %", "Revenue per employee", "Churn"],
+      "signal": "Owns the customer relationship end to end."
+    },
+    {
+      "id": "marketplace",
+      "title": "Marketplace",
+      "goal": "Enable self-service buying with trusted partner services attached.",
+      "value": "Offers digital commerce, metering, and private offers.",
+      "kpis": ["Conversion %", "Attach rate", "Renewal %"],
+      "signal": "Connects listings, partners, and billing in one flow."
+    },
+    {
+      "id": "isv",
+      "title": "ISV / Add-on",
+      "goal": "Extend core platforms with specialized capabilities.",
+      "value": "Closes gaps with integrations that deliver measurable ROI.",
+      "kpis": ["Attach rate", "Expansion %", "Support cost / customer"],
+      "signal": "Ships certified integrations and partner playbooks."
+    }
+  ]
+}

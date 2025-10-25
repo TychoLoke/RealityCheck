@@ -1,0 +1,141 @@
+{
+  "roles": [
+    {
+      "id": "vendor",
+      "label": "Vendor",
+      "description": "Builds the platforms and funds the motions that grow adoption."
+    },
+    {
+      "id": "distributor",
+      "label": "Distributor / Aggregator",
+      "description": "Extends reach with credit, provisioning, and enablement at scale."
+    },
+    {
+      "id": "partner",
+      "label": "MSP / Partner",
+      "description": "Designs, sells, and operates the full customer outcome."
+    },
+    {
+      "id": "marketplace",
+      "label": "Marketplace",
+      "description": "Creates self-service paths and attaches partner value."
+    },
+    {
+      "id": "isv",
+      "label": "ISV",
+      "description": "Extends core platforms with specialized capability."
+    },
+    {
+      "id": "customer",
+      "label": "Customer",
+      "description": "Funds results and co-owns adoption."
+    }
+  ],
+  "motions": [
+    {
+      "id": "create",
+      "label": "Create",
+      "lane": "vendor",
+      "summary": "Package offers with crisp value, pricing, and enablement guidance.",
+      "goodLooksLike": [
+        "Clear problem statements mapped to personas",
+        "Usage telemetry wired for partner reporting"
+      ],
+      "kpis": ["Launch readiness score", "Time-to-first-value"],
+      "pitfalls": ["Feature-led messaging", "Unclear commercial guardrails"]
+    },
+    {
+      "id": "mobilize",
+      "label": "Mobilize",
+      "lane": "distributor",
+      "summary": "Recruit, contract, finance, and equip the right partners.",
+      "goodLooksLike": [
+        "Priority partner list with tiering",
+        "Automation for onboarding and credit checks"
+      ],
+      "kpis": ["Partner activation %", "Credit utilization"],
+      "pitfalls": ["Catalog sprawl", "Slow partner support"]
+    },
+    {
+      "id": "sell",
+      "label": "Sell",
+      "lane": "partner",
+      "summary": "Qualify, design, and propose blended offers tied to outcomes.",
+      "goodLooksLike": [
+        "Discovery mapped to success metrics",
+        "Services packaged with every deal"
+      ],
+      "kpis": ["Win rate", "Services attach %"],
+      "pitfalls": ["Discount-led selling", "Undefined success plan"]
+    },
+    {
+      "id": "procure",
+      "label": "Procure",
+      "lane": "distributor",
+      "summary": "Automate ordering, provisioning, and billing with hygiene checks.",
+      "goodLooksLike": [
+        "Same-day provisioning",
+        "Consolidated billing with usage transparency"
+      ],
+      "kpis": ["Order accuracy", "Days sales outstanding"],
+      "pitfalls": ["Manual license adjustments", "Billing surprises"]
+    },
+    {
+      "id": "deliver",
+      "label": "Deliver",
+      "lane": "partner",
+      "summary": "Implement secure baselines, integrations, and user ramp plans.",
+      "goodLooksLike": [
+        "Secure-by-default configuration",
+        "User enablement sessions booked upfront"
+      ],
+      "kpis": ["Deployment time", "Adoption readiness"],
+      "pitfalls": ["Shadow IT integrations", "Training skipped"]
+    },
+    {
+      "id": "adopt",
+      "label": "Adopt",
+      "lane": "customer",
+      "summary": "Drive usage, measure impact, and remove friction.",
+      "goodLooksLike": [
+        "Champion network engaged",
+        "Usage dashboards reviewed weekly"
+      ],
+      "kpis": ["Active usage %", "Time saved"],
+      "pitfalls": ["No change management", "Unowned metrics"]
+    },
+    {
+      "id": "operate",
+      "label": "Operate",
+      "lane": "partner",
+      "summary": "Monitor, support, and govern against SLAs and compliance needs.",
+      "goodLooksLike": [
+        "24/7 observability with runbooks",
+        "Automated backup and patch routines"
+      ],
+      "kpis": ["SLA attainment", "Ticket deflection"],
+      "pitfalls": ["Hero culture", "Runbooks out of date"]
+    },
+    {
+      "id": "expand",
+      "label": "Success & Expand",
+      "lane": "partner",
+      "summary": "Review results, renew, upsell, and unlock the next wave of value.",
+      "goodLooksLike": [
+        "Quarterly business reviews with insights",
+        "Co-funded innovation roadmap"
+      ],
+      "kpis": ["Net revenue retention", "Upsell rate"],
+      "pitfalls": ["No executive sponsor", "Reactive renewals"]
+    }
+  ],
+  "edges": [
+    { "from": "vendor", "to": "distributor", "motion": "mobilize" },
+    { "from": "distributor", "to": "partner", "motion": "sell" },
+    { "from": "partner", "to": "distributor", "motion": "procure" },
+    { "from": "distributor", "to": "vendor", "motion": "procure" },
+    { "from": "partner", "to": "customer", "motion": "deliver" },
+    { "from": "customer", "to": "partner", "motion": "operate" },
+    { "from": "partner", "to": "customer", "motion": "expand" }
+  ]
+}
