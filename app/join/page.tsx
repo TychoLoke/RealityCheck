@@ -57,7 +57,7 @@ export default function JoinPage() {
           Drop your email to receive the monthly launch digest and invites to preview sessions.
         </p>
         <div className="mt-6">
-          <EmailInline variant="wide" message="We&apos;ll send the next update soon." />
+          <EmailInline variant="mid" message="We&apos;ll send the next update soon." />
         </div>
       </section>
     </TeaserPage>
