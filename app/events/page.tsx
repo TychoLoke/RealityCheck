@@ -1,73 +1,83 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { CardList } from "../../components/CardList";
-import { SectionHeader } from "../../components/SectionHeader";
-import { getPastEvents, getUpcomingEvents } from "../../lib/content";
+import { TeaserPage } from "../../components/TeaserPage";
 
 export const metadata: Metadata = {
   title: "Events",
-  description: "Learn in the open. Join live; watch replays.",
+  description: "Channel OS™ live sessions restart with the January 2026 launch. Preview the formats we&apos;re lining up.",
 };
 
 export default function EventsPage() {
-  const upcoming = getUpcomingEvents();
-  const past = getPastEvents();
-
   return (
-    <div className="flex flex-col gap-16">
-      <section className="space-y-4">
-        <h1 className="text-4xl font-bold text-brand-primary">Events</h1>
-        <p className="max-w-2xl text-base text-brand-secondary">Learn in the open. Join live; watch replays.</p>
-      </section>
-
-      <section className="space-y-6">
-        <SectionHeader title="Upcoming" description="RSVP and build with the community." />
-        {upcoming.length > 0 ? (
-          <CardList
-            items={upcoming.map((event) => ({
-              title: event.title,
-              meta: `${new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(new Date(event.date))} · ${event.time}`,
-              description: event.value,
-              detail: `${event.format} · ${event.location}`,
-              actions: [{ label: "RSVP", href: event.rsvpUrl }],
-            }))}
-          />
-        ) : (
-          <p className="text-sm text-brand-secondary">New sessions will be posted soon.</p>
-        )}
-      </section>
-
-      <section className="space-y-6">
-        <SectionHeader title="Past" description="Replays, slides, and notes." />
-        {past.length > 0 ? (
-          <CardList
-            items={past.map((event) => ({
-              title: event.title,
-              meta: `${new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric" }).format(new Date(event.date))} · ${event.time}`,
-              description: event.value,
-              detail: `${event.format} · ${event.location}`,
-              actions: [
-                event.replayUrl ? { label: "Replay", href: event.replayUrl } : undefined,
-                event.slidesUrl ? { label: "Slides", href: event.slidesUrl } : undefined,
-                event.notesUrl ? { label: "Notes", href: event.notesUrl } : undefined,
-              ].filter(Boolean) as { label: string; href: string }[],
-            }))}
-          />
-        ) : (
-          <p className="text-sm text-brand-secondary">Replays will appear here.</p>
-        )}
-      </section>
-
-      <aside className="rounded-[16px] border border-dashed border-brand-secondary/40 p-6 text-sm text-brand-secondary">
-        <p className="font-semibold text-brand-primary">Host an event</p>
-        <p className="mt-2">Have a pattern to share? Volunteer through the contribute form.</p>
-        <Link
-          href="/community"
-          className="mt-4 inline-flex items-center justify-center rounded-[12px] border border-brand-secondary/40 px-4 py-2 text-sm font-semibold text-brand-primary transition hover:border-brand-primary"
-        >
-          Go to form
-        </Link>
-      </aside>
-    </div>
+    <TeaserPage
+      title="Channel OS™ Events"
+      description="We&apos;re curating a calendar of tactical sessions to accelerate partner work. Here&apos;s what to expect once the community opens."
+      sections={[
+        {
+          title: "Launch week schedule",
+          description: "Founding members get first access to these programs.",
+          items: [
+            {
+              title: "Live frameworks",
+              description: "Deep dives on the Channel Standard, including flows, KPIs, and rollout plans for your org.",
+            },
+            {
+              title: "Operator labs",
+              description: "Hands-on working sessions where we build partner scorecards, GTM briefs, and enablement kits together.",
+            },
+            {
+              title: "Signals briefings",
+              description: "Quarterly benchmark reviews covering partner-sourced pipeline, activation, and retention metrics.",
+            },
+            {
+              title: "Community roundtables",
+              description: "Small group discussions on marketplaces, co-selling, and integrations moderated by Channel OS™ advisors.",
+            },
+          ],
+        },
+        {
+          title: "How to participate",
+          description: "We&apos;re finalizing the agenda now. Help us prioritize the formats you need most.",
+          items: [
+            {
+              title: "Suggest a topic",
+              description: (
+                <>
+                  Tell us which partner motions you want featured by emailing{" "}
+                  <a className="text-brand-primary underline-offset-4 hover:underline" href="mailto:events@channelos.org">
+                    events@channelos.org
+                  </a>
+                  .
+                </>
+              ),
+            },
+            {
+              title: "Volunteer speakers",
+              description: (
+                <>
+                  We&apos;re curating three-minute lightning talks. Nominate yourself or a teammate to share a play by emailing{" "}
+                  <a className="text-brand-primary underline-offset-4 hover:underline" href="mailto:events@channelos.org">
+                    events@channelos.org
+                  </a>
+                  .
+                </>
+              ),
+            },
+            {
+              title: "On-demand replays",
+              description: "Every session is recorded and captioned. Members can revisit templates and key takeaways on demand.",
+            },
+          ],
+          note: (
+            <>
+              Want to co-host or sponsor a program? Email{" "}
+              <a className="text-brand-primary underline-offset-4 hover:underline" href="mailto:events@channelos.org">
+                events@channelos.org
+              </a>
+              .
+            </>
+          ),
+        },
+      ]}
+    />
   );
 }

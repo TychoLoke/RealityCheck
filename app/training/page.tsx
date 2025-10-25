@@ -1,57 +1,88 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { CardList } from "../../components/CardList";
-import { JoinStrip } from "../../components/JoinStrip";
-import { SectionHeader } from "../../components/SectionHeader";
-import { trainingTracks } from "../../lib/content";
+import { TeaserPage } from "../../components/TeaserPage";
 
 export const metadata: Metadata = {
   title: "Training",
-  description: "Compact programs that convert knowledge to execution.",
+  description: "Channel OS™ training paths launch January 1, 2026 with fast, measurable programs for partner teams.",
 };
 
 export default function TrainingPage() {
   return (
-    <div className="flex flex-col gap-16">
-      <section className="space-y-4">
-        <h1 className="text-4xl font-bold text-brand-primary">Training</h1>
-        <p className="max-w-2xl text-base text-brand-secondary">Compact programs that convert knowledge to execution.</p>
-      </section>
-
-      <section className="space-y-6">
-        <SectionHeader title="Tracks" description="Teaser modules and cadence." />
-        <CardList
-          layout="grid"
-          items={trainingTracks.map((track) => ({
-            title: track.title,
-            description: track.outline,
-            detail: `${track.duration} · ${track.sessions}`,
-            actions: [{ label: "View framework", href: "/framework" }],
-          }))}
-        />
-      </section>
-
-      <section className="space-y-4 rounded-[16px] border border-zinc-200 bg-white p-8 shadow-sm">
-        <h2 className="text-2xl font-bold text-brand-primary">Outcomes</h2>
-        <p className="text-base text-brand-secondary">Each module ships with a checklist and KPI.</p>
-      </section>
-
-      <JoinStrip
-        title="Join the waitlist"
-        description="Cohorts open in waves. Add your email to get the next seat."
-        successMessage="You’re in."
-        ctaLabel="Join"
-      />
-
-      <div className="flex flex-wrap gap-3 text-sm text-brand-secondary">
-        <Link href="/playbooks" className="underline-offset-4 hover:underline">
-          Explore playbooks
-        </Link>
-        <span aria-hidden className="hidden h-1 w-1 rounded-full bg-brand-secondary/40 sm:inline" />
-        <Link href="/talks" className="underline-offset-4 hover:underline">
-          Hear from operators
-        </Link>
-      </div>
-    </div>
+    <TeaserPage
+      title="Training"
+      description="We&apos;re designing compact, outcome-driven modules that turn the Channel Standard into daily execution. Here&apos;s a look at what&apos;s coming."
+      sections={[
+        {
+          title: "Core tracks",
+          description: "Each course is cohort-based with repeatable exercises and scorecards.",
+          items: [
+            {
+              title: "Partner activation",
+              description: "Onboard faster with messaging kits, enablement plans, and certification paths.",
+            },
+            {
+              title: "Co-selling",
+              description: "Build joint pipeline with opportunity qualification frameworks and revenue dashboards.",
+            },
+            {
+              title: "Marketplace ops",
+              description: "Optimize listing, merchandising, and attach motions with weekly operating rituals.",
+            },
+            {
+              title: "Ecosystem strategy",
+              description: "Align leadership around partner contribution, investment, and headcount planning.",
+            },
+          ],
+        },
+        {
+          title: "How we deliver",
+          description: "Training is built for busy operators—no fluff, just structure and accountability.",
+          items: [
+            {
+              title: "Live labs",
+              description: "Work through assignments together with facilitators and peer feedback.",
+            },
+            {
+              title: "Scorecards",
+              description: "Measure adoption and impact weekly with simple dashboards.",
+            },
+            {
+              title: "Templates",
+              description: "Copy-ready documents and playbooks you can adapt to your stack immediately.",
+            },
+            {
+              title: "Office hours",
+              description: "Drop-in sessions with subject-matter experts to unblock your team.",
+            },
+          ],
+        },
+        {
+          title: "Reserve a seat",
+          description: "Founding members can pre-select tracks ahead of launch.",
+          items: [
+            {
+              title: "Nominate team members",
+              description: "Tell us who should attend each track so we can hold spots.",
+            },
+            {
+              title: "Share constraints",
+              description: "Flag time zones, schedule conflicts, or certification requirements now.",
+            },
+            {
+              title: "Request custom sessions",
+              description: (
+                <>
+                  Need a private workshop? Email{" "}
+                  <a className="text-brand-primary underline-offset-4 hover:underline" href="mailto:training@channelos.org">
+                    training@channelos.org
+                  </a>
+                  .
+                </>
+              ),
+            },
+          ],
+        },
+      ]}
+    />
   );
 }

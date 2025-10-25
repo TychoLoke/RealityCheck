@@ -1,34 +1,70 @@
 import type { Metadata } from "next";
+import { TeaserPage } from "../../components/TeaserPage";
 
 export const metadata: Metadata = {
   title: "Code of Conduct",
-  description: "Respect. Evidence over hype. No unsolicited selling.",
+  description:
+    "Channel OS™ is setting the tone for a practical, respectful community ahead of the January 2026 launch.",
 };
-
-const rules = [
-  "Respect fellow members.",
-  "Share evidence over hype.",
-  "No unsolicited selling.",
-  "Assume good intent.",
-  "Moderators may remove content that breaks the rules.",
-];
 
 export default function CodeOfConductPage() {
   return (
-    <div className="flex flex-col gap-8">
-      <header className="space-y-4">
-        <h1 className="text-4xl font-bold text-brand-primary">Code of Conduct</h1>
-        <p className="max-w-2xl text-base text-brand-secondary">
-          Respect. Evidence over hype. No unsolicited selling. Assume good intent.
-        </p>
-      </header>
-      <ul className="space-y-3 text-base text-brand-secondary">
-        {rules.map((rule) => (
-          <li key={rule} className="rounded-[12px] border border-zinc-200 bg-white p-4 text-brand-primary">
-            {rule}
-          </li>
-        ))}
-      </ul>
-    </div>
+    <TeaserPage
+      title="Code of Conduct"
+      description="Everyone joins Channel OS™ to work, learn, and build. These principles guide how we show up before day one and beyond."
+      sections={[
+        {
+          title: "Core expectations",
+          description:
+            "We keep the conversation vendor-neutral, inclusive, and focused on tangible partner outcomes.",
+          items: [
+            {
+              title: "Respect first",
+              description: "Listen actively. Debate ideas, not people. Give credit when you reuse or remix shared work.",
+            },
+            {
+              title: "Keep it practical",
+              description: "Share tactics, metrics, and processes that others can apply. Skip pitches and speculation.",
+            },
+            {
+              title: "Protect data",
+              description: "Only post assets and metrics you have permission to share. Redact sensitive partner information.",
+            },
+            {
+              title: "Be accountable",
+              description: "Report issues quickly so moderators can step in. Repeated violations result in removal.",
+            },
+          ],
+        },
+        {
+          title: "Enforcement in the teaser phase",
+          description:
+            "We start moderation before launch to keep early programs safe and focused.",
+          items: [
+            {
+              title: "Intake",
+              description: "All founding members agree to the code when they RSVP. Access can be paused if standards slip.",
+            },
+            {
+              title: "Incident response",
+              description: "Email conduct@channelos.org with context and links. We respond within two business days.",
+            },
+            {
+              title: "Escalation",
+              description: "Serious violations move to a review board of community advisors before reinstatement is considered.",
+            },
+          ],
+          note: (
+            <>
+              Need to clarify a scenario? Contact{" "}
+              <a className="text-brand-primary underline-offset-4 hover:underline" href="mailto:conduct@channelos.org">
+                conduct@channelos.org
+              </a>
+              .
+            </>
+          ),
+        },
+      ]}
+    />
   );
 }

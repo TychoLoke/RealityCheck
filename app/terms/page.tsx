@@ -1,30 +1,63 @@
 import type { Metadata } from "next";
+import { TeaserPage } from "../../components/TeaserPage";
 
 export const metadata: Metadata = {
-  title: "Channel OS™ terms",
-  description: "Channel OS™ terms of use during build mode including licensing, liability, and contact details.",
+  title: "Terms",
+  description: "Channel OS™ preview terms ahead of the January 2026 launch.",
 };
 
 export default function TermsPage() {
   return (
-    <div className="flex flex-col gap-12">
-      <header className="space-y-4">
-        <h1 className="text-4xl font-semibold text-brand-primary md:text-5xl">Terms of use</h1>
-        <p className="text-base text-brand-secondary">
-          Channel OS™ is in build mode. Access is limited and content may change without notice.
-        </p>
-      </header>
-      <section className="space-y-4 text-base text-brand-secondary">
-        <p>
-          By accessing ChannelOS.org you agree to use the materials for evaluation and planning only. You may not reuse or redistribute draft content without written permission.
-        </p>
-        <p>
-          Services are provided “as is” during this phase. We disclaim warranties and limit liability to the fullest extent permitted by law.
-        </p>
-        <p>
-          For questions or partnership requests, contact <a href="mailto:hello@channelos.org" className="text-brand-primary underline-offset-4 hover:underline">hello@channelos.org</a>.
-        </p>
-      </section>
-    </div>
+    <TeaserPage
+      title="Terms of use"
+      description="These pre-launch terms outline how we operate during the teaser phase. Full member terms publish at launch."
+      sections={[
+        {
+          title: "What applies today",
+          description: "Simple rules while we prepare the full platform.",
+          items: [
+            {
+              title: "Preview access",
+              description: "Any early content we share remains confidential and cannot be redistributed without permission.",
+            },
+            {
+              title: "No warranties",
+              description: "Content is provided as-is during the build stage. Expect updates as we finalize the Standard.",
+            },
+            {
+              title: "Feedback loop",
+              description: "By sending suggestions you grant Channel OS™ the right to use that input to improve the product.",
+            },
+          ],
+        },
+        {
+          title: "What&apos;s coming",
+          description: "At launch we publish member terms, partner agreements, and clear SLAs.",
+          items: [
+            {
+              title: "Membership terms",
+              description: "Covers billing, renewals, and cancellation policies.",
+            },
+            {
+              title: "Acceptable use",
+              description: "Detailed guardrails for community participation, content sharing, and moderation.",
+            },
+            {
+              title: "Data processing",
+              description: "Legal documentation for GDPR, CCPA, and partner data handling.",
+            },
+          ],
+          note: (
+            <>
+              Legal or compliance questions? Email{" "}
+              <a className="text-brand-primary underline-offset-4 hover:underline" href="mailto:legal@channelos.org">
+                legal@channelos.org
+              </a>
+              .
+            </>
+          ),
+        },
+      ]}
+    />
   );
 }
