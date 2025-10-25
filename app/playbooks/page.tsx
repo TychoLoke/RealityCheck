@@ -1,32 +1,67 @@
 import type { Metadata } from "next";
-import { CardList } from "../../components/CardList";
-import { SectionHeader } from "../../components/SectionHeader";
-import { playbooks } from "../../lib/content";
+import { TeaserPage } from "../../components/TeaserPage";
 
 export const metadata: Metadata = {
   title: "Playbooks",
-  description: "Templates that move work from plan to done.",
+  description: "Channel OS™ playbooks unlock at launch with ready-to-run partner motions.",
 };
 
 export default function PlaybooksPage() {
   return (
-    <div className="flex flex-col gap-16">
-      <section className="space-y-4">
-        <h1 className="text-4xl font-bold text-brand-primary">Playbooks</h1>
-        <p className="max-w-2xl text-base text-brand-secondary">Templates that move work from plan to done.</p>
-      </section>
-
-      <section className="space-y-6">
-        <SectionHeader title="Library" description="Each entry notes difficulty, time to ship, and tags." />
-        <CardList
-          items={playbooks.map((playbook) => ({
-            title: playbook.title,
-            description: playbook.summary,
-            detail: `${playbook.difficulty} · ${playbook.timeToShip} · ${playbook.tags.join(", ")}`,
-            actions: playbook.downloads ? [{ label: playbook.downloads, href: "https://example.com" }] : undefined,
-          }))}
-        />
-      </section>
-    </div>
+    <TeaserPage
+      title="Playbooks"
+      description="Every playbook is designed to move from intent to shipped work. Here&apos;s what to expect when we launch."
+      sections={[
+        {
+          title: "Playbook library",
+          description: "Built with operators, battle-tested across industries.",
+          items: [
+            {
+              title: "Partner activation",
+              description: "Recruitment, onboarding, and enablement workflows with ready-made templates.",
+            },
+            {
+              title: "Co-marketing",
+              description: "Campaign briefs, calendar templates, and shared reporting dashboards.",
+            },
+            {
+              title: "Co-selling",
+              description: "Opportunity qualification, joint pipeline reviews, and success metrics.",
+            },
+            {
+              title: "Services & success",
+              description: "Implementation readiness, partner-led support, and expansion plays.",
+            },
+          ],
+        },
+        {
+          title: "How we keep them fresh",
+          description: "Playbooks evolve with community input.",
+          items: [
+            {
+              title: "Versioning",
+              description: "Clear release notes with every update so your team stays aligned.",
+            },
+            {
+              title: "Member contributions",
+              description: "Operators submit their own variants and metrics for review.",
+            },
+            {
+              title: "Signals integration",
+              description: "Tie playbooks directly to the Channel Standard KPIs.",
+            },
+          ],
+          note: (
+            <>
+              Want to co-create a playbook? Email{" "}
+              <a className="text-brand-primary underline-offset-4 hover:underline" href="mailto:playbooks@channelos.org">
+                playbooks@channelos.org
+              </a>
+              .
+            </>
+          ),
+        },
+      ]}
+    />
   );
 }

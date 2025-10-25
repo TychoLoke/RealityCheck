@@ -1,42 +1,66 @@
 import type { Metadata } from "next";
+import { TeaserPage } from "../../components/TeaserPage";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Channel OS™ is a community, training, and playbook initiative led by Tycho Löke.",
+  description:
+    "Channel OS™ is a vendor-neutral community, standard, and training program preparing for a January 1, 2026 launch.",
 };
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col gap-12">
-      <header className="space-y-4">
-        <h1 className="text-4xl font-bold text-brand-primary">About Channel OS™</h1>
-        <p className="max-w-2xl text-base text-brand-secondary">
-          Community, training, and playbooks that raise channel performance.
-        </p>
-      </header>
-
-      <section className="space-y-6 text-base text-brand-secondary">
-        <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-brand-primary">What we do</h2>
-          <p>Community, training, and playbooks that raise channel performance.</p>
-        </div>
-        <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-brand-primary">How we work</h2>
-          <p>Neutral, concise, and outcome-driven.</p>
-        </div>
-        <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-brand-primary">Who’s behind it</h2>
-          <p>Channel OS™ is an initiative by Tycho Löke.</p>
-        </div>
-        <div className="space-y-2">
-          <h2 className="text-2xl font-bold text-brand-primary">Contact</h2>
-          <p>
-            <a href="mailto:hello@channelos.org" className="text-brand-primary underline-offset-4 hover:underline">
-              hello@channelos.org
-            </a>
-          </p>
-        </div>
-      </section>
-    </div>
+    <TeaserPage
+      title="About Channel OS™"
+      description="We&apos;re assembling a vendor-neutral operating system for channel teams. The community, standard, and training tracks open January 1, 2026."
+      sections={[
+        {
+          title: "What we&apos;re building",
+          description:
+            "Every track is designed to move partner teams from learning to execution without fluff.",
+          items: [
+            {
+              title: "Community",
+              description: "Private forums, live labs, and templates where practitioners compare playbooks in real time.",
+            },
+            {
+              title: "Channel Standard",
+              description: "A living specification of partner roles, flows, and KPIs that keeps everyone aligned.",
+            },
+            {
+              title: "Training",
+              description: "Compact courses with repeatable exercises and scorecards to measure partner impact.",
+            },
+            {
+              title: "Playbooks",
+              description: "Ready-to-run checklists that turn the Standard into execution guides for every channel function.",
+            },
+          ],
+        },
+        {
+          title: "Who is behind it",
+          description:
+            "Channel OS™ is led by Tycho Löke with a roster of advisors from partner, rev ops, and enablement teams.",
+          items: [
+            {
+              title: "Neutral by design",
+              description: "No vendor sales pitches—only practical guidance sourced from operators who run channel programs daily.",
+            },
+            {
+              title: "Community first",
+              description: "Members shape the roadmap, vote on templates, and co-author new modules as the Standard matures.",
+            },
+          ],
+          note: (
+            <>
+              Want to collaborate or share input? Email{" "}
+              <a className="text-brand-primary underline-offset-4 hover:underline" href="mailto:hello@channelos.org">
+                hello@channelos.org
+              </a>{" "}
+              with your focus area.
+            </>
+          ),
+        },
+      ]}
+    />
   );
 }

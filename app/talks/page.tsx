@@ -1,43 +1,62 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { CardList } from "../../components/CardList";
-import { SectionHeader } from "../../components/SectionHeader";
-import { talks } from "../../lib/content";
+import { TeaserPage } from "../../components/TeaserPage";
 
 export const metadata: Metadata = {
   title: "Talks",
-  description: "Real conversations with people who ship.",
+  description: "Channel OS™ talks return with the January 2026 launch.",
 };
 
 export default function TalksPage() {
   return (
-    <div className="flex flex-col gap-16">
-      <section className="space-y-4">
-        <h1 className="text-4xl font-bold text-brand-primary">Talks</h1>
-        <p className="max-w-2xl text-base text-brand-secondary">Real conversations with people who ship.</p>
-      </section>
-
-      <section className="space-y-6">
-        <SectionHeader title="Latest" description="Episode cards with links to listen, watch, and read." />
-        <CardList
-          items={talks.map((talk) => ({
-            title: talk.title,
-            description: talk.insight,
-            detail: talk.guests,
-            actions: [
-              { label: "Listen / Watch", href: talk.episodeUrl },
-              talk.transcriptUrl ? { label: "Transcript", href: talk.transcriptUrl } : undefined,
-            ].filter(Boolean) as { label: string; href: string }[],
-          }))}
-        />
-      </section>
-
-      <Link
-        href="/join"
-        className="inline-flex w-fit items-center justify-center rounded-[12px] bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
-      >
-        Subscribe
-      </Link>
-    </div>
+    <TeaserPage
+      title="Talks"
+      description="We&apos;re lining up candid conversations with operators who ship. Here&apos;s what&apos;s coming back with the launch."
+      sections={[
+        {
+          title: "Formats",
+          description: "Everything stays short, tactical, and actionable.",
+          items: [
+            {
+              title: "Operator spotlights",
+              description: "20-minute interviews with channel leaders unpacking one play that moved the needle.",
+            },
+            {
+              title: "Framework breakdowns",
+              description: "Walkthroughs of specific Channel Standard components with examples.",
+            },
+            {
+              title: "Playbook clinics",
+              description: "Members bring real scenarios and get live feedback from peers.",
+            },
+          ],
+        },
+        {
+          title: "Participate",
+          description: "We&apos;re recording the next slate now.",
+          items: [
+            {
+              title: "Pitch a session",
+              description: (
+                <>
+                  Have a partner motion to share? Email{" "}
+                  <a className="text-brand-primary underline-offset-4 hover:underline" href="mailto:talks@channelos.org">
+                    talks@channelos.org
+                  </a>{" "}
+                  with the outcome and metrics.
+                </>
+              ),
+            },
+            {
+              title: "Request topics",
+              description: "Tell us which challenges you want discussed—co-selling, attribution, enablement, or tooling.",
+            },
+            {
+              title: "Watch on-demand",
+              description: "Members get transcripts, audio, and key takeaways for every talk.",
+            },
+          ],
+        },
+      ]}
+    />
   );
 }

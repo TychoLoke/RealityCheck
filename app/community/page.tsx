@@ -1,70 +1,65 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { FormMinimal } from "../../components/FormMinimal";
-import { JoinStrip } from "../../components/JoinStrip";
-import { SectionHeader } from "../../components/SectionHeader";
-import { ValueTrio } from "../../components/ValueTrio";
+import { TeaserPage } from "../../components/TeaserPage";
 
 export const metadata: Metadata = {
   title: "Community",
-  description: "Join the Channel OS™ community to learn, share patterns, and ship faster.",
+  description:
+    "The Channel OS™ community opens January 1, 2026. Preview the founding experience and request early updates.",
 };
 
 export default function CommunityPage() {
   return (
-    <div className="flex flex-col gap-20">
-      <section className="space-y-6">
-        <h1 className="text-4xl font-bold text-brand-primary">Join the Channel OS™ Community</h1>
-        <p className="max-w-2xl text-base text-brand-secondary">
-          Practitioner-first space for MSPs, vendors, distributors, marketplaces, and ISVs to build the channel together.
-        </p>
-      </section>
-
-      <section className="space-y-8">
-        <SectionHeader title="What you’ll find" />
-        <ValueTrio
-          items={[
-            { title: "Meetups & Office Hours", description: "Quarterly, recorded, always action-oriented." },
-            { title: "Practice Library", description: "Concise playbooks and checklists you can deploy." },
-            { title: "Talks & Debriefs", description: "Unfiltered conversations with builders." },
-          ]}
-        />
-      </section>
-
-      <section id="contribute" className="grid gap-12 lg:grid-cols-[1.3fr_1fr]">
-        <div className="space-y-6">
-          <SectionHeader title="Contribute" description="Speak, write, or mentor." />
-          <FormMinimal
-            title="Raise your hand"
-            description="Share how you’d like to contribute. We read every submission."
-            fields={[
-              { name: "name", label: "Name", required: true, placeholder: "Alex Taylor" },
-              { name: "role", label: "Role", required: true, placeholder: "Channel Lead, MSP" },
-              { name: "topic", label: "Topic", required: true, placeholder: "Partner scorecards" },
-              { name: "links", label: "Links", placeholder: "Site, LinkedIn, recordings" },
-              { name: "message", label: "Message", type: "textarea", required: true, placeholder: "What should we cover?" },
-            ]}
-            submitLabel="Send"
-            successMessage="Thanks—we’ll reach out."
-          />
-        </div>
-        <aside className="space-y-6 rounded-[16px] border border-zinc-200 bg-brand-muted p-6">
-          <h2 className="text-xl font-semibold text-brand-primary">Code of Conduct</h2>
-          <ul className="space-y-3 text-sm text-brand-secondary">
-            <li>Be respectful.</li>
-            <li>Share evidence.</li>
-            <li>No vendor spamming.</li>
-          </ul>
-          <Link
-            href="/code-of-conduct"
-            className="inline-flex items-center justify-center rounded-[12px] border border-brand-secondary/40 px-4 py-2 text-sm font-semibold text-brand-primary transition hover:border-brand-primary"
-          >
-            Full policy
-          </Link>
-        </aside>
-      </section>
-
-      <JoinStrip title="Join the mailing list" description="Monthly build notes and community invites." successMessage="You’re in." />
-    </div>
+    <TeaserPage
+      title="Join the Channel OS™ Community"
+      description="We&apos;re building a practitioner space for partner, revenue, and enablement teams. Preview what members unlock when doors open."
+      sections={[
+        {
+          title: "Founding member experience",
+          description:
+            "Every program is built to move fast: clear prompts, curated peers, and repeatable outputs.",
+          items: [
+            {
+              title: "Private forums",
+              description: "Topical rooms for partner strategy, ops, enablement, and alliances moderated by experienced hosts.",
+            },
+            {
+              title: "Live working sessions",
+              description: "Weekly labs where we tear down partner motions, co-build assets, and measure progress together.",
+            },
+            {
+              title: "Shared library",
+              description: "Download-ready templates, calculators, and decision trees sourced from operators who ship.",
+            },
+            {
+              title: "Signals & benchmarks",
+              description: "Quarterly reporting on partner-sourced pipeline, activation rates, and ecosystem health.",
+            },
+          ],
+        },
+        {
+          title: "How to get ready",
+          description:
+            "We open applications in mid-December. In the meantime you can prep your team and secure a spot.",
+          items: [
+            {
+              title: "RSVP for launch week",
+              description: "Join the interest list to lock in founding-rate pricing and receive the onboarding timeline.",
+            },
+            {
+              title: "Nominate peers",
+              description: "Invite cross-functional partners you want in the room—alliances, rev ops, enablement, and CS.",
+            },
+            {
+              title: "Submit focus areas",
+              description: "Tell us which partner motions you need first: co-selling, marketplace, MSP, or tech alliances.",
+            },
+            {
+              title: "Review the code of conduct",
+              description: "Alignment upfront keeps the conversation tactical and respectful from day one.",
+            },
+          ],
+        },
+      ]}
+    />
   );
 }

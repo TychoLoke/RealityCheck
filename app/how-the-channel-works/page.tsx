@@ -1,57 +1,67 @@
 import type { Metadata } from "next";
+import { TeaserPage } from "../../components/TeaserPage";
 
 export const metadata: Metadata = {
   title: "How the Channel Works",
-  description: "Understand the channel roles, flows, and incentives.",
+  description: "Channel OS™ maps the entire channel ecosystem ahead of the January 2026 launch.",
 };
-
-const roles = ["Vendor", "Distributor", "Marketplace", "MSP/Partner", "ISV"];
-const flows = ["Awareness", "Sale", "Delivery", "Success", "Expansion"];
-const incentives = ["Recurring value", "Retention", "NRR", "Partner health"];
 
 export default function HowTheChannelWorksPage() {
   return (
-    <div className="flex flex-col gap-16">
-      <section className="space-y-6">
-        <h1 className="text-4xl font-bold text-brand-primary">Understand the Channel</h1>
-        <p className="max-w-3xl text-base text-brand-secondary">Map the ecosystem so every partner knows their role and the path to value.</p>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-brand-primary">Roles</h2>
-        <ul className="grid gap-4 sm:grid-cols-3">
-          {roles.map((role) => (
-            <li key={role} className="rounded-[12px] border border-zinc-200 bg-white p-6 text-center text-sm font-semibold text-brand-primary">
-              {role}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-brand-primary">Flows</h2>
-        <div className="flex flex-wrap gap-3">
-          {flows.map((flow) => (
-            <span key={flow} className="rounded-[12px] bg-brand-muted px-4 py-2 text-sm font-semibold text-brand-primary">
-              {flow}
-            </span>
-          ))}
-        </div>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-brand-primary">Incentives</h2>
-        <ul className="space-y-2 text-base text-brand-secondary">
-          {incentives.map((item) => (
-            <li key={item}>{item}</li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="rounded-[16px] border border-dashed border-brand-secondary/40 p-6 text-sm text-brand-secondary">
-        <p className="font-semibold text-brand-primary">One page, one diagram</p>
-        <p className="mt-2">Ecosystem arrows and handoffs coming soon.</p>
-      </section>
-    </div>
+    <TeaserPage
+      title="Understand the Channel"
+      description="We&apos;re documenting the modern channel end to end—roles, flows, incentives, and metrics. Use this preview to plan your enablement before the full release."
+      sections={[
+        {
+          title: "Ecosystem map",
+          description: "The Standard catalogues every contributor so cross-functional teams stay aligned.",
+          items: [
+            {
+              title: "Roles",
+              description: "Partner managers, solution engineers, marketplace ops, alliances, enablement, revenue, and CS.",
+            },
+            {
+              title: "Flows",
+              description: "Recruit, activate, co-market, co-sell, implement, and expand—with clear ownership and KPIs.",
+            },
+            {
+              title: "Signals",
+              description: "Shared dashboards that surface partner health, sourced pipeline, and retention.",
+            },
+            {
+              title: "Support systems",
+              description: "Tools, automations, and collateral mapped to each phase so nothing falls through the cracks.",
+            },
+          ],
+        },
+        {
+          title: "Why it matters now",
+          description: "Even in teaser mode you can start aligning teams around the same language.",
+          items: [
+            {
+              title: "Common vocabulary",
+              description: "Bring sales, marketing, product, and finance to the same definitions before launch.",
+            },
+            {
+              title: "Partner readiness",
+              description: "Audit existing programs to spot gaps in onboarding, incentives, or attribution.",
+            },
+            {
+              title: "Executive briefings",
+              description: "Use our one-page overviews to secure sponsorship for the January rollout.",
+            },
+          ],
+          note: (
+            <>
+              Need an early walkthrough for your leadership team? Email{" "}
+              <a className="text-brand-primary underline-offset-4 hover:underline" href="mailto:hello@channelos.org">
+                hello@channelos.org
+              </a>
+              .
+            </>
+          ),
+        },
+      ]}
+    />
   );
 }
