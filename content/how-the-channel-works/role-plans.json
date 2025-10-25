@@ -1,143 +1,551 @@
 {
   "maturity": ["Explorer", "Builder", "Scaler", "Leader"],
-  "roles": {
-    "msp": {
-      "label": "MSP / Partner",
-      "summary": "Design, deliver, and operate outcomes that translate technology into measurable value.",
-      "partners": [
-        "Vendors for co-sell alignment and roadmap influence",
-        "Distributors for credit terms, provisioning, and enablement",
-        "ISVs for differentiated automation and margin"
-      ],
-      "offers": [
-        "AI Readiness Assessment (2–3 weeks) with roadmap and ROI case",
-        "Security Baseline + MDR handoff for secure-by-default operations",
-        "Lifecycle Care Plan covering adoption, backup, and QBR cadence"
-      ],
-      "handoffs": ["Qualify", "Design", "Implement", "Train", "Operate", "Review"],
-      "kpis": ["Gross margin %", "Revenue per employee", "SLA attainment", "Adoption %", "Churn < 2%/q"],
-      "sprint": [
-        "Week 1: Define ICP and success metrics",
-        "Week 2: Build checklists, playbooks, and pricing",
-        "Week 3: Pilot with one reference customer",
-        "Week 4: Run QBR, capture outcomes, launch offer"
-      ],
-      "risks": ["Tool chasing without offers", "Weak internal handoffs", "Selling hours instead of outcomes"]
+  "plans": {
+    "partner": {
+      "label": "MSP/Partner",
+      "role": {
+        "Explorer": [
+          "Frame outcomes in plain language with business owners.",
+          "Bundle recurring services with every offer.",
+          "Map handoffs across sales, delivery, and success."
+        ],
+        "Builder": [
+          "Automate onboarding and secure defaults.",
+          "Publish clear playbooks for support and QBRs.",
+          "Track adoption metrics with customer champions."
+        ],
+        "Scaler": [
+          "Instrument telemetry across the managed stack.",
+          "Expand recurring revenue with modular add-ons.",
+          "Formalize partner-led co-innovation cadences."
+        ],
+        "Leader": [
+          "Anchor pricing to measurable outcomes.",
+          "Codify governance with executive sponsors.",
+          "Invest in community content and peer benchmarks."
+        ]
+      },
+      "partners": {
+        "Explorer": [
+          "Select two vendors to co-design win stories.",
+          "Secure distributor credit terms for pilot deals.",
+          "Line up an ISV that closes a visible capability gap."
+        ],
+        "Builder": [
+          "Co-market with vendors on industry use cases.",
+          "Build renewal motions with distributor specialists.",
+          "Pair with ISVs on automation that protects margin."
+        ],
+        "Scaler": [
+          "Establish quarterly planning with top vendors.",
+          "Share telemetry dashboards with distributors.",
+          "Co-develop packaged outcomes with ISV alliances."
+        ],
+        "Leader": [
+          "Influence vendor roadmap through advisory boards.",
+          "Stand up joint demand centers with distributors.",
+          "Launch ecosystem solution councils with ISVs."
+        ]
+      },
+      "offers": {
+        "Explorer": [
+          "Outcome discovery session with readiness checklist.",
+          "Secure baseline + data protection setup.",
+          "Adoption coaching for first 30 days."
+        ],
+        "Builder": [
+          "Managed onboarding with structured change plan.",
+          "Automation tune-up covering monitoring and backup.",
+          "Quarterly value review with action tracker."
+        ],
+        "Scaler": [
+          "Industry playbook bundles with compliance guardrails.",
+          "AI-assisted operations desk for proactive insights.",
+          "Executive dashboard subscription with success concierge."
+        ],
+        "Leader": [
+          "Value assurance program tied to business KPIs.",
+          "Innovation lab sprints with shared backlog.",
+          "Board-ready insights and renewal preparation."
+        ]
+      },
+      "sprint": {
+        "Explorer": [
+          "Week 1: Define one lighthouse outcome and success metric.",
+          "Week 2: Draft service catalog and pricing guardrails.",
+          "Week 3: Pilot offer with a reference customer."
+        ],
+        "Builder": [
+          "Week 1: Automate provisioning and security baselines.",
+          "Week 2: Launch adoption huddles with customer champions.",
+          "Week 3: Stand up QBR rhythm and feedback loop."
+        ],
+        "Scaler": [
+          "Week 1: Aggregate telemetry into shared scorecards.",
+          "Week 2: Enable sales with modular outcome bundles.",
+          "Week 3: Share expansion playbook across delivery teams."
+        ],
+        "Leader": [
+          "Week 1: Refresh value hypothesis with executive sponsors.",
+          "Week 2: Publish benchmark report for ecosystem peers.",
+          "Week 3: Launch co-innovation clinic with top accounts."
+        ]
+      }
     },
     "vendor": {
-      "label": "Vendor / OEM",
-      "summary": "Create scalable products, enable the ecosystem, and lift partner economics.",
-      "partners": [
-        "Distributors to scale recruitment, credit, and lifecycle ops",
-        "MSPs to design offers, co-market, and co-sell",
-        "ISVs to fill capability gaps and create bundles"
-      ],
-      "offers": [
-        "Partner Playbook with ICP, use cases, and margin guidance",
-        "Reference Architectures with secure defaults and adoption paths",
-        "Co-sell Kit including demos, ROI model, and win stories"
-      ],
-      "handoffs": ["Create", "Enable", "Co-sell", "Support", "Success", "Expansion"],
-      "kpis": ["NRR", "Partner attach %", "Time-to-first-value", "Win rate with partner"],
-      "sprint": [
-        "Week 1: Map top partner motions and value props",
-        "Week 2: Ship enablement kit and reference architecture",
-        "Week 3: Run two co-sell deals with lighthouse partners",
-        "Week 4: Publish joint win story and update roadmap"
-      ],
-      "risks": ["Feature dumping", "Channel conflict", "Unclear margin story"]
+      "label": "Vendor",
+      "role": {
+        "Explorer": [
+          "Document problem statements tied to key personas.",
+          "Clarify pricing, packaging, and discount guardrails.",
+          "Ship a starter enablement kit for partner sellers."
+        ],
+        "Builder": [
+          "Activate partner success paths with clear incentives.",
+          "Align product roadmap with top ecosystem motions.",
+          "Embed telemetry for partner and customer insights."
+        ],
+        "Scaler": [
+          "Operationalize co-selling across field and channel.",
+          "Launch outcome-based success plans with partners.",
+          "Measure readiness with competency scorecards."
+        ],
+        "Leader": [
+          "Fund ecosystem innovation tied to joint KPIs.",
+          "Publish transparent economics for every motion.",
+          "Curate partner portfolio around customer outcomes."
+        ]
+      },
+      "partners": {
+        "Explorer": [
+          "Recruit distributors who can stand up credit and provisioning quickly.",
+          "Identify two lighthouse partners for co-market pilots.",
+          "Map ISV integrations that extend the core outcome."
+        ],
+        "Builder": [
+          "Launch joint pipeline reviews with distributors.",
+          "Establish co-selling targets with top partners.",
+          "Stand up ISV certification with shared QA."
+        ],
+        "Scaler": [
+          "Share win-loss insights with ecosystem councils.",
+          "Bundle incentives with distributor-led enablement.",
+          "Create shared roadmaps with strategic ISVs."
+        ],
+        "Leader": [
+          "Run partner advisory boards with quarterly retros.",
+          "Co-invest in automation with distributors for scale.",
+          "Host innovation funds that pair ISVs and partners."
+        ]
+      },
+      "offers": {
+        "Explorer": [
+          "Launch guide with ICP, value narrative, and demo flow.",
+          "Foundational services menu partners can rebrand.",
+          "Partner onboarding checklist with success metrics."
+        ],
+        "Builder": [
+          "Joint solution briefs highlighting economic impact.",
+          "Co-funded enablement sprints for priority motions.",
+          "Outcome calculator that partners can customize."
+        ],
+        "Scaler": [
+          "Verticalized playbooks with secure reference designs.",
+          "Marketplace-ready bundles with attach services.",
+          "Executive briefing toolkit with ROI evidence."
+        ],
+        "Leader": [
+          "Outcome accelerator fund with shared success fees.",
+          "Innovation showcase series for partner IP.",
+          "Global co-selling desk with real-time insights."
+        ]
+      },
+      "sprint": {
+        "Explorer": [
+          "Week 1: Map ecosystem personas and value promises.",
+          "Week 2: Draft enablement kit and launch comms.",
+          "Week 3: Co-host first discovery workshop with a partner."
+        ],
+        "Builder": [
+          "Week 1: Align incentives with distributor finance teams.",
+          "Week 2: Enable top partners on new offer plays.",
+          "Week 3: Capture customer proof points for reuse."
+        ],
+        "Scaler": [
+          "Week 1: Launch shared pipeline dashboard.",
+          "Week 2: Run co-sell clinics with partner pods.",
+          "Week 3: Refresh adoption playbooks with insights."
+        ],
+        "Leader": [
+          "Week 1: Convene ecosystem summit on next priorities.",
+          "Week 2: Fund experiments tied to measurable KPIs.",
+          "Week 3: Publish joint roadmap with partner sign-off."
+        ]
+      }
     },
     "distributor": {
-      "label": "Distributor / Aggregator",
-      "summary": "Reduce friction at scale through credit, billing, provisioning, data, and enablement.",
-      "partners": [
-        "Vendors to package incentives and programs",
-        "MSPs for financing, training, and marketplace presence",
-        "Marketplaces for integrations and metering"
-      ],
-      "offers": [
-        "Credit & Cashflow Packs with guardrails",
-        "Automation Connectors for provisioning and license hygiene",
-        "Partner Enablement Sprints (4×1h GTM/ops bootcamps)"
-      ],
-      "handoffs": ["Contract", "Provision", "Bill", "Report", "Incentivize"],
-      "kpis": ["DSO", "Order accuracy", "Active partners %", "Attach per SKU"],
-      "sprint": [
-        "Week 1: Select a priority vendor line and target partners",
-        "Week 2: Build a sell-with bundle and automation checklist",
-        "Week 3: Recruit 10 partners and run enablement session",
-        "Week 4: Launch campaign and track 60-day pipeline"
-      ],
-      "risks": ["Catalog sprawl", "Complex rebates", "Weak data quality"]
+      "label": "Distributor/Aggregator",
+      "role": {
+        "Explorer": [
+          "Clarify the services stack supporting each vendor line.",
+          "Stand up basic credit and billing hygiene.",
+          "Document partner journey from onboarding to renewals."
+        ],
+        "Builder": [
+          "Automate provisioning workflows with quality checks.",
+          "Launch enablement pods focused on active partners.",
+          "Surface financial insights that de-risk cash flow."
+        ],
+        "Scaler": [
+          "Provide unified operations dashboards for partners.",
+          "Expand digital marketplaces with attach services.",
+          "Predict demand with shared planning cadences."
+        ],
+        "Leader": [
+          "Run data exchanges that expose ecosystem health.",
+          "Co-fund partner lifecycle programs with vendors.",
+          "Deliver concierge ops for top-tier partnerships."
+        ]
+      },
+      "partners": {
+        "Explorer": [
+          "Onboard vendors with clear SLA expectations.",
+          "Recruit partners ready for structured enablement.",
+          "Connect ISVs that round out outcome bundles."
+        ],
+        "Builder": [
+          "Align financing terms with vendor incentive calendars.",
+          "Co-host launch events with partners entering new regions.",
+          "Integrate marketplaces for seamless procurement."
+        ],
+        "Scaler": [
+          "Share forecasting dashboards with vendors and partners.",
+          "Expand credit pools tied to proven run-rates.",
+          "Enable ISVs through automated listing processes."
+        ],
+        "Leader": [
+          "Operate joint command centers with strategic vendors.",
+          "Create venture-style programs for partner innovation.",
+          "Broker ecosystem alliances for multi-party solutions."
+        ]
+      },
+      "offers": {
+        "Explorer": [
+          "Credit starter pack with risk guardrails.",
+          "Provisioning concierge for first ten deals.",
+          "Billing toolkit with standardized templates."
+        ],
+        "Builder": [
+          "Lifecycle enablement bootcamp series.",
+          "Automation connectors for license hygiene.",
+          "Co-branded demand kits for top motions."
+        ],
+        "Scaler": [
+          "Usage intelligence dashboards with alerts.",
+          "Revenue operations support for partner CFOs.",
+          "Marketplace integration services with SLAs."
+        ],
+        "Leader": [
+          "Shared services bureau for complex deals.",
+          "Growth capital programs tied to outcomes.",
+          "Global command desk for renewals and expansion."
+        ]
+      },
+      "sprint": {
+        "Explorer": [
+          "Week 1: Inventory current services and gaps.",
+          "Week 2: Publish onboarding checklist and SLAs.",
+          "Week 3: Pilot credit + billing workflow with one partner."
+        ],
+        "Builder": [
+          "Week 1: Automate provisioning triggers and QA.",
+          "Week 2: Launch enablement calendar with vendors.",
+          "Week 3: Stand up partner health dashboard."
+        ],
+        "Scaler": [
+          "Week 1: Consolidate data into a shared lake.",
+          "Week 2: Roll out revenue operations office hours.",
+          "Week 3: Integrate marketplace listings with billing."
+        ],
+        "Leader": [
+          "Week 1: Convene strategic council on growth bets.",
+          "Week 2: Launch co-funded automation backlog.",
+          "Week 3: Publish ecosystem performance report."
+        ]
+      }
     },
-    "marketplace": {
-      "label": "Marketplace",
-      "summary": "Provide self-service commerce backed by partner expertise.",
-      "partners": [
-        "Vendors for curated listings, pricing, and trials",
-        "MSPs for service attach SKUs and private offers",
-        "ISVs for long-tail differentiation"
-      ],
-      "offers": [
-        "Solution Listings bundling product and partner services",
-        "Private Offers with enterprise terms and margin",
-        "Usage Dashboards covering health, adoption, and cost"
-      ],
-      "handoffs": ["Discover", "Trial", "Buy", "Meter", "Renew"],
-      "kpis": ["Conversion %", "Attach rate", "Renewal %", "Support tickets / order"],
-      "sprint": [
-        "Week 1: Curate top 10 use-case bundles",
-        "Week 2: Attach partners and finalize offers",
-        "Week 3: Launch campaign with promo and insights",
-        "Week 4: Measure conversion and iterate listings"
-      ],
-      "risks": ["Race-to-the-bottom pricing", "Orphaned customers", "Unclear partner attribution"]
+    "customer": {
+      "label": "Customer",
+      "role": {
+        "Explorer": [
+          "Name the outcome and accountable sponsor.",
+          "Align budget to value milestones, not licenses.",
+          "Assign success owners across business and IT."
+        ],
+        "Builder": [
+          "Stand up governance for adoption metrics.",
+          "Secure change management resources early.",
+          "Pilot with a cross-functional champion team."
+        ],
+        "Scaler": [
+          "Automate telemetry for productivity and risk.",
+          "Embed partner success cadence into operating rhythm.",
+          "Expand training with role-based learning paths."
+        ],
+        "Leader": [
+          "Tie partner commitments to strategic scorecards.",
+          "Co-invest in innovation sprints with providers.",
+          "Share outcomes publicly to attract talent and partners."
+        ]
+      },
+      "partners": {
+        "Explorer": [
+          "Select an MSP that owns outcomes, not just tools.",
+          "Engage vendor advisors for roadmap clarity.",
+          "Loop in distributor finance for contract hygiene."
+        ],
+        "Builder": [
+          "Codify accountability with managed service providers.",
+          "Schedule quarterly roadmap sessions with vendors.",
+          "Leverage marketplace specialists for purchasing speed."
+        ],
+        "Scaler": [
+          "Form joint steering committee with partners.",
+          "Invite ISVs that accelerate specific workflows.",
+          "Share KPI dashboards across every provider."
+        ],
+        "Leader": [
+          "Collaborate on outcome-based renewals with MSPs.",
+          "Co-create innovation agendas with vendors and ISVs.",
+          "Host partner retros to refresh accountability."
+        ]
+      },
+      "offers": {
+        "Explorer": [
+          "Readiness assessment mapping value targets.",
+          "Secure deployment with baseline controls.",
+          "30-day adoption enablement series."
+        ],
+        "Builder": [
+          "Managed change management program.",
+          "Role-based training with success metrics.",
+          "Shared scorecard for value realization."
+        ],
+        "Scaler": [
+          "Automation roadmap co-built with partners.",
+          "Executive insight dashboards for KPIs.",
+          "Continual improvement workshops."
+        ],
+        "Leader": [
+          "Joint innovation fund focused on outcomes.",
+          "Enterprise-wide capability maturity reviews.",
+          "Public success storytelling with partners."
+        ]
+      },
+      "sprint": {
+        "Explorer": [
+          "Week 1: Define success metrics with stakeholders.",
+          "Week 2: Select delivery partners and assign owners.",
+          "Week 3: Launch pilot with measurable checkpoints."
+        ],
+        "Builder": [
+          "Week 1: Stand up adoption dashboard with partner input.",
+          "Week 2: Train core team and set cadence for reviews.",
+          "Week 3: Document feedback and adjust change plan."
+        ],
+        "Scaler": [
+          "Week 1: Expand telemetry to additional units.",
+          "Week 2: Embed QBR rhythm with providers.",
+          "Week 3: Kick off expansion initiative with ROI case."
+        ],
+        "Leader": [
+          "Week 1: Refresh outcome targets with executives.",
+          "Week 2: Launch innovation council with partners.",
+          "Week 3: Share results across the organization."
+        ]
+      }
     },
     "isv": {
       "label": "ISV",
-      "summary": "Extend platforms with focused capabilities that drive ROI.",
-      "partners": [
-        "Vendors for marketplace listing and certification",
-        "MSPs to embed into managed offers and co-deliver",
-        "Distributors for reach and enablement"
-      ],
-      "offers": [
-        "Reference Use Cases with before/after KPIs",
-        "Partner Starter Kit with demo tenant and deployment script",
-        "Co-marketing Pack (3 emails, 1 webinar, 1 case study)"
-      ],
-      "handoffs": ["Integrate", "Enable", "Support", "Improve"],
-      "kpis": ["Attach %", "Active usage", "Support cost / customer", "Expansion %"],
-      "sprint": [
-        "Week 1: Ship v1 integration guide",
-        "Week 2: Recruit five design partners",
-        "Week 3: Publish first ROI case",
-        "Week 4: Enable partners with co-marketing kit"
-      ],
-      "risks": ["Feature creep", "Brittle integrations", "Lack of partner readiness"]
+      "role": {
+        "Explorer": [
+          "Identify the core workflow and ROI your product amplifies.",
+          "Integrate securely with anchor platforms.",
+          "Capture customer stories that prove value."
+        ],
+        "Builder": [
+          "Publish deployment blueprints for partner services.",
+          "Instrument usage analytics for shared dashboards.",
+          "Clarify commercial model for co-selling."
+        ],
+        "Scaler": [
+          "Launch certification for partner delivery teams.",
+          "Co-create solution bundles with MSPs and vendors.",
+          "Provide roadmap visibility to strategic accounts."
+        ],
+        "Leader": [
+          "Invest in outcome assurance with shared SLAs.",
+          "Host ecosystem labs to experiment with partners.",
+          "Expand globally with localized compliance assets."
+        ]
+      },
+      "partners": {
+        "Explorer": [
+          "Secure marketplace listing support from vendors.",
+          "Pair with MSPs that can pilot the solution quickly.",
+          "Engage distributors for credit and onboarding."
+        ],
+        "Builder": [
+          "Run joint demos with anchor vendors.",
+          "Enable MSPs with co-delivery training.",
+          "Integrate into distributor marketplaces."
+        ],
+        "Scaler": [
+          "Share product telemetry with top partners.",
+          "Co-invest in marketing with strategic MSPs.",
+          "Launch revenue-share models with distributors."
+        ],
+        "Leader": [
+          "Operate partner advisory panels for roadmap feedback.",
+          "Fund accelerator programs with MSP innovators.",
+          "Coordinate global marketplace promotions."
+        ]
+      },
+      "offers": {
+        "Explorer": [
+          "Pilot package with guided deployment steps.",
+          "ROI calculator showcasing business impact.",
+          "Support starter kit for partner help desks."
+        ],
+        "Builder": [
+          "Integration blueprint library with best practices.",
+          "Joint marketing nurture sequence.",
+          "Partner success workbook with KPIs."
+        ],
+        "Scaler": [
+          "Vertical solution bundles with compliance mapping.",
+          "Managed service accelerators with MSPs.",
+          "Executive storytelling assets with customer proof."
+        ],
+        "Leader": [
+          "Innovation sandbox with shared experimentation space.",
+          "Global launch kits translated for key regions.",
+          "Outcome guarantee frameworks with partners."
+        ]
+      },
+      "sprint": {
+        "Explorer": [
+          "Week 1: Finalize integration baseline and documentation.",
+          "Week 2: Recruit two design partners for pilots.",
+          "Week 3: Capture proof of value metrics."
+        ],
+        "Builder": [
+          "Week 1: Launch partner enablement webinars.",
+          "Week 2: Publish co-marketing content.",
+          "Week 3: Stand up shared support channel."
+        ],
+        "Scaler": [
+          "Week 1: Certify first cohort of delivery partners.",
+          "Week 2: Roll out marketplace bundles.",
+          "Week 3: Launch outcome-based success reviews."
+        ],
+        "Leader": [
+          "Week 1: Host ecosystem lab on roadmap bets.",
+          "Week 2: Expand partner success metrics dashboard.",
+          "Week 3: Announce global reference wins."
+        ]
+      }
     },
-    "customer": {
-      "label": "Customer / End User",
-      "summary": "Fund outcomes, choose accountability, and co-own adoption.",
-      "partners": [
-        "MSPs for strategy, migration, and managed operations",
-        "Vendors/ISVs for roadmap alignment and support",
-        "Distributors/Marketplaces for commercial terms and billing"
-      ],
-      "offers": [
-        "Readiness Assessment with clear success metrics",
-        "Secure-by-default baseline with backup",
-        "Adoption plan covering training, champions, and QBRs"
-      ],
-      "handoffs": ["Define outcomes", "Select partners", "Implement", "Adopt", "Review"],
-      "kpis": ["Adoption %", "Incident rate", "Time saved", "Compliance score"],
-      "sprint": [
-        "Week 1: Prioritize one business outcome",
-        "Week 2: Pilot with a core team",
-        "Week 3: Measure impact and surface blockers",
-        "Week 4: Decide scale plan and partner commitments"
-      ],
-      "risks": ["Buying tools without owners", "Skipping change management", "No executive sponsorship"]
+    "market": {
+      "label": "Marketplace",
+      "role": {
+        "Explorer": [
+          "Clarify the customer journey from discovery to renewal.",
+          "Curate a short list of outcome-led listings.",
+          "Document compliance and procurement requirements."
+        ],
+        "Builder": [
+          "Enable partners to package services alongside listings.",
+          "Stand up analytics for conversion and attach rates.",
+          "Automate provisioning and invoicing workflows."
+        ],
+        "Scaler": [
+          "Personalize recommendations with usage insights.",
+          "Expand multi-party offers with shared governance.",
+          "Expose transparent pricing and success stories."
+        ],
+        "Leader": [
+          "Integrate marketplaces into enterprise procurement flows.",
+          "Launch ecosystem campaigns with co-funded value-adds.",
+          "Deliver outcome guarantees backed by partners."
+        ]
+      },
+      "partners": {
+        "Explorer": [
+          "Recruit vendors with proven offers and references.",
+          "Invite MSPs that can fulfill service components.",
+          "Align distributors for billing and credit coverage."
+        ],
+        "Builder": [
+          "Co-design offer templates with vendors and MSPs.",
+          "Integrate distributor catalogs for availability.",
+          "Pilot co-selling motions with ecosystem sellers."
+        ],
+        "Scaler": [
+          "Share performance analytics with every provider.",
+          "Enable ISVs to launch micro-solutions quickly.",
+          "Coordinate demand generation with partners."
+        ],
+        "Leader": [
+          "Run marketplace advisory groups across roles.",
+          "Offer revenue-sharing accelerators for partners.",
+          "Publish outcome benchmarks for every listing."
+        ]
+      },
+      "offers": {
+        "Explorer": [
+          "Starter bundles combining product and onboarding services.",
+          "Promoted trials with clear success criteria.",
+          "Procurement checklist for finance and legal teams."
+        ],
+        "Builder": [
+          "Co-branded microsites for featured solutions.",
+          "Private offers with negotiated commercial terms.",
+          "Lifecycle notifications covering adoption milestones."
+        ],
+        "Scaler": [
+          "Outcome catalogs segmented by industry.",
+          "Usage dashboards for customers and partners.",
+          "Renewal orchestration kits for sellers."
+        ],
+        "Leader": [
+          "Dynamic pricing tied to value realization.",
+          "Global co-marketing campaigns with partners.",
+          "Outcome assurance bundles with service credits."
+        ]
+      },
+      "sprint": {
+        "Explorer": [
+          "Week 1: Audit listings for clarity and compliance.",
+          "Week 2: Curate top three outcome bundles.",
+          "Week 3: Launch discovery campaign with partners."
+        ],
+        "Builder": [
+          "Week 1: Automate provisioning workflow with vendors.",
+          "Week 2: Enable partners on listing optimization.",
+          "Week 3: Publish analytics snapshot to providers."
+        ],
+        "Scaler": [
+          "Week 1: Roll out recommendation engine pilots.",
+          "Week 2: Launch joint marketing calendar.",
+          "Week 3: Stand up renewal automation toolkit."
+        ],
+        "Leader": [
+          "Week 1: Convene ecosystem design session.",
+          "Week 2: Commit co-investment plan with top partners.",
+          "Week 3: Release marketplace impact report."
+        ]
+      }
     }
   }
 }

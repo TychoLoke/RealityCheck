@@ -1,159 +1,173 @@
-import { useMemo, useState, type ReactNode } from "react";
-import clsx from "clsx";
+import Link from "next/link";
 
-type RolePlans = Record<
-  string,
-  {
-    label: string;
-    summary: string;
-    partners: string[];
-    offers: string[];
-    handoffs: string[];
-    kpis: string[];
-    sprint: string[];
-    risks: string[];
-  }
->;
-
-interface WhereYouFitProps {
-  data: {
-    maturity: string[];
-    roles: RolePlans;
-  };
+interface RoleDefinition {
+  id: string;
+  label: string;
 }
 
-export function WhereYouFit({ data }: WhereYouFitProps) {
-  const roleKeys = Object.keys(data.roles);
-  const [role, setRole] = useState(roleKeys[0] ?? "");
-  const [maturity, setMaturity] = useState(data.maturity[1] ?? data.maturity[0] ?? "");
+interface PlanContent {
+  [maturity: string]: string[];
+}
 
-  const plan = useMemo(() => data.roles[role], [data.roles, role]);
+interface RolePlan {
+  label: string;
+  role: PlanContent;
+  partners: PlanContent;
+  offers: PlanContent;
+  sprint: PlanContent;
+}
 
-  if (!plan) {
+interface WhereYouFitProps {
+  roles: RoleDefinition[];
+  plans: Record<string, RolePlan>;
+  maturityLevels: string[];
+  selectedRole: string;
+  onRoleChange: (roleId: string) => void;
+  selectedMaturity: string;
+  onMaturityChange: (stage: string) => void;
+  activeTab: "role" | "partners" | "offers" | "sprint";
+  onTabChange: (tab: "role" | "partners" | "offers" | "sprint") => void;
+}
+
+const TABS: { id: "role" | "partners" | "offers" | "sprint"; label: string }[] = [
+  { id: "role", label: "Role" },
+  { id: "partners", label: "Partners" },
+  { id: "offers", label: "Offers" },
+  { id: "sprint", label: "30-Day Sprint" },
+];
+
+export function WhereYouFit({
+  roles,
+  plans,
+  maturityLevels,
+  selectedRole,
+  onRoleChange,
+  selectedMaturity,
+  onMaturityChange,
+  activeTab,
+  onTabChange,
+}: WhereYouFitProps) {
+  const availableRoles = roles.filter((role) => plans[role.id]);
+  const activePlan = plans[selectedRole] ?? plans[availableRoles[0]?.id ?? ""];
+  const maturity = maturityLevels.includes(selectedMaturity)
+    ? selectedMaturity
+    : maturityLevels[0];
+  const panelId = "where-you-fit-panel";
+
+  if (!activePlan) {
     return null;
   }
 
+  const content = getTabContent(activePlan, activeTab, maturity);
+
   return (
-    <section className="space-y-8">
-      <header className="space-y-3">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-secondary">
-          Role guidance
-        </p>
-        <h2 className="text-3xl font-semibold text-brand-primary">Where you fit &amp; how to team up</h2>
-        <p className="max-w-3xl text-base text-brand-secondary">
-          Pick your role to see the partners, offers, KPIs, and 30-day sprint that keep you aligned with
-          the rest of the channel.
-        </p>
+    <section className="rounded-[12px] border border-[#0B0E1A] bg-[#FFFFFF] px-5 py-5 text-[#0B0E1A] shadow-sm">
+      <header className="flex flex-col gap-1">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8A93A6]">Guided teaming</p>
+        <h2 className="text-lg font-semibold">Where you fit &amp; how to team up</h2>
       </header>
 
-      <div className="space-y-6 rounded-[24px] border border-zinc-200 bg-white p-6 shadow-sm">
-        <div className="space-y-4">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-brand-secondary">Role</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {roleKeys.map((key) => (
-                <button
-                  key={key}
-                  type="button"
-                  onClick={() => setRole(key)}
-                  className={clsx(
-                    "rounded-full border px-4 py-2 text-sm font-semibold transition",
-                    role === key
-                      ? "border-brand-primary bg-brand-primary text-white"
-                      : "border-zinc-200 bg-brand-muted/60 text-brand-primary hover:border-brand-primary"
-                  )}
-                >
-                  {data.roles[key].label}
-                </button>
-              ))}
-            </div>
-          </div>
+      <div className="mt-4 flex flex-wrap gap-2">
+        {availableRoles.map((role) => {
+          const isActive = role.id === selectedRole;
+          const label = plans[role.id]?.label ?? role.label;
+          return (
+            <button
+              key={role.id}
+              type="button"
+              onClick={() => onRoleChange(role.id)}
+              aria-pressed={isActive}
+              className={`rounded-full border px-3 py-2 text-xs font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A] ${
+                isActive ? "border-[#0B0E1A] bg-[#0B0E1A] text-[#FFFFFF]" : "border-[#0B0E1A] text-[#0B0E1A]"
+              }`}
+            >
+              {label}
+            </button>
+          );
+        })}
+      </div>
 
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-wide text-brand-secondary">Maturity</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {data.maturity.map((stage) => (
-                <button
-                  key={stage}
-                  type="button"
-                  onClick={() => setMaturity(stage)}
-                  className={clsx(
-                    "rounded-full border px-4 py-2 text-sm transition",
-                    maturity === stage
-                      ? "border-brand-primary bg-white text-brand-primary shadow"
-                      : "border-zinc-200 bg-brand-muted/60 text-brand-primary hover:border-brand-primary"
-                  )}
-                >
-                  {stage}
-                </button>
-              ))}
-            </div>
-          </div>
+      <div className="mt-3 inline-flex rounded-[12px] border border-[#0B0E1A] p-1">
+        {maturityLevels.map((stage) => {
+          const isActive = stage === maturity;
+          return (
+            <button
+              key={stage}
+              type="button"
+              onClick={() => onMaturityChange(stage)}
+              className={`min-w-[90px] rounded-[10px] px-3 py-2 text-xs font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A] ${
+                isActive ? "bg-[#0B0E1A] text-[#FFFFFF]" : "text-[#0B0E1A]"
+              }`}
+            >
+              {stage}
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="mt-4">
+        <div role="tablist" aria-label="Role guidance tabs" className="flex flex-wrap gap-2">
+          {TABS.map((tab) => {
+            const isActive = tab.id === activeTab;
+            return (
+              <button
+                key={tab.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                aria-controls={panelId}
+                id={`where-you-fit-tab-${tab.id}`}
+                onClick={() => onTabChange(tab.id)}
+                className={`rounded-full border px-3 py-2 text-xs font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A] ${
+                  isActive ? "border-[#0B0E1A] bg-[#0B0E1A] text-[#FFFFFF]" : "border-[#0B0E1A] text-[#0B0E1A]"
+                }`}
+              >
+                {tab.label}
+              </button>
+            );
+          })}
         </div>
 
-        <div className="grid gap-4 md:grid-cols-2">
-          <InfoCard title="Your role in the channel">
-            <p className="text-sm text-brand-primary/80">{plan.summary}</p>
-          </InfoCard>
-          <InfoCard title="Who to partner with">
-            <List items={plan.partners} />
-          </InfoCard>
-          <InfoCard title="Offers to package now">
-            <List items={plan.offers} />
-          </InfoCard>
-          <InfoCard title="Handoffs you own">
-            <List items={plan.handoffs} ordered />
-          </InfoCard>
-          <InfoCard title="KPIs to track">
-            <List items={plan.kpis} />
-          </InfoCard>
-          <InfoCard title={`30-day sprint (${maturity})`}>
-            <List items={plan.sprint} ordered />
-          </InfoCard>
-          <InfoCard title="Risks &amp; anti-patterns">
-            <List items={plan.risks} />
-          </InfoCard>
+        <div
+          id={panelId}
+          role="tabpanel"
+          aria-live="polite"
+          aria-labelledby={`where-you-fit-tab-${activeTab}`}
+          className="mt-3 rounded-[12px] border border-dashed border-[#0B0E1A] px-4 py-3"
+          style={{ minHeight: "100px" }}
+        >
+          <ul className="space-y-1 text-xs text-[#0B0E1A]">
+            {content.map((item) => (
+              <li key={item} className="rounded-[10px] bg-[#0B0E1A]/5 px-3 py-2">
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
+      </div>
 
-        <div className="flex flex-wrap gap-3">
-          <a
-            href="/join"
-            className="inline-flex items-center justify-center rounded-[12px] bg-brand-primary px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:bg-[#04060d] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
-          >
-            Join the Community
-          </a>
-          <a
-            href="/community#contribute"
-            className="inline-flex items-center justify-center rounded-[12px] border border-brand-primary px-5 py-3 text-sm font-semibold text-brand-primary transition hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
-          >
-            Find a Partner
-          </a>
-        </div>
+      <div className="mt-4 flex flex-wrap gap-3">
+        <Link
+          href="/join"
+          className="inline-flex h-11 items-center justify-center rounded-[12px] bg-[#0B0E1A] px-5 text-sm font-semibold text-[#FFFFFF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A]"
+        >
+          Join the Community
+        </Link>
+        <Link
+          href="/community#contribute"
+          className="inline-flex h-11 items-center justify-center rounded-[12px] border border-[#0B0E1A] px-5 text-sm font-semibold text-[#0B0E1A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A]"
+        >
+          Find a Partner
+        </Link>
       </div>
     </section>
   );
 }
 
-function InfoCard({ title, children }: { title: string; children: ReactNode }) {
-  return (
-    <div className="flex h-full flex-col gap-3 rounded-[18px] border border-zinc-200 bg-brand-muted/40 p-5">
-      <h3 className="text-base font-semibold text-brand-primary">{title}</h3>
-      <div className="space-y-2 text-sm text-brand-primary/80">{children}</div>
-    </div>
-  );
-}
-
-function List({ items, ordered = false }: { items: string[]; ordered?: boolean }) {
-  if (!items.length) return null;
-
-  const ListTag: "ol" | "ul" = ordered ? "ol" : "ul";
-  const baseClass = ordered ? "list-decimal pl-5 space-y-1" : "list-disc pl-5 space-y-1";
-
-  return (
-    <ListTag className={baseClass}>
-      {items.map((item) => (
-        <li key={item}>{item}</li>
-      ))}
-    </ListTag>
-  );
+function getTabContent(plan: RolePlan, tab: "role" | "partners" | "offers" | "sprint", maturity: string) {
+  const tabSet = plan[tab] ?? {};
+  const availableStages = Object.keys(tabSet);
+  const fallbackStage = availableStages[0];
+  const items = tabSet[maturity] ?? (fallbackStage ? tabSet[fallbackStage] : []);
+  return (items ?? []).slice(0, 3);
 }
