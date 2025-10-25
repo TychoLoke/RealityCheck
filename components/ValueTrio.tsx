@@ -12,11 +12,11 @@ type ValueTrioProps = {
 
 export function ValueTrio({ items }: ValueTrioProps) {
   return (
-    <div className="grid gap-6 rounded-2xl border border-zinc-200 bg-brand-muted/80 p-6 sm:grid-cols-3 sm:gap-8 sm:p-10">
+    <div className="grid gap-6 rounded-[32px] border border-zinc-200/60 bg-brand-muted/80 p-6 sm:grid-cols-3 sm:gap-8 sm:p-12">
       {items.map((item) => (
         <div
           key={item.title}
-          className="flex h-full flex-col justify-between gap-4 rounded-[16px] bg-white p-7 shadow-sm shadow-brand-primary/5"
+          className="flex h-full flex-col justify-between gap-4 rounded-[20px] bg-white p-8 shadow-sm shadow-brand-primary/5"
         >
           <div className="space-y-4 text-brand-primary">
             <div className="inline-flex items-center gap-3 text-brand-secondary">
