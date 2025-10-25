@@ -1,41 +1,18 @@
 {
   "roles": [
-    {
-      "id": "vendor",
-      "label": "Vendor",
-      "description": "Builds the platforms and funds the motions that grow adoption."
-    },
-    {
-      "id": "distributor",
-      "label": "Distributor / Aggregator",
-      "description": "Extends reach with credit, provisioning, and enablement at scale."
-    },
-    {
-      "id": "partner",
-      "label": "MSP / Partner",
-      "description": "Designs, sells, and operates the full customer outcome."
-    },
-    {
-      "id": "marketplace",
-      "label": "Marketplace",
-      "description": "Creates self-service paths and attaches partner value."
-    },
-    {
-      "id": "isv",
-      "label": "ISV",
-      "description": "Extends core platforms with specialized capability."
-    },
-    {
-      "id": "customer",
-      "label": "Customer",
-      "description": "Funds results and co-owns adoption."
-    }
+    { "id": "vendor", "label": "Vendor" },
+    { "id": "distributor", "label": "Distributor/Aggregator" },
+    { "id": "partner", "label": "MSP/Partner" },
+    { "id": "customer", "label": "Customer" },
+    { "id": "isv", "label": "ISV" },
+    { "id": "market", "label": "Marketplace" }
   ],
   "motions": [
     {
       "id": "create",
       "label": "Create",
       "lane": "vendor",
+      "tip": "Package value, pricing, enablement.",
       "summary": "Package offers with crisp value, pricing, and enablement guidance.",
       "goodLooksLike": [
         "Clear problem statements mapped to personas",
@@ -48,6 +25,7 @@
       "id": "mobilize",
       "label": "Mobilize",
       "lane": "distributor",
+      "tip": "Recruit, finance, enable partners.",
       "summary": "Recruit, contract, finance, and equip the right partners.",
       "goodLooksLike": [
         "Priority partner list with tiering",
@@ -60,6 +38,7 @@
       "id": "sell",
       "label": "Sell",
       "lane": "partner",
+      "tip": "Qualify, design, propose.",
       "summary": "Qualify, design, and propose blended offers tied to outcomes.",
       "goodLooksLike": [
         "Discovery mapped to success metrics",
@@ -72,6 +51,7 @@
       "id": "procure",
       "label": "Procure",
       "lane": "distributor",
+      "tip": "Order, provision, bill.",
       "summary": "Automate ordering, provisioning, and billing with hygiene checks.",
       "goodLooksLike": [
         "Same-day provisioning",
@@ -84,6 +64,7 @@
       "id": "deliver",
       "label": "Deliver",
       "lane": "partner",
+      "tip": "Secure defaults, train users.",
       "summary": "Implement secure baselines, integrations, and user ramp plans.",
       "goodLooksLike": [
         "Secure-by-default configuration",
@@ -96,6 +77,7 @@
       "id": "adopt",
       "label": "Adopt",
       "lane": "customer",
+      "tip": "Drive usage, remove friction.",
       "summary": "Drive usage, measure impact, and remove friction.",
       "goodLooksLike": [
         "Champion network engaged",
@@ -108,6 +90,7 @@
       "id": "operate",
       "label": "Operate",
       "lane": "partner",
+      "tip": "Monitor, backup, govern.",
       "summary": "Monitor, support, and govern against SLAs and compliance needs.",
       "goodLooksLike": [
         "24/7 observability with runbooks",
@@ -118,8 +101,9 @@
     },
     {
       "id": "expand",
-      "label": "Success & Expand",
+      "label": "Expand",
       "lane": "partner",
+      "tip": "QBRs, upsell, renew.",
       "summary": "Review results, renew, upsell, and unlock the next wave of value.",
       "goodLooksLike": [
         "Quarterly business reviews with insights",

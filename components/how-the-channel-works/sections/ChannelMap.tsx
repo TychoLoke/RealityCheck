@@ -1,206 +1,189 @@
-import clsx from "clsx";
+import { useState } from "react";
 
 interface Role {
   id: string;
   label: string;
-  description?: string;
 }
 
 interface Motion {
   id: string;
   label: string;
   lane: string;
+  tip?: string;
   summary?: string;
-  goodLooksLike?: string[];
-  kpis?: string[];
-  pitfalls?: string[];
 }
 
-interface Edge {
-  from: string;
-  to: string;
-  motion: string;
+interface FilterOption {
+  id: string;
+  label: string;
 }
 
 interface ChannelMapProps {
   roles: Role[];
   motions: Motion[];
-  edges: Edge[];
-  selectedRole: string;
+  filteredMotions: Motion[];
+  filters: { id: string; label: string }[];
+  activeFilter: string;
+  onFilterChange: (id: string) => void;
   selectedMotion: string;
+  onSelectMotion: (motionId: string) => void;
 }
-
-const LABEL_WIDTH = 168;
-const CARD_WIDTH = 220;
-const CARD_HEIGHT = 140;
-const COLUMN_GAP = 32;
-const ROW_GAP = 32;
 
 export function ChannelMap({
   roles,
   motions,
-  edges,
-  selectedRole,
+  filteredMotions,
+  filters,
+  activeFilter,
+  onFilterChange,
   selectedMotion,
+  onSelectMotion,
 }: ChannelMapProps) {
-  const columnCount = motions.length;
-  const gridWidth = LABEL_WIDTH + columnCount * CARD_WIDTH + (columnCount - 1) * COLUMN_GAP;
-  const gridHeight = roles.length * CARD_HEIGHT + (roles.length - 1) * ROW_GAP;
+  const [openTooltipId, setOpenTooltipId] = useState<string | null>(null);
 
-  const roleIndex = Object.fromEntries(roles.map((role, index) => [role.id, index]));
-  const motionIndex = Object.fromEntries(motions.map((motion, index) => [motion.id, index]));
+  const handleCardClick = (motionId: string) => {
+    if (openTooltipId === motionId) {
+      setOpenTooltipId(null);
+      onSelectMotion(motionId);
+      return;
+    }
+
+    setOpenTooltipId(motionId);
+    onSelectMotion(motionId);
+  };
 
   return (
-    <section className="space-y-6">
-      <header className="space-y-3">
-        <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-secondary">
-          Channel map
-        </p>
-        <h2 className="text-3xl font-semibold text-brand-primary">Follow the handoffs</h2>
-        <p className="max-w-3xl text-base text-brand-secondary">
-          Follow the handoffs that turn products into outcomes. Hover a step to see what good looks like
-          and track the lanes where your team leads or supports the motion.
-        </p>
+    <section className="rounded-[12px] border border-[#0B0E1A] bg-[#FFFFFF] px-5 py-5 text-[#0B0E1A] shadow-sm">
+      <header className="flex flex-col gap-1">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8A93A6]">Channel map</p>
+        <h2 className="text-lg font-semibold">Roles and motions at a glance</h2>
       </header>
 
-      <div className="relative overflow-x-auto">
+      <div className="mt-4 md:hidden">
+        <SegmentedControl
+          options={filters}
+          activeId={activeFilter}
+          onChange={onFilterChange}
+          controlsId="channel-map-mobile-panel"
+        />
         <div
-          className="relative inline-grid rounded-[24px] border border-zinc-200 bg-white p-6 shadow-sm"
-          style={{
-            gridTemplateColumns: `minmax(${LABEL_WIDTH}px, ${LABEL_WIDTH}px) repeat(${columnCount}, minmax(${CARD_WIDTH}px, ${CARD_WIDTH}px))`,
-            gridAutoRows: `${CARD_HEIGHT}px`,
-            columnGap: `${COLUMN_GAP}px`,
-            rowGap: `${ROW_GAP}px`,
-          }}
+          id="channel-map-mobile-panel"
+          role="tabpanel"
+          aria-labelledby={`channel-map-tab-${activeFilter}`}
+          className="mt-3 grid grid-cols-2 gap-3"
         >
-          {roles.map((role, row) => (
-            <div
-              key={role.id}
-              className="flex flex-col justify-center gap-1 border-r border-dashed border-brand-secondary/30 pr-4"
-              style={{ gridColumn: "1 / span 1", gridRow: `${row + 1} / span 1`, width: LABEL_WIDTH }}
-            >
-              <p
-                className={clsx(
-                  "text-sm font-semibold text-brand-primary",
-                  selectedRole === role.id ? "text-brand-primary" : "text-brand-secondary"
-                )}
-              >
-                {role.label}
-              </p>
-              {role.description ? (
-                <p className="text-xs text-brand-secondary">{role.description}</p>
-              ) : null}
-            </div>
+          {filteredMotions.map((motion) => (
+            <MotionCard
+              key={motion.id}
+              motion={motion}
+              isActive={selectedMotion === motion.id}
+              isTooltipOpen={openTooltipId === motion.id}
+              onClick={() => handleCardClick(motion.id)}
+            />
           ))}
-
-          {roles.map((role, row) =>
-            motions.map((motion, column) => {
-              const isOwner = motion.lane === role.id;
-              const isSelectedMotion = selectedMotion === motion.id;
-              const isSelectedRole = selectedRole === role.id;
-              const isHighlighted = isOwner && (isSelectedMotion || isSelectedRole);
-
-              return (
-                <div
-                  key={`${role.id}-${motion.id}`}
-                  className={clsx(
-                    "relative flex h-full flex-col justify-between rounded-[18px] border bg-brand-muted/40 p-4 text-left transition",
-                    isOwner
-                      ? "border-brand-muted"
-                      : "border-dashed border-transparent bg-transparent",
-                    isHighlighted && isOwner
-                      ? "border-brand-primary bg-white shadow-lg"
-                      : isOwner
-                      ? "hover:border-brand-primary hover:bg-white"
-                      : ""
-                  )}
-                  style={{ gridColumn: `${column + 2} / span 1`, gridRow: `${row + 1} / span 1` }}
-                >
-                  {isOwner ? (
-                    <>
-                      <div className="space-y-2">
-                        <p className="text-xs font-semibold uppercase tracking-wide text-brand-secondary">
-                          {motion.label}
-                        </p>
-                        <p className="text-sm font-semibold text-brand-primary">{motion.summary}</p>
-                      </div>
-                      <div className="space-y-1 text-xs text-brand-secondary">
-                        <p className="font-semibold text-brand-primary/80">Good looks like</p>
-                        <ul className="space-y-1">
-                          {motion.goodLooksLike?.map((item) => (
-                            <li key={item} className="flex items-start gap-2">
-                              <span aria-hidden className="mt-1 h-1.5 w-1.5 rounded-full bg-brand-primary" />
-                              <span>{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </>
-                  ) : null}
-                </div>
-              );
-            })
-          )}
-
-          <svg
-            className="pointer-events-none absolute inset-6 h-[calc(100%-3rem)] w-[calc(100%-3rem)]"
-            viewBox={`0 0 ${gridWidth} ${gridHeight}`}
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <marker
-                id="arrowhead"
-                markerWidth="12"
-                markerHeight="12"
-                refX="10"
-                refY="6"
-                orient="auto"
-              >
-                <path d="M0,0 L12,6 L0,12 Z" fill="#0B0E1A" />
-              </marker>
-              <marker
-                id="arrowhead-muted"
-                markerWidth="12"
-                markerHeight="12"
-                refX="10"
-                refY="6"
-                orient="auto"
-              >
-                <path d="M0,0 L12,6 L0,12 Z" fill="#C3C7D2" />
-              </marker>
-            </defs>
-            {edges.map((edge) => {
-              const column = motionIndex[edge.motion];
-              const fromRow = roleIndex[edge.from];
-              const toRow = roleIndex[edge.to];
-
-              if (column === undefined || fromRow === undefined || toRow === undefined) {
-                return null;
-              }
-
-              const startX = LABEL_WIDTH + column * (CARD_WIDTH + COLUMN_GAP) + CARD_WIDTH / 2;
-              const endX = startX;
-              const startY = fromRow * (CARD_HEIGHT + ROW_GAP) + CARD_HEIGHT / 2;
-              const endY = toRow * (CARD_HEIGHT + ROW_GAP) + CARD_HEIGHT / 2;
-              const controlOffset = Math.abs(endY - startY) / 2 + 40;
-              const path = `M ${startX} ${startY} C ${startX + controlOffset} ${startY}, ${endX + controlOffset} ${endY}, ${endX} ${endY}`;
-              const isActive = edge.motion === selectedMotion;
-
-              return (
-                <path
-                  key={`${edge.from}-${edge.to}-${edge.motion}`}
-                  d={path}
-                  fill="none"
-                  stroke={isActive ? "#0B0E1A" : "#C3C7D2"}
-                  strokeWidth={isActive ? 3 : 2}
-                  markerEnd={`url(#${isActive ? "arrowhead" : "arrowhead-muted"})`}
-                  opacity={edge.motion === selectedMotion || selectedMotion === "" ? 1 : 0.6}
-                />
-              );
-            })}
-          </svg>
         </div>
       </div>
+
+      <div className="mt-4 hidden gap-3 md:flex md:flex-col">
+        {roles.map((role) => {
+          const laneMotions = motions.filter((motion) => motion.lane === role.id);
+          if (!laneMotions.length) return null;
+
+          return (
+            <div key={role.id} className="flex items-start gap-3">
+              <div className="w-40 shrink-0">
+                <p className="text-xs font-semibold uppercase tracking-[0.12em] text-[#8A93A6]">{role.label}</p>
+              </div>
+              <div className="flex flex-wrap gap-3">
+                {laneMotions.map((motion) => (
+                  <MotionCard
+                    key={motion.id}
+                    motion={motion}
+                    isActive={selectedMotion === motion.id}
+                    isTooltipOpen={openTooltipId === motion.id}
+                    onClick={() => handleCardClick(motion.id)}
+                  />
+                ))}
+              </div>
+            </div>
+          );
+        })}
+      </div>
     </section>
+  );
+}
+
+interface SegmentedControlProps {
+  options: FilterOption[];
+  activeId: string;
+  onChange: (id: string) => void;
+  controlsId: string;
+}
+
+function SegmentedControl({ options, activeId, onChange, controlsId }: SegmentedControlProps) {
+  return (
+    <div
+      role="tablist"
+      aria-label="Motion filter"
+      className="inline-flex rounded-[12px] border border-[#0B0E1A] bg-[#FFFFFF] p-1"
+    >
+      {options.map((option) => {
+        const isActive = option.id === activeId;
+        return (
+          <button
+            key={option.id}
+            type="button"
+            role="tab"
+            aria-selected={isActive}
+            aria-controls={controlsId}
+            id={`channel-map-tab-${option.id}`}
+            className={`min-w-[96px] rounded-[10px] px-3 py-2 text-xs font-semibold transition ${
+              isActive ? "bg-[#0B0E1A] text-[#FFFFFF]" : "text-[#0B0E1A]"
+            }`}
+            onClick={() => onChange(option.id)}
+          >
+            {option.label}
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+interface MotionCardProps {
+  motion: Motion;
+  isActive: boolean;
+  isTooltipOpen: boolean;
+  onClick: () => void;
+}
+
+function MotionCard({ motion, isActive, isTooltipOpen, onClick }: MotionCardProps) {
+  return (
+    <div className="relative">
+      <button
+        type="button"
+        onClick={onClick}
+        aria-expanded={isTooltipOpen}
+        className={`flex h-24 w-40 flex-col justify-between rounded-[12px] border px-3 py-2 text-left text-xs transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A] ${
+          isActive ? "border-[#0B0E1A] bg-[#0B0E1A] text-[#FFFFFF]" : "border-[#0B0E1A] text-[#0B0E1A]"
+        }`}
+        style={{ minWidth: "148px" }}
+      >
+        <span className="text-sm font-semibold truncate">{motion.label}</span>
+        <span className={`text-[11px] ${isActive ? "text-[#FFFFFF]" : "text-[#0B0E1A]"} truncate`}>
+          {motion.tip}
+        </span>
+      </button>
+      {isTooltipOpen && motion.summary ? (
+        <div className="absolute left-1/2 top-full z-10 mt-2 w-44 -translate-x-1/2 rounded-[12px] border border-[#0B0E1A] bg-[#FFFFFF] px-3 py-2 text-xs text-[#0B0E1A] shadow-md">
+          <p
+            className="leading-snug"
+            style={{ display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}
+          >
+            {motion.summary}
+          </p>
+        </div>
+      ) : null}
+    </div>
   );
 }

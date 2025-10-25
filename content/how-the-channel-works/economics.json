@@ -1,13 +1,22 @@
 {
-  "nodes": [
-    { "id": "vendorSpend", "label": "Vendor Program Spend", "description": "MDF, rebates, and platform investment" },
-    { "id": "distributorServices", "label": "Distributor Services", "description": "Credit, provisioning, and enablement operations" },
-    { "id": "partnerServices", "label": "Partner Services", "description": "Projects, managed services, and advisory" },
-    { "id": "customerOutcomes", "label": "Customer Outcomes", "description": "Productivity, security, compliance, growth" }
-  ],
-  "links": [
-    { "from": "vendorSpend", "to": "distributorServices", "value": 40, "note": "Pass-through incentives and tooling" },
-    { "from": "distributorServices", "to": "partnerServices", "value": 70, "note": "Enablement, credit, and automated ops" },
-    { "from": "partnerServices", "to": "customerOutcomes", "value": 100, "note": "Managed outcomes, renewals, and expansion" }
+  "economics": [
+    {
+      "from": "Vendor Spend",
+      "to": "Distributor Services",
+      "value": 40,
+      "hint": "NRR grows when incentives flow into enablement."
+    },
+    {
+      "from": "Distributor Services",
+      "to": "Partner Services",
+      "value": 70,
+      "hint": "Watch DSO and attach rate to protect cash."
+    },
+    {
+      "from": "Partner Services",
+      "to": "Customer Outcomes",
+      "value": 100,
+      "hint": "Adoption %, renewal health, and expansion fuel margin."
+    }
   ]
 }
