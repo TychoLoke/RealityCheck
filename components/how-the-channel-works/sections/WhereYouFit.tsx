@@ -101,13 +101,13 @@ export function WhereYouFit({ data }: WhereYouFitProps) {
           <InfoCard title="Offers to package now">
             <List items={plan.offers} />
           </InfoCard>
-          <InfoCard title="Handoffs you own" ordered>
+          <InfoCard title="Handoffs you own">
             <List items={plan.handoffs} ordered />
           </InfoCard>
           <InfoCard title="KPIs to track">
             <List items={plan.kpis} />
           </InfoCard>
-          <InfoCard title={`30-day sprint (${maturity})`} ordered>
+          <InfoCard title={`30-day sprint (${maturity})`}>
             <List items={plan.sprint} ordered />
           </InfoCard>
           <InfoCard title="Risks &amp; anti-patterns">
@@ -146,7 +146,7 @@ function InfoCard({ title, children }: { title: string; children: ReactNode }) {
 function List({ items, ordered = false }: { items: string[]; ordered?: boolean }) {
   if (!items.length) return null;
 
-  const ListTag = (ordered ? "ol" : "ul") as const;
+  const ListTag: "ol" | "ul" = ordered ? "ol" : "ul";
   const baseClass = ordered ? "list-decimal pl-5 space-y-1" : "list-disc pl-5 space-y-1";
 
   return (
