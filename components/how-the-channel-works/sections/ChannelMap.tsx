@@ -53,13 +53,20 @@ export function ChannelMap({
   };
 
   return (
-    <section className="rounded-[12px] border border-[#0B0E1A] bg-[#FFFFFF] px-5 py-5 text-[#0B0E1A] shadow-sm">
-      <header className="flex flex-col gap-1">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8A93A6]">Channel map</p>
-        <h2 className="text-lg font-semibold">Roles and motions at a glance</h2>
+    <section
+      id="channel-map"
+      className="space-y-6 rounded-[20px] border border-[#0B0E1A]/10 bg-[#FFFFFF] px-6 py-8 text-[#0B0E1A] shadow-sm shadow-[#0B0E1A]/5 md:px-8"
+    >
+      <header className="space-y-3">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8A93A6]">Channel map</p>
+        <h2 className="text-2xl font-semibold text-[#0B0E1A]">See how every role hands off the motion</h2>
+        <p className="text-sm leading-relaxed text-[#1D2333]/80">
+          Scan the full lifecycle, then tap into the motions that matter most right now. Each card opens the quick brief for
+          that step—what success looks like, which KPIs to watch, and the pitfalls we hear most from operators.
+        </p>
       </header>
 
-      <div className="mt-4 md:hidden">
+      <div className="space-y-4 md:hidden">
         <SegmentedControl
           options={filters}
           activeId={activeFilter}
@@ -84,7 +91,7 @@ export function ChannelMap({
         </div>
       </div>
 
-      <div className="mt-4 hidden gap-3 md:flex md:flex-col">
+      <div className="hidden gap-4 md:flex md:flex-col">
         {roles.map((role) => {
           const laneMotions = motions.filter((motion) => motion.lane === role.id);
           if (!laneMotions.length) return null;
@@ -125,7 +132,7 @@ function SegmentedControl({ options, activeId, onChange, controlsId }: Segmented
     <div
       role="tablist"
       aria-label="Motion filter"
-      className="inline-flex rounded-[12px] border border-[#0B0E1A] bg-[#FFFFFF] p-1"
+      className="inline-flex rounded-[14px] border border-[#0B0E1A]/20 bg-[#F4F5FB] p-1"
     >
       {options.map((option) => {
         const isActive = option.id === activeId;
@@ -138,7 +145,9 @@ function SegmentedControl({ options, activeId, onChange, controlsId }: Segmented
             aria-controls={controlsId}
             id={`channel-map-tab-${option.id}`}
             className={`min-w-[96px] rounded-[10px] px-3 py-2 text-xs font-semibold transition ${
-              isActive ? "bg-[#0B0E1A] text-[#FFFFFF]" : "text-[#0B0E1A]"
+              isActive
+                ? "bg-[#0B0E1A] text-[#FFFFFF] shadow-sm shadow-[#0B0E1A]/20"
+                : "text-[#0B0E1A] hover:bg-[#FFFFFF]"
             }`}
             onClick={() => onChange(option.id)}
           >
@@ -164,18 +173,20 @@ function MotionCard({ motion, isActive, isTooltipOpen, onClick }: MotionCardProp
         type="button"
         onClick={onClick}
         aria-expanded={isTooltipOpen}
-        className={`flex h-24 w-40 flex-col justify-between rounded-[12px] border px-3 py-2 text-left text-xs transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A] ${
-          isActive ? "border-[#0B0E1A] bg-[#0B0E1A] text-[#FFFFFF]" : "border-[#0B0E1A] text-[#0B0E1A]"
+        className={`flex h-28 w-40 flex-col justify-between rounded-[14px] border px-3 py-3 text-left text-xs transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A] ${
+          isActive
+            ? "border-[#0B0E1A] bg-[#0B0E1A] text-[#FFFFFF] shadow-lg shadow-[#0B0E1A]/25"
+            : "border-[#0B0E1A]/30 bg-[#F9FAFE] text-[#0B0E1A] hover:border-[#0B0E1A]/50"
         }`}
         style={{ minWidth: "148px" }}
       >
-        <span className="text-sm font-semibold truncate">{motion.label}</span>
-        <span className={`text-[11px] ${isActive ? "text-[#FFFFFF]" : "text-[#0B0E1A]"} truncate`}>
+        <span className="truncate text-sm font-semibold">{motion.label}</span>
+        <span className={`truncate text-[11px] leading-snug ${isActive ? "text-[#FFFFFF]" : "text-[#1D2333]/80"}`}>
           {motion.tip}
         </span>
       </button>
       {isTooltipOpen && motion.summary ? (
-        <div className="absolute left-1/2 top-full z-10 mt-2 w-44 -translate-x-1/2 rounded-[12px] border border-[#0B0E1A] bg-[#FFFFFF] px-3 py-2 text-xs text-[#0B0E1A] shadow-md">
+        <div className="absolute left-1/2 top-full z-10 mt-3 w-48 -translate-x-1/2 rounded-[14px] border border-[#0B0E1A]/20 bg-[#FFFFFF] px-3 py-3 text-xs text-[#0B0E1A] shadow-xl shadow-[#0B0E1A]/15">
           <p
             className="leading-snug"
             style={{ display: "-webkit-box", WebkitLineClamp: 2, WebkitBoxOrient: "vertical", overflow: "hidden" }}

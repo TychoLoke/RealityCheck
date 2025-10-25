@@ -61,13 +61,20 @@ export function WhereYouFit({
   const content = getTabContent(activePlan, activeTab, maturity);
 
   return (
-    <section className="rounded-[12px] border border-[#0B0E1A] bg-[#FFFFFF] px-5 py-5 text-[#0B0E1A] shadow-sm">
-      <header className="flex flex-col gap-1">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#8A93A6]">Guided teaming</p>
-        <h2 className="text-lg font-semibold">Where you fit &amp; how to team up</h2>
+    <section
+      id="where-you-fit"
+      className="space-y-6 rounded-[20px] border border-[#0B0E1A]/10 bg-[#FFFFFF] px-6 py-8 text-[#0B0E1A] shadow-sm shadow-[#0B0E1A]/5 md:px-8"
+    >
+      <header className="space-y-3">
+        <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8A93A6]">Guided teaming</p>
+        <h2 className="text-2xl font-semibold">Where you fit &amp; how to team up</h2>
+        <p className="text-sm leading-relaxed text-[#1D2333]/80">
+          Choose your role, stage, and focus area to see the first three moves we recommend. These snapshots come from real
+          operators—the full plan unlocks inside the community.
+        </p>
       </header>
 
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="flex flex-wrap gap-2">
         {availableRoles.map((role) => {
           const isActive = role.id === selectedRole;
           const label = plans[role.id]?.label ?? role.label;
@@ -78,7 +85,9 @@ export function WhereYouFit({
               onClick={() => onRoleChange(role.id)}
               aria-pressed={isActive}
               className={`rounded-full border px-3 py-2 text-xs font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A] ${
-                isActive ? "border-[#0B0E1A] bg-[#0B0E1A] text-[#FFFFFF]" : "border-[#0B0E1A] text-[#0B0E1A]"
+                isActive
+                  ? "border-[#0B0E1A] bg-[#0B0E1A] text-[#FFFFFF] shadow-sm shadow-[#0B0E1A]/20"
+                  : "border-[#0B0E1A]/30 text-[#0B0E1A] hover:border-[#0B0E1A]/50"
               }`}
             >
               {label}
@@ -87,7 +96,7 @@ export function WhereYouFit({
         })}
       </div>
 
-      <div className="mt-3 inline-flex rounded-[12px] border border-[#0B0E1A] p-1">
+      <div className="inline-flex rounded-[14px] border border-[#0B0E1A]/20 bg-[#F4F5FB] p-1">
         {maturityLevels.map((stage) => {
           const isActive = stage === maturity;
           return (
@@ -96,7 +105,9 @@ export function WhereYouFit({
               type="button"
               onClick={() => onMaturityChange(stage)}
               className={`min-w-[90px] rounded-[10px] px-3 py-2 text-xs font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A] ${
-                isActive ? "bg-[#0B0E1A] text-[#FFFFFF]" : "text-[#0B0E1A]"
+                isActive
+                  ? "bg-[#0B0E1A] text-[#FFFFFF] shadow-sm shadow-[#0B0E1A]/20"
+                  : "text-[#0B0E1A] hover:bg-[#FFFFFF]"
               }`}
             >
               {stage}
@@ -105,7 +116,7 @@ export function WhereYouFit({
         })}
       </div>
 
-      <div className="mt-4">
+      <div>
         <div role="tablist" aria-label="Role guidance tabs" className="flex flex-wrap gap-2">
           {TABS.map((tab) => {
             const isActive = tab.id === activeTab;
@@ -119,7 +130,9 @@ export function WhereYouFit({
                 id={`where-you-fit-tab-${tab.id}`}
                 onClick={() => onTabChange(tab.id)}
                 className={`rounded-full border px-3 py-2 text-xs font-semibold transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A] ${
-                  isActive ? "border-[#0B0E1A] bg-[#0B0E1A] text-[#FFFFFF]" : "border-[#0B0E1A] text-[#0B0E1A]"
+                  isActive
+                    ? "border-[#0B0E1A] bg-[#0B0E1A] text-[#FFFFFF] shadow-sm shadow-[#0B0E1A]/20"
+                    : "border-[#0B0E1A]/30 text-[#0B0E1A] hover:border-[#0B0E1A]/50"
                 }`}
               >
                 {tab.label}
@@ -133,12 +146,12 @@ export function WhereYouFit({
           role="tabpanel"
           aria-live="polite"
           aria-labelledby={`where-you-fit-tab-${activeTab}`}
-          className="mt-3 rounded-[12px] border border-dashed border-[#0B0E1A] px-4 py-3"
-          style={{ minHeight: "100px" }}
+          className="mt-3 rounded-[16px] border border-dashed border-[#0B0E1A]/40 bg-[#F9FAFE] px-4 py-4"
+          style={{ minHeight: "120px" }}
         >
-          <ul className="space-y-1 text-xs text-[#0B0E1A]">
+          <ul className="space-y-2 text-sm text-[#1D2333]">
             {content.map((item) => (
-              <li key={item} className="rounded-[10px] bg-[#0B0E1A]/5 px-3 py-2">
+              <li key={item} className="rounded-[12px] bg-[#0B0E1A]/5 px-3 py-2">
                 {item}
               </li>
             ))}
@@ -146,16 +159,16 @@ export function WhereYouFit({
         </div>
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-3">
+      <div className="flex flex-wrap gap-3">
         <Link
           href="/join"
-          className="inline-flex h-11 items-center justify-center rounded-[12px] bg-[#0B0E1A] px-5 text-sm font-semibold text-[#FFFFFF] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A]"
+          className="inline-flex h-11 items-center justify-center rounded-[12px] bg-[#0B0E1A] px-5 text-sm font-semibold text-[#FFFFFF] shadow-sm transition hover:shadow-lg hover:shadow-[#0B0E1A]/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A]"
         >
           Join the Community
         </Link>
         <Link
           href="/community#contribute"
-          className="inline-flex h-11 items-center justify-center rounded-[12px] border border-[#0B0E1A] px-5 text-sm font-semibold text-[#0B0E1A] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A]"
+          className="inline-flex h-11 items-center justify-center rounded-[12px] border border-[#0B0E1A] px-5 text-sm font-semibold text-[#0B0E1A] transition hover:bg-[#0B0E1A]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-3 focus-visible:outline-[#0B0E1A]"
         >
           Find a Partner
         </Link>

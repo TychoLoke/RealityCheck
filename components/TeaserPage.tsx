@@ -57,16 +57,16 @@ export function TeaserPage({
   children,
 }: TeaserPageProps) {
   return (
-    <div className="space-y-16">
-      <header className="space-y-6">
+    <div className="space-y-20">
+      <header className="space-y-8">
         {pretitle ? (
-          <p className="inline-flex items-center gap-2 rounded-full border border-brand-secondary/30 bg-white px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-secondary">
+          <p className="inline-flex items-center gap-2 rounded-full border border-brand-secondary/30 bg-white px-5 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-brand-secondary">
             {pretitle}
           </p>
         ) : null}
-        <div className="space-y-4">
+        <div className="space-y-5">
           <h1 className="text-4xl font-semibold leading-tight text-brand-primary md:text-5xl">{title}</h1>
-          <p className="max-w-2xl text-lg text-brand-secondary">{description}</p>
+          <p className="max-w-3xl text-lg leading-relaxed text-brand-secondary">{description}</p>
         </div>
         {ctas.length > 0 && (
           <div className="flex flex-wrap gap-3">
@@ -80,33 +80,33 @@ export function TeaserPage({
       </header>
 
       {sections.length > 0 && (
-        <div className="space-y-12">
+        <div className="space-y-14">
           {sections.map((section) => (
             <section
               key={section.title}
-              className="space-y-6 rounded-[16px] border border-zinc-200 bg-white p-8 shadow-sm"
+              className="space-y-6 rounded-[24px] border border-zinc-200/60 bg-white p-10 shadow-sm shadow-brand-primary/5"
             >
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {section.eyebrow ? (
                   <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-secondary">
                     {section.eyebrow}
                   </p>
                 ) : null}
                 <h2 className="text-2xl font-semibold text-brand-primary">{section.title}</h2>
-                <p className="text-base text-brand-secondary">{section.description}</p>
+                <p className="text-base leading-relaxed text-brand-secondary">{section.description}</p>
               </div>
               {section.items && section.items.length > 0 ? (
                 <div className="grid gap-6 sm:grid-cols-2">
                   {section.items.map((item) => (
-                    <div key={item.title} className="space-y-2 rounded-[14px] border border-zinc-200 bg-brand-muted/60 p-5">
-                      <p className="text-sm font-semibold text-brand-primary">{item.title}</p>
-                      <p className="text-sm text-brand-secondary">{item.description}</p>
+                    <div key={item.title} className="space-y-3 rounded-[16px] border border-zinc-200 bg-brand-muted/60 p-6">
+                      <p className="text-base font-semibold text-brand-primary">{item.title}</p>
+                      <p className="text-sm leading-relaxed text-brand-secondary">{item.description}</p>
                     </div>
                   ))}
                 </div>
               ) : null}
               {section.note ? (
-                <p className="text-sm text-brand-secondary/80">{section.note}</p>
+                <p className="text-sm leading-relaxed text-brand-secondary/80">{section.note}</p>
               ) : null}
             </section>
           ))}
