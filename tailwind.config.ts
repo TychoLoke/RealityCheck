@@ -14,6 +14,7 @@ const config: Config = {
           primary: "#0B0E1A",
           secondary: "#8A93A6",
           bg: "#FFFFFF",
+          muted: "#F6F7F9",
         },
         zinc: {
           950: "#0B0E1A",

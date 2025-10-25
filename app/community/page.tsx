@@ -1,76 +1,70 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Hero } from "../../components/Hero";
-import { EmailInline } from "../../components/EmailInline";
-import { Card } from "../../components/Card";
-import { SubscribeButton } from "../../components/SubscribeButton";
+import { FormMinimal } from "../../components/FormMinimal";
+import { JoinStrip } from "../../components/JoinStrip";
+import { SectionHeader } from "../../components/SectionHeader";
+import { ValueTrio } from "../../components/ValueTrio";
 
 export const metadata: Metadata = {
-  title: "Channel OS™ community",
-  description: "Join the Channel OS™ community mailing list for vendor-neutral operator circles, study groups, and office hours.",
-  openGraph: {
-    title: "Channel OS™ community",
-    description: "Join the Channel OS™ community mailing list for vendor-neutral operator circles, study groups, and office hours.",
-    url: "/community",
-    images: [
-      {
-        url: "/community/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Channel OS™ community",
-      },
-    ],
-  },
+  title: "Community",
+  description: "Join the Channel OS™ community to learn, share patterns, and ship faster.",
 };
-
-const teasers = [
-  {
-    title: "Operator circles",
-    description: "Small groups of channel operators benchmarking frameworks and maturity levels together.",
-  },
-  {
-    title: "Study groups",
-    description: "Focused sessions to practice governance, approvals, and baseline management patterns.",
-  },
-  {
-    title: "Office hours",
-    description: "Live conversations to work through adapters, tooling, and practical rollouts.",
-  },
-];
 
 export default function CommunityPage() {
   return (
-    <div className="flex flex-col gap-16">
-      <Hero
-        title="Channel OS™ Community"
-        subtitle="A vendor-neutral, sales-neutral environment for operators to learn together."
-        primaryAction={{ label: "Join the Mailing List", href: "#community-mailing-list" }}
-      >
-        <div id="community-mailing-list" className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <EmailInline variant="hero" message="Mailing list is live now — events open as they’re scheduled." />
-        </div>
-      </Hero>
+    <div className="flex flex-col gap-20">
+      <section className="space-y-6">
+        <h1 className="text-4xl font-bold text-brand-primary">Join the Channel OS™ Community</h1>
+        <p className="max-w-2xl text-base text-brand-secondary">
+          Practitioner-first space for MSPs, vendors, distributors, marketplaces, and ISVs to build the channel together.
+        </p>
+      </section>
 
       <section className="space-y-8">
-        <h2 className="text-2xl font-semibold text-brand-primary">Live now</h2>
-        <p className="text-base text-brand-secondary">
-          Today the community is the mailing list. It&apos;s how you&apos;ll get invitations to every Channel OS™ session.
-        </p>
-        <div className="grid gap-6 md:grid-cols-3">
-          {teasers.map((teaser) => (
-            <Card key={teaser.title} className="space-y-4">
-              <div>
-                <h3 className="text-xl font-semibold text-brand-primary">{teaser.title}</h3>
-                <p className="mt-2 text-sm text-brand-secondary">{teaser.description}</p>
-              </div>
-              <SubscribeButton>Notify me</SubscribeButton>
-            </Card>
-          ))}
-        </div>
-        <Link href="/the-channel" className="text-brand-primary underline-offset-4 hover:underline">
-          What is the Channel?
-        </Link>
+        <SectionHeader title="What you’ll find" />
+        <ValueTrio
+          items={[
+            { title: "Meetups & Office Hours", description: "Quarterly, recorded, always action-oriented." },
+            { title: "Practice Library", description: "Concise playbooks and checklists you can deploy." },
+            { title: "Talks & Debriefs", description: "Unfiltered conversations with builders." },
+          ]}
+        />
       </section>
+
+      <section id="contribute" className="grid gap-12 lg:grid-cols-[1.3fr_1fr]">
+        <div className="space-y-6">
+          <SectionHeader title="Contribute" description="Speak, write, or mentor." />
+          <FormMinimal
+            title="Raise your hand"
+            description="Share how you’d like to contribute. We read every submission."
+            fields={[
+              { name: "name", label: "Name", required: true, placeholder: "Alex Taylor" },
+              { name: "role", label: "Role", required: true, placeholder: "Channel Lead, MSP" },
+              { name: "topic", label: "Topic", required: true, placeholder: "Partner scorecards" },
+              { name: "links", label: "Links", placeholder: "Site, LinkedIn, recordings" },
+              { name: "message", label: "Message", type: "textarea", required: true, placeholder: "What should we cover?" },
+            ]}
+            submitLabel="Send"
+            successMessage="Thanks—we’ll reach out."
+          />
+        </div>
+        <aside className="space-y-6 rounded-[16px] border border-zinc-200 bg-brand-muted p-6">
+          <h2 className="text-xl font-semibold text-brand-primary">Code of Conduct</h2>
+          <ul className="space-y-3 text-sm text-brand-secondary">
+            <li>Be respectful.</li>
+            <li>Share evidence.</li>
+            <li>No vendor spamming.</li>
+          </ul>
+          <Link
+            href="/code-of-conduct"
+            className="inline-flex items-center justify-center rounded-[12px] border border-brand-secondary/40 px-4 py-2 text-sm font-semibold text-brand-primary transition hover:border-brand-primary"
+          >
+            Full policy
+          </Link>
+        </aside>
+      </section>
+
+      <JoinStrip title="Join the mailing list" description="Monthly build notes and community invites." successMessage="You’re in." />
     </div>
   );
 }

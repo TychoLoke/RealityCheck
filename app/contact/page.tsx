@@ -1,37 +1,37 @@
 import type { Metadata } from "next";
+import { FormMinimal } from "../../components/FormMinimal";
 
 export const metadata: Metadata = {
-  title: "Contact Channel OS™",
-  description: "Reach the Channel OS™ initiative during build mode across general, partnerships, and press inboxes.",
+  title: "Contact",
+  description: "Reach Channel OS™ for partnerships, press, speaking, or community ideas.",
 };
-
-const contactChannels = [
-  { label: "General", email: "hello@channelos.org", note: "Questions about the framework or mailing list." },
-  { label: "Partnerships", email: "partners@channelos.org", note: "Collaborations for pilots or content." },
-  { label: "Press", email: "press@channelos.org", note: "Request statements or brand assets." },
-];
 
 export default function ContactPage() {
   return (
     <div className="flex flex-col gap-12">
       <header className="space-y-4">
-        <h1 className="text-4xl font-semibold text-brand-primary md:text-5xl">Contact Channel OS™</h1>
-        <p className="text-base text-brand-secondary">We reply within a week while the team is focused on build mode.</p>
+        <h1 className="text-4xl font-bold text-brand-primary">Contact</h1>
+        <p className="max-w-2xl text-base text-brand-secondary">
+          Partnerships, press, speaking, and community ideas all land here.
+        </p>
       </header>
-      <section className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {contactChannels.map((channel) => (
-          <div key={channel.email} className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-secondary">{channel.label}</p>
-            <a
-              href={`mailto:${channel.email}`}
-              className="mt-3 block text-lg font-semibold text-brand-primary underline-offset-4 hover:underline"
-            >
-              {channel.email}
-            </a>
-            <p className="mt-2 text-sm text-brand-secondary">{channel.note}</p>
-          </div>
-        ))}
-      </section>
+      <FormMinimal
+        title="Send a note"
+        description="We respond within a few days."
+        fields={[
+          { name: "name", label: "Name", required: true, placeholder: "Alex Taylor" },
+          { name: "email", label: "Email", type: "email", required: true, placeholder: "name@company.com" },
+          { name: "subject", label: "Subject", required: true, placeholder: "Partnership inquiry" },
+          { name: "message", label: "Message", type: "textarea", required: true, placeholder: "Let us know how we can help." },
+        ]}
+        submitLabel="Send"
+        successMessage="Thanks—we’ll reply soon."
+        footer={
+          <ul className="space-y-1 text-sm text-brand-secondary">
+            <li>Use cases: partnerships, press, speaking, community ideas.</li>
+          </ul>
+        }
+      />
     </div>
   );
 }

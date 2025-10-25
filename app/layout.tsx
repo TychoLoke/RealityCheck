@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import Script from "next/script";
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { Footer } from "../components/Footer";
 import { Navbar } from "../components/Navbar";
 import { EmailCaptureProvider } from "../components/EmailCaptureProvider";
 
-const sans = Plus_Jakarta_Sans({ subsets: ["latin"], display: "swap", variable: "--font-sans" });
+const headingFont = Inter({
+  subsets: ["latin"],
+  weight: ["600", "700"],
+  display: "swap",
+  variable: "--font-heading",
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://channelos.org";
 const enableAnalytics = process.env.NEXT_PUBLIC_ENABLE_ANALYTICS === "true";
@@ -16,7 +21,7 @@ const organizationLd = {
   "@type": "Organization",
   name: "Channel OS™",
   url: siteUrl,
-  description: "Channel OS™ — The neutral framework for the IT channel.",
+  description: "Vendor-neutral community and framework for the channel.",
 };
 
 const eventLd = {
@@ -33,19 +38,19 @@ const eventLd = {
     name: "Channel OS™",
     url: siteUrl,
   },
-  description: "2026 is the year of Channel OS. Join the mailing list for updates.",
+  description: "Join the Channel OS™ community to learn, standardize, and ship together.",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Channel OS™ — The neutral framework for the IT channel",
+    default: "Channel OS™ — Where the Channel Learns, Works, and Wins.",
     template: "%s | Channel OS™",
   },
-  description: "Channel OS™ is a neutral framework for the IT channel. Join the mailing list to follow the build toward 2026.",
+  description: "Vendor-neutral community and framework for the channel.",
   openGraph: {
-    title: "Channel OS™ — The neutral framework for the IT channel",
-    description: "Channel OS™ is a neutral framework for the IT channel. Join the mailing list to follow the build toward 2026.",
+    title: "Channel OS™ — Community & Framework for the Channel",
+    description: "Learn together. Standardize what works. Ship faster.",
     url: siteUrl,
     siteName: "Channel OS™",
     images: [
@@ -53,20 +58,20 @@ export const metadata: Metadata = {
         url: "/opengraph-image",
         width: 1200,
         height: 630,
-        alt: "Channel OS™ — The neutral framework for the IT channel",
+        alt: "Channel OS™ — Community & Framework for the Channel",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Channel OS™ — The neutral framework for the IT channel",
-    description: "Channel OS™ is a neutral framework for the IT channel. Join the mailing list to follow the build toward 2026.",
+    title: "Channel OS™ — Community & Framework for the Channel",
+    description: "Learn together. Standardize what works. Ship faster.",
   },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={sans.variable}>
+    <html lang="en" className={headingFont.variable}>
       <body className="bg-brand-bg text-brand-primary">
         <EmailCaptureProvider>
           <a href="#main-content" className="skip-link">
