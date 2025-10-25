@@ -1,91 +1,120 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Hero } from "../components/Hero";
-import { StatusBar } from "../components/StatusBar";
-import { EmailInline } from "../components/EmailInline";
-import { SystemDiagram } from "../components/SystemDiagram";
-import { MaturityMini } from "../components/MaturityMini";
-import { OutcomeChips } from "../components/OutcomeChips";
-import { FAQ } from "../components/FAQ";
-import { Card } from "../components/Card";
+import { JoinStrip } from "../components/JoinStrip";
+import { SectionHeader } from "../components/SectionHeader";
+import { ValueTrio } from "../components/ValueTrio";
+import { getLatestTalk, getNextEvent } from "../lib/content";
 
 export const metadata: Metadata = {
-  title: "Channel OS™ home",
-  description: "Channel OS™ is the neutral framework for the IT channel. Follow the build and join the mailing list for the 2026 launch.",
+  title: "Channel OS™",
+  description: "Vendor-neutral community and framework for the channel.",
 };
 
-const outcomes = ["Publish approvals ≤48 h", "Multi-tenant baselines", "Drift detection enabled"];
-
-const faqItems = [
-  {
-    question: "What is Channel OS™?",
-    answer: "Channel OS™ is a shared framework and language for how the IT channel operates across people, process, data, tools, and adapters.",
-  },
-  {
-    question: "What’s available today?",
-    answer: "Build updates, the framework outline, and a mailing list for early releases.",
-  },
-  {
-    question: "When do you launch?",
-    answer: "Public launch is scheduled for 1 January 2026.",
-  },
-  {
-    question: "How do I get updates?",
-    answer: "Join the mailing list for monthly notes and invitations.",
-  },
-  {
-    question: "Can I participate?",
-    answer: "Yes. Join the list and we’ll reach out about operator circles and study groups.",
-  },
-];
-
 export default function HomePage() {
+  const nextEvent = getNextEvent();
+  const latestTalk = getLatestTalk();
+
   return (
     <div className="flex flex-col gap-20">
-      <Hero
-        title="Channel OS™ — The neutral framework for the IT channel."
-        subtitle="A shared language and practical patterns to build, operate, and scale channel excellence."
-        primaryAction={{ label: "Join the Mailing List", href: "#mailing-list-hero" }}
-        secondaryAction={{ label: "Explore the Framework", href: "#framework" }}
-      >
-        <div className="space-y-6">
-          <StatusBar status="Building" launchDate="1 Jan 2026" cadence="Monthly via email" />
-          <div id="mailing-list-hero" className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-            <EmailInline variant="hero" message="Join monthly email updates while Channel OS™ is in build mode." />
-          </div>
+      <section className="space-y-8">
+        <div className="space-y-4">
+          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-secondary">Channel OS™</p>
+          <h1 className="text-4xl font-bold leading-tight text-brand-primary">Where the Channel Learns, Works, and Wins.</h1>
+          <p className="max-w-2xl text-lg text-brand-secondary">Vendor-neutral community and framework for the channel.</p>
         </div>
-      </Hero>
-
-      <section id="framework" className="space-y-12">
-        <SystemDiagram />
-        <MaturityMini />
-        <OutcomeChips items={outcomes} />
-        <div className="flex flex-col gap-3 text-sm text-brand-primary sm:flex-row sm:items-center">
-          <Link href="/standard" className="underline-offset-4 hover:underline">
-            Read the Standard preview
+        <div className="flex flex-wrap gap-3">
+          <Link
+            href="/join"
+            className="inline-flex items-center justify-center rounded-[12px] bg-brand-primary px-5 py-3 text-sm font-semibold text-white transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+          >
+            Join the Community
           </Link>
-          <span aria-hidden className="hidden h-1 w-1 rounded-full bg-brand-secondary/40 sm:inline" />
-          <Link href="/the-channel" className="underline-offset-4 hover:underline">
-            What is the Channel?
+          <Link
+            href="/framework"
+            className="inline-flex items-center justify-center rounded-[12px] border border-brand-secondary/40 px-5 py-3 text-sm font-semibold text-brand-primary transition hover:border-brand-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+          >
+            Explore the Framework
           </Link>
         </div>
       </section>
 
-      <Card className="bg-zinc-50">
-        <div className="space-y-3">
-          <h2 className="text-2xl font-semibold text-brand-primary">Stay close as we ship the artifacts</h2>
-          <p className="text-base text-brand-secondary">
-            The mailing list is the single action while the portal is under construction. Expect monthly notes until launch.
-          </p>
-        </div>
-        <div className="mt-6">
-          <EmailInline variant="mid" message="Get the Standard preview and every milestone in your inbox." />
-        </div>
-      </Card>
+      <section className="space-y-10">
+        <ValueTrio
+          items={[
+            { title: "Community", description: "Meet peers, share patterns, ship faster." },
+            { title: "Training", description: "Short tracks with outcomes and scorecards." },
+            { title: "Playbooks", description: "Templates that move work from plan to done." },
+          ]}
+        />
+      </section>
 
-      <section className="space-y-6">
-        <h2 className="text-2xl font-semibold text-brand-primary">Micro-FAQ</h2>
-        <FAQ items={faqItems} />
+      <section className="grid gap-10 lg:grid-cols-[1.5fr_1fr]">
+        <div className="space-y-6 rounded-[16px] border border-zinc-200 bg-white p-8 shadow-sm">
+          <SectionHeader title="Events" description="Next session" cta={{ label: "View all", href: "/events" }} />
+          {nextEvent ? (
+            <article className="space-y-3 text-sm text-brand-secondary">
+              <p className="text-xs font-semibold uppercase tracking-[0.18em] text-brand-secondary/70">
+                {new Intl.DateTimeFormat("en", {
+                  month: "short",
+                  day: "numeric",
+                  year: "numeric",
+                }).format(new Date(nextEvent.date))}
+                {" "}· {nextEvent.time}
+              </p>
+              <h3 className="text-xl font-semibold text-brand-primary">{nextEvent.title}</h3>
+              <p>{nextEvent.value}</p>
+              <div className="flex flex-wrap gap-3 pt-2 text-xs font-semibold uppercase tracking-[0.18em]">
+                <span className="rounded-[12px] bg-brand-muted px-3 py-1 text-brand-primary">{nextEvent.format}</span>
+                <span className="rounded-[12px] bg-brand-muted px-3 py-1 text-brand-primary">{nextEvent.location}</span>
+              </div>
+              <Link
+                href={nextEvent.rsvpUrl}
+                className="inline-flex items-center justify-center rounded-[12px] bg-brand-primary px-4 py-2 text-sm font-semibold text-white transition hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+              >
+                RSVP
+              </Link>
+            </article>
+          ) : (
+            <p className="text-sm text-brand-secondary">New events are loading.</p>
+          )}
+        </div>
+        <div className="space-y-6 rounded-[16px] border border-zinc-200 bg-white p-8 shadow-sm">
+          <SectionHeader title="Talks" description="Latest episode" cta={{ label: "Browse talks", href: "/talks" }} />
+          {latestTalk ? (
+            <article className="space-y-3 text-sm text-brand-secondary">
+              <h3 className="text-xl font-semibold text-brand-primary">{latestTalk.title}</h3>
+              <p className="text-brand-primary">{latestTalk.guests}</p>
+              <p>{latestTalk.insight}</p>
+              <div className="flex flex-wrap gap-3">
+                <Link
+                  href={latestTalk.episodeUrl}
+                  className="inline-flex items-center justify-center rounded-[12px] border border-brand-secondary/40 px-4 py-2 text-sm font-semibold text-brand-primary transition hover:border-brand-primary"
+                >
+                  Listen / Watch
+                </Link>
+                {latestTalk.transcriptUrl && (
+                  <Link
+                    href={latestTalk.transcriptUrl}
+                    className="inline-flex items-center justify-center rounded-[12px] border border-brand-secondary/40 px-4 py-2 text-sm font-semibold text-brand-primary transition hover:border-brand-primary"
+                  >
+                    Transcript
+                  </Link>
+                )}
+              </div>
+            </article>
+          ) : (
+            <p className="text-sm text-brand-secondary">Episodes coming soon.</p>
+          )}
+        </div>
+      </section>
+
+      <JoinStrip title="Get the monthly build notes." successMessage="You’re in." />
+
+      <section className="max-w-3xl space-y-4">
+        <h2 className="text-2xl font-bold text-brand-primary">Channel OS™ in one line</h2>
+        <p className="text-base text-brand-secondary">
+          Channel OS™ brings practitioners across MSPs, vendors, distributors, marketplaces, and ISVs together to learn, standardize, and execute.
+        </p>
       </section>
     </div>
   );

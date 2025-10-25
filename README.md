@@ -50,16 +50,19 @@ All copy lives in the `/app` directory. Each route has its own `page.tsx` file:
 | --- | --- |
 | Home | `app/page.tsx` |
 | Community | `app/community/page.tsx` |
+| Events | `app/events/page.tsx` |
 | Training | `app/training/page.tsx` |
+| Framework | `app/framework/page.tsx` |
+| How the Channel Works | `app/how-the-channel-works/page.tsx` |
 | Talks | `app/talks/page.tsx` |
-| What is the Channel? | `app/the-channel/page.tsx` |
+| Playbooks | `app/playbooks/page.tsx` |
+| Join | `app/join/page.tsx` |
 | About | `app/about/page.tsx` |
-| Subscribe | `app/subscribe/page.tsx` |
+| Code of Conduct | `app/code-of-conduct/page.tsx` |
 | Privacy | `app/privacy/page.tsx` |
 | Terms | `app/terms/page.tsx` |
 | Brand Use | `app/brand-use/page.tsx` |
 | Contact | `app/contact/page.tsx` |
-| Standard preview | `app/standard/page.tsx` |
 
 Update the text within these files to change copy. Components such as `Card`, `Section`, and `CTAButton` live in `/components` and provide consistent styling.
 

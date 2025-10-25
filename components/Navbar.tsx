@@ -2,52 +2,30 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
 import clsx from "clsx";
 import { BrandWordmark } from "./BrandWordmark";
-import { useEmailCapture } from "./EmailCaptureProvider";
 
 const navItems = [
-  { href: "/", label: "Channel OS" },
+  { href: "/", label: "Home" },
   { href: "/community", label: "Community" },
+  { href: "/events", label: "Events" },
   { href: "/training", label: "Training" },
+  { href: "/framework", label: "Framework" },
+  { href: "/how-the-channel-works", label: "How the Channel Works" },
   { href: "/talks", label: "Talks" },
+  { href: "/join", label: "Join" },
   { href: "/about", label: "About" },
 ];
 
 export function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
-  const { open } = useEmailCapture();
-
-  const handleSubscribeClick = (
-    event: MouseEvent<HTMLAnchorElement>,
-    { closeMenu = false }: { closeMenu?: boolean } = {}
-  ) => {
-    if (
-      event.defaultPrevented ||
-      event.button !== 0 ||
-      event.metaKey ||
-      event.altKey ||
-      event.ctrlKey ||
-      event.shiftKey
-    ) {
-      return;
-    }
-
-    event.preventDefault();
-    open();
-
-    if (closeMenu) {
-      setIsOpen(false);
-    }
-  };
-
   return (
     <header className="sticky top-0 z-40 border-b border-zinc-200 bg-white/90 backdrop-blur">
       <div className="mx-auto flex w-full max-w-content items-center justify-between px-6 py-4 sm:px-10">
         <Link href="/" className="flex items-center gap-3 text-brand-primary">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-zinc-200 text-sm font-semibold">
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-[12px] border border-zinc-200 text-sm font-semibold">
             OS
           </span>
           <BrandWordmark className="hidden text-lg font-semibold sm:inline" />
@@ -72,16 +50,15 @@ export function Navbar() {
         </nav>
         <div className="flex items-center gap-3">
           <Link
-            href="/subscribe"
-            onClick={(event) => handleSubscribeClick(event)}
-            className="hidden rounded-full border border-zinc-200 px-4 py-2 text-sm font-semibold text-brand-primary transition hover:bg-zinc-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary md:inline-flex"
+            href="/join"
+            className="hidden rounded-[12px] border border-zinc-200 px-4 py-2 text-sm font-semibold text-brand-primary transition hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary md:inline-flex"
           >
-            Subscribe
+            Join
           </Link>
           <button
             type="button"
             onClick={() => setIsOpen((value) => !value)}
-            className="inline-flex items-center justify-center rounded-full border border-zinc-200 p-2 text-brand-primary transition hover:bg-zinc-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary md:hidden"
+            className="inline-flex items-center justify-center rounded-[12px] border border-zinc-200 p-2 text-brand-primary transition hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary md:hidden"
             aria-controls="mobile-menu"
             aria-expanded={isOpen}
           >
@@ -113,8 +90,8 @@ export function Navbar() {
                   href={item.href}
                   onClick={() => setIsOpen(false)}
                   className={clsx(
-                    "rounded-2xl px-4 py-3 transition",
-                    isActive ? "bg-zinc-100" : "hover:bg-zinc-100"
+                    "rounded-[12px] px-4 py-3 transition",
+                    isActive ? "bg-brand-muted" : "hover:bg-brand-muted"
                   )}
                 >
                   {item.label}
@@ -123,11 +100,11 @@ export function Navbar() {
             })}
           </nav>
           <Link
-            href="/subscribe"
-            onClick={(event) => handleSubscribeClick(event, { closeMenu: true })}
-            className="rounded-full border border-zinc-200 px-4 py-3 text-sm font-semibold text-brand-primary transition hover:bg-zinc-50 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
+            href="/join"
+            onClick={() => setIsOpen(false)}
+            className="rounded-[12px] border border-zinc-200 px-4 py-3 text-sm font-semibold text-brand-primary transition hover:bg-brand-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-primary"
           >
-            Subscribe
+            Join
           </Link>
         </div>
       </div>

@@ -1,127 +1,57 @@
 import type { Metadata } from "next";
-import Script from "next/script";
-import { Hero } from "../../components/Hero";
-import { EmailInline } from "../../components/EmailInline";
-import { Card } from "../../components/Card";
-import { SubscribeButton } from "../../components/SubscribeButton";
+import Link from "next/link";
+import { CardList } from "../../components/CardList";
+import { JoinStrip } from "../../components/JoinStrip";
+import { SectionHeader } from "../../components/SectionHeader";
+import { trainingTracks } from "../../lib/content";
 
 export const metadata: Metadata = {
-  title: "Channel OS™ training",
-  description: "Preview Channel 101 and notify me for Channel OS™ training tracks focused on operators and practitioners.",
-  openGraph: {
-    title: "Channel OS™ training",
-    description: "Preview Channel 101 and notify me for Channel OS™ training tracks focused on operators and practitioners.",
-    url: "/training",
-    images: [
-      {
-        url: "/training/opengraph-image",
-        width: 1200,
-        height: 630,
-        alt: "Channel OS™ training",
-      },
-    ],
-  },
-};
-
-const outcomes = [
-  "Understand the channel value chain and key roles",
-  "Learn Channel OS™ pillars and layers",
-  "Map your org to the maturity model",
-  "Identify quick wins in governance and enablement",
-  "Know next steps with Talks and future modules",
-];
-
-const outline = [
-  { slot: "0–10", topic: "Channel landscape & value chain" },
-  { slot: "10–35", topic: "Pillars & layers" },
-  { slot: "35–55", topic: "Maturity model & use cases" },
-  { slot: "55–80", topic: "Baseline pattern walkthrough" },
-  { slot: "80–90", topic: "Q&A, next steps" },
-];
-
-const courseLd = {
-  "@context": "https://schema.org",
-  "@type": "Course",
-  name: "Channel 101",
-  description: "Channel 101 — A 90-minute introduction to the Channel OS™ framework.",
-  provider: {
-    "@type": "Organization",
-    name: "Channel OS™",
-    sameAs: "https://channelos.org",
-  },
-  hasCourseInstance: {
-    "@type": "CourseInstance",
-    courseMode: "online",
-    courseWorkload: "PT1H30M",
-  },
-};
-
-const eventLd = {
-  "@context": "https://schema.org",
-  "@type": "Event",
-  name: "Channel 101 Preview",
-  eventStatus: "https://schema.org/EventScheduled",
-  startDate: "2026-01-15T16:00:00Z",
-  eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
-  organizer: {
-    "@type": "Organization",
-    name: "Channel OS™",
-    url: "https://channelos.org",
-  },
-  description: "Placeholder event for the next Channel 101 session. Dates will be confirmed via email.",
+  title: "Training",
+  description: "Compact programs that convert knowledge to execution.",
 };
 
 export default function TrainingPage() {
   return (
     <div className="flex flex-col gap-16">
-      <Hero
-        title="Channel OS™ Training"
-        subtitle="Channel 101 — A 90-minute introduction to the channel framework."
-        primaryAction={{ label: "Join the Mailing List", href: "#training-mailing-list" }}
-      >
-        <div className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-          <EmailInline
-            variant="hero"
-            message="Channel 101 notifications go to the mailing list first. Seats are limited per cohort."
-          />
-        </div>
-      </Hero>
+      <section className="space-y-4">
+        <h1 className="text-4xl font-bold text-brand-primary">Training</h1>
+        <p className="max-w-2xl text-base text-brand-secondary">Compact programs that convert knowledge to execution.</p>
+      </section>
 
-      <Card className="space-y-6">
-        <div>
-          <h2 className="text-2xl font-semibold text-brand-primary">Learning outcomes</h2>
-          <ul className="mt-4 space-y-2 text-base text-brand-secondary">
-            {outcomes.map((item) => (
-              <li key={item}>• {item}</li>
-            ))}
-          </ul>
-        </div>
-        <div>
-          <h3 className="text-xl font-semibold text-brand-primary">Outline</h3>
-          <ul className="mt-3 space-y-2 text-sm text-brand-secondary">
-            {outline.map((entry) => (
-              <li key={entry.slot} className="flex items-start justify-between gap-4">
-                <span className="font-semibold text-brand-primary">{entry.slot}</span>
-                <span className="flex-1 text-right md:text-left">{entry.topic}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <p className="text-sm text-brand-secondary">Seat cap: 25 (notify me when registration opens)</p>
-          <SubscribeButton className="border-transparent bg-[#0B0E1A] text-white hover:opacity-90">
-            Notify me
-          </SubscribeButton>
-        </div>
-      </Card>
+      <section className="space-y-6">
+        <SectionHeader title="Tracks" description="Teaser modules and cadence." />
+        <CardList
+          layout="grid"
+          items={trainingTracks.map((track) => ({
+            title: track.title,
+            description: track.outline,
+            detail: `${track.duration} · ${track.sessions}`,
+            actions: [{ label: "View framework", href: "/framework" }],
+          }))}
+        />
+      </section>
 
-      <div id="training-mailing-list" className="rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm">
-        <EmailInline variant="mid" message="Get course dates, prep materials, and pre-reading links." />
+      <section className="space-y-4 rounded-[16px] border border-zinc-200 bg-white p-8 shadow-sm">
+        <h2 className="text-2xl font-bold text-brand-primary">Outcomes</h2>
+        <p className="text-base text-brand-secondary">Each module ships with a checklist and KPI.</p>
+      </section>
+
+      <JoinStrip
+        title="Join the waitlist"
+        description="Cohorts open in waves. Add your email to get the next seat."
+        successMessage="You’re in."
+        ctaLabel="Join"
+      />
+
+      <div className="flex flex-wrap gap-3 text-sm text-brand-secondary">
+        <Link href="/playbooks" className="underline-offset-4 hover:underline">
+          Explore playbooks
+        </Link>
+        <span aria-hidden className="hidden h-1 w-1 rounded-full bg-brand-secondary/40 sm:inline" />
+        <Link href="/talks" className="underline-offset-4 hover:underline">
+          Hear from operators
+        </Link>
       </div>
-
-      <Script id="channelos-training-jsonld" type="application/ld+json" strategy="beforeInteractive">
-        {JSON.stringify([courseLd, eventLd])}
-      </Script>
     </div>
   );
 }
